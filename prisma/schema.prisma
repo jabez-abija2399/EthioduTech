@@ -1,0 +1,302 @@
+// This is a documentation representation of the planned Prisma schema for the MVP.
+// It includes the core models required for the learning loop while excluding non-goals (e.g., live classes).
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// -----------------------------------------------------------------------------
+// USERS & ROLES
+// -----------------------------------------------------------------------------
+
+enum Role {
+  STUDENT
+  PARENT
+  TEACHER
+  ADMIN
+}
+
+model User {
+  id             String    @id @default(uuid())
+  email          String?   @unique
+  phone          String?   @unique // Important for Ethiopian context
+  hashedPassword String
+  role           Role      @default(STUDENT)
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  profile        Profile?
+  studentProfile StudentProfile?
+  parentProfile  ParentProfile?
+  teacherProfile TeacherProfile?
+
+  // Relations
+  enrollments    Enrollment[]
+  payments       Payment[]
+  auditLogs      AuditLog[]
+}
+
+model Profile {
+  id        String   @id @default(uuid())
+  userId    String   @unique
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  firstName String
+  lastName  String
+  avatarUrl String?
+}
+
+model StudentProfile {
+  id        String   @id @default(uuid())
+  userId    String   @unique
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  dateOfBirth DateTime?
+  gradeLevel Int?
+  parentId  String?  // Links to ParentProfile
+  parent    ParentProfile? @relation(fields: [parentId], references: [id])
+  
+  progress  Progress[]
+  portfolios Portfolio[]
+  submissions Submission[]
+  aiInteractions AIInteraction[]
+}
+
+model ParentProfile {
+  id        String   @id @default(uuid())
+  userId    String   @unique
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  children  StudentProfile[] // One parent can have multiple students
+}
+
+model TeacherProfile {
+  id        String   @id @default(uuid())
+  userId    String   @unique
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  school    String?
+}
+
+// -----------------------------------------------------------------------------
+// CURRICULUM HIERARCHY
+// -----------------------------------------------------------------------------
+
+model Course {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  isPublished Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  
+  modules     Module[]
+  enrollments Enrollment[]
+}
+
+model Module {
+  id          String   @id @default(uuid())
+  courseId    String
+  course      Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  title       String
+  order       Int
+  
+  units       Unit[]
+}
+
+model Unit {
+  id          String   @id @default(uuid())
+  moduleId    String
+  module      Module   @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  title       String
+  order       Int
+  
+  lessons     Lesson[]
+}
+
+model Lesson {
+  id          String   @id @default(uuid())
+  unitId      String
+  unit        Unit     @relation(fields: [unitId], references: [id], onDelete: Cascade)
+  title       String
+  content     String   @db.Text // Markdown/Rich text content
+  order       Int
+  
+  exercises   Exercise[]
+  challenges  Challenge[]
+}
+
+// -----------------------------------------------------------------------------
+// INTERACTIVE ELEMENTS
+// -----------------------------------------------------------------------------
+
+model Exercise {
+  id          String   @id @default(uuid())
+  lessonId    String
+  lesson      Lesson   @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  type        String   // e.g., "code", "multiple-choice"
+  prompt      String
+  solution    String?  @db.Text
+  
+  submissions Submission[]
+}
+
+model Challenge {
+  id          String   @id @default(uuid())
+  lessonId    String
+  lesson      Lesson   @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  title       String
+  prompt      String   @db.Text
+  tests       String   @db.Text // JSON or script for running tests
+  
+  submissions Submission[]
+}
+
+model Project {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  
+  milestones  ProjectMilestone[]
+  portfolioProjects PortfolioProject[]
+}
+
+model ProjectMilestone {
+  id          String   @id @default(uuid())
+  projectId   String
+  project     Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  title       String
+  requirements String  @db.Text
+  order       Int
+}
+
+// -----------------------------------------------------------------------------
+// STUDENT JOURNEY & PROGRESS
+// -----------------------------------------------------------------------------
+
+model Enrollment {
+  id          String   @id @default(uuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  courseId    String
+  course      Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  enrolledAt  DateTime @default(now())
+  status      String   // e.g., "ACTIVE", "COMPLETED"
+}
+
+model Progress {
+  id          String   @id @default(uuid())
+  studentId   String
+  student     StudentProfile @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  entityId    String   // ID of Lesson, Exercise, etc.
+  entityType  String   // "LESSON", "EXERCISE", "CHALLENGE"
+  status      String   // "STARTED", "COMPLETED"
+  completedAt DateTime?
+}
+
+model Submission {
+  id          String   @id @default(uuid())
+  studentId   String
+  student     StudentProfile @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  exerciseId  String?
+  exercise    Exercise? @relation(fields: [exerciseId], references: [id])
+  challengeId String?
+  challenge   Challenge? @relation(fields: [challengeId], references: [id])
+  
+  content     String   @db.Text // The code or answer submitted
+  isCorrect   Boolean  @default(false)
+  feedback    String?  @db.Text
+  submittedAt DateTime @default(now())
+}
+
+model Skill {
+  id          String   @id @default(uuid())
+  name        String   @unique
+  category    String   // e.g., "HTML", "Logic"
+  
+  mastery     SkillMastery[]
+}
+
+model SkillMastery {
+  id          String   @id @default(uuid())
+  studentId   String
+  skillId     String
+  skill       Skill    @relation(fields: [skillId], references: [id], onDelete: Cascade)
+  level       Int      @default(0) // e.g., 0-100
+  updatedAt   DateTime @updatedAt
+}
+
+model Assessment {
+  id          String   @id @default(uuid())
+  title       String
+  type        String   // "DIAGNOSTIC", "UNIT_TEST"
+}
+
+// -----------------------------------------------------------------------------
+// PLATFORM FEATURES & OUTCOMES
+// -----------------------------------------------------------------------------
+
+model AIInteraction {
+  id          String   @id @default(uuid())
+  studentId   String
+  student     StudentProfile @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  contextType String   // e.g., "CHALLENGE", "PROJECT"
+  contextId   String
+  prompt      String   @db.Text
+  response    String   @db.Text
+  timestamp   DateTime @default(now())
+}
+
+model Portfolio {
+  id          String   @id @default(uuid())
+  studentId   String   @unique
+  student     StudentProfile @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  isPublic    Boolean  @default(false)
+  
+  projects    PortfolioProject[]
+}
+
+model PortfolioProject {
+  id          String   @id @default(uuid())
+  portfolioId String
+  portfolio   Portfolio @relation(fields: [portfolioId], references: [id], onDelete: Cascade)
+  projectId   String
+  project     Project   @relation(fields: [projectId], references: [id])
+  url         String?   // Link to deployed project
+  githubUrl   String?
+  reflection  String?   @db.Text
+}
+
+// -----------------------------------------------------------------------------
+// ADMINISTRATION
+// -----------------------------------------------------------------------------
+
+model Notification {
+  id          String   @id @default(uuid())
+  userId      String
+  message     String
+  isRead      Boolean  @default(false)
+  createdAt   DateTime @default(now())
+}
+
+model Payment {
+  id          String   @id @default(uuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  amount      Float
+  currency    String   @default("ETB")
+  status      String   // "PENDING", "SUCCESS", "FAILED"
+  provider    String   // e.g., "TELEBIRR", "CHAPA"
+  createdAt   DateTime @default(now())
+}
+
+model AuditLog {
+  id          String   @id @default(uuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  action      String
+  entity      String
+  entityId    String
+  timestamp   DateTime @default(now())
+}
