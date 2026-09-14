@@ -38,7 +38,7 @@ This registry contains every tracked task across all stages of the Edutech Platf
 | **NAV-001** | Global Navigation & Role Badge Session Header | P1 | 3 | MVP (Phase 1) | `VERIFIED` | `9c821ca` / `navbar.tsx` |
 | **GAMIFY-001** | XP Points, Daily Streaks & Badge Rewards Engine | P1 | 3 | MVP (Phase 12) | `VERIFIED` | `9c821ca` / `xp-badge-display.tsx` |
 | **DOCS-001** | Governance System & Project Technical Audit | P0 | 5 | MVP Audit | `VERIFIED` | `62f1bd4` / `docs/PROJECT_AUDIT.md` |
-| **PWA-002** | Service Worker Full Asset Pre-caching | P1 | 3 | Beta (Milestone 13) | `READY` | Next planned task |
+| **PWA-002** | Service Worker Full Asset Pre-caching | P1 | 3 | Beta (Milestone 13) | `VERIFIED` | `next.config.ts` PWA config |
 | **CODE-002** | Automated Syntax & Exercise Output Checkers | P1 | 3 | Beta (Milestone 14) | `NOT_STARTED` | Scheduled |
 | **TEST-001** | Vitest & Playwright E2E Automated Test Suite | P1 | 3 | Beta (Milestone 15) | `NOT_STARTED` | Scheduled |
 | **LIVE-001** | WebSockets Teacher-Student Live Code Sharing | P2 | 2 | Beta (Milestone 16) | `DEFERRED` | Beta roadmap |

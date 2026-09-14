@@ -1,7 +1,8 @@
-import { auth, signOut } from "@/auth"
+import { auth } from "@/auth"
 import Link from "next/link"
 import { getStudentPortfolio } from "@/lib/data/portfolio"
 import { getStudentGamificationStats } from "@/lib/data/gamification"
+import { signOutUserAction } from "@/lib/actions/auth"
 import { XPBadgeDisplay } from "@/components/xp-badge-display"
 
 export default async function Navbar() {
@@ -73,12 +74,7 @@ export default async function Navbar() {
                 </span>
               )}
 
-              <form
-                action={async () => {
-                  "use server"
-                  await signOut({ redirectTo: "/login" })
-                }}
-              >
+              <form action={signOutUserAction}>
                 <button
                   type="submit"
                   className="px-3 py-1.5 text-xs font-bold text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition cursor-pointer"

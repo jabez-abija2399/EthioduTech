@@ -63,3 +63,8 @@ export async function registerUserAction(formData: FormData) {
 
   return { success: true }
 }
+
+export async function signOutUserAction() {
+  const { signOut } = await import("@/auth")
+  await signOut({ redirectTo: "/login" })
+}
