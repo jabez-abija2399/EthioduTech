@@ -159,6 +159,47 @@ async function main() {
   })
 
   console.log(`Seeded Course: ${course.title}`)
+
+  // Seed Badges
+  const badges = [
+    {
+      code: 'FIRST_CODE',
+      title: 'First Code',
+      description: 'Completed your first interactive lesson.',
+      icon: '⚡',
+      xpReward: 50
+    },
+    {
+      code: 'STREAK_3',
+      title: '3-Day Streak',
+      description: 'Learned 3 days in a row.',
+      icon: '🔥',
+      xpReward: 100
+    },
+    {
+      code: 'PORTFOLIO_PRO',
+      title: 'Portfolio Master',
+      description: 'Published your first live project to your portfolio.',
+      icon: '🚀',
+      xpReward: 150
+    },
+    {
+      code: 'COURSE_PIONEER',
+      title: 'Course Pioneer',
+      description: 'Enrolled in a course and started your learning journey.',
+      icon: '🎓',
+      xpReward: 50
+    }
+  ]
+
+  for (const b of badges) {
+    await prisma.badge.upsert({
+      where: { code: b.code },
+      update: b,
+      create: b
+    })
+  }
+  console.log('Seeded Gamification Badges')
 }
 
 main()

@@ -2,8 +2,10 @@ import { auth } from "@/auth"
 import { redirect } from "next/navigation"
 import { getCourses } from "@/lib/data/course"
 import { getStudentPortfolio } from "@/lib/data/portfolio"
+import { getStudentGamificationStats } from "@/lib/data/gamification"
 import Link from "next/link"
 import Navbar from "@/components/navbar"
+import { XPBadgeDisplay } from "@/components/xp-badge-display"
 
 export default async function DashboardPage() {
   const session = await auth()
@@ -18,6 +20,10 @@ export default async function DashboardPage() {
     getCourses(),
     getStudentPortfolio(userId)
   ])
+
+  const gamificationStats = studentData?.id 
+    ? await getStudentGamificationStats(studentData.id)
+    : null
 
   const portfolioProjects = studentData?.portfolios?.[0]?.projects || []
 
@@ -41,6 +47,16 @@ export default async function DashboardPage() {
           </Link>
         )}
       </header>
+
+      {gamificationStats && (
+        <section className="mb-8">
+          <XPBadgeDisplay
+            xp={gamificationStats.xp}
+            streakDays={gamificationStats.streakDays}
+            badges={gamificationStats.allBadges}
+          />
+        </section>
+      )}
       
       <main className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Left Column: Courses */}

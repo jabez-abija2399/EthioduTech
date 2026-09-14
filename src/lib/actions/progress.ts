@@ -50,6 +50,8 @@ export async function completeLessonAction(courseId: string, lessonId: string) {
     }
   })
 
+  const isNewCompletion = !existingProgress || existingProgress.status !== "COMPLETED"
+
   if (!existingProgress) {
     await prisma.progress.create({
       data: {
@@ -68,6 +70,74 @@ export async function completeLessonAction(courseId: string, lessonId: string) {
         completedAt: new Date()
       }
     })
+  }
+
+  // 3. Update Gamification (XP, Streak, Badges)
+  const now = new Date()
+  const lastActive = studentProfile.lastActiveDate ? new Date(studentProfile.lastActiveDate) : null
+  
+  let newStreak = studentProfile.streakDays || 1
+  if (lastActive) {
+    const isSameDay = lastActive.toDateString() === now.toDateString()
+    const yesterday = new Date(now)
+    yesterday.setDate(now.getDate() - 1)
+    const isYesterday = lastActive.toDateString() === yesterday.toDateString()
+
+    if (isYesterday) {
+      newStreak += 1
+    } else if (!isSameDay) {
+      newStreak = 1
+    }
+  }
+
+  const addedXP = isNewCompletion ? 50 : 0
+  const newXP = studentProfile.xp + addedXP
+
+  await prisma.studentProfile.update({
+    where: { id: studentProfile.id },
+    data: {
+      xp: newXP,
+      streakDays: newStreak,
+      lastActiveDate: now
+    }
+  })
+
+  // Award First Code badge
+  const firstCodeBadge = await prisma.badge.findUnique({ where: { code: 'FIRST_CODE' } })
+  if (firstCodeBadge) {
+    await prisma.studentBadge.upsert({
+      where: {
+        studentId_badgeId: {
+          studentId: studentProfile.id,
+          badgeId: firstCodeBadge.id
+        }
+      },
+      update: {},
+      create: {
+        studentId: studentProfile.id,
+        badgeId: firstCodeBadge.id
+      }
+    })
+  }
+
+  // Award 3-Day Streak badge if streak >= 3
+  if (newStreak >= 3) {
+    const streakBadge = await prisma.badge.findUnique({ where: { code: 'STREAK_3' } })
+    if (streakBadge) {
+      await prisma.studentBadge.upsert({
+        where: {
+          studentId_badgeId: {
+            studentId: studentProfile.id,
+            badgeId: streakBadge.id
+          }
+        },
+        update: {},
+        create: {
+          studentId: studentProfile.id,
+          badgeId: streakBadge.id
+        }
+      })
+    }
   }
 
   // 3. Find next lesson in the course

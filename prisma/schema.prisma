@@ -50,10 +50,37 @@ model StudentProfile {
   parentId  String?  // Links to ParentProfile
   parent    ParentProfile? @relation(fields: [parentId], references: [id])
   
+  xp             Int      @default(0)
+  streakDays     Int      @default(0)
+  lastActiveDate DateTime?
+  
   progress  Progress[]
   portfolios Portfolio[]
   submissions Submission[]
   aiInteractions AIInteraction[]
+  studentBadges StudentBadge[]
+}
+
+model Badge {
+  id          String   @id @default(uuid())
+  code        String   @unique
+  title       String
+  description String
+  icon        String
+  xpReward    Int      @default(50)
+
+  studentBadges StudentBadge[]
+}
+
+model StudentBadge {
+  id          String   @id @default(uuid())
+  studentId   String
+  student     StudentProfile @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  badgeId     String
+  badge       Badge    @relation(fields: [badgeId], references: [id], onDelete: Cascade)
+  earnedAt    DateTime @default(now())
+
+  @@unique([studentId, badgeId])
 }
 
 model ParentProfile {
