@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation"
 import { completeLessonAction } from "@/lib/actions/progress"
 import { getCodeDraft, saveCodeDraft, addPendingSync } from "@/lib/offline/db"
 import { publishToPortfolioAction } from "@/lib/actions/portfolio"
+import AiTutorDrawer from "./ai-tutor-drawer"
 
 interface CodeEditorProps {
   courseId: string
@@ -34,6 +35,7 @@ export default function CodeEditor({
   const [isPending, startTransition] = useTransition()
   const [isPublishing, startPublishTransition] = useTransition()
   const [offlineMessage, setOfflineMessage] = useState<string | null>(null)
+  const [showAiTutor, setShowAiTutor] = useState(false)
 
   // Portfolio Publish Modal State
   const [showPublishModal, setShowPublishModal] = useState(false)
@@ -202,6 +204,12 @@ export default function CodeEditor({
 
         {/* Action Controls */}
         <div className="flex items-center space-x-3">
+          <button
+            onClick={() => setShowAiTutor(true)}
+            className="px-3.5 py-1.5 text-xs font-bold bg-blue-600/20 hover:bg-blue-600/30 text-blue-300 border border-blue-500/30 rounded-lg transition flex items-center gap-1.5 cursor-pointer"
+          >
+            <span>🤖</span> Ask AI Tutor
+          </button>
           <button
             onClick={() => setShowPublishModal(true)}
             className="px-3.5 py-1.5 text-xs font-bold bg-indigo-600/20 hover:bg-indigo-600/30 text-indigo-300 border border-indigo-500/30 rounded-lg transition flex items-center gap-1.5 cursor-pointer"
@@ -389,6 +397,14 @@ export default function CodeEditor({
           </div>
         </div>
       )}
+
+      {/* AI Tutor Drawer */}
+      <AiTutorDrawer
+        lessonId={lessonId}
+        isOpen={showAiTutor}
+        onClose={() => setShowAiTutor(false)}
+        codeContext={{ html: htmlCode, css: cssCode, js: jsCode }}
+      />
     </div>
   )
 }
