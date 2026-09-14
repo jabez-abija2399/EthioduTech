@@ -61,6 +61,8 @@ This master index links every root governance file, architectural specification,
 - 🤖 [AI_GOVERNANCE.md](file:///home/jabez/Documents/software/project/myproduct/best/edutech/docs/06-AI/AI_GOVERNANCE.md) — Socratic Assistance & Interaction Audit Logs
 - 🎯 [RED_TEAM.md](file:///home/jabez/Documents/software/project/myproduct/best/edutech/docs/10-operations/RED_TEAM.md) — Threat Scenarios & Security Verification
 - 🎨 [DESIGN_SYSTEM.md](file:///home/jabez/Documents/software/project/myproduct/best/edutech/docs/05-design/DESIGN_SYSTEM.md) — Dark Mode Glassmorphic Aesthetic
+- 🧩 [COMPONENT_ARCHITECTURE.md](file:///home/jabez/Documents/software/project/myproduct/best/edutech/docs/05-design/COMPONENT_ARCHITECTURE.md) — Modular Component Taxonomy & Folder Structure
+- 📐 [PAGE_ARCHITECTURE.md](file:///home/jabez/Documents/software/project/myproduct/best/edutech/docs/05-design/PAGE_ARCHITECTURE.md) — Route Wireframes, Grids, and Page Component Trees
 - 📈 [METRICS.md](file:///home/jabez/Documents/software/project/myproduct/best/edutech/docs/09-analytics/METRICS.md) — Educational vs Business Metrics
 - 🐙 [GIT_LEARNING.md](file:///home/jabez/Documents/software/project/myproduct/best/edutech/docs/07-github/GIT_LEARNING.md) — Progressive Git Learning Ladder
 

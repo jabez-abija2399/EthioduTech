@@ -7,3 +7,19 @@ This version has breaking changes — APIs, conventions, and file structure may 
 This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
 <!-- END:nextjs-agent-rules -->
+
+# ANTIGRAVITY AGENT PROTOCOL & INSTANT CONTEXT INITIALIZATION
+
+Whenever starting a new chat session or taking over development, **ALWAYS** inspect these files first before performing any research or code edits:
+
+1. 🗺️ [Master Documentation Index](file:///home/jabez/Documents/software/project/myproduct/best/edutech/docs/INDEX.md)
+2. 🚦 [Project Status Report](file:///home/jabez/Documents/software/project/myproduct/best/edutech/docs/PROJECT_STATUS.md)
+3. 📊 [Development Tracker](file:///home/jabez/Documents/software/project/myproduct/best/edutech/DEVELOPMENT_TRACKER.md)
+4. 📋 [Task Registry](file:///home/jabez/Documents/software/project/myproduct/best/edutech/TASK_REGISTRY.md)
+5. ⚖️ [Product Rules](file:///home/jabez/Documents/software/project/myproduct/best/edutech/PRODUCT_RULES.md)
+
+## Core Principles
+- **No Blind Coding:** Inspect existing codebase before writing or modifying code.
+- **Preserve Implementation:** Never delete working functionality or rewrite architecture unnecessarily.
+- **Empirical Evidence:** All progress claims must be backed by `npx tsc --noEmit` and `npm run build` verification.
+
