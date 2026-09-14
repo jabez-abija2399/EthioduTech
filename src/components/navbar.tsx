@@ -4,6 +4,7 @@ import { getStudentPortfolio } from "@/lib/data/portfolio"
 import { getStudentGamificationStats } from "@/lib/data/gamification"
 import { signOutUserAction } from "@/lib/actions/auth"
 import { XPBadgeDisplay } from "@/components/xp-badge-display"
+import { PWAInstallButton } from "@/components/pwa-install-button"
 
 export default async function Navbar() {
   const session = await auth()
@@ -46,6 +47,7 @@ export default async function Navbar() {
 
         {/* User Navigation / Actions */}
         <div className="flex items-center space-x-4">
+          <PWAInstallButton />
           {user ? (
             <div className="flex items-center space-x-4">
               {gamificationStats && (
