@@ -4,24 +4,31 @@ import { redirect } from "next/navigation"
 export default async function LoginPage({
   searchParams,
 }: {
-  searchParams: Promise<{ error?: string }>
+  searchParams: Promise<{ error?: string; registered?: string }>
 }) {
   const session = await auth()
   const params = await searchParams
   const error = params?.error
+  const registered = params?.registered
 
   if (session?.user) {
     redirect("/dashboard")
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-slate-50">
-      <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-sm border border-slate-100">
-        <h1 className="text-2xl font-bold text-center mb-2 text-slate-900">Sign in to Edutech</h1>
+    <div className="flex min-h-screen items-center justify-center bg-slate-50 p-4 font-sans">
+      <div className="w-full max-w-md p-8 bg-white rounded-2xl shadow-sm border border-slate-200">
+        <h1 className="text-2xl font-bold text-center mb-1 text-slate-900">Sign in to Edutech</h1>
         <p className="text-center text-slate-500 text-sm mb-6">Enter your credentials to access your courses</p>
 
+        {registered && (
+          <div className="mb-4 p-3.5 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold rounded-xl text-center">
+            🎉 Account created successfully! Please sign in below.
+          </div>
+        )}
+
         {error && (
-          <div className="mb-4 p-3 bg-red-50 border border-red-200 text-red-700 text-sm rounded-md text-center">
+          <div className="mb-4 p-3.5 bg-red-50 border border-red-200 text-red-700 text-xs font-semibold rounded-xl text-center">
             Invalid email or password. Please try again.
           </div>
         )}
@@ -68,11 +75,18 @@ export default async function LoginPage({
           </div>
           <button 
             type="submit"
-            className="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 cursor-pointer transition"
+            className="w-full flex justify-center py-3 px-4 border border-transparent rounded-xl shadow-md text-sm font-bold text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 cursor-pointer transition mt-2"
           >
             Sign in
           </button>
         </form>
+
+        <div className="mt-6 text-center text-xs text-slate-500">
+          Don't have an account yet?{" "}
+          <a href="/register" className="font-bold text-blue-600 hover:text-blue-700">
+            Create an Account
+          </a>
+        </div>
       </div>
     </div>
   )

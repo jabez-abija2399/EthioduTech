@@ -3,6 +3,7 @@ import { redirect } from "next/navigation"
 import { getCourses } from "@/lib/data/course"
 import { getStudentPortfolio } from "@/lib/data/portfolio"
 import Link from "next/link"
+import Navbar from "@/components/navbar"
 
 export default async function DashboardPage() {
   const session = await auth()
@@ -21,7 +22,9 @@ export default async function DashboardPage() {
   const portfolioProjects = studentData?.portfolios?.[0]?.projects || []
 
   return (
-    <div className="min-h-screen bg-slate-50 p-6 md:p-12 font-sans">
+    <div className="min-h-screen bg-slate-50 font-sans">
+      <Navbar />
+      <div className="p-6 md:p-12">
       <header className="mb-8 flex items-center justify-between flex-wrap gap-4">
         <div>
           <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">Student Dashboard</h1>
@@ -123,6 +126,7 @@ export default async function DashboardPage() {
           )}
         </div>
       </main>
+      </div>
     </div>
   )
 }

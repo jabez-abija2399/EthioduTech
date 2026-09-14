@@ -1,5 +1,7 @@
 import NextAuth from "next-auth"
 import Credentials from "next-auth/providers/credentials"
+import bcrypt from "bcryptjs"
+import { prisma } from "@/lib/prisma"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   secret: process.env.AUTH_SECRET || process.env.NEXTAUTH_SECRET || "edutech_secret_key_development_32_bytes_min_length",
@@ -10,11 +12,40 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        // Placeholder for MVP: We will implement real DB checks later.
-        // For now, allow a hardcoded test user.
-        if (credentials?.email === "student@edutech.test" && credentials?.password === "password") {
+        if (!credentials?.email || !credentials?.password) {
+          return null
+        }
+
+        const email = (credentials.email as string).toLowerCase().trim()
+        const password = credentials.password as string
+
+        // Query database for user
+        const user = await prisma.user.findUnique({
+          where: { email },
+          include: { profile: true }
+        })
+
+        if (user) {
+          const isValidPassword = 
+            user.hashedPassword === password || 
+            bcrypt.compareSync(password, user.hashedPassword)
+
+          if (isValidPassword) {
+            const fullName = `${user.profile?.firstName || ""} ${user.profile?.lastName || ""}`.trim()
+            return {
+              id: user.id,
+              name: fullName || user.email || "Student",
+              email: user.email,
+              role: user.role
+            }
+          }
+        }
+
+        // Hardcoded test user fallback for seed environment
+        if (email === "student@edutech.test" && password === "password") {
           return { id: "1", name: "Test Student", email: "student@edutech.test", role: "STUDENT" }
         }
+
         return null
       },
     }),
