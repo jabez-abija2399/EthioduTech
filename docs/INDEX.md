@@ -26,6 +26,8 @@ This master index links every root governance file, architectural specification,
 ---
 
 ## 📁 Development Standards & Protocols (`docs/development/`)
+- 📋 [FEATURE_BUILD_CHECKLIST.md](file:///home/jabez/Documents/software/project/myproduct/best/edutech/docs/development/FEATURE_BUILD_CHECKLIST.md) — Mandatory Pre-Build Audit & Component Reuse Checklist
+- 🧪 [MASTER_TESTING_SUITE.md](file:///home/jabez/Documents/software/project/myproduct/best/edutech/docs/development/MASTER_TESTING_SUITE.md) — Phase-by-Phase Automated Testing Suite Specification
 - ✅ [DEFINITION_OF_DONE.md](file:///home/jabez/Documents/software/project/myproduct/best/edutech/docs/development/DEFINITION_OF_DONE.md) — Quality Criteria for `VERIFIED` Status
 - 📑 [EVIDENCE_STANDARD.md](file:///home/jabez/Documents/software/project/myproduct/best/edutech/docs/development/EVIDENCE_STANDARD.md) — Empirical Evidence Requirements
 - 🛑 [BLOCKER_PROTOCOL.md](file:///home/jabez/Documents/software/project/myproduct/best/edutech/docs/development/BLOCKER_PROTOCOL.md) — Escalation Workflow for Blocked Items

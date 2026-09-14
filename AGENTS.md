@@ -14,12 +14,15 @@ Whenever starting a new chat session or taking over development, **ALWAYS** insp
 
 1. 🗺️ [Master Documentation Index](file:///home/jabez/Documents/software/project/myproduct/best/edutech/docs/INDEX.md)
 2. 🚦 [Project Status Report](file:///home/jabez/Documents/software/project/myproduct/best/edutech/docs/PROJECT_STATUS.md)
-3. 📊 [Development Tracker](file:///home/jabez/Documents/software/project/myproduct/best/edutech/DEVELOPMENT_TRACKER.md)
-4. 📋 [Task Registry](file:///home/jabez/Documents/software/project/myproduct/best/edutech/TASK_REGISTRY.md)
-5. ⚖️ [Product Rules](file:///home/jabez/Documents/software/project/myproduct/best/edutech/PRODUCT_RULES.md)
+3. 📋 [Feature Build Checklist](file:///home/jabez/Documents/software/project/myproduct/best/edutech/docs/development/FEATURE_BUILD_CHECKLIST.md)
+4. 🧪 [Master Testing Suite](file:///home/jabez/Documents/software/project/myproduct/best/edutech/docs/development/MASTER_TESTING_SUITE.md)
+5. 📊 [Development Tracker](file:///home/jabez/Documents/software/project/myproduct/best/edutech/DEVELOPMENT_TRACKER.md)
+6. 📋 [Task Registry](file:///home/jabez/Documents/software/project/myproduct/best/edutech/TASK_REGISTRY.md)
+7. ⚖️ [Product Rules](file:///home/jabez/Documents/software/project/myproduct/best/edutech/PRODUCT_RULES.md)
 
 ## Core Principles
 - **No Blind Coding:** Inspect existing codebase before writing or modifying code.
+- **Component First:** Check `src/components/ui/` for existing reusable components before building new ones.
 - **Preserve Implementation:** Never delete working functionality or rewrite architecture unnecessarily.
-- **Empirical Evidence:** All progress claims must be backed by `npx tsc --noEmit` and `npm run build` verification.
+- **Empirical Evidence:** All progress claims must be backed by `npx tsc --noEmit`, `npm run test`, and `npm run build` verification.
 
