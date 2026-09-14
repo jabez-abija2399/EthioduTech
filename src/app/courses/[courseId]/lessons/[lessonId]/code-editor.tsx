@@ -1,7 +1,9 @@
 "use client"
 
 import { useState, useEffect, useTransition } from "react"
+import { useRouter } from "next/navigation"
 import { completeLessonAction } from "@/lib/actions/progress"
+import { getCodeDraft, saveCodeDraft, addPendingSync } from "@/lib/offline/db"
 
 interface CodeEditorProps {
   courseId: string
@@ -10,6 +12,7 @@ interface CodeEditorProps {
   initialCss?: string
   initialJs?: string
   hasNextLesson: boolean
+  nextLessonId?: string
 }
 
 export default function CodeEditor({
@@ -18,14 +21,39 @@ export default function CodeEditor({
   initialHtml = `<div class="card">\n  <h1>Welcome to Edutech!</h1>\n  <p>Edit this HTML/CSS to see live changes.</p>\n  <button id="btn">Click Me</button>\n</div>`,
   initialCss = `body {\n  font-family: system-ui, sans-serif;\n  background: #0f172a;\n  color: #f8fafc;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  min-height: 100vh;\n  margin: 0;\n}\n\n.card {\n  background: #1e293b;\n  padding: 2rem;\n  border-radius: 1rem;\n  box-shadow: 0 10px 25px rgba(0,0,0,0.5);\n  text-align: center;\n  border: 1px solid #334155;\n}\n\nh1 {\n  color: #38bdf8;\n  margin-bottom: 0.5rem;\n}\n\nbutton {\n  background: #0284c7;\n  color: white;\n  border: none;\n  padding: 0.75rem 1.5rem;\n  border-radius: 0.5rem;\n  font-weight: bold;\n  cursor: pointer;\n  transition: all 0.2s;\n}\n\nbutton:hover {\n  background: #0369a1;\n  transform: translateY(-2px);\n}`,
   initialJs = `document.getElementById('btn')?.addEventListener('click', () => {\n  alert('Great job! You are building real web applications!');\n});`,
-  hasNextLesson
+  hasNextLesson,
+  nextLessonId
 }: CodeEditorProps) {
+  const router = useRouter()
   const [activeTab, setActiveTab] = useState<"html" | "css" | "js">("html")
   const [htmlCode, setHtmlCode] = useState(initialHtml)
   const [cssCode, setCssCode] = useState(initialCss)
   const [jsCode, setJsCode] = useState(initialJs)
   const [srcDoc, setSrcDoc] = useState("")
   const [isPending, startTransition] = useTransition()
+  const [offlineMessage, setOfflineMessage] = useState<string | null>(null)
+
+  // 1. Load cached draft from IndexedDB if available
+  useEffect(() => {
+    getCodeDraft(lessonId).then((draft) => {
+      if (draft) {
+        setHtmlCode(draft.html)
+        setCssCode(draft.css)
+        setJsCode(draft.js)
+      }
+    })
+  }, [lessonId])
+
+  // 2. Auto-save code draft to IndexedDB on code change
+  useEffect(() => {
+    saveCodeDraft({
+      lessonId,
+      html: htmlCode,
+      css: cssCode,
+      js: jsCode,
+      updatedAt: Date.now()
+    })
+  }, [lessonId, htmlCode, cssCode, jsCode])
 
   // Generate preview document
   const updatePreview = () => {
@@ -65,12 +93,37 @@ export default function CodeEditor({
 
   const handleComplete = () => {
     startTransition(async () => {
+      if (typeof window !== "undefined" && !navigator.onLine) {
+        await addPendingSync({
+          courseId,
+          lessonId,
+          timestamp: Date.now(),
+          status: "pending"
+        })
+        setOfflineMessage("⚡ Offline completion saved! Moving to next lesson...")
+        setTimeout(() => {
+          if (nextLessonId) {
+            router.push(`/courses/${courseId}/lessons/${nextLessonId}`)
+          } else {
+            router.push("/dashboard")
+          }
+        }, 300)
+        return
+      }
+
       await completeLessonAction(courseId, lessonId)
     })
   }
 
   return (
     <div className="bg-slate-900 rounded-xl shadow-xl border border-slate-800 overflow-hidden flex flex-col my-8">
+      {/* Offline Notice Banner */}
+      {offlineMessage && (
+        <div className="bg-amber-900/90 text-amber-200 px-4 py-2.5 text-xs font-semibold text-center border-b border-amber-700">
+          {offlineMessage}
+        </div>
+      )}
+
       {/* Editor Header Bar */}
       <div className="bg-slate-950 px-4 py-3 border-b border-slate-800 flex items-center justify-between flex-wrap gap-2">
         <div className="flex items-center space-x-2">
@@ -125,7 +178,7 @@ export default function CodeEditor({
           </button>
           <button
             onClick={updatePreview}
-            className="px-4 py-1.5 text-xs font-bold bg-slate-800 hover:bg-slate-700 text-blue-400 hover:text-blue-300 rounded transition border border-slate-700 flex items-center gap-1.5"
+            className="px-4 py-1.5 text-xs font-bold bg-slate-800 hover:bg-slate-700 text-blue-400 hover:text-blue-300 rounded transition border border-slate-700 flex items-center gap-1.5 cursor-pointer"
           >
             <span>▶</span> Run Code
           </button>
@@ -138,7 +191,7 @@ export default function CodeEditor({
         <div className="flex flex-col bg-slate-900 p-4 relative">
           <div className="flex justify-between items-center text-xs text-slate-500 font-mono mb-2">
             <span>// {activeTab.toUpperCase()} EDITOR</span>
-            <span>UTF-8</span>
+            <span className="text-emerald-500 text-[11px]">IndexedDB Auto-saved</span>
           </div>
 
           {activeTab === "html" && (
@@ -194,7 +247,7 @@ export default function CodeEditor({
       </div>
 
       {/* Editor Footer / Submit Bar */}
-      <div className="bg-slate-950 px-6 py-4 border-t border-slate-800 flex items-center justify-between">
+      <div className="bg-slate-950 px-6 py-4 border-t border-slate-800 flex items-center justify-between flex-wrap gap-3">
         <div className="text-xs text-slate-400">
           💡 <span className="text-slate-300 font-medium">Pro-tip:</span> Test your code output above before completing the lesson!
         </div>

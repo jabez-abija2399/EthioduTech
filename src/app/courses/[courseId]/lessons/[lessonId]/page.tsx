@@ -168,6 +168,7 @@ export default async function LessonPage({
             courseId={courseId}
             lessonId={lessonId}
             hasNextLesson={Boolean(nextLesson)}
+            nextLessonId={nextLesson?.id}
           />
         </section>
       </main>
