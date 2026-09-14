@@ -40,6 +40,6 @@ This registry contains every tracked task across all stages of the Edutech Platf
 | **DOCS-001** | Governance System & Project Technical Audit | P0 | 5 | MVP Audit | `VERIFIED` | `62f1bd4` / `docs/PROJECT_AUDIT.md` |
 | **PWA-002** | Service Worker Full Asset Pre-caching | P1 | 3 | Beta (Milestone 13) | `VERIFIED` | `next.config.ts` PWA config |
 | **CODE-002** | Automated Syntax & Exercise Output Checkers | P1 | 3 | Beta (Milestone 14) | `VERIFIED` | `code-checker.ts` & `code-editor.tsx` |
-| **TEST-001** | Vitest & Playwright E2E Automated Test Suite | P1 | 3 | Beta (Milestone 15) | `NOT_STARTED` | Scheduled |
+| **TEST-001** | Vitest & Playwright E2E Automated Test Suite | P1 | 3 | Beta (Milestone 15) | `VERIFIED` | `npm run test` (9/9 passed) |
 | **LIVE-001** | WebSockets Teacher-Student Live Code Sharing | P2 | 2 | Beta (Milestone 16) | `DEFERRED` | Beta roadmap |
 | **PAY-001** | Telebirr / Chapa Local Payment Checkout | P2 | 2 | V1 (Milestone 17) | `DEFERRED` | V1 roadmap |
