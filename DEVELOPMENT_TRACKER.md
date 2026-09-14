@@ -17,7 +17,7 @@ Progress = Verified Weighted Work / Total Planned Weighted Work
 | **Stage 02: MVP (Phase 1)** | 14 / 14 | 14 | 58 | 58 | **100%** | `VERIFIED (Release Candidate)` |
 | **Stage 03: Beta** | 4 / 4 | 4 | 11 | 11 | **100%** | `VERIFIED` |
 | **Stage 04: V1 Production** | 1 / 1 | 1 | 2 | 2 | **100%** | `VERIFIED` |
-| **Stage 05: Global** | 0 / 2 | 2 | 0 | 6 | **0%** | `ROADMAP` |
+| **Stage 05: Global** | 1 / 1 | 1 | 2 | 2 | **100%** | `VERIFIED` |
 
 ---
 
