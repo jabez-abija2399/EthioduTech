@@ -91,6 +91,8 @@ export default function CodeEditor({
     setJsCode(initialJs)
   }
 
+  const [isCompletedOffline, setIsCompletedOffline] = useState(false)
+
   const handleComplete = () => {
     startTransition(async () => {
       if (typeof window !== "undefined" && !navigator.onLine) {
@@ -100,14 +102,8 @@ export default function CodeEditor({
           timestamp: Date.now(),
           status: "pending"
         })
-        setOfflineMessage("⚡ Offline completion saved! Transitioning to next lesson...")
-        const targetUrl = nextLessonId
-          ? `/courses/${courseId}/lessons/${nextLessonId}`
-          : "/dashboard"
-
-        setTimeout(() => {
-          window.location.href = targetUrl
-        }, 400)
+        setIsCompletedOffline(true)
+        setOfflineMessage("⚡ Lesson Saved Offline! Your progress is stored locally in IndexedDB and will automatically sync when you reconnect to the internet.")
         return
       }
 
@@ -255,10 +251,16 @@ export default function CodeEditor({
         <button
           onClick={handleComplete}
           disabled={isPending}
-          className="px-6 py-2.5 bg-blue-600 hover:bg-blue-500 disabled:opacity-50 text-white font-bold text-sm rounded-lg shadow-md hover:shadow-lg transition flex items-center gap-2 cursor-pointer"
+          className={`px-6 py-2.5 disabled:opacity-50 text-white font-bold text-sm rounded-lg shadow-md hover:shadow-lg transition flex items-center gap-2 cursor-pointer ${
+            isCompletedOffline
+              ? "bg-emerald-600 hover:bg-emerald-500"
+              : "bg-blue-600 hover:bg-blue-500"
+          }`}
         >
           {isPending ? (
             <span>Saving progress...</span>
+          ) : isCompletedOffline ? (
+            <span>✓ Saved Offline (Will Sync Online)</span>
           ) : (
             <>
               <span>{hasNextLesson ? "Complete & Next Lesson" : "Finish Course & Return Home"}</span>
