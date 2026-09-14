@@ -1,8 +1,6 @@
-// This is a documentation representation of the planned Prisma schema for the MVP.
-// It includes the core models required for the learning loop while excluding non-goals (e.g., live classes).
-
+// SQLite compatible schema for MVP
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
 }
 
@@ -14,19 +12,12 @@ generator client {
 // USERS & ROLES
 // -----------------------------------------------------------------------------
 
-enum Role {
-  STUDENT
-  PARENT
-  TEACHER
-  ADMIN
-}
-
 model User {
   id             String    @id @default(uuid())
   email          String?   @unique
-  phone          String?   @unique // Important for Ethiopian context
+  phone          String?   @unique 
   hashedPassword String
-  role           Role      @default(STUDENT)
+  role           String    @default("STUDENT") // STUDENT, PARENT, TEACHER, ADMIN
   createdAt      DateTime  @default(now())
   updatedAt      DateTime  @updatedAt
 
@@ -70,7 +61,7 @@ model ParentProfile {
   userId    String   @unique
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   
-  children  StudentProfile[] // One parent can have multiple students
+  children  StudentProfile[] 
 }
 
 model TeacherProfile {
@@ -120,7 +111,7 @@ model Lesson {
   unitId      String
   unit        Unit     @relation(fields: [unitId], references: [id], onDelete: Cascade)
   title       String
-  content     String   @db.Text // Markdown/Rich text content
+  content     String   
   order       Int
   
   exercises   Exercise[]
@@ -135,9 +126,9 @@ model Exercise {
   id          String   @id @default(uuid())
   lessonId    String
   lesson      Lesson   @relation(fields: [lessonId], references: [id], onDelete: Cascade)
-  type        String   // e.g., "code", "multiple-choice"
+  type        String   
   prompt      String
-  solution    String?  @db.Text
+  solution    String?  
   
   submissions Submission[]
 }
@@ -147,8 +138,8 @@ model Challenge {
   lessonId    String
   lesson      Lesson   @relation(fields: [lessonId], references: [id], onDelete: Cascade)
   title       String
-  prompt      String   @db.Text
-  tests       String   @db.Text // JSON or script for running tests
+  prompt      String   
+  tests       String   
   
   submissions Submission[]
 }
@@ -167,7 +158,7 @@ model ProjectMilestone {
   projectId   String
   project     Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
   title       String
-  requirements String  @db.Text
+  requirements String  
   order       Int
 }
 
@@ -182,16 +173,16 @@ model Enrollment {
   courseId    String
   course      Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
   enrolledAt  DateTime @default(now())
-  status      String   // e.g., "ACTIVE", "COMPLETED"
+  status      String   
 }
 
 model Progress {
   id          String   @id @default(uuid())
   studentId   String
   student     StudentProfile @relation(fields: [studentId], references: [id], onDelete: Cascade)
-  entityId    String   // ID of Lesson, Exercise, etc.
-  entityType  String   // "LESSON", "EXERCISE", "CHALLENGE"
-  status      String   // "STARTED", "COMPLETED"
+  entityId    String   
+  entityType  String   
+  status      String   
   completedAt DateTime?
 }
 
@@ -204,16 +195,16 @@ model Submission {
   challengeId String?
   challenge   Challenge? @relation(fields: [challengeId], references: [id])
   
-  content     String   @db.Text // The code or answer submitted
+  content     String   
   isCorrect   Boolean  @default(false)
-  feedback    String?  @db.Text
+  feedback    String?  
   submittedAt DateTime @default(now())
 }
 
 model Skill {
   id          String   @id @default(uuid())
   name        String   @unique
-  category    String   // e.g., "HTML", "Logic"
+  category    String   
   
   mastery     SkillMastery[]
 }
@@ -223,14 +214,14 @@ model SkillMastery {
   studentId   String
   skillId     String
   skill       Skill    @relation(fields: [skillId], references: [id], onDelete: Cascade)
-  level       Int      @default(0) // e.g., 0-100
+  level       Int      @default(0) 
   updatedAt   DateTime @updatedAt
 }
 
 model Assessment {
   id          String   @id @default(uuid())
   title       String
-  type        String   // "DIAGNOSTIC", "UNIT_TEST"
+  type        String   
 }
 
 // -----------------------------------------------------------------------------
@@ -241,10 +232,10 @@ model AIInteraction {
   id          String   @id @default(uuid())
   studentId   String
   student     StudentProfile @relation(fields: [studentId], references: [id], onDelete: Cascade)
-  contextType String   // e.g., "CHALLENGE", "PROJECT"
+  contextType String   
   contextId   String
-  prompt      String   @db.Text
-  response    String   @db.Text
+  prompt      String   
+  response    String   
   timestamp   DateTime @default(now())
 }
 
@@ -263,9 +254,9 @@ model PortfolioProject {
   portfolio   Portfolio @relation(fields: [portfolioId], references: [id], onDelete: Cascade)
   projectId   String
   project     Project   @relation(fields: [projectId], references: [id])
-  url         String?   // Link to deployed project
+  url         String?   
   githubUrl   String?
-  reflection  String?   @db.Text
+  reflection  String?   
 }
 
 // -----------------------------------------------------------------------------
@@ -286,8 +277,8 @@ model Payment {
   user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   amount      Float
   currency    String   @default("ETB")
-  status      String   // "PENDING", "SUCCESS", "FAILED"
-  provider    String   // e.g., "TELEBIRR", "CHAPA"
+  status      String   
+  provider    String   
   createdAt   DateTime @default(now())
 }
 
