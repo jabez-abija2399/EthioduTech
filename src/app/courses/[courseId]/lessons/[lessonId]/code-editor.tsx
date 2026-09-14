@@ -100,14 +100,14 @@ export default function CodeEditor({
           timestamp: Date.now(),
           status: "pending"
         })
-        setOfflineMessage("⚡ Offline completion saved! Moving to next lesson...")
+        setOfflineMessage("⚡ Offline completion saved! Transitioning to next lesson...")
+        const targetUrl = nextLessonId
+          ? `/courses/${courseId}/lessons/${nextLessonId}`
+          : "/dashboard"
+
         setTimeout(() => {
-          if (nextLessonId) {
-            router.push(`/courses/${courseId}/lessons/${nextLessonId}`)
-          } else {
-            router.push("/dashboard")
-          }
-        }, 300)
+          window.location.href = targetUrl
+        }, 400)
         return
       }
 
