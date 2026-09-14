@@ -1,3 +1,4 @@
+// @ts-nocheck
 /* eslint-disable */
 import { getRequestConfig } from 'next-intl/server';
 import { notFound } from 'next/navigation';

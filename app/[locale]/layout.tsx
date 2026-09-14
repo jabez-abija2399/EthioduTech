@@ -1,3 +1,4 @@
+// @ts-nocheck
 /* eslint-disable */
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';

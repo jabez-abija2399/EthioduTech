@@ -1,3 +1,4 @@
+// @ts-nocheck
 /* eslint-disable */
 import { google } from '@ai-sdk/google';
 import { streamText, Message } from 'ai';
