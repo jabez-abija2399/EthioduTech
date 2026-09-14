@@ -12,6 +12,9 @@ export default async function LoginPage({
   const registered = params?.registered
 
   if (session?.user) {
+    const role = (session.user as any).role
+    if (role === "TEACHER") redirect("/teacher")
+    if (role === "PARENT") redirect("/parent")
     redirect("/dashboard")
   }
 

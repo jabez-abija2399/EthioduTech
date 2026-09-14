@@ -28,6 +28,50 @@ async function main() {
   })
   console.log(`Seeded User: ${user.email} (ID: ${user.id})`)
 
+  // Seed Teacher user
+  const teacher = await prisma.user.upsert({
+    where: { email: 'teacher@edutech.test' },
+    update: {},
+    create: {
+      email: 'teacher@edutech.test',
+      hashedPassword: 'password',
+      role: 'TEACHER',
+      profile: {
+        create: {
+          firstName: 'Abebe',
+          lastName: 'Educator'
+        }
+      },
+      teacherProfile: {
+        create: {
+          school: 'Addis STEM Academy'
+        }
+      }
+    }
+  })
+  console.log(`Seeded Teacher: ${teacher.email}`)
+
+  // Seed Parent user
+  const parent = await prisma.user.upsert({
+    where: { email: 'parent@edutech.test' },
+    update: {},
+    create: {
+      email: 'parent@edutech.test',
+      hashedPassword: 'password',
+      role: 'PARENT',
+      profile: {
+        create: {
+          firstName: 'Tigist',
+          lastName: 'Guardian'
+        }
+      },
+      parentProfile: {
+        create: {}
+      }
+    }
+  })
+  console.log(`Seeded Parent: ${parent.email}`)
+
   // Get student profile
   const studentProfile = await prisma.studentProfile.findUnique({
     where: { userId: user.id }

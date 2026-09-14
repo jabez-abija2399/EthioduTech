@@ -8,13 +8,29 @@ export default async function Navbar() {
   return (
     <header className="bg-white border-b border-slate-200 px-6 py-3.5 sticky top-0 z-40 shadow-xs">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        {/* Brand Logo */}
-        <Link href={user ? "/dashboard" : "/"} className="flex items-center space-x-2">
-          <span className="text-2xl font-black tracking-tight text-blue-600">Edutech</span>
-          <span className="text-[10px] uppercase font-bold tracking-widest bg-blue-50 text-blue-700 px-2 py-0.5 rounded border border-blue-200">
-            PWA
-          </span>
-        </Link>
+        {/* Brand Logo & Portal Links */}
+        <div className="flex items-center space-x-6">
+          <Link href={user ? "/dashboard" : "/"} className="flex items-center space-x-2">
+            <span className="text-2xl font-black tracking-tight text-blue-600">Edutech</span>
+            <span className="text-[10px] uppercase font-bold tracking-widest bg-blue-50 text-blue-700 px-2 py-0.5 rounded border border-blue-200">
+              PWA
+            </span>
+          </Link>
+
+          {user && (
+            <nav className="hidden md:flex items-center space-x-2 text-xs font-bold text-slate-600">
+              <Link href="/dashboard" className="px-3 py-1.5 hover:text-blue-600 hover:bg-slate-50 rounded-lg transition">
+                Student Dashboard
+              </Link>
+              <Link href="/teacher" className="px-3 py-1.5 hover:text-blue-600 hover:bg-slate-50 rounded-lg transition">
+                Teacher Portal
+              </Link>
+              <Link href="/parent" className="px-3 py-1.5 hover:text-emerald-600 hover:bg-slate-50 rounded-lg transition">
+                Parent Portal
+              </Link>
+            </nav>
+          )}
+        </div>
 
         {/* User Navigation / Actions */}
         <div className="flex items-center space-x-4">
