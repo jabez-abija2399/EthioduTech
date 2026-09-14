@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation"
 import { completeLessonAction } from "@/lib/actions/progress"
 import { getCodeDraft, saveCodeDraft, addPendingSync } from "@/lib/offline/db"
 import { publishToPortfolioAction } from "@/lib/actions/portfolio"
+import { validateCodeSubmission, CheckResult } from "@/lib/checker/code-checker"
+import { Play, RotateCcw, Sparkles, UploadCloud, CheckCircle2, AlertCircle, Terminal, FileCode } from "lucide-react"
 import AiTutorDrawer from "./ai-tutor-drawer"
 
 interface CodeEditorProps {
@@ -43,6 +45,14 @@ export default function CodeEditor({
   const [projectDesc, setProjectDesc] = useState("")
   const [projectReflection, setProjectReflection] = useState("")
   const [publishMessage, setPublishMessage] = useState<string | null>(null)
+
+  // Automated Code Validation State
+  const [checkResult, setCheckResult] = useState<CheckResult | null>(null)
+
+  const handleCheckCode = () => {
+    const res = validateCodeSubmission(htmlCode, cssCode, jsCode)
+    setCheckResult(res)
+  }
 
   // 1. Load cached draft from IndexedDB if available
   useEffect(() => {
@@ -203,30 +213,45 @@ export default function CodeEditor({
         </div>
 
         {/* Action Controls */}
-        <div className="flex items-center space-x-3">
+        <div className="flex items-center space-x-2.5">
           <button
             onClick={() => setShowAiTutor(true)}
-            className="px-3.5 py-1.5 text-xs font-bold bg-blue-600/20 hover:bg-blue-600/30 text-blue-300 border border-blue-500/30 rounded-lg transition flex items-center gap-1.5 cursor-pointer"
+            className="px-3 py-1.5 text-xs font-bold bg-blue-600/20 hover:bg-blue-600/30 text-blue-300 border border-blue-500/30 rounded-lg transition flex items-center gap-1.5 cursor-pointer"
           >
-            <span>🤖</span> Ask AI Tutor
+            <Sparkles className="w-3.5 h-3.5 text-blue-400" />
+            <span>Ask AI Tutor</span>
           </button>
+
+          <button
+            onClick={handleCheckCode}
+            className="px-3 py-1.5 text-xs font-bold bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border border-emerald-500/30 rounded-lg transition flex items-center gap-1.5 cursor-pointer"
+          >
+            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+            <span>Auto-Check Code</span>
+          </button>
+
           <button
             onClick={() => setShowPublishModal(true)}
-            className="px-3.5 py-1.5 text-xs font-bold bg-indigo-600/20 hover:bg-indigo-600/30 text-indigo-300 border border-indigo-500/30 rounded-lg transition flex items-center gap-1.5 cursor-pointer"
+            className="px-3 py-1.5 text-xs font-bold bg-indigo-600/20 hover:bg-indigo-600/30 text-indigo-300 border border-indigo-500/30 rounded-lg transition flex items-center gap-1.5 cursor-pointer"
           >
-            <span>🚀</span> Publish to Portfolio
+            <UploadCloud className="w-3.5 h-3.5 text-indigo-400" />
+            <span>Publish to Portfolio</span>
           </button>
+
           <button
             onClick={handleReset}
-            className="px-3 py-1.5 text-xs font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800 rounded transition border border-slate-800"
+            className="px-2.5 py-1.5 text-xs font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800 rounded-lg transition border border-slate-800 flex items-center gap-1 cursor-pointer"
           >
-            Reset
+            <RotateCcw className="w-3.5 h-3.5" />
+            <span>Reset</span>
           </button>
+
           <button
             onClick={updatePreview}
-            className="px-4 py-1.5 text-xs font-bold bg-slate-800 hover:bg-slate-700 text-blue-400 hover:text-blue-300 rounded transition border border-slate-700 flex items-center gap-1.5 cursor-pointer"
+            className="px-3.5 py-1.5 text-xs font-bold bg-slate-800 hover:bg-slate-700 text-blue-400 hover:text-blue-300 rounded-lg transition border border-slate-700 flex items-center gap-1.5 cursor-pointer"
           >
-            <span>▶</span> Run Code
+            <Play className="w-3.5 h-3.5 text-blue-400 fill-blue-400" />
+            <span>Run Code</span>
           </button>
         </div>
       </div>
@@ -291,6 +316,36 @@ export default function CodeEditor({
           </div>
         </div>
       </div>
+
+      {/* Code Validation Check Results Tray */}
+      {checkResult && (
+        <div className={`px-6 py-3.5 border-t text-xs flex items-center justify-between flex-wrap gap-2 ${
+          checkResult.isPassed
+            ? 'bg-emerald-950/80 border-emerald-800/80 text-emerald-200'
+            : 'bg-amber-950/80 border-amber-800/80 text-amber-200'
+        }`}>
+          <div className="flex items-center gap-2">
+            {checkResult.isPassed ? (
+              <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+            ) : (
+              <AlertCircle className="w-4 h-4 text-amber-400 shrink-0" />
+            )}
+            <span className="font-bold">
+              Automated Verification: {checkResult.score} of {checkResult.total} assertions passed
+            </span>
+          </div>
+
+          <div className="flex items-center gap-3 flex-wrap">
+            {checkResult.assertions.map((a, idx) => (
+              <span key={idx} className={`px-2 py-0.5 rounded-full text-[10px] font-bold border ${
+                a.passed ? 'bg-emerald-500/10 text-emerald-300 border-emerald-500/20' : 'bg-red-500/10 text-red-300 border-red-500/20'
+              }`}>
+                {a.passed ? '✓' : '✗'} {a.name}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Editor Footer / Submit Bar */}
       <div className="bg-slate-950 px-6 py-4 border-t border-slate-800 flex items-center justify-between flex-wrap gap-3">
