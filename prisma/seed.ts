@@ -27,6 +27,53 @@ async function main() {
     }
   })
   console.log(`Seeded User: ${user.email} (ID: ${user.id})`)
+
+  // Get student profile
+  const studentProfile = await prisma.studentProfile.findUnique({
+    where: { userId: user.id }
+  })
+
+  if (studentProfile) {
+    // Upsert portfolio
+    const portfolio = await prisma.portfolio.upsert({
+      where: { studentId: studentProfile.id },
+      update: {},
+      create: {
+        studentId: studentProfile.id,
+        isPublic: true
+      }
+    })
+
+    // Create sample project if portfolio has no projects
+    const existingProjects = await prisma.portfolioProject.findMany({
+      where: { portfolioId: portfolio.id }
+    })
+
+    if (existingProjects.length === 0) {
+      const sampleProject = await prisma.project.create({
+        data: {
+          title: "Personal Web Business Card",
+          description: "An interactive digital business card built with HTML & CSS."
+        }
+      })
+
+      const sampleCodeBundle = JSON.stringify({
+        html: `<div class="card">\n  <h2>Jabez Tech</h2>\n  <p>Web Builder & Student</p>\n  <button onclick="alert('Hello from my Edutech Portfolio!')">Contact Me</button>\n</div>`,
+        css: `body { background: #0f172a; color: white; display: flex; justify-content: center; align-items: center; min-height: 100vh; font-family: system-ui; }\n.card { background: #1e293b; padding: 2rem; border-radius: 1rem; border: 1px solid #334155; text-align: center; }\nbutton { background: #2563eb; color: white; border: none; padding: 0.5rem 1rem; border-radius: 0.5rem; cursor: pointer; margin-top: 1rem; }`,
+        js: `console.log('Portfolio card loaded!');`
+      })
+
+      await prisma.portfolioProject.create({
+        data: {
+          portfolioId: portfolio.id,
+          projectId: sampleProject.id,
+          url: sampleCodeBundle,
+          reflection: "My very first interactive web project created during Module 1!"
+        }
+      })
+      console.log("Seeded sample portfolio project for test user.")
+    }
+  }
   
   // Create an initial Web Creator Foundations Course
   const course = await prisma.course.create({

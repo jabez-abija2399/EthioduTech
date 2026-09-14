@@ -4,6 +4,7 @@ import { useState, useEffect, useTransition } from "react"
 import { useRouter } from "next/navigation"
 import { completeLessonAction } from "@/lib/actions/progress"
 import { getCodeDraft, saveCodeDraft, addPendingSync } from "@/lib/offline/db"
+import { publishToPortfolioAction } from "@/lib/actions/portfolio"
 
 interface CodeEditorProps {
   courseId: string
@@ -31,7 +32,15 @@ export default function CodeEditor({
   const [jsCode, setJsCode] = useState(initialJs)
   const [srcDoc, setSrcDoc] = useState("")
   const [isPending, startTransition] = useTransition()
+  const [isPublishing, startPublishTransition] = useTransition()
   const [offlineMessage, setOfflineMessage] = useState<string | null>(null)
+
+  // Portfolio Publish Modal State
+  const [showPublishModal, setShowPublishModal] = useState(false)
+  const [projectTitle, setProjectTitle] = useState("")
+  const [projectDesc, setProjectDesc] = useState("")
+  const [projectReflection, setProjectReflection] = useState("")
+  const [publishMessage, setPublishMessage] = useState<string | null>(null)
 
   // 1. Load cached draft from IndexedDB if available
   useEffect(() => {
@@ -111,8 +120,35 @@ export default function CodeEditor({
     })
   }
 
+  const handlePublishSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!projectTitle.trim()) return
+
+    startPublishTransition(async () => {
+      try {
+        const result = await publishToPortfolioAction({
+          title: projectTitle,
+          description: projectDesc,
+          htmlCode,
+          cssCode,
+          jsCode,
+          reflection: projectReflection
+        })
+        if (result.success) {
+          setPublishMessage("🎉 Project published to your Portfolio successfully!")
+          setTimeout(() => {
+            setShowPublishModal(false)
+            setPublishMessage(null)
+          }, 1500)
+        }
+      } catch (err: any) {
+        setPublishMessage(`Error: ${err.message || "Failed to publish"}`)
+      }
+    })
+  }
+
   return (
-    <div className="bg-slate-900 rounded-xl shadow-xl border border-slate-800 overflow-hidden flex flex-col my-8">
+    <div className="bg-slate-900 rounded-xl shadow-xl border border-slate-800 overflow-hidden flex flex-col my-8 relative">
       {/* Offline Notice Banner */}
       {offlineMessage && (
         <div className="bg-amber-900/90 text-amber-200 px-4 py-2.5 text-xs font-semibold text-center border-b border-amber-700">
@@ -166,6 +202,12 @@ export default function CodeEditor({
 
         {/* Action Controls */}
         <div className="flex items-center space-x-3">
+          <button
+            onClick={() => setShowPublishModal(true)}
+            className="px-3.5 py-1.5 text-xs font-bold bg-indigo-600/20 hover:bg-indigo-600/30 text-indigo-300 border border-indigo-500/30 rounded-lg transition flex items-center gap-1.5 cursor-pointer"
+          >
+            <span>🚀</span> Publish to Portfolio
+          </button>
           <button
             onClick={handleReset}
             className="px-3 py-1.5 text-xs font-medium text-slate-400 hover:text-slate-200 hover:bg-slate-800 rounded transition border border-slate-800"
@@ -269,6 +311,84 @@ export default function CodeEditor({
           )}
         </button>
       </div>
+
+      {/* Publish Modal */}
+      {showPublishModal && (
+        <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-lg p-6 shadow-2xl space-y-4">
+            <div className="flex items-center justify-between border-b border-slate-800 pb-3">
+              <h3 className="text-lg font-bold text-white flex items-center gap-2">
+                <span>🚀</span> Publish to Student Portfolio
+              </h3>
+              <button
+                onClick={() => setShowPublishModal(false)}
+                className="text-slate-400 hover:text-white text-sm font-bold cursor-pointer"
+              >
+                ✕
+              </button>
+            </div>
+
+            {publishMessage && (
+              <div className="p-3 bg-blue-500/10 border border-blue-500/30 text-blue-300 text-xs font-semibold rounded-lg text-center">
+                {publishMessage}
+              </div>
+            )}
+
+            <form onSubmit={handlePublishSubmit} className="space-y-4">
+              <div>
+                <label className="block text-xs font-semibold text-slate-300 mb-1">Project Title</label>
+                <input
+                  type="text"
+                  value={projectTitle}
+                  onChange={(e) => setProjectTitle(e.target.value)}
+                  placeholder="e.g. My Interactive Web Card"
+                  required
+                  className="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-sm text-slate-100 focus:outline-none focus:border-blue-500"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-slate-300 mb-1">Project Description</label>
+                <input
+                  type="text"
+                  value={projectDesc}
+                  onChange={(e) => setProjectDesc(e.target.value)}
+                  placeholder="e.g. Built using HTML and custom CSS styles."
+                  className="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-sm text-slate-100 focus:outline-none focus:border-blue-500"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-semibold text-slate-300 mb-1">Reflection / What did you learn?</label>
+                <textarea
+                  value={projectReflection}
+                  onChange={(e) => setProjectReflection(e.target.value)}
+                  placeholder="Share a short reflection about how you built this project..."
+                  rows={3}
+                  className="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-sm text-slate-100 focus:outline-none focus:border-blue-500 leading-relaxed resize-none"
+                />
+              </div>
+
+              <div className="flex items-center justify-end space-x-3 pt-2">
+                <button
+                  type="button"
+                  onClick={() => setShowPublishModal(false)}
+                  className="px-4 py-2 text-xs font-semibold text-slate-400 hover:text-white cursor-pointer"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  disabled={isPublishing}
+                  className="px-5 py-2 bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-white font-bold text-xs rounded-lg shadow transition cursor-pointer"
+                >
+                  {isPublishing ? "Publishing..." : "Publish Now"}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
