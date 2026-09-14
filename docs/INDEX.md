@@ -15,6 +15,7 @@ This master index links every root governance file, architectural specification,
 
 ## ⚙️ Development Operating System & Tracking
 - 🗺️ [DEVELOPMENT_PLAN.md](file:///home/jabez/Documents/software/project/myproduct/best/edutech/DEVELOPMENT_PLAN.md) — Master Execution Roadmap Across Stages
+- 🔬 [DEEP_PHASE_IMPLEMENTATION_PLAN.md](file:///home/jabez/Documents/software/project/myproduct/best/edutech/docs/development/DEEP_PHASE_IMPLEMENTATION_PLAN.md) — Deep Phase-by-Phase Technical Specifications & Empirical Checklists
 - 📋 [TASK_REGISTRY.md](file:///home/jabez/Documents/software/project/myproduct/best/edutech/TASK_REGISTRY.md) — Master Task Registry with Unique IDs & Weights
 - 📊 [DEVELOPMENT_TRACKER.md](file:///home/jabez/Documents/software/project/myproduct/best/edutech/DEVELOPMENT_TRACKER.md) — Weighted Progress Calculation Tracker
 - 🔗 [DEPENDENCY_MAP.md](file:///home/jabez/Documents/software/project/myproduct/best/edutech/DEPENDENCY_MAP.md) — Subsystem Architecture & Task Dependencies
