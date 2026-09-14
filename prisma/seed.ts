@@ -5,6 +5,28 @@ const prisma = new PrismaClient()
 
 async function main() {
   console.log('Start seeding...')
+
+  // Seed test user with id "1"
+  const user = await prisma.user.upsert({
+    where: { email: 'student@edutech.test' },
+    update: { id: '1' },
+    create: {
+      id: '1',
+      email: 'student@edutech.test',
+      hashedPassword: 'password',
+      role: 'STUDENT',
+      profile: {
+        create: {
+          firstName: 'Test',
+          lastName: 'Student'
+        }
+      },
+      studentProfile: {
+        create: {}
+      }
+    }
+  })
+  console.log(`Seeded User: ${user.email} (ID: ${user.id})`)
   
   // Create an initial Web Creator Foundations Course
   const course = await prisma.course.create({

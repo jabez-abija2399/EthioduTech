@@ -1,0 +1,115 @@
+"use server"
+
+import { auth } from "@/auth"
+import { prisma } from "@/lib/prisma"
+import { redirect } from "next/navigation"
+
+export async function completeLessonAction(courseId: string, lessonId: string) {
+  const session = await auth()
+  
+  if (!session?.user?.id) {
+    redirect("/login")
+  }
+
+  const userId = session.user.id
+
+  // 1. Ensure User exists and get or create student profile
+  let userRecord = await prisma.user.findUnique({
+    where: { id: userId }
+  })
+
+  if (!userRecord) {
+    userRecord = await prisma.user.create({
+      data: {
+        id: userId,
+        email: session.user.email || `user_${userId}@edutech.test`,
+        hashedPassword: "password",
+        role: "STUDENT"
+      }
+    })
+  }
+
+  let studentProfile = await prisma.studentProfile.findUnique({
+    where: { userId: userRecord.id }
+  })
+
+  if (!studentProfile) {
+    studentProfile = await prisma.studentProfile.create({
+      data: {
+        userId: userRecord.id
+      }
+    })
+  }
+
+  // 2. Upsert progress record
+  const existingProgress = await prisma.progress.findFirst({
+    where: {
+      studentId: studentProfile.id,
+      entityId: lessonId,
+      entityType: "LESSON"
+    }
+  })
+
+  if (!existingProgress) {
+    await prisma.progress.create({
+      data: {
+        studentId: studentProfile.id,
+        entityId: lessonId,
+        entityType: "LESSON",
+        status: "COMPLETED",
+        completedAt: new Date()
+      }
+    })
+  } else {
+    await prisma.progress.update({
+      where: { id: existingProgress.id },
+      data: {
+        status: "COMPLETED",
+        completedAt: new Date()
+      }
+    })
+  }
+
+  // 3. Find next lesson in the course
+  const course = await prisma.course.findUnique({
+    where: { id: courseId },
+    include: {
+      modules: {
+        orderBy: { order: "asc" },
+        include: {
+          units: {
+            orderBy: { order: "asc" },
+            include: {
+              lessons: {
+                orderBy: { order: "asc" }
+              }
+            }
+          }
+        }
+      }
+    }
+  })
+
+  if (!course) {
+    redirect("/dashboard")
+  }
+
+  // Flatten all lessons into a single ordered array
+  const allLessons: string[] = []
+  course.modules.forEach(mod => {
+    mod.units.forEach(unit => {
+      unit.lessons.forEach(l => {
+        allLessons.push(l.id)
+      })
+    })
+  })
+
+  const currentIndex = allLessons.indexOf(lessonId)
+  if (currentIndex !== -1 && currentIndex < allLessons.length - 1) {
+    const nextLessonId = allLessons[currentIndex + 1]
+    redirect(`/courses/${courseId}/lessons/${nextLessonId}`)
+  } else {
+    // Course finished or last lesson
+    redirect("/dashboard")
+  }
+}
