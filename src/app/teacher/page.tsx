@@ -2,7 +2,7 @@ import { auth } from "@/auth"
 import { redirect } from "next/navigation"
 import { getTeacherOverview } from "@/lib/data/teacher"
 import Navbar from "@/components/navbar"
-import Link from "next/link"
+import { TeacherRosterClient } from "./teacher-roster-client"
 
 export default async function TeacherDashboardPage() {
   const session = await auth()
@@ -16,7 +16,7 @@ export default async function TeacherDashboardPage() {
 
   const teacherName = session.user.name || "Educator"
   const school = teacherData?.teacherProfile?.school || "Addis STEM Academy"
-  const students = teacherData?.students || []
+  const students = (teacherData?.students || []) as any[]
   const stats = teacherData?.stats || { totalStudents: 0, totalLessonsCompleted: 0, totalSubmissions: 0 }
 
   return (
@@ -68,78 +68,8 @@ export default async function TeacherDashboardPage() {
           </div>
         </div>
 
-        {/* Student Roster Table */}
-        <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-          <div className="p-6 border-b border-slate-200 flex items-center justify-between flex-wrap gap-4">
-            <div>
-              <h2 className="text-xl font-bold text-slate-900">Student Roster</h2>
-              <p className="text-xs text-slate-500 mt-0.5">Individual learning progress and project showcases</p>
-            </div>
-            <span className="text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
-              {students.length} Student(s) Total
-            </span>
-          </div>
-
-          {students.length === 0 ? (
-            <div className="p-12 text-center text-slate-500">
-              No active students enrolled yet.
-            </div>
-          ) : (
-            <div className="overflow-x-auto">
-              <table className="w-full text-left border-collapse">
-                <thead>
-                  <tr className="bg-slate-50 text-slate-500 text-xs font-bold uppercase tracking-wider border-b border-slate-200">
-                    <th className="p-4 pl-6">Student Name</th>
-                    <th className="p-4">Email Address</th>
-                    <th className="p-4">Lessons Completed</th>
-                    <th className="p-4">Projects</th>
-                    <th className="p-4 text-right pr-6">Action</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-100 text-sm">
-                  {students.map((student) => {
-                    const fullName = `${student.user.profile?.firstName || "Student"} ${student.user.profile?.lastName || ""}`.trim()
-                    const completedCount = student.progress.length
-                    const projectCount = student.portfolios?.[0]?.projects?.length || 0
-
-                    return (
-                      <tr key={student.id} className="hover:bg-slate-50/80 transition">
-                        <td className="p-4 pl-6 font-bold text-slate-900 flex items-center gap-3">
-                          <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-700 font-bold text-xs flex items-center justify-center">
-                            {fullName.charAt(0)}
-                          </div>
-                          <span>{fullName}</span>
-                        </td>
-                        <td className="p-4 text-slate-600 text-xs font-mono">{student.user.email}</td>
-                        <td className="p-4">
-                          <div className="flex items-center space-x-2">
-                            <span className="font-bold text-slate-900">{completedCount}</span>
-                            <div className="w-24 bg-slate-100 h-2 rounded-full overflow-hidden">
-                              <div
-                                className="bg-emerald-500 h-full rounded-full"
-                                style={{ width: `${Math.min(completedCount * 33, 100)}%` }}
-                              ></div>
-                            </div>
-                          </div>
-                        </td>
-                        <td className="p-4 font-bold text-indigo-600">{projectCount} Project(s)</td>
-                        <td className="p-4 text-right pr-6">
-                          <Link
-                            href={`/portfolio/${student.id}`}
-                            className="px-3.5 py-1.5 bg-blue-50 hover:bg-blue-100 text-blue-700 text-xs font-bold rounded-lg transition inline-flex items-center gap-1"
-                          >
-                            <span>View Portfolio</span>
-                            <span>&rarr;</span>
-                          </Link>
-                        </td>
-                      </tr>
-                    )
-                  })}
-                </tbody>
-              </table>
-            </div>
-          )}
-        </div>
+        {/* Roster Client Component */}
+        <TeacherRosterClient students={students} />
       </main>
     </div>
   )
