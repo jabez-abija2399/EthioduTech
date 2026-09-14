@@ -50,7 +50,7 @@ export default function CodeEditor({
   const [checkResult, setCheckResult] = useState<CheckResult | null>(null)
 
   const handleCheckCode = () => {
-    const res = validateCodeSubmission(htmlCode, cssCode, jsCode)
+    const res = validateCodeSubmission(htmlCode, cssCode, jsCode, lessonId)
     setCheckResult(res)
   }
 
