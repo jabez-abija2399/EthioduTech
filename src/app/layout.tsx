@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import OfflineStatus from "@/components/offline-status";
+import { LanguageProvider } from "@/lib/i18n/context";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,8 +24,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.className}>
       <body className="min-h-screen flex flex-col antialiased">
-        {children}
-        <OfflineStatus />
+        <LanguageProvider>
+          {children}
+          <OfflineStatus />
+        </LanguageProvider>
       </body>
     </html>
   );

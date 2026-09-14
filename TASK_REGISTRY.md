@@ -43,3 +43,4 @@ This registry contains every tracked task across all stages of the Edutech Platf
 | **TEST-001** | Vitest & Playwright E2E Automated Test Suite | P1 | 3 | Beta (Milestone 15) | `VERIFIED` | `npm run test` (15/15 passed) |
 | **LIVE-001** | WebSockets Teacher-Student Live Code Sharing | P2 | 2 | Beta (Milestone 16) | `VERIFIED` | `live-room.ts` & `live-code-sharing.tsx` |
 | **PAY-001** | Telebirr / Chapa Local Payment Checkout | P2 | 2 | V1 (Milestone 17) | `VERIFIED` | `checkout.ts` & `payment-checkout-modal.tsx` |
+| **LANG-001** | Multilingual Amharic, Afaan Oromo & English i18n | P2 | 2 | Global (Stage 05) | `VERIFIED` | `translations.ts` & `language-selector.tsx` |

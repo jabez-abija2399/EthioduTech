@@ -5,6 +5,7 @@ import { getStudentGamificationStats } from "@/lib/data/gamification"
 import { signOutUserAction } from "@/lib/actions/auth"
 import { XPBadgeDisplay } from "@/components/xp-badge-display"
 import { PWAInstallButton } from "@/components/pwa-install-button"
+import { LanguageSelector } from "@/components/language-selector"
 
 export default async function Navbar() {
   const session = await auth()
@@ -47,6 +48,7 @@ export default async function Navbar() {
 
         {/* User Navigation / Actions */}
         <div className="flex items-center space-x-4">
+          <LanguageSelector />
           <PWAInstallButton />
           {user ? (
             <div className="flex items-center space-x-4">
