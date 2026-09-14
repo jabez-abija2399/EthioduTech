@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { Search, ExternalLink, Eye, X, BookOpen, Rocket } from 'lucide-react'
+import { LiveCodeSharing } from '@/components/live-code-sharing'
 
 export interface RosterStudent {
   id: string
@@ -64,8 +65,21 @@ export function TeacherRosterClient({ students }: { students: RosterStudent[] })
   }
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-      {/* Table Header & Search Input */}
+    <div className="space-y-6">
+      {/* Live Classroom Broadcast Bar */}
+      <LiveCodeSharing
+        userRole="TEACHER"
+        userId="teacher-demo-1"
+        userName="Teacher Instructor"
+        currentCodeBundle={{
+          html: '<h1>Class Demo</h1><p>Follow along with the instructor!</p>',
+          css: 'body { background: #f8fafc; font-family: sans-serif; }',
+          js: 'console.log("Live stream active");',
+        }}
+      />
+
+      <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+        {/* Table Header & Search Input */}
       <div className="p-6 border-b border-slate-200 flex items-center justify-between flex-wrap gap-4">
         <div>
           <h2 className="text-xl font-bold text-slate-900">Student Roster</h2>
@@ -214,6 +228,7 @@ export function TeacherRosterClient({ students }: { students: RosterStudent[] })
           </div>
         </div>
       )}
+      </div>
     </div>
   )
 }
