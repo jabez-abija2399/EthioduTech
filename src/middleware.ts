@@ -2,6 +2,8 @@ import { NextResponse } from "next/server"
 import type { NextRequest } from "next/server"
 import { getToken } from "next-auth/jwt"
 
+import { getRedirectPath } from "@/lib/auth-redirect"
+
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl
   const secret = process.env.AUTH_SECRET || process.env.NEXTAUTH_SECRET || "edutech_secret_key_development_32_bytes_min_length"
@@ -26,7 +28,8 @@ export async function middleware(req: NextRequest) {
 
   // 4. Authenticated User Redirection from Auth Routes
   if (isAuthRoute && isAuthenticated) {
-    return NextResponse.redirect(new URL("/dashboard", req.url))
+    const destinationPath = getRedirectPath(userRole)
+    return NextResponse.redirect(new URL(destinationPath, req.url))
   }
 
   // 5. Role-Based Access Control (RBAC) Enforcement

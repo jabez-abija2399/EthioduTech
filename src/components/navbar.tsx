@@ -6,10 +6,12 @@ import { signOutUserAction } from "@/lib/actions/auth"
 import { XPBadgeDisplay } from "@/components/xp-badge-display"
 import { PWAInstallButton } from "@/components/pwa-install-button"
 import { LanguageSelector } from "@/components/language-selector"
+import { getRedirectPath } from "@/lib/auth-redirect"
 
 export default async function Navbar() {
   const session = await auth()
   const user = session?.user
+  const userRole = (user as any)?.role
 
   let gamificationStats = null
   if (user?.id) {
@@ -24,7 +26,7 @@ export default async function Navbar() {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Brand Logo & Portal Links */}
         <div className="flex items-center space-x-6">
-          <Link href={user ? "/dashboard" : "/"} className="flex items-center space-x-2">
+          <Link href={user ? getRedirectPath(userRole) : "/"} className="flex items-center space-x-2">
             <span className="text-2xl font-black tracking-tight text-blue-600">Edutech</span>
             <span className="text-[10px] uppercase font-bold tracking-widest bg-blue-50 text-blue-700 px-2 py-0.5 rounded border border-blue-200">
               PWA
