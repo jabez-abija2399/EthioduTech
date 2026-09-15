@@ -64,6 +64,15 @@ export async function registerUserAction(formData: FormData) {
   return { success: true }
 }
 
+export async function registerUserFormAction(formData: FormData) {
+  const { redirect } = await import("next/navigation")
+  const result = await registerUserAction(formData)
+  if (result?.error) {
+    redirect(`/register?error=${encodeURIComponent(result.error)}`)
+  }
+  redirect("/login?registered=true")
+}
+
 export async function signOutUserAction() {
   const { signOut } = await import("@/auth")
   await signOut({ redirectTo: "/login" })

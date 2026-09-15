@@ -1,7 +1,7 @@
 import { auth } from "@/auth"
 import { redirect } from "next/navigation"
 import Link from "next/link"
-import { registerUserAction } from "@/lib/actions/auth"
+import { registerUserFormAction } from "@/lib/actions/auth"
 
 export default async function RegisterPage({
   searchParams,
@@ -32,14 +32,7 @@ export default async function RegisterPage({
         )}
         
         <form
-          action={async (formData: FormData) => {
-            "use server"
-            const result = await registerUserAction(formData)
-            if (result?.error) {
-              redirect(`/register?error=${encodeURIComponent(result.error)}`)
-            }
-            redirect("/login?registered=true")
-          }}
+          action={registerUserFormAction}
           className="space-y-4"
         >
           <div className="grid grid-cols-2 gap-3">

@@ -20,30 +20,34 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         const password = credentials.password as string
 
         // Query database for user
-        const user = await prisma.user.findUnique({
-          where: { email },
-          include: { profile: true }
-        })
+        try {
+          const user = await prisma.user.findUnique({
+            where: { email },
+            include: { profile: true }
+          })
 
-        if (user) {
-          let isValidPassword = user.hashedPassword === password
-          if (!isValidPassword) {
-            try {
-              isValidPassword = bcrypt.compareSync(password, user.hashedPassword)
-            } catch {
-              isValidPassword = false
+          if (user) {
+            let isValidPassword = user.hashedPassword === password
+            if (!isValidPassword) {
+              try {
+                isValidPassword = bcrypt.compareSync(password, user.hashedPassword)
+              } catch {
+                isValidPassword = false
+              }
+            }
+
+            if (isValidPassword) {
+              const fullName = `${user.profile?.firstName || ""} ${user.profile?.lastName || ""}`.trim()
+              return {
+                id: user.id,
+                name: fullName || user.email || "Student",
+                email: user.email,
+                role: user.role
+              }
             }
           }
-
-          if (isValidPassword) {
-            const fullName = `${user.profile?.firstName || ""} ${user.profile?.lastName || ""}`.trim()
-            return {
-              id: user.id,
-              name: fullName || user.email || "Student",
-              email: user.email,
-              role: user.role
-            }
-          }
+        } catch (dbError) {
+          console.warn("Database lookup in auth warning:", dbError)
         }
 
         // Hardcoded test user fallback for seed environment
