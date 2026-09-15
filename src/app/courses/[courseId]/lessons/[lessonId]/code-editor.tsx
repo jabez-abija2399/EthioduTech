@@ -146,7 +146,9 @@ export default function CodeEditor({
           jsCode,
           reflection: projectReflection
         })
-        if (result.success) {
+        if (result?.error) {
+          setPublishMessage(`Error: ${result.error}`)
+        } else if (result?.success) {
           setPublishMessage("🎉 Project published to your Portfolio successfully!")
           setTimeout(() => {
             setShowPublishModal(false)
