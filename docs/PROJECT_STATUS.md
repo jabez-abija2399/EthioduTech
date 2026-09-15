@@ -9,13 +9,13 @@
 - **Stage:** `MVP` (Phase 1 — Primary Target: Ethiopian Learners, Grades 5–12).
 
 ## 2. Current Version
-- **Version:** `02-MVP` (Milestone 12 Completed — Gamification, Streaks & Rewards Engine).
+- **Version:** `03-Beta` (Milestone 13 Completed — Full PWA Service Worker & App Shell Offline Caching).
 
 ## 3. Implemented Features
 - [x] **Auth & Multi-Role Support:** Database authentication with `bcryptjs` salted password hashing (`STUDENT`, `TEACHER`, `PARENT`).
 - [x] **Course Hierarchy & Markdown Viewer:** SQLite curriculum tree ("Web Creator Foundations") with rich markdown rendering (`react-markdown`).
 - [x] **Multi-Tab Code Sandbox:** In-browser HTML, CSS, and JS editor with real-time sandboxed `<iframe>` live preview.
-- [x] **Offline PWA & Background Sync:** Keystroke auto-saving to IndexedDB (`idb`), offline lesson completion queueing, and background sync flusher triggered on `'online'` event.
+- [x] **Offline PWA & Background Sync:** Keystroke auto-saving to IndexedDB (`idb`), offline lesson completion queueing, background sync flusher, Workbox runtime caching, `/offline` route, and auto-sync notice banner.
 - [x] **Project Portfolio Showcase:** 1-click publishing from code editor toolbar to shareable public showcase route (`/portfolio/[studentId]`).
 - [x] **Embedded AI Tutor Drawer:** Socratic hint assistant (`ai-tutor-drawer.tsx`) with SQLite interaction logging (`AIInteraction`).
 - [x] **Role Portals:** Teacher Roster Dashboard (`/teacher`), Parent Family Progress Dashboard (`/parent`).
