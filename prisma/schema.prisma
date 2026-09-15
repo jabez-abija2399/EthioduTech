@@ -1,6 +1,6 @@
-// SQLite compatible schema for MVP
+// PostgreSQL datasource for Supabase production & cloud DB
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
