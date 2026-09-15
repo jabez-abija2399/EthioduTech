@@ -14,11 +14,15 @@ export default async function Navbar() {
   const userRole = (user as any)?.role
 
   let gamificationStats = null
-  if (user?.id) {
-    const studentData = await getStudentPortfolio(user.id)
-    if (studentData?.id) {
-      gamificationStats = await getStudentGamificationStats(studentData.id)
+  try {
+    if (user?.id) {
+      const studentData = await getStudentPortfolio(user.id)
+      if (studentData?.id) {
+        gamificationStats = await getStudentGamificationStats(studentData.id)
+      }
     }
+  } catch (err) {
+    console.warn("Navbar gamification data load warning:", err)
   }
 
   return (

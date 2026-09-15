@@ -21,9 +21,14 @@ export default async function DashboardPage() {
     getStudentPortfolio(userId)
   ])
 
-  const gamificationStats = studentData?.id 
-    ? await getStudentGamificationStats(studentData.id)
-    : null
+  let gamificationStats = null
+  try {
+    if (studentData?.id) {
+      gamificationStats = await getStudentGamificationStats(studentData.id)
+    }
+  } catch (err) {
+    console.warn("Dashboard gamification data load warning:", err)
+  }
 
   const portfolioProjects = studentData?.portfolios?.[0]?.projects || []
 
