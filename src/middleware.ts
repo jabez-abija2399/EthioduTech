@@ -27,7 +27,8 @@ export async function middleware(req: NextRequest) {
   }
 
   // 4. Authenticated User Redirection from Auth Routes
-  if (isAuthRoute && isAuthenticated) {
+  const hasCallbackUrl = req.nextUrl.searchParams.has("callbackUrl")
+  if (isAuthRoute && isAuthenticated && !hasCallbackUrl) {
     const destinationPath = getRedirectPath(userRole)
     return NextResponse.redirect(new URL(destinationPath, req.url))
   }

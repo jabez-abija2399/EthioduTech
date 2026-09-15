@@ -38,8 +38,7 @@ export function LoginForm() {
         const userRole = (session?.user as any)?.role || "STUDENT"
         const targetPath = getRedirectPath(userRole, callbackUrl)
         
-        router.push(targetPath)
-        router.refresh()
+        window.location.href = targetPath
       } else {
         setError("An unexpected error occurred. Please try again.")
         setIsSubmitting(false)

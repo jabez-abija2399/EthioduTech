@@ -49,8 +49,7 @@ export function RegisterForm() {
 
       if (signInRes?.ok) {
         const targetPath = getRedirectPath(role)
-        router.push(targetPath)
-        router.refresh()
+        window.location.href = targetPath
       } else {
         router.push("/login?registered=true")
       }
