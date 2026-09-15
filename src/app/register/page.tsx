@@ -2,6 +2,7 @@ import { auth } from "@/auth"
 import { redirect } from "next/navigation"
 import Link from "next/link"
 import { registerUserFormAction } from "@/lib/actions/auth"
+import { SubmitButton } from "@/components/submit-button"
 
 export default async function RegisterPage({
   searchParams,
@@ -93,12 +94,9 @@ export default async function RegisterPage({
             </select>
           </div>
 
-          <button 
-            type="submit"
-            className="w-full flex justify-center py-3 px-4 border border-transparent rounded-xl shadow-md text-sm font-bold text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer transition mt-2"
-          >
+          <SubmitButton loadingText="Creating Account..." className="bg-blue-600 hover:bg-blue-700">
             Create Account &rarr;
-          </button>
+          </SubmitButton>
         </form>
 
         <div className="mt-6 text-center text-xs text-slate-500">

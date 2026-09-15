@@ -73,6 +73,25 @@ export async function registerUserFormAction(formData: FormData) {
   redirect("/login?registered=true")
 }
 
+export async function loginUserFormAction(formData: FormData) {
+  const { signIn } = await import("@/auth")
+  const { redirect } = await import("next/navigation")
+  const email = formData.get("email") as string
+  const password = formData.get("password") as string
+  try {
+    await signIn("credentials", {
+      email,
+      password,
+      redirectTo: "/dashboard",
+    })
+  } catch (err: any) {
+    if (err?.message?.includes("NEXT_REDIRECT") || err?.digest?.startsWith("NEXT_REDIRECT")) {
+      throw err
+    }
+    redirect("/login?error=CredentialsSignin")
+  }
+}
+
 export async function signOutUserAction() {
   const { signOut } = await import("@/auth")
   await signOut({ redirectTo: "/login" })

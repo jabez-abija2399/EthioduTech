@@ -1,5 +1,8 @@
-import { auth, signIn } from "@/auth"
+import { auth } from "@/auth"
 import { redirect } from "next/navigation"
+import Link from "next/link"
+import { loginUserFormAction } from "@/lib/actions/auth"
+import { SubmitButton } from "@/components/submit-button"
 
 export default async function LoginPage({
   searchParams,
@@ -32,28 +35,12 @@ export default async function LoginPage({
 
         {error && (
           <div className="mb-4 p-3.5 bg-red-50 border border-red-200 text-red-700 text-xs font-semibold rounded-xl text-center">
-            Invalid email or password. Please try again.
+            Invalid email or password. Please check your credentials and try again.
           </div>
         )}
         
         <form
-          action={async (formData: FormData) => {
-            "use server"
-            const email = formData.get("email") as string
-            const password = formData.get("password") as string
-            try {
-              await signIn("credentials", {
-                email,
-                password,
-                redirectTo: "/dashboard",
-              })
-            } catch (err: any) {
-              if (err?.message?.includes("NEXT_REDIRECT") || err?.digest?.startsWith("NEXT_REDIRECT")) {
-                throw err
-              }
-              redirect("/login?error=CredentialsSignin")
-            }
-          }}
+          action={loginUserFormAction}
           className="space-y-4"
         >
           <div>
@@ -76,12 +63,9 @@ export default async function LoginPage({
               className="block w-full px-3 py-2 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-slate-900" 
             />
           </div>
-          <button 
-            type="submit"
-            className="w-full flex justify-center py-3 px-4 border border-transparent rounded-xl shadow-md text-sm font-bold text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 cursor-pointer transition mt-2"
-          >
-            Sign in
-          </button>
+          <SubmitButton loadingText="Signing in..." className="bg-blue-600 hover:bg-blue-700">
+            Sign in &rarr;
+          </SubmitButton>
         </form>
 
         <div className="mt-6 text-center text-xs text-slate-500">
