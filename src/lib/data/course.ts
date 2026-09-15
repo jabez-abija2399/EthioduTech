@@ -2,14 +2,41 @@ import { prisma } from "../prisma"
 
 export async function getCourses() {
   try {
-    return await prisma.course.findMany({
+    const courses = await prisma.course.findMany({
       where: { isPublished: true },
       include: {
         modules: {
+          orderBy: { order: 'asc' },
           include: {
             units: {
+              orderBy: { order: 'asc' },
               include: {
-                lessons: true
+                lessons: {
+                  orderBy: { order: 'asc' }
+                }
+              }
+            }
+          }
+        }
+      }
+    })
+
+    if (courses.length > 0) {
+      return courses
+    }
+
+    // Fallback: fetch any available courses if isPublished check filtered all
+    return await prisma.course.findMany({
+      include: {
+        modules: {
+          orderBy: { order: 'asc' },
+          include: {
+            units: {
+              orderBy: { order: 'asc' },
+              include: {
+                lessons: {
+                  orderBy: { order: 'asc' }
+                }
               }
             }
           }
@@ -88,4 +115,3 @@ export async function getUserProgress(userId: string) {
     return []
   }
 }
-
