@@ -26,9 +26,14 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         })
 
         if (user) {
-          const isValidPassword = 
-            user.hashedPassword === password || 
-            bcrypt.compareSync(password, user.hashedPassword)
+          let isValidPassword = user.hashedPassword === password
+          if (!isValidPassword) {
+            try {
+              isValidPassword = bcrypt.compareSync(password, user.hashedPassword)
+            } catch {
+              isValidPassword = false
+            }
+          }
 
           if (isValidPassword) {
             const fullName = `${user.profile?.firstName || ""} ${user.profile?.lastName || ""}`.trim()

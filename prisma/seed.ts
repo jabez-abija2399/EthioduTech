@@ -1,19 +1,22 @@
 import 'dotenv/config'
 import { PrismaClient } from '@prisma/client'
+import bcrypt from 'bcryptjs'
 
 const prisma = new PrismaClient()
 
 async function main() {
   console.log('Start seeding...')
 
+  const defaultPasswordHash = bcrypt.hashSync('password', 10)
+
   // Seed test user with id "1"
   const user = await prisma.user.upsert({
     where: { email: 'student@edutech.test' },
-    update: { id: '1' },
+    update: { hashedPassword: defaultPasswordHash },
     create: {
       id: '1',
       email: 'student@edutech.test',
-      hashedPassword: 'password',
+      hashedPassword: defaultPasswordHash,
       role: 'STUDENT',
       profile: {
         create: {
@@ -31,10 +34,10 @@ async function main() {
   // Seed Teacher user
   const teacher = await prisma.user.upsert({
     where: { email: 'teacher@edutech.test' },
-    update: {},
+    update: { hashedPassword: defaultPasswordHash },
     create: {
       email: 'teacher@edutech.test',
-      hashedPassword: 'password',
+      hashedPassword: defaultPasswordHash,
       role: 'TEACHER',
       profile: {
         create: {
@@ -54,10 +57,10 @@ async function main() {
   // Seed Parent user
   const parent = await prisma.user.upsert({
     where: { email: 'parent@edutech.test' },
-    update: {},
+    update: { hashedPassword: defaultPasswordHash },
     create: {
       email: 'parent@edutech.test',
-      hashedPassword: 'password',
+      hashedPassword: defaultPasswordHash,
       role: 'PARENT',
       profile: {
         create: {
