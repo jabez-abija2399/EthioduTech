@@ -2,9 +2,10 @@ import { describe, it, expect } from 'vitest'
 import { getRedirectPath } from '../../src/lib/auth-redirect'
 
 describe('Auth Redirect Utility Suite', () => {
-  it('should redirect TEACHER and ADMIN to /teacher', () => {
+  it('should redirect TEACHER to /teacher and ADMIN to /admin', () => {
     expect(getRedirectPath('TEACHER')).toBe('/teacher')
-    expect(getRedirectPath('ADMIN')).toBe('/teacher')
+    expect(getRedirectPath('ADMIN')).toBe('/admin')
+    expect(getRedirectPath('SUPER_ADMIN')).toBe('/admin')
     expect(getRedirectPath('teacher')).toBe('/teacher')
   })
 

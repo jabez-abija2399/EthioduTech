@@ -2,6 +2,7 @@ import { NextResponse } from "next/server"
 import type { NextRequest } from "next/server"
 import { getToken } from "next-auth/jwt"
 import { getRedirectPath } from "@/lib/auth-redirect"
+import { isRouteAllowedForRole, getRoleLandingPage } from "@/lib/permissions"
 
 export async function middleware(req: NextRequest) {
   const { pathname, searchParams } = req.nextUrl
@@ -33,14 +34,17 @@ export async function middleware(req: NextRequest) {
   const isAuthenticated = !!token && (!!token.email || !!token.sub || !!token.id)
   const userRole = (token as any)?.role || "STUDENT"
 
-  // 3. Protected Routes Definitions
-  const isStudentRoute = pathname.startsWith("/dashboard") || pathname.startsWith("/courses")
-  const isTeacherRoute = pathname.startsWith("/teacher")
-  const isParentRoute = pathname.startsWith("/parent")
+  // 3. Protected Route Definitions
+  const isProtected = pathname.startsWith("/dashboard") ||
+                      pathname.startsWith("/courses") ||
+                      pathname.startsWith("/teacher") ||
+                      pathname.startsWith("/parent") ||
+                      pathname.startsWith("/admin")
+
   const isAuthRoute = pathname.startsWith("/login") || pathname.startsWith("/register")
 
   // 4. Unauthenticated User Protection
-  if ((isStudentRoute || isTeacherRoute || isParentRoute) && !isAuthenticated) {
+  if (isProtected && !isAuthenticated) {
     const loginUrl = new URL("/login", req.url)
     if (!searchParams.has("callbackUrl")) {
       loginUrl.searchParams.set("callbackUrl", pathname)
@@ -54,13 +58,13 @@ export async function middleware(req: NextRequest) {
     return NextResponse.redirect(new URL(destinationPath, req.url))
   }
 
-  // 6. Role-Based Access Control (RBAC) Enforcement
-  if (isTeacherRoute && userRole !== "TEACHER" && userRole !== "ADMIN") {
-    return NextResponse.redirect(new URL("/dashboard", req.url))
-  }
-
-  if (isParentRoute && userRole !== "PARENT" && userRole !== "ADMIN") {
-    return NextResponse.redirect(new URL("/dashboard", req.url))
+  // 6. Strict Reusable Role-Based Access Control (RBAC) Enforcement
+  if (isAuthenticated && isProtected) {
+    const isAllowed = isRouteAllowedForRole(pathname, userRole)
+    if (!isAllowed) {
+      const fallbackLanding = getRoleLandingPage(userRole)
+      return NextResponse.redirect(new URL(fallbackLanding, req.url))
+    }
   }
 
   return NextResponse.next()
@@ -68,6 +72,7 @@ export async function middleware(req: NextRequest) {
 
 export const config = {
   matcher: [
+    "/admin/:path*",
     "/dashboard/:path*",
     "/teacher/:path*",
     "/parent/:path*",
