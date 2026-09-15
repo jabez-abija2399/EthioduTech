@@ -26,3 +26,4 @@ Whenever starting a new chat session or taking over development, **ALWAYS** insp
 - **Preserve Implementation:** Never delete working functionality or rewrite architecture unnecessarily.
 - **Empirical Evidence:** All progress claims must be backed by `npx tsc --noEmit`, `npm run test`, and `npm run build` verification.
 
+allowy implment component based reusabl, scalable, senior developer level best practices to the codebase. do not over-engineer the simple solution, keep it simple.
