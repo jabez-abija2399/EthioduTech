@@ -75,7 +75,7 @@ export default async function PublicPortfolioPage({
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {projects.map((item) => {
+            {projects.map((item: any) => {
               let parsedCode = { html: "", css: "", js: "" }
               try {
                 if (item.url && item.url.startsWith("{")) {

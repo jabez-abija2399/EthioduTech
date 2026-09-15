@@ -39,9 +39,9 @@ export default async function LessonPage({
 
   // Flatten all lessons in order to determine previous and next lessons
   const allLessons: { id: string; title: string }[] = []
-  courseTree.modules.forEach((mod) => {
-    mod.units.forEach((unit) => {
-      unit.lessons.forEach((l) => {
+  courseTree.modules.forEach((mod: any) => {
+    mod.units.forEach((unit: any) => {
+      unit.lessons.forEach((l: any) => {
         allLessons.push({ id: l.id, title: l.title })
       })
     })
@@ -69,7 +69,7 @@ export default async function LessonPage({
 
         {/* Modules & Units Navigation List */}
         <div className="space-y-6">
-          {courseTree.modules.map((moduleItem, modIdx) => (
+          {courseTree.modules.map((moduleItem: any, modIdx: number) => (
             <div key={moduleItem.id} className="space-y-3">
               <div className="text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center gap-2">
                 <span className="w-5 h-5 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center text-[10px]">
@@ -78,14 +78,14 @@ export default async function LessonPage({
                 {moduleItem.title}
               </div>
 
-              {moduleItem.units.map((unitItem) => (
+              {moduleItem.units.map((unitItem: any) => (
                 <div key={unitItem.id} className="pl-3 space-y-1 border-l-2 border-slate-100">
                   <div className="text-xs font-semibold text-slate-600 mb-1.5">
                     {unitItem.title}
                   </div>
 
                   <div className="space-y-1">
-                    {unitItem.lessons.map((lessonItem) => {
+                    {unitItem.lessons.map((lessonItem: any) => {
                       const isActive = lessonItem.id === lessonId
                       const isCompleted = completedLessonIds.has(lessonItem.id)
 

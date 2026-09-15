@@ -69,7 +69,7 @@ export default async function DashboardPage() {
             </div>
           ) : (
             <div className="space-y-4">
-              {courses.map(course => {
+              {courses.map((course: any) => {
                 const firstLessonId = course.modules[0]?.units[0]?.lessons[0]?.id
                 
                 return (
@@ -120,7 +120,7 @@ export default async function DashboardPage() {
             </div>
           ) : (
             <div className="space-y-3 flex-1">
-              {portfolioProjects.map((item) => (
+              {portfolioProjects.map((item: any) => (
                 <div key={item.id} className="p-3.5 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-between">
                   <div>
                     <h3 className="font-bold text-sm text-slate-900">{item.project.title}</h3>
