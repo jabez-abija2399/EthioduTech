@@ -3,7 +3,7 @@
 import { useState, useEffect, useTransition } from "react"
 import { useRouter } from "next/navigation"
 import { completeLessonAction } from "@/lib/actions/progress"
-import { getCodeDraft, saveCodeDraft, addPendingSync } from "@/lib/offline/db"
+import { getCodeDraft, saveCodeDraft, addPendingSync, saveLocalPublishedProject } from "@/lib/offline/db"
 import { publishToPortfolioAction } from "@/lib/actions/portfolio"
 import { validateCodeSubmission, CheckResult } from "@/lib/checker/code-checker"
 import { Play, RotateCcw, Sparkles, UploadCloud, CheckCircle2, AlertCircle, Terminal, FileCode } from "lucide-react"
@@ -135,6 +135,17 @@ export default function CodeEditor({
   const handlePublishSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (!projectTitle.trim()) return
+
+    // Save project locally immediately
+    const bundledContent = JSON.stringify({ html: htmlCode, css: cssCode, js: jsCode })
+    saveLocalPublishedProject({
+      id: `local-${Date.now()}`,
+      title: projectTitle.trim(),
+      description: projectDesc.trim() || "Interactive Web Project built on Edutech.",
+      url: bundledContent,
+      reflection: projectReflection.trim() || "Built as part of interactive web development practice.",
+      createdAt: Date.now()
+    })
 
     startPublishTransition(async () => {
       try {

@@ -36,9 +36,24 @@ export async function publishToPortfolioAction({
       })
 
       if (!studentProfile) {
-        studentProfile = await prisma.studentProfile.create({
-          data: { userId }
+        // Fallback matching by email if userId matches fallback "1" or user email
+        const user = await prisma.user.findFirst({
+          where: {
+            OR: [
+              { id: userId },
+              ...(session.user.email ? [{ email: session.user.email.toLowerCase().trim() }] : [])
+            ]
+          },
+          include: { studentProfile: true }
         })
+
+        if (user?.studentProfile) {
+          studentProfile = user.studentProfile
+        } else if (user) {
+          studentProfile = await prisma.studentProfile.create({
+            data: { userId: user.id }
+          })
+        }
       }
     } catch (dbErr) {
       console.warn("Prisma student profile lookup/create warning:", dbErr)

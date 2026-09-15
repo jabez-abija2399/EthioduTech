@@ -30,7 +30,7 @@ export default async function DashboardPage() {
     console.warn("Dashboard gamification data load warning:", err)
   }
 
-  const portfolioProjects = studentData?.portfolios?.[0]?.projects || []
+  const portfolioProjects = studentData?.portfolios?.flatMap((p: any) => p.projects || []) || []
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans">

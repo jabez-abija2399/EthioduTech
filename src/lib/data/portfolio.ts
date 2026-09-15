@@ -94,7 +94,7 @@ export async function getStudentPortfolio(userId: string) {
 
 export async function getPublicPortfolio(studentId: string) {
   try {
-    const studentProfile = await prisma.studentProfile.findUnique({
+    let studentProfile = await prisma.studentProfile.findUnique({
       where: { id: studentId },
       include: {
         user: {
@@ -113,6 +113,39 @@ export async function getPublicPortfolio(studentId: string) {
         }
       }
     })
+
+    if (!studentProfile) {
+      const user = await prisma.user.findFirst({
+        where: {
+          OR: [
+            { id: studentId },
+            { email: studentId.toLowerCase().trim() },
+            { studentProfile: { id: studentId } }
+          ]
+        },
+        include: {
+          studentProfile: {
+            include: {
+              user: {
+                include: {
+                  profile: true
+                }
+              },
+              portfolios: {
+                include: {
+                  projects: {
+                    include: {
+                      project: true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      })
+      studentProfile = user?.studentProfile || null
+    }
 
     if (studentProfile) {
       return studentProfile

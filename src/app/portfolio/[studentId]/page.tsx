@@ -17,7 +17,7 @@ export default async function PublicPortfolioPage({
   const firstName = student.user?.profile?.firstName || "Student"
   const lastName = student.user?.profile?.lastName || ""
   const fullName = `${firstName} ${lastName}`.trim()
-  const projects = student.portfolios?.[0]?.projects || []
+  const projects = student.portfolios?.flatMap((p: any) => p.projects || []) || []
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 font-sans">

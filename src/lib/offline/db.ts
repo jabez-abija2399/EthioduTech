@@ -17,6 +17,15 @@ export interface PendingSyncItem {
   status: "pending" | "synced"
 }
 
+export interface LocalPublishedProject {
+  id: string
+  title: string
+  description: string
+  url: string
+  reflection?: string
+  createdAt: number
+}
+
 function openDB(): Promise<IDBDatabase> {
   return new Promise((resolve, reject) => {
     if (typeof window === "undefined" || !("indexedDB" in window)) {
@@ -125,5 +134,30 @@ export async function removePendingSyncItem(id: number): Promise<void> {
     })
   } catch (err) {
     console.warn("Failed to remove pending sync item:", err)
+  }
+}
+
+// -----------------------------------------------------------------------------
+// LOCAL PUBLISHED PROJECTS STORAGE (FAST CLIENT RECOVERY)
+// -----------------------------------------------------------------------------
+
+export function saveLocalPublishedProject(project: LocalPublishedProject): void {
+  if (typeof window === "undefined") return
+  try {
+    const existing = getLocalPublishedProjects()
+    const updated = [project, ...existing.filter((p) => p.id !== project.id)]
+    localStorage.setItem("edutech_published_projects", JSON.stringify(updated))
+  } catch (e) {
+    console.warn("Failed to save published project to localStorage:", e)
+  }
+}
+
+export function getLocalPublishedProjects(): LocalPublishedProject[] {
+  if (typeof window === "undefined") return []
+  try {
+    const raw = localStorage.getItem("edutech_published_projects")
+    return raw ? JSON.parse(raw) : []
+  } catch (e) {
+    return []
   }
 }
