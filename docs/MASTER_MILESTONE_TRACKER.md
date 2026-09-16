@@ -14,17 +14,17 @@ This document unifies all project phases into a clear, sequential milestone trac
 
 ---
 
-## Milestone 2: Landing Page & Core Student Learning Loop (Status: IN_PROGRESS 🟡)
+## Milestone 2: Landing Page & Core Student Learning Loop (Status: VERIFIED 🟢)
 **Focus:** The public-facing entry point and the core student experience (Course selection, curriculum tree, and lesson viewer).
 **Associated Documentation:**
 - `docs/03-curriculum/CONTENT_ENGINEERING.md`
 - `docs/03-curriculum/course-architecture.md`
 - `docs/05-design/PAGE_ARCHITECTURE.md`
 **Tasks to Execute:**
-- `[ ]` Overhaul the Public Landing Page (`/`) with the premium brand identity.
-- `[ ]` Implement the Course System (Curriculum Hierarchy Viewer).
-- `[ ]` Implement the rich Markdown Lesson Viewer for students.
-- `[ ]` Connect real database progress to the UI.
+- `[x]` Overhaul the Public Landing Page (`/`) with the premium brand identity.
+- `[x]` Implement the Course System (Curriculum Hierarchy Viewer).
+- `[x]` Implement the rich Markdown Lesson Viewer for students.
+- `[x]` Connect real database progress to the UI.
 
 ---
 
