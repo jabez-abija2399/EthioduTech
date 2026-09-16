@@ -78,41 +78,41 @@ export function TeacherRosterClient({ students }: { students: RosterStudent[] })
         }}
       />
 
-      <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+      <div className="bg-[#3C4044] rounded-2xl shadow-sm border border-[#DDDCDB]/10 overflow-hidden">
         {/* Table Header & Search Input */}
-      <div className="p-6 border-b border-slate-200 flex items-center justify-between flex-wrap gap-4">
+      <div className="p-6 border-b border-[#DDDCDB]/10 flex items-center justify-between flex-wrap gap-4">
         <div>
-          <h2 className="text-xl font-bold text-slate-900">Student Roster</h2>
-          <p className="text-xs text-slate-500 mt-0.5">Individual learning progress and project showcases</p>
+          <h2 className="text-xl font-bold text-white">Student Roster</h2>
+          <p className="text-xs text-[#DDDCDB]/60 mt-0.5">Individual learning progress and project showcases</p>
         </div>
 
         <div className="flex items-center gap-3">
           <div className="relative">
-            <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+            <Search className="w-4 h-4 text-[#DDDCDB]/40 absolute left-3 top-1/2 -translate-y-1/2" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search by name or email..."
-              className="pl-9 pr-4 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-xl w-64 focus:outline-none focus:border-blue-500 focus:bg-white transition"
+              className="pl-9 pr-4 py-1.5 text-xs bg-slate-900/50 text-white border border-[#DDDCDB]/10 rounded-xl w-64 focus:outline-none focus:border-[#FD7B41]/50 focus:bg-slate-900 transition"
             />
           </div>
 
-          <span className="text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1.5 rounded-xl border border-blue-200">
+          <span className="text-xs font-bold text-[#FD7B41] bg-[#FD7B41]/10 px-3 py-1.5 rounded-xl border border-[#FD7B41]/20">
             {filteredStudents.length} of {students.length} Student(s)
           </span>
         </div>
       </div>
 
       {filteredStudents.length === 0 ? (
-        <div className="p-12 text-center text-slate-500 text-xs">
+        <div className="p-12 text-center text-[#DDDCDB]/50 text-xs">
           No students match your search filter "{searchQuery}".
         </div>
       ) : (
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="bg-slate-50 text-slate-500 text-xs font-bold uppercase tracking-wider border-b border-slate-200">
+              <tr className="bg-slate-900/50 text-[#DDDCDB]/70 text-xs font-bold uppercase tracking-wider border-b border-[#DDDCDB]/10">
                 <th className="p-4 pl-6">Student Name</th>
                 <th className="p-4">Email Address</th>
                 <th className="p-4">Lessons Completed</th>
@@ -120,38 +120,38 @@ export function TeacherRosterClient({ students }: { students: RosterStudent[] })
                 <th className="p-4 text-right pr-6">Quick Preview & Link</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100 text-sm">
+            <tbody className="divide-y divide-[#DDDCDB]/5 text-sm">
               {filteredStudents.map((student) => {
                 const fullName = `${student.user.profile?.firstName || "Student"} ${student.user.profile?.lastName || ""}`.trim()
                 const completedCount = student.progress.length
                 const projectCount = student.portfolios?.[0]?.projects?.length || 0
 
                 return (
-                  <tr key={student.id} className="hover:bg-slate-50/80 transition">
-                    <td className="p-4 pl-6 font-bold text-slate-900 flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-700 font-bold text-xs flex items-center justify-center">
+                  <tr key={student.id} className="hover:bg-slate-900/30 transition">
+                    <td className="p-4 pl-6 font-bold text-white flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-full bg-[#FD7B41]/20 text-[#FD7B41] font-bold text-xs flex items-center justify-center border border-[#FD7B41]/30">
                         {fullName.charAt(0)}
                       </div>
                       <span>{fullName}</span>
                     </td>
-                    <td className="p-4 text-slate-600 text-xs font-mono">{student.user.email}</td>
+                    <td className="p-4 text-[#DDDCDB]/70 text-xs font-mono">{student.user.email}</td>
                     <td className="p-4">
                       <div className="flex items-center space-x-2">
-                        <span className="font-bold text-slate-900 text-xs">{completedCount}</span>
-                        <div className="w-24 bg-slate-100 h-2 rounded-full overflow-hidden">
+                        <span className="font-bold text-white text-xs">{completedCount}</span>
+                        <div className="w-24 bg-slate-900 border border-[#DDDCDB]/10 h-2 rounded-full overflow-hidden">
                           <div
-                            className="bg-emerald-500 h-full rounded-full"
+                            className="bg-[#EDBF9B] h-full rounded-full"
                             style={{ width: `${Math.min(completedCount * 33, 100)}%` }}
                           ></div>
                         </div>
                       </div>
                     </td>
-                    <td className="p-4 font-bold text-indigo-600 text-xs">{projectCount} Project(s)</td>
+                    <td className="p-4 font-bold text-emerald-400 text-xs">{projectCount} Project(s)</td>
                     <td className="p-4 text-right pr-6 space-x-2">
                       {projectCount > 0 && (
                         <button
                           onClick={() => openPreview(student)}
-                          className="px-3 py-1.5 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 text-xs font-bold rounded-lg transition inline-flex items-center gap-1 cursor-pointer"
+                          className="px-3 py-1.5 bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 border border-blue-500/20 text-xs font-bold rounded-lg transition inline-flex items-center gap-1 cursor-pointer"
                         >
                           <Eye className="w-3.5 h-3.5" />
                           <span>Quick Preview</span>
@@ -160,7 +160,7 @@ export function TeacherRosterClient({ students }: { students: RosterStudent[] })
 
                       <Link
                         href={`/portfolio/${student.id}`}
-                        className="px-3.5 py-1.5 bg-blue-50 hover:bg-blue-100 text-blue-700 text-xs font-bold rounded-lg transition inline-flex items-center gap-1"
+                        className="px-3.5 py-1.5 bg-[#FD7B41]/10 hover:bg-[#FD7B41]/20 text-[#FD7B41] border border-[#FD7B41]/20 text-xs font-bold rounded-lg transition inline-flex items-center gap-1"
                       >
                         <span>Full Portfolio</span>
                         <ExternalLink className="w-3.5 h-3.5" />

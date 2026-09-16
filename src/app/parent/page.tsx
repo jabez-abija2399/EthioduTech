@@ -19,31 +19,27 @@ export default async function ParentDashboardPage() {
   const children = parentData?.children || []
 
   return (
-    <div className="min-h-screen bg-slate-50 font-sans">
-      <Navbar />
-
-      <main className="max-w-6xl mx-auto p-6 md:p-12">
-        {/* Header */}
-        <div className="mb-8">
-          <div className="flex items-center gap-2 mb-1">
-            <span className="px-2.5 py-0.5 bg-emerald-100 text-emerald-800 text-xs font-extrabold rounded-md uppercase border border-emerald-200">
-              Parent Portal
-            </span>
-          </div>
-          <h1 className="text-3xl font-extrabold text-slate-900 tracking-tight">Family Learning Overview</h1>
-          <p className="text-slate-600 text-sm mt-1">Welcome back, {parentName}. Track your children's coding progress and portfolio creations.</p>
+    <>
+      {/* Header */}
+      <header className="mb-8">
+        <div className="flex items-center gap-2 mb-1">
+          <span className="px-2.5 py-0.5 bg-emerald-500/20 text-emerald-400 text-xs font-extrabold rounded-md uppercase border border-emerald-500/30">
+            Parent Portal
+          </span>
         </div>
+        <h1 className="text-3xl font-extrabold text-white tracking-tight">Family Learning Overview</h1>
+        <p className="text-[#DDDCDB]/70 text-sm mt-1">Welcome back, {parentName}. Track your children's coding progress and portfolio creations.</p>
+      </header>
 
-        {/* Children Progress Cards */}
-        {children.length === 0 ? (
-          <div className="bg-white p-12 rounded-2xl shadow-sm border border-slate-200 text-center text-slate-500">
-            <p className="text-lg font-bold text-slate-800">No linked children profiles found.</p>
-            <p className="text-sm mt-2">Connect your child's student account to monitor their web learning journey.</p>
-          </div>
-        ) : (
-          <ParentClient children={children as any} />
-        )}
-      </main>
-    </div>
+      {/* Children Progress Cards */}
+      {children.length === 0 ? (
+        <div className="bg-[#3C4044] p-12 rounded-2xl shadow-sm border border-[#DDDCDB]/10 text-center text-[#DDDCDB]/70">
+          <p className="text-lg font-bold text-white">No linked children profiles found.</p>
+          <p className="text-sm mt-2 text-[#DDDCDB]/50">Connect your child's student account to monitor their web learning journey.</p>
+        </div>
+      ) : (
+        <ParentClient children={children as any} />
+      )}
+    </>
   )
 }

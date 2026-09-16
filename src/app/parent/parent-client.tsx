@@ -63,54 +63,54 @@ export function ParentClient({ children }: { children: ParentChild[] }) {
           const projects = child.portfolios?.[0]?.projects || []
 
           return (
-            <div key={child.id} className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden flex flex-col justify-between hover:shadow-md transition">
-              <div className="p-6 border-b border-slate-100">
+            <div key={child.id} className="bg-[#3C4044] rounded-2xl shadow-sm border border-[#DDDCDB]/10 overflow-hidden flex flex-col justify-between hover:border-[#FD7B41]/50 transition">
+              <div className="p-6 border-b border-[#DDDCDB]/10">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center space-x-3">
-                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white font-extrabold text-lg flex items-center justify-center shadow-md shadow-emerald-500/20">
+                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#FD7B41] to-[#EDBF9B] text-[#3C4044] font-extrabold text-lg flex items-center justify-center shadow-md shadow-[#FD7B41]/20">
                       {childName.charAt(0)}
                     </div>
                     <div>
-                      <h2 className="text-xl font-bold text-slate-900">{childName}</h2>
-                      <p className="text-xs text-slate-500">{child.user.email}</p>
+                      <h2 className="text-xl font-bold text-white">{childName}</h2>
+                      <p className="text-xs text-[#DDDCDB]/60">{child.user.email}</p>
                     </div>
                   </div>
 
-                  <span className="px-3 py-1 bg-emerald-50 text-emerald-700 text-xs font-bold rounded-full border border-emerald-200">
+                  <span className="px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-bold rounded-full border border-emerald-500/30">
                     Active Student
                   </span>
                 </div>
 
                 <div className="space-y-4 pt-2">
                   <div>
-                    <div className="flex justify-between text-xs font-bold text-slate-700 mb-1.5">
+                    <div className="flex justify-between text-xs font-bold text-[#DDDCDB]/70 mb-1.5">
                       <span>Web Creator Course Progress</span>
-                      <span className="text-emerald-600">{completedCount} Lessons Finished</span>
+                      <span className="text-[#FD7B41]">{completedCount} Lessons Finished</span>
                     </div>
-                    <div className="w-full bg-slate-100 h-3 rounded-full overflow-hidden">
+                    <div className="w-full bg-slate-900 border border-[#DDDCDB]/10 h-3 rounded-full overflow-hidden">
                       <div
-                        className="bg-emerald-500 h-full rounded-full transition-all duration-500"
+                        className="bg-[#FD7B41] h-full rounded-full transition-all duration-500"
                         style={{ width: `${Math.min(completedCount * 33, 100)}%` }}
                       ></div>
                     </div>
                   </div>
 
                   <div className="pt-2">
-                    <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Portfolio Projects ({projects.length})</h3>
+                    <h3 className="text-xs font-bold text-[#DDDCDB]/50 uppercase tracking-wider mb-2">Portfolio Projects ({projects.length})</h3>
                     {projects.length === 0 ? (
-                      <p className="text-xs text-slate-400 italic">No published projects yet.</p>
+                      <p className="text-xs text-[#DDDCDB]/40 italic">No published projects yet.</p>
                     ) : (
                       <div className="space-y-2">
                         {projects.map((proj) => (
-                          <div key={proj.id} className="p-3 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-between text-xs hover:border-emerald-300 transition">
+                          <div key={proj.id} className="p-3 bg-slate-900/50 border border-[#DDDCDB]/10 rounded-xl flex items-center justify-between text-xs hover:border-emerald-400/50 transition">
                             <div className="flex items-center gap-2">
-                              <CheckCircle className="w-4 h-4 text-emerald-500" />
-                              <span className="font-bold text-slate-800">{proj.project.title}</span>
+                              <CheckCircle className="w-4 h-4 text-emerald-400" />
+                              <span className="font-bold text-white">{proj.project.title}</span>
                             </div>
 
                             <button
                               onClick={() => openPreview(child, proj)}
-                              className="px-2.5 py-1 bg-emerald-100 hover:bg-emerald-200 text-emerald-800 text-xs font-bold rounded-lg transition inline-flex items-center gap-1 cursor-pointer"
+                              className="px-2.5 py-1 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 text-xs font-bold rounded-lg transition inline-flex items-center gap-1 cursor-pointer"
                             >
                               <Eye className="w-3.5 h-3.5" />
                               <span>Live Preview</span>
@@ -123,14 +123,14 @@ export function ParentClient({ children }: { children: ParentChild[] }) {
                 </div>
               </div>
 
-              <div className="p-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
-                <span className="text-xs text-slate-500 flex items-center gap-1">
-                  <Award className="w-4 h-4 text-amber-500" />
+              <div className="p-4 bg-slate-900/30 border-t border-[#DDDCDB]/10 flex items-center justify-between">
+                <span className="text-xs text-[#DDDCDB]/60 flex items-center gap-1">
+                  <Award className="w-4 h-4 text-[#EDBF9B]" />
                   Verified Parent View
                 </span>
                 <Link
                   href={`/portfolio/${child.id}`}
-                  className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow transition inline-flex items-center gap-1.5"
+                  className="px-4 py-2 bg-[#FD7B41] hover:bg-[#FD7B41]/90 text-white font-bold text-xs rounded-xl shadow transition inline-flex items-center gap-1.5"
                 >
                   <span>View Public Showcase</span>
                   <ExternalLink className="w-3.5 h-3.5" />
