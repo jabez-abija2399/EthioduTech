@@ -52,13 +52,13 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
         // Hardcoded test user fallback for seed environment
         if (email === "student@edutech.test" && password === "password") {
-          return { id: "1", name: "Test Student", email: "student@edutech.test", role: "STUDENT" }
+          return { id: "00000000-0000-0000-0000-000000000001", name: "Test Student", email: "student@edutech.test", role: "STUDENT" }
         }
         if (email === "teacher@edutech.test" && password === "password") {
-          return { id: "2", name: "Test Teacher", email: "teacher@edutech.test", role: "TEACHER" }
+          return { id: "00000000-0000-0000-0000-000000000002", name: "Test Teacher", email: "teacher@edutech.test", role: "TEACHER" }
         }
         if (email === "parent@edutech.test" && password === "password") {
-          return { id: "3", name: "Test Parent", email: "parent@edutech.test", role: "PARENT" }
+          return { id: "00000000-0000-0000-0000-000000000003", name: "Test Parent", email: "parent@edutech.test", role: "PARENT" }
         }
 
         return null
