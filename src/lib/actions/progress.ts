@@ -152,31 +152,9 @@ export async function completeLessonAction(courseId: string, lessonId: string) {
       }
     }
 
-    // 4. Find next lesson in the course
-    // Handle fallback courses without crashing if courseId is not a UUID
-    let course = null;
-    try {
-      course = await prisma.course.findUnique({
-        where: { id: courseId },
-        include: {
-          modules: {
-            orderBy: { order: "asc" },
-            include: {
-              units: {
-                orderBy: { order: "asc" },
-                include: {
-                  lessons: {
-                    orderBy: { order: "asc" }
-                  }
-                }
-              }
-            }
-          }
-        }
-      })
-    } catch (dbErr) {
-      console.warn("Course lookup warning (likely fallback course):", dbErr);
-    }
+    // 4. Find next lesson in the course (supports fallback courses natively)
+    const { getCourseWithFullTree } = await import("@/lib/data/course")
+    const course = await getCourseWithFullTree(courseId)
 
     if (!course) {
       return { success: true, nextLessonId: null }
@@ -184,9 +162,9 @@ export async function completeLessonAction(courseId: string, lessonId: string) {
 
     // Flatten all lessons into a single ordered array
     const allLessons: string[] = []
-    course.modules.forEach(mod => {
-      mod.units.forEach(unit => {
-        unit.lessons.forEach(l => {
+    course.modules.forEach((mod: any) => {
+      mod.units.forEach((unit: any) => {
+        unit.lessons.forEach((l: any) => {
           allLessons.push(l.id)
         })
       })
