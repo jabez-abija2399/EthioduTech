@@ -69,13 +69,18 @@ export default async function LessonPage({
     notFound();
   }
 
-  // Extract starter code if defined in markdown (simple heuristic for now)
-  // E.g., looking for \`\`\`html ... \`\`\`
-  // In a real system, we'd use gray-matter frontmatter for this.
+  // 3. Extract starter code from Markdown comments
+  // We look for: <!-- sandbox:html --> ... <!-- /sandbox:html -->
+  const extractCode = (content: string, language: string) => {
+    const regex = new RegExp(`<!--\\s*sandbox:${language}\\s*-->([\\s\\S]*?)<!--\\s*\\/sandbox:${language}\\s*-->`, 'i');
+    const match = content.match(regex);
+    return match ? match[1].trim() : '';
+  };
+
   const initialSandboxFiles = {
-    html: '<h1>Hello, Sandbox</h1>\n<p>Start coding here!</p>',
-    css: 'body { font-family: sans-serif; }',
-    js: 'console.log("Ready!");'
+    html: extractCode(lesson.content, 'html'),
+    css: extractCode(lesson.content, 'css'),
+    js: extractCode(lesson.content, 'js')
   };
 
   return (

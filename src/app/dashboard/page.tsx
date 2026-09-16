@@ -1,6 +1,6 @@
 import { auth } from "@/auth"
 import { redirect } from "next/navigation"
-import { getCourses } from "@/lib/data/course"
+import { getCourses, getUserProgress } from "@/lib/data/course"
 import { getStudentPortfolio } from "@/lib/data/portfolio"
 import { getStudentGamificationStats } from "@/lib/data/gamification"
 import Link from "next/link"
@@ -15,14 +15,56 @@ export default async function DashboardPage() {
 
   const userId = session.user.id || (session.user as any)?.sub || ""
 
-  const [courses, studentData] = await Promise.all([
+  const [courses, studentData, userProgress] = await Promise.all([
     getCourses(),
-    getStudentPortfolio(userId)
+    getStudentPortfolio(userId),
+    getUserProgress(userId)
   ])
 
-  // Fake active course for the demo UX since db doesn't persist real active state easily yet
   const activeCourse = courses.length > 0 ? courses[0] : null
-  const activeLessonId = activeCourse?.modules?.[0]?.units?.[0]?.lessons?.[0]?.id || ""
+  
+  // Calculate real progress
+  let activeLessonId = ""
+  let completedCount = 0
+  let totalLessons = 0
+  let nextLessonName = "Introduction"
+  let currentModuleName = "Module 1"
+
+  if (activeCourse) {
+    const completedLessonIds = new Set(
+      userProgress.filter((p: any) => p.status === 'COMPLETED').map((p: any) => p.entityId)
+    )
+
+    let foundNext = false
+    
+    // Traverse modules, units, lessons in order
+    for (const mod of activeCourse.modules) {
+      for (const unit of mod.units) {
+        for (const lesson of unit.lessons) {
+          totalLessons++
+          if (completedLessonIds.has(lesson.id)) {
+            completedCount++
+          } else if (!foundNext) {
+            activeLessonId = lesson.id
+            nextLessonName = lesson.title
+            currentModuleName = mod.title
+            foundNext = true
+          }
+        }
+      }
+    }
+    
+    // If all completed, just point to the last lesson
+    if (!foundNext && activeCourse.modules.length > 0) {
+      const lastMod = activeCourse.modules[activeCourse.modules.length - 1]
+      const lastUnit = lastMod.units[lastMod.units.length - 1]
+      activeLessonId = lastUnit.lessons[lastUnit.lessons.length - 1].id
+      nextLessonName = "Course Completed!"
+      currentModuleName = lastMod.title
+    }
+  }
+
+  const progressPercentage = totalLessons > 0 ? Math.round((completedCount / totalLessons) * 100) : 0
 
   const portfolioProjects = studentData?.portfolios?.flatMap((p: any) => p.projects || []) || []
 
@@ -50,22 +92,22 @@ export default async function DashboardPage() {
             </div>
             <h2 className="text-3xl md:text-4xl font-black text-white mb-2">{activeCourse.title}</h2>
             <p className="text-[#DDDCDB] font-medium text-lg mb-6 max-w-xl">
-              Module 1: Foundations
+              {currentModuleName}
             </p>
             
             <div className="mb-6 max-w-md">
               <div className="flex justify-between text-sm mb-2 font-bold">
                 <span className="text-[#DDDCDB]/80">Progress</span>
-                <span className="text-[#FD7B41]">12%</span>
+                <span className="text-[#FD7B41]">{progressPercentage}%</span>
               </div>
               <div className="w-full h-2 bg-black/40 rounded-full overflow-hidden">
-                <div className="h-full bg-[#FD7B41] rounded-full" style={{ width: "12%" }}></div>
+                <div className="h-full bg-[#FD7B41] rounded-full transition-all duration-1000" style={{ width: `${progressPercentage}%` }}></div>
               </div>
             </div>
 
             <div className="flex items-center gap-4 text-sm font-medium text-[#DDDCDB]/80 mb-6 bg-white/5 inline-flex px-4 py-2 rounded-xl border border-white/5">
               <span>Next up:</span>
-              <span className="text-white font-bold">Variables & Data Types</span>
+              <span className="text-white font-bold">{nextLessonName}</span>
             </div>
             
             <div>
