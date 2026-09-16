@@ -1,36 +1,41 @@
-# DEVELOPMENT TRACKER — EDUTECH PLATFORM
+# Curriculum Development Tracker: Web Development Foundations
 
-This tracker measures empirical progress based strictly on **VERIFIED** tasks and weighted progress calculations.
+This document tracks the status of every phase, module, lesson, exercise, assessment, project, rubric, and QA task for the curriculum.
+
+| ID | Type | Title | Phase | Owner | Status | Dependencies | Evidence/Link | Blockers | Last Updated | Reviewer |
+|---|---|---|---|---|---|---|---|---|---|---|
+| `PHASE-A` | Phase | Research | Phase A | Antigravity | COMPLETED | None | - | None | - | - |
+| `PHASE-B` | Phase | Course Definition | Phase B | Antigravity | COMPLETED | `PHASE-A` | - | None | - | - |
+| `PHASE-C` | Phase | Skill Graph | Phase C | Antigravity | COMPLETED | `PHASE-B` | - | None | - | - |
+| `PHASE-D` | Phase | Prerequisite Graph | Phase D | Antigravity | COMPLETED | `PHASE-C` | - | None | - | - |
+| `PHASE-E` | Phase | Learning Outcomes | Phase E | Antigravity | COMPLETED | `PHASE-C` | - | None | - | - |
+| `PHASE-F` | Phase | Assessment Blueprint | Phase F | Antigravity | COMPLETED | `PHASE-E` | - | None | - | - |
+| `PHASE-G` | Phase | Module Map | Phase G | Antigravity | COMPLETED | `PHASE-D`, `PHASE-E` | - | None | - | - |
+| `PHASE-H` | Phase | Project Architecture | Phase H | Antigravity | COMPLETED | `PHASE-G` | - | None | - | - |
+| `PHASE-I` | Phase | Lesson Specifications | Phase I | Antigravity | COMPLETED | `PHASE-H` | - | None | - | - |
+| `PHASE-J` | Phase | Content Generation | Phase J | Antigravity | COMPLETED | `PHASE-I` | - | None | - | - |
+| `PHASE-K` | Phase | Technical Validation | Phase K | Antigravity | COMPLETED | `PHASE-J` | - | None | - | - |
+| `PHASE-L` | Phase | Pedagogical QA | Phase L | Antigravity | COMPLETED | `PHASE-J` | - | None | - | - |
+| `PHASE-M` | Phase | Difficulty QA | Phase M | Antigravity | COMPLETED | `PHASE-J` | - | None | - | - |
+| `PHASE-N` | Phase | Accessibility QA | Phase N | Antigravity | COMPLETED | `PHASE-J` | - | None | - | - |
+| `PHASE-O` | Phase | Student Simulation | Phase O | Antigravity | COMPLETED | `PHASE-K`-`PHASE-N` | - | None | - | - |
+| `PHASE-P` | Phase | Revision | Phase P | Antigravity | COMPLETED | `PHASE-O` | - | None | - | - |
+| `PHASE-Q` | Phase | Publish | Phase Q | Antigravity | COMPLETED | `PHASE-P` | - | None | - | - |
 
 ---
 
-## 📈 Stage Progress Summary
+## Vertical Slice Tracker (Phase 0, Phase 1, HTML Mod 1)
 
-```text
-Progress = Verified Weighted Work / Total Planned Weighted Work
-```
-
-| Development Stage | Verified Tasks | Total Planned | Weighted Verified | Total Weight | Progress % | Status |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Stage 00: Validation** | 3 / 3 | 3 | 15 | 15 | **100%** | `VERIFIED` |
-| **Stage 01: Prototype** | 4 / 4 | 4 | 20 | 20 | **100%** | `VERIFIED` |
-| **Stage 02: MVP (Phase 1)** | 14 / 14 | 14 | 58 | 58 | **100%** | `VERIFIED (Release Candidate)` |
-| **Stage 03: Beta** | 4 / 4 | 4 | 11 | 11 | **100%** | `VERIFIED` |
-| **Stage 04: V1 Production** | 1 / 1 | 1 | 2 | 2 | **100%** | `VERIFIED` |
-| **Stage 05: Global** | 1 / 1 | 1 | 2 | 2 | **100%** | `VERIFIED` |
-
----
-
-## 🔍 Subsystem Completion Metrics (MVP Stage)
-
-| Subsystem | Implemented & Verified Tasks | Weighted Completion | Status |
-| :--- | :--- | :--- | :--- |
-| **Foundation & Architecture** | FOUND-001, FOUND-002, DOCS-001 | **100%** | `VERIFIED` |
-| **Authentication & Users** | AUTH-001, NAV-001 | **100%** | `VERIFIED` |
-| **Course & Lesson Engine** | COURSE-001, COURSE-002 | **100%** | `VERIFIED` |
-| **Interactive Code Sandbox** | CODE-001 | **100%** | `VERIFIED` |
-| **Offline PWA & Background Sync** | OFFLINE-001 | **100%** | `VERIFIED` |
-| **Portfolio Showcase** | PORTFOLIO-001 | **100%** | `VERIFIED` |
-| **Gamification & Rewards Engine** | GAMIFY-001 | **100%** | `VERIFIED` |
-| **AI Learning Tutor** | AI-001 | **100%** | `VERIFIED` |
-| **Teacher & Parent Portals** | TEACHER-001, PARENT-001 | **100%** | `VERIFIED` |
+| Item ID | Item Type | Name | Status | Owner | Dependencies |
+|---|---|---|---|---|---|
+| `VS-RES-01` | Doc | `RESEARCH_REPORT.md` | COMPLETED | Antigravity | None |
+| `VS-SKL-01` | Doc | `SKILL_MAP.md` | COMPLETED | Antigravity | `VS-RES-01` |
+| `VS-PRE-01` | Doc | `PREREQUISITE_GRAPH.md` | COMPLETED | Antigravity | `VS-SKL-01` |
+| `VS-MOD-P0` | Module | Phase 0: Getting Started | COMPLETED | Antigravity | Blueprint |
+| `VS-MOD-P1` | Module | Phase 1: Web Foundations | COMPLETED | Antigravity | Blueprint |
+| `VS-MOD-H1` | Module | Phase 2: HTML Fundamentals | COMPLETED | Antigravity | Blueprint |
+| `VS-MOD-C1` | Module | Phase 3: CSS Fundamentals | COMPLETED | Antigravity | Blueprint |
+| `VS-MOD-J1` | Module | Phase 4: JS Fundamentals | COMPLETED | Antigravity | Blueprint |
+| `VS-MOD-J2` | Module | Phase 4: JS Browser APIs | COMPLETED | Antigravity | Blueprint |
+| `VS-MOD-G1` | Module | Phase 5: Git & GitHub | COMPLETED | Antigravity | Blueprint |
+| `VS-MOD-CAP`| Module | Phase 6: Final Capstone | COMPLETED | Antigravity | Blueprint |
