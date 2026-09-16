@@ -18,15 +18,27 @@ export async function completeLessonAction(courseId: string, lessonId: string) {
     where: { id: userId }
   })
 
-  if (!userRecord) {
-    userRecord = await prisma.user.create({
-      data: {
-        id: userId,
-        email: session.user.email || `user_${userId}@edutech.test`,
-        hashedPassword: "password",
-        role: "STUDENT"
-      }
+  if (!userRecord && session.user.email) {
+    userRecord = await prisma.user.findUnique({
+      where: { email: session.user.email }
     })
+  }
+
+  if (!userRecord) {
+    const emailToUse = session.user.email || `user_${userId}@edutech.test`
+    // Check if this fallback email exists
+    userRecord = await prisma.user.findUnique({ where: { email: emailToUse } })
+    
+    if (!userRecord) {
+      userRecord = await prisma.user.create({
+        data: {
+          id: userId,
+          email: emailToUse,
+          hashedPassword: "password",
+          role: "STUDENT"
+        }
+      })
+    }
   }
 
   let studentProfile = await prisma.studentProfile.findUnique({
