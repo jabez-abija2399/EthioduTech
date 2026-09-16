@@ -152,64 +152,28 @@ export default async function DashboardPage() {
       {/* Three Column Split */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         
-        {/* Left: What's Next Action List */}
+        {/* Left: Your Learning Stats */}
         <div className="lg:col-span-2 space-y-6">
           <h3 className="text-xl font-bold text-[#3C4044] flex items-center gap-2">
             <Activity className="w-5 h-5 text-[#FD7B41]" />
-            What's next?
-          </h3>
-          
-          <div className="space-y-4">
-            {/* Practice Item */}
-            <div className="bg-white border border-[#DDDCDB]/40 rounded-2xl p-5 shadow-sm hover:border-[#FD7B41]/40 transition group cursor-pointer flex gap-5 items-center">
-              <div className="w-12 h-12 rounded-xl bg-[#EDBF9B]/20 flex items-center justify-center text-[#EDBF9B] shrink-0">
-                <Code className="w-6 h-6" />
-              </div>
-              <div className="flex-1">
-                <div className="text-[10px] font-bold text-[#3C4044]/50 uppercase tracking-widest mb-1">Practice</div>
-                <h4 className="font-bold text-[#3C4044] text-base group-hover:text-[#FD7B41] transition">Variables & Scope</h4>
-                <p className="text-sm text-[#3C4044]/60 line-clamp-1">Complete 3 short interactive exercises to solidify your understanding.</p>
-              </div>
-              <ChevronRight className="w-5 h-5 text-[#3C4044]/30 group-hover:text-[#FD7B41] transition transform group-hover:translate-x-1" />
-            </div>
-
-            {/* Project Item */}
-            <div className="bg-white border border-[#DDDCDB]/40 rounded-2xl p-5 shadow-sm hover:border-[#FD7B41]/40 transition group cursor-pointer flex gap-5 items-center">
-              <div className="w-12 h-12 rounded-xl bg-[#3C4044]/5 flex items-center justify-center text-[#3C4044] shrink-0">
-                <FolderKanban className="w-6 h-6" />
-              </div>
-              <div className="flex-1">
-                <div className="text-[10px] font-bold text-[#3C4044]/50 uppercase tracking-widest mb-1">Project</div>
-                <h4 className="font-bold text-[#3C4044] text-base group-hover:text-[#FD7B41] transition">Build the Search Feature</h4>
-                <p className="text-sm text-[#3C4044]/60 line-clamp-1">Apply what you learned to your Weather Dashboard project.</p>
-              </div>
-              <ChevronRight className="w-5 h-5 text-[#3C4044]/30 group-hover:text-[#FD7B41] transition transform group-hover:translate-x-1" />
-            </div>
-          </div>
-
-          <h3 className="text-xl font-bold text-[#3C4044] flex items-center gap-2 pt-6">
-            <CheckCircle2 className="w-5 h-5 text-emerald-500" />
-            Your Skills
+            Your Learning Journey
           </h3>
           
           <div className="bg-white border border-[#DDDCDB]/40 rounded-2xl p-6 shadow-sm">
-            <div className="space-y-5">
-              {[
-                { name: "HTML / CSS", level: "Developing", percent: 45, color: "bg-blue-500" },
-                { name: "JavaScript", level: "Starting", percent: 15, color: "bg-yellow-400" },
-                { name: "Problem Solving", level: "Developing", percent: 35, color: "bg-emerald-500" }
-              ].map(skill => (
-                <div key={skill.name}>
-                  <div className="flex justify-between text-sm font-bold mb-2">
-                    <span className="text-[#3C4044]">{skill.name}</span>
-                    <span className="text-[#3C4044]/50">{skill.level}</span>
-                  </div>
-                  <div className="w-full h-2 bg-[#f8f9fa] rounded-full overflow-hidden border border-[#DDDCDB]/20">
-                    <div className={`h-full ${skill.color} rounded-full`} style={{ width: `${skill.percent}%` }}></div>
-                  </div>
+             <div className="grid grid-cols-2 md:grid-cols-3 gap-6 text-center">
+                <div>
+                   <p className="text-[#3C4044]/60 text-sm font-bold mb-1">XP Earned</p>
+                   <p className="text-3xl font-black text-[#FD7B41]">{studentData?.xp || 0}</p>
                 </div>
-              ))}
-            </div>
+                <div>
+                   <p className="text-[#3C4044]/60 text-sm font-bold mb-1">Day Streak</p>
+                   <p className="text-3xl font-black text-[#EDBF9B]">{studentData?.streakDays || 0}</p>
+                </div>
+                <div>
+                   <p className="text-[#3C4044]/60 text-sm font-bold mb-1">Lessons Completed</p>
+                   <p className="text-3xl font-black text-emerald-500">{userProgress.length}</p>
+                </div>
+             </div>
           </div>
         </div>
 
@@ -225,9 +189,6 @@ export default async function DashboardPage() {
                 </div>
                 <p className="font-bold text-[#3C4044] mb-1">No projects yet</p>
                 <p className="text-xs text-[#3C4044]/60 mb-4">Build something you're proud to show.</p>
-                <Link href="/dashboard" className="px-4 py-2 bg-[#FD7B41]/10 text-[#FD7B41] font-bold text-xs rounded-lg hover:bg-[#FD7B41]/20 transition block">
-                  Start a project
-                </Link>
               </div>
             ) : (
               <div className="p-1">

@@ -1,13 +1,11 @@
 import React from 'react';
 import { notFound, redirect } from 'next/navigation';
-import { PrismaClient } from '@prisma/client';
 import { auth } from '@/auth';
+import { getCourseWithFullTree, getLesson } from '@/lib/data/course';
 import { CourseSidebar } from '@/components/curriculum/CourseSidebar';
 import { MarkdownViewer } from '@/components/curriculum/MarkdownViewer';
 import { CodeSandbox } from '@/components/sandbox/CodeSandbox';
 import { CompleteLessonButton } from '@/components/curriculum/CompleteLessonButton';
-
-const prisma = new PrismaClient();
 
 export default async function LessonPage({ 
   params 
@@ -22,33 +20,15 @@ export default async function LessonPage({
   }
 
   // 1. Fetch Course and Modules for Sidebar
-  const course = await prisma.course.findUnique({
-    where: { id: courseId },
-    include: {
-      modules: {
-        orderBy: { order: 'asc' },
-        include: {
-          units: {
-            orderBy: { order: 'asc' },
-            include: {
-              lessons: {
-                orderBy: { order: 'asc' }
-              }
-            }
-          }
-        }
-      }
-    }
-  });
+  const course = await getCourseWithFullTree(courseId);
 
   if (!course) {
     notFound();
   }
 
   // Flatten the hierarchy to match Sidebar props
-  // We assume 1 Unit per Module right now based on our sync script
-  const sidebarModules = course.modules.map(mod => {
-    const lessons = mod.units.flatMap(u => u.lessons).map(l => ({
+  const sidebarModules = course.modules.map((mod: any) => {
+    const lessons = mod.units.flatMap((u: any) => u.lessons).map((l: any) => ({
       id: l.id,
       title: l.title,
       isCompleted: false // To be filled with real Progress tracking later
@@ -61,9 +41,7 @@ export default async function LessonPage({
   });
 
   // 2. Fetch Current Lesson Content
-  const lesson = await prisma.lesson.findUnique({
-    where: { id: lessonId }
-  });
+  const lesson = await getLesson(lessonId);
 
   if (!lesson) {
     notFound();
