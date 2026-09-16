@@ -5,7 +5,7 @@ import { auth } from '@/auth';
 import { CourseSidebar } from '@/components/curriculum/CourseSidebar';
 import { MarkdownViewer } from '@/components/curriculum/MarkdownViewer';
 import { CodeSandbox } from '@/components/sandbox/CodeSandbox';
-import { completeLesson } from '../../../actions';
+import { CompleteLessonButton } from '@/components/curriculum/CompleteLessonButton';
 
 const prisma = new PrismaClient();
 
@@ -97,17 +97,7 @@ export default async function LessonPage({
         {/* Left: Markdown Viewer */}
         <div className="w-full md:w-1/2 h-1/2 md:h-full overflow-y-auto p-6 md:p-10 border-b md:border-b-0 md:border-r border-[#3C4044]">
           <MarkdownViewer content={lesson.content} />
-          
-          <form action={completeLesson} className="mt-12 pt-8 border-t border-[#3C4044]">
-            <input type="hidden" name="lessonId" value={lesson.id} />
-            <input type="hidden" name="courseId" value={courseId} />
-            <button 
-              type="submit"
-              className="w-full py-3 bg-[#FD7B41] hover:bg-[#e66a35] text-white font-bold rounded transition-colors shadow-lg"
-            >
-              Mark Complete & Continue
-            </button>
-          </form>
+          <CompleteLessonButton lessonId={lesson.id} courseId={courseId} />
         </div>
 
         {/* Right: Code Sandbox */}
