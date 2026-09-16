@@ -91,7 +91,6 @@ export function getNavItemsForRole(roleStr?: string | null, studentId?: string |
     case "STUDENT":
       return [
         { label: "Dashboard", href: "/dashboard", icon: "📊" },
-        { label: "My Courses", href: "/dashboard", icon: "📚" },
         ...(studentId ? [{ label: "My Showcase", href: `/portfolio/${studentId}`, icon: "🌐" }] : [])
       ]
 

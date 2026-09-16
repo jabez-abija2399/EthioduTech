@@ -101,7 +101,20 @@ export default function CodeEditor({
         return
       }
 
-      await completeLessonAction(courseId, lessonId)
+      const result = await completeLessonAction(courseId, lessonId)
+      
+      if (result?.error === "UNAUTHORIZED") {
+        router.push("/login")
+        return
+      }
+
+      if (result?.success) {
+        if (result.nextLessonId) {
+          router.push(`/courses/${courseId}/lessons/${result.nextLessonId}`)
+        } else {
+          router.push("/dashboard")
+        }
+      }
     })
   }
 

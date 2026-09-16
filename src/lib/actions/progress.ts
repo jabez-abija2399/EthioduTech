@@ -8,7 +8,7 @@ export async function completeLessonAction(courseId: string, lessonId: string) {
   const session = await auth()
   
   if (!session?.user?.id) {
-    redirect("/login")
+    return { error: "UNAUTHORIZED" }
   }
 
   const userId = session.user.id
@@ -161,7 +161,7 @@ export async function completeLessonAction(courseId: string, lessonId: string) {
   })
 
   if (!course) {
-    redirect("/dashboard")
+    return { success: true, nextLessonId: null }
   }
 
   // Flatten all lessons into a single ordered array
@@ -177,9 +177,9 @@ export async function completeLessonAction(courseId: string, lessonId: string) {
   const currentIndex = allLessons.indexOf(lessonId)
   if (currentIndex !== -1 && currentIndex < allLessons.length - 1) {
     const nextLessonId = allLessons[currentIndex + 1]
-    redirect(`/courses/${courseId}/lessons/${nextLessonId}`)
+    return { success: true, nextLessonId }
   } else {
     // Course finished or last lesson
-    redirect("/dashboard")
+    return { success: true, nextLessonId: null }
   }
 }

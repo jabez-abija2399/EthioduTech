@@ -54,6 +54,12 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         if (email === "student@edutech.test" && password === "password") {
           return { id: "1", name: "Test Student", email: "student@edutech.test", role: "STUDENT" }
         }
+        if (email === "teacher@edutech.test" && password === "password") {
+          return { id: "2", name: "Test Teacher", email: "teacher@edutech.test", role: "TEACHER" }
+        }
+        if (email === "parent@edutech.test" && password === "password") {
+          return { id: "3", name: "Test Parent", email: "parent@edutech.test", role: "PARENT" }
+        }
 
         return null
       },
