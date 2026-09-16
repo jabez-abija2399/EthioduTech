@@ -170,6 +170,11 @@ export async function completeLessonAction(courseId: string, lessonId: string) {
       })
     })
 
+    const { revalidatePath } = await import("next/cache")
+    revalidatePath("/")
+    revalidatePath("/dashboard")
+    revalidatePath(`/courses/${courseId}/lessons/${lessonId}`)
+
     const currentIndex = allLessons.indexOf(lessonId)
     if (currentIndex !== -1 && currentIndex < allLessons.length - 1) {
       const nextLessonId = allLessons[currentIndex + 1]

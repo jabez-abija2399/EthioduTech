@@ -47,10 +47,10 @@ export function CodeSandbox({ initialFiles }: CodeSandboxProps) {
   };
 
   return (
-    <div className="flex flex-col md:flex-row w-full h-[600px] border border-[#3C4044] rounded-lg overflow-hidden shadow-lg bg-[#2d2d2d]">
+    <div className="flex flex-col md:flex-row w-full h-full border border-[#3C4044] rounded-lg overflow-hidden shadow-lg bg-[#2d2d2d]">
       
       {/* LEFT PANE: Editor (50% on desktop) */}
-      <div className="flex flex-col w-full md:w-1/2 h-[300px] md:h-full border-b md:border-b-0 md:border-r border-[#3C4044]">
+      <div className="flex flex-col w-full md:w-1/2 h-1/2 md:h-full border-b md:border-b-0 md:border-r border-[#3C4044]">
         <EditorTabs activeTab={activeTab} onTabChange={setActiveTab} />
         
         {/* We keep all editors in DOM (or just the active one) for state preservation. 
@@ -65,7 +65,7 @@ export function CodeSandbox({ initialFiles }: CodeSandboxProps) {
       </div>
 
       {/* RIGHT PANE: Preview & Console (50% on desktop) */}
-      <div className="flex flex-col w-full md:w-1/2 h-[300px] md:h-full bg-white">
+      <div className="flex flex-col w-full md:w-1/2 h-1/2 md:h-full bg-white">
         
         {/* Top half of right pane: Preview */}
         <div className="flex-1 relative border-b border-[#3C4044]">

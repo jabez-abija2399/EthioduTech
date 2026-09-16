@@ -16,10 +16,14 @@ export function CompleteLessonButton({ lessonId, courseId }: Props) {
 
   const handleComplete = async () => {
     setLoading(true);
-    
+    let nextLessonRoute = '/dashboard';
+
     if (navigator.onLine) {
       try {
-        await completeLessonAction(courseId, lessonId);
+        const result = await completeLessonAction(courseId, lessonId);
+        if (result?.success && result.nextLessonId) {
+          nextLessonRoute = `/courses/${courseId}/lessons/${result.nextLessonId}`;
+        }
       } catch (e) {
         console.error('Failed to save progress online, queuing for offline sync');
         await addPendingSync({
@@ -39,7 +43,7 @@ export function CompleteLessonButton({ lessonId, courseId }: Props) {
     }
 
     setLoading(false);
-    router.push('/dashboard');
+    router.push(nextLessonRoute);
   };
 
   return (
