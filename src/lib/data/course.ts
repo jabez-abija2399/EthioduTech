@@ -1,41 +1,6 @@
 import { prisma } from "../prisma"
 
-const FALLBACK_COURSES = [
-  {
-    id: "web-creator-foundations",
-    title: "Web Creator Foundations",
-    description: "Learn HTML, CSS, and basic JavaScript by building your first website.",
-    isPublished: true,
-    modules: [
-      {
-        id: "mod-1",
-        title: "Module 1: The Structure of the Web (HTML)",
-        order: 1,
-        units: [
-          {
-            id: "unit-1",
-            title: "Unit 1: Your First Webpage",
-            order: 1,
-            lessons: [
-              {
-                id: "fff0b0cb-5eae-4a22-8631-5c3a63894efe",
-                title: "What is HTML?",
-                content: "# Welcome to the Web\n\nHTML stands for HyperText Markup Language. It is the skeleton of every website you visit.\n\n## Why it matters\nIf you want to build anything on the web, you must start with HTML. It tells the browser what content to display: headings, paragraphs, images, and links.\n\n## Your first tag\nThe `<h1>` tag creates a large heading. Try writing: `<h1>Hello World</h1>` in the editor below.",
-                order: 1
-              },
-              {
-                id: "6af3b03f-dddd-4298-aee1-e1eae569cfb3",
-                title: "Paragraphs and Structure",
-                content: "# Adding Text\n\nNow that you have a heading, you need regular text. The `<p>` tag is used for paragraphs.\n\n## Practice\nAdd a paragraph below your heading using `<p>This is my first website.</p>`.",
-                order: 2
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  }
-]
+const FALLBACK_COURSES: any[] = []
 
 export async function getCourses() {
   try {

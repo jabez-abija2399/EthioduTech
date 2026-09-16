@@ -27,7 +27,7 @@ export default async function TeacherDashboardPage() {
           Good morning, {teacherName.split(" ")[0]}
         </h1>
         <p className="text-[#3C4044]/70 text-lg">
-          You have <strong className="text-[#FD7B41]">3 submissions</strong> to review and <strong className="text-[#FD7B41]">2 learner interventions</strong> that may need attention.
+          You have <strong className="text-[#FD7B41]">{stats.totalSubmissions} submissions</strong> to review and <strong className="text-[#FD7B41]">{stats.totalStudents} active students</strong> in your roster.
         </p>
       </header>
 
@@ -35,25 +35,25 @@ export default async function TeacherDashboardPage() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <MetricCard 
           title="Active Students" 
-          value={stats.totalStudents || 126} 
+          value={stats.totalStudents || 0} 
           icon={Users} 
         />
         <MetricCard 
           title="Active Courses" 
-          value={4} 
+          value={1} 
           icon={BookOpen} 
           color="brand"
         />
         <MetricCard 
           title="Pending Reviews" 
-          value={18} 
+          value={stats.totalSubmissions || 0} 
           icon={FileCheck2} 
           color="warning"
         />
         <MetricCard 
-          title="Upcoming Sessions" 
-          value={3} 
-          icon={CalendarDays} 
+          title="Completed Lessons" 
+          value={stats.totalLessonsCompleted || 0} 
+          icon={Activity} 
         />
       </div>
 
@@ -77,8 +77,8 @@ export default async function TeacherDashboardPage() {
                       <FileCheck2 className="w-5 h-5" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-[#3C4044] text-sm">18 assignments pending review</h4>
-                      <p className="text-xs text-[#3C4044]/60 mt-1">Web Creator Foundations • Module 3</p>
+                      <h4 className="font-bold text-[#3C4044] text-sm">{stats.totalSubmissions} assignments pending review</h4>
+                      <p className="text-xs text-[#3C4044]/60 mt-1">Across all active cohorts</p>
                     </div>
                   </div>
                   <button className="px-4 py-2 bg-white border border-[#DDDCDB]/40 text-[#3C4044] font-bold text-xs rounded-lg shadow-sm hover:bg-[#f8f9fa] transition">
@@ -142,8 +142,8 @@ export default async function TeacherDashboardPage() {
           </h2>
           
           <div className="bg-[#3C4044] rounded-2xl p-6 shadow-xl text-white relative overflow-hidden">
-            <h3 className="font-bold text-lg mb-1">Web Creator Foundations</h3>
-            <p className="text-sm text-[#DDDCDB]/70 mb-6">126 active students</p>
+            <h3 className="font-bold text-lg mb-1">Web Development Foundations</h3>
+            <p className="text-sm text-[#DDDCDB]/70 mb-6">{stats.totalStudents} active students</p>
             
             <div className="space-y-4">
               <div>

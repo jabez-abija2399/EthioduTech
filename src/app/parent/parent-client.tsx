@@ -13,7 +13,7 @@ export function ParentClient({ children }: { children: any[] }) {
   
   const activeChild = children[selectedIdx]
   const portfolioProjects = activeChild.portfolios?.flatMap((p: any) => p.projects || []) || []
-  const completedLessons = activeChild.completedLessons || []
+  const completedLessons = activeChild.progress || []
   const progressPct = Math.min(100, Math.round((completedLessons.length / 10) * 100))
 
   return (
