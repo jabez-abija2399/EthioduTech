@@ -1,9 +1,9 @@
 import { auth } from "@/auth"
 import { redirect } from "next/navigation"
 import { getParentOverview } from "@/lib/data/parent"
-import Navbar from "@/components/navbar"
-import Link from "next/link"
 import { ParentClient } from "./parent-client"
+import { EmptyState } from "@/components/dashboard/shared/empty-state"
+import { Users } from "lucide-react"
 
 export default async function ParentDashboardPage() {
   const session = await auth()
@@ -19,27 +19,32 @@ export default async function ParentDashboardPage() {
   const children = parentData?.children || []
 
   return (
-    <>
+    <div className="space-y-8 pb-12">
       {/* Header */}
       <header className="mb-8">
-        <div className="flex items-center gap-2 mb-1">
-          <span className="px-2.5 py-0.5 bg-emerald-500/20 text-emerald-400 text-xs font-extrabold rounded-md uppercase border border-emerald-500/30">
-            Parent Portal
-          </span>
-        </div>
-        <h1 className="text-3xl font-extrabold text-white tracking-tight">Family Learning Overview</h1>
-        <p className="text-[#DDDCDB]/70 text-sm mt-1">Welcome back, {parentName}. Track your children's coding progress and portfolio creations.</p>
+        <h1 className="text-3xl md:text-4xl font-extrabold text-[#3C4044] tracking-tight mb-2">
+          Good evening, {parentName.split(" ")[0]}
+        </h1>
+        <p className="text-[#3C4044]/70 text-lg">
+          Here is how your family is learning and progressing this week.
+        </p>
       </header>
 
-      {/* Children Progress Cards */}
+      {/* Children Progress Client Router */}
       {children.length === 0 ? (
-        <div className="bg-[#3C4044] p-12 rounded-2xl shadow-sm border border-[#DDDCDB]/10 text-center text-[#DDDCDB]/70">
-          <p className="text-lg font-bold text-white">No linked children profiles found.</p>
-          <p className="text-sm mt-2 text-[#DDDCDB]/50">Connect your child's student account to monitor their web learning journey.</p>
-        </div>
+        <EmptyState 
+          title="No linked children found"
+          description="Connect your child's student account to monitor their web learning journey and portfolio creations."
+          icon={Users}
+          action={
+            <button className="px-6 py-2.5 bg-[#FD7B41] text-white font-bold text-sm rounded-xl shadow hover:bg-[#FD7B41]/90 transition">
+              Link a Student Account
+            </button>
+          }
+        />
       ) : (
         <ParentClient children={children as any} />
       )}
-    </>
+    </div>
   )
 }

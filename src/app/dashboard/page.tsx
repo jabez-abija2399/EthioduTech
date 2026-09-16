@@ -4,9 +4,7 @@ import { getCourses } from "@/lib/data/course"
 import { getStudentPortfolio } from "@/lib/data/portfolio"
 import { getStudentGamificationStats } from "@/lib/data/gamification"
 import Link from "next/link"
-import Navbar from "@/components/navbar"
-import { XPBadgeDisplay } from "@/components/xp-badge-display"
-import { CourseCard } from "@/components/curriculum/course-card"
+import { Play, FolderKanban, Activity, Code, Map, CheckCircle2, ChevronRight, MessageSquare, Plus } from "lucide-react"
 
 export default async function DashboardPage() {
   const session = await auth()
@@ -22,116 +20,213 @@ export default async function DashboardPage() {
     getStudentPortfolio(userId)
   ])
 
-  let gamificationStats = null
-  try {
-    if (studentData?.id) {
-      gamificationStats = await getStudentGamificationStats(studentData.id)
-    }
-  } catch (err) {
-    console.warn("Dashboard gamification data load warning:", err)
-  }
+  // Fake active course for the demo UX since db doesn't persist real active state easily yet
+  const activeCourse = courses.length > 0 ? courses[0] : null
+  const activeLessonId = activeCourse?.modules?.[0]?.units?.[0]?.lessons?.[0]?.id || ""
 
   const portfolioProjects = studentData?.portfolios?.flatMap((p: any) => p.projects || []) || []
 
   return (
-    <>
-      <header className="mb-8 flex items-center justify-between flex-wrap gap-4">
-        <div>
-          <h1 className="text-3xl font-extrabold text-white tracking-tight">Student Dashboard</h1>
-          <p className="text-[#DDDCDB]/70 mt-1">Welcome back, {session.user.name || "Student"}</p>
-        </div>
-
-        {studentData?.id && (
-          <Link
-            href={`/portfolio/${studentData.id}`}
-            className="px-5 py-2.5 bg-[#FD7B41] hover:bg-[#FD7B41]/90 text-white font-bold text-sm rounded-xl shadow-md transition flex items-center gap-2"
-          >
-            <span>🌐 View Public Portfolio</span>
-            <span>&rarr;</span>
-          </Link>
-        )}
+    <div className="space-y-8 pb-12">
+      {/* Personalized Hero Area */}
+      <header className="mb-6">
+        <h1 className="text-3xl md:text-4xl font-extrabold text-[#3C4044] tracking-tight">
+          Good afternoon, {session.user.name?.split(" ")[0] || "Student"} 👋
+        </h1>
+        <p className="text-[#3C4044]/60 text-lg mt-2">
+          Ready to keep building?
+        </p>
       </header>
 
-      {gamificationStats && (
-        <section className="mb-8">
-          <XPBadgeDisplay
-            xp={gamificationStats.xp}
-            streakDays={gamificationStats.streakDays}
-            badges={gamificationStats.allBadges}
-          />
+      {/* Hero Continue Learning Block */}
+      {activeCourse ? (
+        <section className="bg-[#3C4044] rounded-3xl p-6 md:p-10 shadow-xl border border-[#DDDCDB]/20 relative overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-8 group">
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-[#FD7B41]/20 to-transparent rounded-full blur-[80px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
+          
+          <div className="relative z-10 flex-1">
+            <div className="text-[10px] font-black uppercase tracking-widest text-[#EDBF9B] mb-3 flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#FD7B41] animate-pulse"></span>
+              Continue Learning
+            </div>
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-2">{activeCourse.title}</h2>
+            <p className="text-[#DDDCDB] font-medium text-lg mb-6 max-w-xl">
+              Module 1: Foundations
+            </p>
+            
+            <div className="mb-6 max-w-md">
+              <div className="flex justify-between text-sm mb-2 font-bold">
+                <span className="text-[#DDDCDB]/80">Progress</span>
+                <span className="text-[#FD7B41]">12%</span>
+              </div>
+              <div className="w-full h-2 bg-black/40 rounded-full overflow-hidden">
+                <div className="h-full bg-[#FD7B41] rounded-full" style={{ width: "12%" }}></div>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-4 text-sm font-medium text-[#DDDCDB]/80 mb-6 bg-white/5 inline-flex px-4 py-2 rounded-xl border border-white/5">
+              <span>Next up:</span>
+              <span className="text-white font-bold">Variables & Data Types</span>
+            </div>
+            
+            <div>
+              <Link
+                href={`/courses/${activeCourse.id}/lessons/${activeLessonId}`}
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#FD7B41] hover:bg-[#FD7B41]/90 text-white font-black text-base rounded-xl transition shadow-lg shadow-[#FD7B41]/20 transform group-hover:-translate-y-1"
+              >
+                <Play className="w-5 h-5 fill-current" />
+                Continue lesson
+              </Link>
+            </div>
+          </div>
+          
+          <div className="relative z-10 hidden lg:block w-72 shrink-0">
+             <div className="bg-[#2a2d30] border border-white/10 rounded-2xl p-5 shadow-2xl transform rotate-2 hover:rotate-0 transition-transform">
+               <div className="flex gap-1.5 border-b border-white/10 pb-3 mb-3">
+                 <div className="w-3 h-3 rounded-full bg-red-400"></div>
+                 <div className="w-3 h-3 rounded-full bg-amber-400"></div>
+                 <div className="w-3 h-3 rounded-full bg-emerald-400"></div>
+               </div>
+               <div className="font-mono text-sm text-[#DDDCDB]/60">
+                 <div className="text-emerald-400 mb-1">{"// Goal: Initialize variables"}</div>
+                 <div className="text-[#FD7B41]">let</div> <span className="text-white">playerName</span> = <span className="text-[#EDBF9B]">"Yabets"</span>;
+                 <div className="text-[#FD7B41] mt-1">let</div> <span className="text-white">score</span> = <span className="text-blue-400">0</span>;
+               </div>
+             </div>
+          </div>
+        </section>
+      ) : (
+        <section className="bg-white rounded-3xl p-10 border border-[#DDDCDB]/40 text-center shadow-sm">
+          <div className="w-16 h-16 rounded-full bg-[#FD7B41]/10 flex items-center justify-center mx-auto mb-6 text-[#FD7B41]">
+            <Map className="w-8 h-8" />
+          </div>
+          <h2 className="text-2xl font-bold text-[#3C4044] mb-2">Choose a learning path to get started</h2>
+          <p className="text-[#3C4044]/60 mb-6">You aren't enrolled in any active courses yet.</p>
+          <Link href="/courses" className="inline-flex px-6 py-3 bg-[#3C4044] text-white font-bold rounded-xl hover:bg-black transition">
+            Browse Curriculum
+          </Link>
         </section>
       )}
-      
-      <main className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div className="p-6 bg-[#3C4044] rounded-2xl shadow-sm border border-[#DDDCDB]/10 md:col-span-2">
-          <h2 className="font-bold text-xl mb-6 text-white">Your Enrolled Courses</h2>
-          
-          {courses.length === 0 ? (
-            <div className="flex items-center justify-center h-32 border-2 border-dashed border-[#DDDCDB]/20 rounded-xl text-[#DDDCDB]/50">
-              No courses found. Please contact an administrator.
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {courses.map((course: any) => {
-                const firstLessonId = course.modules[0]?.units[0]?.lessons[0]?.id
-                
-                return (
-                  <CourseCard 
-                    key={course.id}
-                    courseId={course.id}
-                    title={course.title}
-                    description={course.description}
-                    firstLessonId={firstLessonId}
-                    progressPercent={25} // Default mock value for now, typically derived from studentData
-                  />
-                )
-              })}
-            </div>
-          )}
-        </div>
+
+      {/* Three Column Split */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         
-        {/* Right Column: Portfolio Showcase Summary */}
-        <div className="p-6 bg-[#3C4044] rounded-2xl shadow-sm border border-[#DDDCDB]/10 flex flex-col">
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="font-bold text-xl text-white">Your Portfolio</h2>
-            {studentData?.id && (
-              <span className="text-xs font-semibold text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded-full border border-emerald-400/20">
-                Public Live
-              </span>
-            )}
+        {/* Left: What's Next Action List */}
+        <div className="lg:col-span-2 space-y-6">
+          <h3 className="text-xl font-bold text-[#3C4044] flex items-center gap-2">
+            <Activity className="w-5 h-5 text-[#FD7B41]" />
+            What's next?
+          </h3>
+          
+          <div className="space-y-4">
+            {/* Practice Item */}
+            <div className="bg-white border border-[#DDDCDB]/40 rounded-2xl p-5 shadow-sm hover:border-[#FD7B41]/40 transition group cursor-pointer flex gap-5 items-center">
+              <div className="w-12 h-12 rounded-xl bg-[#EDBF9B]/20 flex items-center justify-center text-[#EDBF9B] shrink-0">
+                <Code className="w-6 h-6" />
+              </div>
+              <div className="flex-1">
+                <div className="text-[10px] font-bold text-[#3C4044]/50 uppercase tracking-widest mb-1">Practice</div>
+                <h4 className="font-bold text-[#3C4044] text-base group-hover:text-[#FD7B41] transition">Variables & Scope</h4>
+                <p className="text-sm text-[#3C4044]/60 line-clamp-1">Complete 3 short interactive exercises to solidify your understanding.</p>
+              </div>
+              <ChevronRight className="w-5 h-5 text-[#3C4044]/30 group-hover:text-[#FD7B41] transition transform group-hover:translate-x-1" />
+            </div>
+
+            {/* Project Item */}
+            <div className="bg-white border border-[#DDDCDB]/40 rounded-2xl p-5 shadow-sm hover:border-[#FD7B41]/40 transition group cursor-pointer flex gap-5 items-center">
+              <div className="w-12 h-12 rounded-xl bg-[#3C4044]/5 flex items-center justify-center text-[#3C4044] shrink-0">
+                <FolderKanban className="w-6 h-6" />
+              </div>
+              <div className="flex-1">
+                <div className="text-[10px] font-bold text-[#3C4044]/50 uppercase tracking-widest mb-1">Project</div>
+                <h4 className="font-bold text-[#3C4044] text-base group-hover:text-[#FD7B41] transition">Build the Search Feature</h4>
+                <p className="text-sm text-[#3C4044]/60 line-clamp-1">Apply what you learned to your Weather Dashboard project.</p>
+              </div>
+              <ChevronRight className="w-5 h-5 text-[#3C4044]/30 group-hover:text-[#FD7B41] transition transform group-hover:translate-x-1" />
+            </div>
           </div>
 
-          {portfolioProjects.length === 0 ? (
-            <div className="flex flex-col items-center justify-center flex-1 h-48 border-2 border-dashed border-[#DDDCDB]/20 rounded-xl text-[#DDDCDB]/50 p-4 text-center">
-              <p className="font-medium text-[#DDDCDB]/80">No projects published yet.</p>
-              <p className="text-xs mt-2">
-                Use the <strong className="text-[#FD7B41]">"🚀 Publish to Portfolio"</strong> button in any lesson code editor to showcase your work!
-              </p>
-            </div>
-          ) : (
-            <div className="space-y-3 flex-1">
-              {portfolioProjects.map((item: any) => (
-                <div key={item.id} className="p-3.5 bg-slate-900/50 border border-[#DDDCDB]/10 rounded-xl flex items-center justify-between">
-                  <div>
-                    <h3 className="font-bold text-sm text-white">{item.project.title}</h3>
-                    <p className="text-xs text-[#DDDCDB]/60 line-clamp-1">{item.project.description}</p>
+          <h3 className="text-xl font-bold text-[#3C4044] flex items-center gap-2 pt-6">
+            <CheckCircle2 className="w-5 h-5 text-emerald-500" />
+            Your Skills
+          </h3>
+          
+          <div className="bg-white border border-[#DDDCDB]/40 rounded-2xl p-6 shadow-sm">
+            <div className="space-y-5">
+              {[
+                { name: "HTML / CSS", level: "Developing", percent: 45, color: "bg-blue-500" },
+                { name: "JavaScript", level: "Starting", percent: 15, color: "bg-yellow-400" },
+                { name: "Problem Solving", level: "Developing", percent: 35, color: "bg-emerald-500" }
+              ].map(skill => (
+                <div key={skill.name}>
+                  <div className="flex justify-between text-sm font-bold mb-2">
+                    <span className="text-[#3C4044]">{skill.name}</span>
+                    <span className="text-[#3C4044]/50">{skill.level}</span>
                   </div>
-                  <span className="text-xs text-emerald-400 font-semibold">✓ Live</span>
+                  <div className="w-full h-2 bg-[#f8f9fa] rounded-full overflow-hidden border border-[#DDDCDB]/20">
+                    <div className={`h-full ${skill.color} rounded-full`} style={{ width: `${skill.percent}%` }}></div>
+                  </div>
                 </div>
               ))}
-
-              {studentData?.id && (
-                <Link
-                  href={`/portfolio/${studentData.id}`}
-                  className="block text-center w-full py-2.5 mt-4 text-xs font-bold text-[#FD7B41] hover:bg-[#FD7B41]/10 bg-slate-900 rounded-xl border border-[#FD7B41]/20 transition"
-                >
-                  View Full Public Showcase &rarr;
-                </Link>
-              )}
             </div>
-          )}
+          </div>
         </div>
-      </main>
-    </>
+
+        {/* Right: Portfolio & AI */}
+        <div className="space-y-6">
+          <h3 className="text-xl font-bold text-[#3C4044]">Portfolio</h3>
+          
+          <div className="bg-white border border-[#DDDCDB]/40 rounded-2xl overflow-hidden shadow-sm flex flex-col">
+            {portfolioProjects.length === 0 ? (
+              <div className="p-8 text-center bg-[#f8f9fa]">
+                <div className="w-12 h-12 rounded-xl bg-white border border-[#DDDCDB]/20 flex items-center justify-center mx-auto mb-4 text-[#3C4044]/40">
+                  <FolderKanban className="w-6 h-6" />
+                </div>
+                <p className="font-bold text-[#3C4044] mb-1">No projects yet</p>
+                <p className="text-xs text-[#3C4044]/60 mb-4">Build something you're proud to show.</p>
+                <Link href="/dashboard" className="px-4 py-2 bg-[#FD7B41]/10 text-[#FD7B41] font-bold text-xs rounded-lg hover:bg-[#FD7B41]/20 transition block">
+                  Start a project
+                </Link>
+              </div>
+            ) : (
+              <div className="p-1">
+                {portfolioProjects.slice(0, 3).map((item: any) => (
+                  <div key={item.id} className="p-4 hover:bg-[#f8f9fa] transition border-b border-[#DDDCDB]/10 last:border-0">
+                    <h4 className="font-bold text-sm text-[#3C4044] truncate">{item.project.title}</h4>
+                    <p className="text-xs text-[#3C4044]/50 truncate mt-0.5">{item.project.description}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+            
+            <div className="p-4 bg-[#f8f9fa] border-t border-[#DDDCDB]/20">
+              <Link href={`/portfolio/${studentData?.id || ''}`} className="text-sm font-bold text-[#FD7B41] hover:text-[#FD7B41]/80 flex items-center justify-center gap-2">
+                View public portfolio <ChevronRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+
+          <h3 className="text-xl font-bold text-[#3C4044] pt-4">AI Tutor</h3>
+          <div className="bg-gradient-to-br from-[#3C4044] to-[#2a2d30] border border-[#3C4044] rounded-2xl p-6 shadow-xl text-white relative overflow-hidden group cursor-pointer">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-[#FD7B41]/20 rounded-full blur-[40px] translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+            <div className="flex items-start gap-4 relative z-10">
+              <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-[#FD7B41] shrink-0 border border-white/5 group-hover:scale-110 transition-transform">
+                <MessageSquare className="w-5 h-5" />
+              </div>
+              <div>
+                <h4 className="font-bold text-lg mb-1">Need help?</h4>
+                <p className="text-sm text-[#DDDCDB]/70 mb-4 leading-relaxed">
+                  Ask a question, understand an error, or get a hint without giving up the answer.
+                </p>
+                <span className="inline-flex px-4 py-2 bg-white/10 hover:bg-white/20 text-white font-bold text-xs rounded-lg transition border border-white/10">
+                  Ask for a hint
+                </span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
   )
 }

@@ -1,233 +1,112 @@
 "use client"
 
-import React, { useState } from 'react'
-import Link from 'next/link'
-import { Search, ExternalLink, Eye, X, BookOpen, Rocket } from 'lucide-react'
-import { LiveCodeSharing } from '@/components/live-code-sharing'
+import { useState } from "react"
+import Link from "next/link"
+import { Search, MoreVertical, MessageSquare } from "lucide-react"
 
-export interface RosterStudent {
-  id: string
-  user: {
-    email: string | null
-    profile: {
-      firstName: string
-      lastName: string
-    } | null
-  }
-  progress: any[]
-  portfolios: Array<{
-    id: string
-    projects: Array<{
-      id: string
-      url: string | null
-      reflection: string | null
-      project: {
-        title: string
-        description: string
-      }
-    }>
-  }>
-}
+export function TeacherRosterClient({ students }: { students: any[] }) {
+  const [searchTerm, setSearchTerm] = useState("")
 
-export function TeacherRosterClient({ students }: { students: RosterStudent[] }) {
-  const [searchQuery, setSearchQuery] = useState('')
-  const [selectedStudent, setSelectedStudent] = useState<RosterStudent | null>(null)
-  const [previewProject, setPreviewProject] = useState<{
-    title: string
-    codeBundle: { html: string; css: string; js: string }
-    reflection?: string
-  } | null>(null)
-
-  const filteredStudents = students.filter((student) => {
-    const fullName = `${student.user.profile?.firstName || ''} ${student.user.profile?.lastName || ''}`.toLowerCase()
-    const email = (student.user.email || '').toLowerCase()
-    const q = searchQuery.toLowerCase()
-    return fullName.includes(q) || email.includes(q)
+  const filteredStudents = students.filter(student => {
+    const fullName = student.user?.name || "Unknown Learner"
+    const email = student.user?.email || ""
+    return fullName.toLowerCase().includes(searchTerm.toLowerCase()) || email.toLowerCase().includes(searchTerm.toLowerCase())
   })
 
-  const openPreview = (student: RosterStudent) => {
-    setSelectedStudent(student)
-    const project = student.portfolios?.[0]?.projects?.[0]
-    if (project && project.url) {
-      try {
-        const bundle = JSON.parse(project.url)
-        setPreviewProject({
-          title: project.project.title,
-          codeBundle: bundle,
-          reflection: project.reflection || undefined
-        })
-      } catch {
-        setPreviewProject(null)
-      }
-    } else {
-      setPreviewProject(null)
-    }
-  }
-
   return (
-    <div className="space-y-6">
-      {/* Live Classroom Broadcast Bar */}
-      <LiveCodeSharing
-        userRole="TEACHER"
-        userId="teacher-demo-1"
-        userName="Teacher Instructor"
-        currentCodeBundle={{
-          html: '<h1>Class Demo</h1><p>Follow along with the instructor!</p>',
-          css: 'body { background: #f8fafc; font-family: sans-serif; }',
-          js: 'console.log("Live stream active");',
-        }}
-      />
-
-      <div className="bg-[#3C4044] rounded-2xl shadow-sm border border-[#DDDCDB]/10 overflow-hidden">
-        {/* Table Header & Search Input */}
-      <div className="p-6 border-b border-[#DDDCDB]/10 flex items-center justify-between flex-wrap gap-4">
-        <div>
-          <h2 className="text-xl font-bold text-white">Student Roster</h2>
-          <p className="text-xs text-[#DDDCDB]/60 mt-0.5">Individual learning progress and project showcases</p>
-        </div>
-
-        <div className="flex items-center gap-3">
-          <div className="relative">
-            <Search className="w-4 h-4 text-[#DDDCDB]/40 absolute left-3 top-1/2 -translate-y-1/2" />
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search by name or email..."
-              className="pl-9 pr-4 py-1.5 text-xs bg-slate-900/50 text-white border border-[#DDDCDB]/10 rounded-xl w-64 focus:outline-none focus:border-[#FD7B41]/50 focus:bg-slate-900 transition"
-            />
+    <div className="bg-white rounded-2xl border border-[#DDDCDB]/40 shadow-sm overflow-hidden">
+      
+      {/* Table Toolbar */}
+      <div className="p-4 border-b border-[#DDDCDB]/20 flex items-center justify-between bg-[#f8f9fa]">
+        <div className="relative w-64">
+          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <Search className="w-4 h-4 text-[#3C4044]/40" />
           </div>
-
-          <span className="text-xs font-bold text-[#FD7B41] bg-[#FD7B41]/10 px-3 py-1.5 rounded-xl border border-[#FD7B41]/20">
-            {filteredStudents.length} of {students.length} Student(s)
-          </span>
+          <input
+            type="text"
+            placeholder="Search students..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="block w-full pl-10 pr-3 py-2 border border-[#DDDCDB]/40 rounded-xl leading-5 bg-white placeholder-[#3C4044]/40 focus:outline-none focus:border-[#FD7B41] focus:ring-1 focus:ring-[#FD7B41] text-sm text-[#3C4044] transition-colors"
+          />
         </div>
       </div>
 
-      {filteredStudents.length === 0 ? (
-        <div className="p-12 text-center text-[#DDDCDB]/50 text-xs">
-          No students match your search filter "{searchQuery}".
-        </div>
-      ) : (
-        <div className="overflow-x-auto">
-          <table className="w-full text-left border-collapse">
-            <thead>
-              <tr className="bg-slate-900/50 text-[#DDDCDB]/70 text-xs font-bold uppercase tracking-wider border-b border-[#DDDCDB]/10">
-                <th className="p-4 pl-6">Student Name</th>
-                <th className="p-4">Email Address</th>
-                <th className="p-4">Lessons Completed</th>
-                <th className="p-4">Published Projects</th>
-                <th className="p-4 text-right pr-6">Quick Preview & Link</th>
+      <div className="overflow-x-auto">
+        <table className="w-full text-left text-sm whitespace-nowrap">
+          <thead className="bg-[#f8f9fa] border-b border-[#DDDCDB]/20 text-xs font-bold text-[#3C4044]/60 uppercase tracking-wider">
+            <tr>
+              <th className="px-6 py-4">Student</th>
+              <th className="px-6 py-4">Course Progress</th>
+              <th className="px-6 py-4">Mastery</th>
+              <th className="px-6 py-4">Pending Work</th>
+              <th className="px-6 py-4 text-right">Actions</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-[#DDDCDB]/10 bg-white">
+            {filteredStudents.length === 0 ? (
+              <tr>
+                <td colSpan={5} className="px-6 py-12 text-center text-[#3C4044]/50">
+                  No students found matching your search.
+                </td>
               </tr>
-            </thead>
-            <tbody className="divide-y divide-[#DDDCDB]/5 text-sm">
-              {filteredStudents.map((student) => {
-                const fullName = `${student.user.profile?.firstName || "Student"} ${student.user.profile?.lastName || ""}`.trim()
-                const completedCount = student.progress.length
-                const projectCount = student.portfolios?.[0]?.projects?.length || 0
+            ) : (
+              filteredStudents.map((student) => {
+                const fullName = student.user?.name || "Unknown Learner"
+                const email = student.user?.email || ""
+                const completedCount = student.completedLessons?.length || 0
+                const progressPct = Math.min(100, Math.round((completedCount / 10) * 100))
+                const projects = student.portfolios?.[0]?.projects || []
 
                 return (
-                  <tr key={student.id} className="hover:bg-slate-900/30 transition">
-                    <td className="p-4 pl-6 font-bold text-white flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-full bg-[#FD7B41]/20 text-[#FD7B41] font-bold text-xs flex items-center justify-center border border-[#FD7B41]/30">
-                        {fullName.charAt(0)}
-                      </div>
-                      <span>{fullName}</span>
-                    </td>
-                    <td className="p-4 text-[#DDDCDB]/70 text-xs font-mono">{student.user.email}</td>
-                    <td className="p-4">
-                      <div className="flex items-center space-x-2">
-                        <span className="font-bold text-white text-xs">{completedCount}</span>
-                        <div className="w-24 bg-slate-900 border border-[#DDDCDB]/10 h-2 rounded-full overflow-hidden">
-                          <div
-                            className="bg-[#EDBF9B] h-full rounded-full"
-                            style={{ width: `${Math.min(completedCount * 33, 100)}%` }}
-                          ></div>
+                  <tr key={student.id} className="hover:bg-[#f8f9fa] transition-colors group">
+                    <td className="px-6 py-4">
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-full bg-[#EDBF9B]/20 text-[#EDBF9B] flex items-center justify-center font-bold text-xs shrink-0">
+                          {fullName.charAt(0).toUpperCase()}
+                        </div>
+                        <div>
+                          <div className="font-bold text-[#3C4044]">{fullName}</div>
+                          <div className="text-xs text-[#3C4044]/50">{email}</div>
                         </div>
                       </div>
                     </td>
-                    <td className="p-4 font-bold text-emerald-400 text-xs">{projectCount} Project(s)</td>
-                    <td className="p-4 text-right pr-6 space-x-2">
-                      {projectCount > 0 && (
-                        <button
-                          onClick={() => openPreview(student)}
-                          className="px-3 py-1.5 bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 border border-blue-500/20 text-xs font-bold rounded-lg transition inline-flex items-center gap-1 cursor-pointer"
-                        >
-                          <Eye className="w-3.5 h-3.5" />
-                          <span>Quick Preview</span>
+                    <td className="px-6 py-4">
+                      <div className="w-32">
+                        <div className="flex justify-between text-xs mb-1">
+                          <span className="text-[#3C4044]/70 font-medium">Foundations</span>
+                          <span className="text-[#3C4044] font-bold">{progressPct}%</span>
+                        </div>
+                        <div className="w-full h-1.5 bg-[#DDDCDB]/30 rounded-full">
+                          <div className="h-full bg-[#3C4044] rounded-full" style={{ width: `${progressPct}%` }}></div>
+                        </div>
+                      </div>
+                    </td>
+                    <td className="px-6 py-4">
+                      <span className="inline-flex px-2 py-1 bg-emerald-500/10 text-emerald-600 border border-emerald-500/20 text-xs font-bold rounded-md">
+                        Doing well
+                      </span>
+                    </td>
+                    <td className="px-6 py-4">
+                      <div className="text-xs font-bold text-[#FD7B41]">{projects.length} Projects</div>
+                      <div className="text-[10px] text-[#3C4044]/50">Needs review</div>
+                    </td>
+                    <td className="px-6 py-4 text-right">
+                      <div className="flex items-center justify-end gap-2">
+                        <button className="p-2 text-[#3C4044]/40 hover:text-[#FD7B41] hover:bg-[#FD7B41]/10 rounded-lg transition" title="Message">
+                          <MessageSquare className="w-4 h-4" />
                         </button>
-                      )}
-
-                      <Link
-                        href={`/portfolio/${student.id}`}
-                        className="px-3.5 py-1.5 bg-[#FD7B41]/10 hover:bg-[#FD7B41]/20 text-[#FD7B41] border border-[#FD7B41]/20 text-xs font-bold rounded-lg transition inline-flex items-center gap-1"
-                      >
-                        <span>Full Portfolio</span>
-                        <ExternalLink className="w-3.5 h-3.5" />
-                      </Link>
+                        <Link href={`/portfolio/${student.userId}`} className="p-2 text-[#3C4044]/40 hover:text-[#3C4044] hover:bg-[#DDDCDB]/20 rounded-lg transition" title="View Portfolio">
+                          <MoreVertical className="w-4 h-4" />
+                        </Link>
+                      </div>
                     </td>
                   </tr>
                 )
-              })}
-            </tbody>
-          </table>
-        </div>
-      )}
-
-      {/* Quick Preview Modal */}
-      {selectedStudent && (
-        <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-2xl p-6 shadow-2xl space-y-4 text-white">
-            <div className="flex items-center justify-between border-b border-slate-800 pb-3">
-              <div>
-                <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                  <Rocket className="w-5 h-5 text-indigo-400" />
-                  <span>Student Project Preview</span>
-                </h3>
-                <p className="text-xs text-slate-400">
-                  {selectedStudent.user.profile?.firstName} {selectedStudent.user.profile?.lastName}
-                </p>
-              </div>
-              <button
-                onClick={() => setSelectedStudent(null)}
-                className="text-slate-400 hover:text-white p-1 rounded-lg hover:bg-slate-800 cursor-pointer"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            {previewProject ? (
-              <div className="space-y-4">
-                <div className="bg-slate-950 p-4 rounded-xl border border-slate-800">
-                  <h4 className="font-extrabold text-sm text-blue-400 mb-1">{previewProject.title}</h4>
-                  {previewProject.reflection && (
-                    <p className="text-xs text-slate-300 italic mb-3">"{previewProject.reflection}"</p>
-                  )}
-
-                  <div className="w-full h-64 bg-white rounded-lg overflow-hidden border border-slate-800">
-                    <iframe
-                      srcDoc={`
-                        <!DOCTYPE html>
-                        <html>
-                          <head><style>${previewProject.codeBundle.css}</style></head>
-                          <body>${previewProject.codeBundle.html}<script>${previewProject.codeBundle.js}</script></body>
-                        </html>
-                      `}
-                      title="Quick Preview Sandbox"
-                      sandbox="allow-scripts"
-                      className="w-full h-full border-none"
-                    />
-                  </div>
-                </div>
-              </div>
-            ) : (
-              <div className="p-8 text-center text-slate-400 text-xs">
-                No project code bundle available for preview.
-              </div>
+              })
             )}
-          </div>
-        </div>
-      )}
+          </tbody>
+        </table>
       </div>
     </div>
   )
