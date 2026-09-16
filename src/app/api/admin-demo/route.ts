@@ -12,13 +12,17 @@ export async function GET() {
       update: {
         role: 'SUPER_ADMIN',
         hashedPassword,
-        name: 'Super Admin Demo'
       },
       create: {
         email,
-        name: 'Super Admin Demo',
         hashedPassword,
-        role: 'SUPER_ADMIN'
+        role: 'SUPER_ADMIN',
+        profile: {
+          create: {
+            firstName: 'Super',
+            lastName: 'Admin Demo'
+          }
+        }
       }
     })
     
