@@ -1,0 +1,89 @@
+---
+lessonId: "lesson-js-049"
+courseId: "course-js-foundations"
+moduleId: "mod-js-07"
+sequence: 49
+title: "Iterating Arrays"
+primaryCapability: "Safely iterate over arrays to transform or filter data."
+primaryObjective: "Safely iterate over arrays to transform or filter data."
+estimatedMinutes: 60
+lessonType: "PRACTICE"
+difficulty: "DEVELOPING"
+scaffoldingLevel: "YOU DO"
+skillIds: ["skill-js-arrays"]
+conceptIds: []
+prerequisiteLessonIds: []
+status: "DRAFT"
+---
+
+
+<Context>
+We know how to store a list of items in an array. We know how to repeat code using a loop. By combining these two concepts, we can write a tiny piece of code that processes thousands of items in an instant!
+</Context>
+
+<Objective>
+By the end of this lesson, you will safely iterate over arrays to transform or filter data.
+</Objective>
+
+<Concept>
+## Iterating over an Array
+To "iterate" means to visit every item in a collection one by one.
+
+Because array indexes start at `0` and go up to `array.length - 1`, a `for` loop is the perfect tool for the job:
+
+```javascript
+let grades = [85, 92, 78, 100];
+
+// i starts at 0. It runs as long as i is strictly less than the length (4).
+for (let i = 0; i < grades.length; i++) {
+  let currentGrade = grades[i]; // Grab the item at index i
+  console.log("Grade: " + currentGrade);
+}
+```
+
+## Combining Loops and Conditionals
+We can put an `if` statement inside the loop to filter or process specific items!
+
+```javascript
+let scores = [45, 80, 30, 95];
+let passingScoresCount = 0;
+
+for (let i = 0; i < scores.length; i++) {
+  if (scores[i] >= 50) {
+    passingScoresCount++; // Only increase the count if the score is passing
+  }
+}
+console.log(passingScoresCount); // Outputs 2
+```
+</Concept>
+
+<InteractiveSandbox type="debugging_challenge">
+A developer wrote code to print every color in the array. 
+But when they run it, it prints "Red", "Green", "Blue", and then prints `undefined` at the very end!
+
+```javascript
+let colors = ["Red", "Green", "Blue"];
+
+// Look closely at the condition!
+for (let i = 0; i <= colors.length; i++) {
+  console.log(colors[i]);
+}
+```
+Why does it print `undefined`?
+</InteractiveSandbox>
+
+<HintLadder>
+- Level 1: What is the `length` of the colors array?
+- Level 2: The length is 3. What is the maximum index available?
+- Level 3: The maximum index is 2 (because of 0, 1, 2).
+- Level 4: The loop condition `i <= colors.length` means it runs when `i` is 3. But `colors[3]` does not exist! Change the condition to `i < colors.length`.
+</HintLadder>
+
+<IndependentPractice>
+You are given an array of temperatures: `let temps = [70, 85, 90, 65, 95];`
+Write a `for` loop to iterate over the array. Inside the loop, write an `if` statement to `console.log` ONLY the temperatures that are strictly greater than `80`.
+</IndependentPractice>
+
+<Reflection>
+Iterating over arrays is the engine of modern web applications. Whether it's rendering a list of tweets, calculating the total price of a shopping cart, or filtering search results—it is almost always a loop running over an array!
+</Reflection>

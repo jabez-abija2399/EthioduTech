@@ -1,0 +1,59 @@
+---
+lessonId: "lesson-css-028"
+courseId: "course-css-foundations"
+moduleId: "mod-css-04"
+sequence: 28
+title: "Document Flow and Display Types"
+primaryCapability: "Control document flow using block, inline, and inline-block."
+primaryObjective: "Control document flow using block, inline, and inline-block."
+estimatedMinutes: 45
+lessonType: "PRACTICE"
+difficulty: "DEVELOPING"
+scaffoldingLevel: "YOU DO"
+skillIds: ["skill-box-model"]
+conceptIds: []
+prerequisiteLessonIds: []
+status: "DRAFT"
+---
+
+
+<Context>
+Why do paragraphs automatically drop to a new line, but links (`<a>`) sit side-by-side within a sentence? This is because of normal document flow and the `display` property.
+</Context>
+
+<Objective>
+By the end of this lesson, you will control document flow using block, inline, and inline-block display types.
+</Objective>
+
+<Concept>
+## The `display` Property
+Every HTML element has a default `display` value that determines how it behaves in the normal flow of the page.
+
+1. **`display: block`**: Takes up the full width available. Drops to a new line before and after. (e.g., `<div>`, `<p>`, `<h1>`).
+2. **`display: inline`**: Only takes up as much width as necessary. Sits side-by-side with text. *Crucially, you cannot set width or height on an inline element!* (e.g., `<span>`, `<a>`).
+3. **`display: inline-block`**: A hybrid! Sits side-by-side like an inline element, but allows you to set width, height, and top/bottom margins like a block element.
+</Concept>
+
+<InteractiveSandbox type="prediction">
+A developer wants a link to look like a large rectangular button. They write this CSS:
+```css
+a {
+  width: 200px;
+  height: 50px;
+  background-color: blue;
+}
+```
+What will actually happen?
+</InteractiveSandbox>
+
+<Feedback>
+Because `<a>` is an `inline` element by default, the browser will completely ignore the `width` and `height` properties! The blue background will only cover the text itself.
+</Feedback>
+
+<IndependentPractice>
+Fix the developer's button code from the previous example. Add exactly one CSS property to the `a` selector to make the browser respect the 200px width and 50px height, while still allowing the button to sit side-by-side with other text if needed.
+</IndependentPractice>
+
+<Reflection>
+Understanding flow explains 90% of why elements sit where they do. If an element isn't respecting your width or margin, always check its `display` type!
+</Reflection>

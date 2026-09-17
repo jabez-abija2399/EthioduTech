@@ -1,0 +1,76 @@
+---
+lessonId: "lesson-js-043"
+courseId: "course-js-foundations"
+moduleId: "mod-js-04"
+sequence: 43
+title: "Complex Logic"
+primaryCapability: "Combine multiple conditions using logical AND/OR operators."
+primaryObjective: "Combine multiple conditions using logical AND/OR operators."
+estimatedMinutes: 45
+lessonType: "PRACTICE"
+difficulty: "DEVELOPING"
+scaffoldingLevel: "YOU DO"
+skillIds: ["skill-js-conditions"]
+conceptIds: []
+prerequisiteLessonIds: []
+status: "DRAFT"
+---
+
+
+<Context>
+Often, a single condition isn't enough. What if a user needs to be an adult AND have a ticket to enter a movie? We need to combine multiple conditions together.
+</Context>
+
+<Objective>
+By the end of this lesson, you will combine multiple conditions using logical AND/OR operators.
+</Objective>
+
+<Concept>
+## Logical Operators
+JavaScript provides operators to combine Booleans:
+
+1. **AND (`&&`)**: Evaluates to `true` ONLY if **both** sides are true.
+   ```javascript
+   let isAdult = true;
+   let hasTicket = false;
+   let canEnter = isAdult && hasTicket; // false, because they don't have a ticket
+   ```
+
+2. **OR (`||`)**: Evaluates to `true` if **at least one** side is true.
+   ```javascript
+   let hasVipPass = true;
+   let paidEntryFee = false;
+   let canEnter = hasVipPass || paidEntryFee; // true, because one is true
+   ```
+
+3. **NOT (`!`)**: Flips a Boolean. True becomes false, false becomes true.
+   ```javascript
+   let isBanned = false;
+   let canEnter = !isBanned; // true (Read as: "NOT banned")
+   ```
+</Concept>
+
+<InteractiveSandbox type="prediction">
+Predict whether the code inside the `if` block will run.
+```javascript
+let dayOfWeek = "Saturday";
+let isRaining = true;
+
+if (dayOfWeek === "Saturday" || dayOfWeek === "Sunday" && !isRaining) {
+  console.log("Let's go to the park!");
+}
+```
+*(Careful! AND (`&&`) happens before OR (`||`) in JavaScript, just like multiplication happens before addition in math).*
+</InteractiveSandbox>
+
+<Feedback>
+Yes, it will run! Because `dayOfWeek === "Saturday"` is true, the OR (`||`) operator immediately says "Well, the left side is true, so the whole thing is true!" The raining part doesn't even matter in this specific case.
+</Feedback>
+
+<IndependentPractice>
+Write an `if` statement that logs "Discount Applied" if a user's `cartTotal` is greater than 100 **AND** their `isMember` variable is `true`.
+</IndependentPractice>
+
+<Reflection>
+Logical operators allow us to model complex real-world rules in code. But be careful—combining too many `&&` and `||` operators in a single line can make your code very hard to read!
+</Reflection>

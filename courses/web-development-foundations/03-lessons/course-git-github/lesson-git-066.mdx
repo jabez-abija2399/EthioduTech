@@ -1,0 +1,78 @@
+---
+lessonId: "lesson-git-066"
+courseId: "course-git-github"
+moduleId: "mod-git-01"
+sequence: 66
+title: "Staging and Committing"
+primaryCapability: "Stage changes and create meaningful commits with descriptive messages."
+primaryObjective: "Stage changes and create meaningful commits with descriptive messages."
+estimatedMinutes: 45
+lessonType: "PRACTICE"
+difficulty: "DEVELOPING"
+scaffoldingLevel: "YOU DO"
+skillIds: ["skill-git-workflow","skill-git-commit"]
+conceptIds: ["con-git-01"]
+prerequisiteLessonIds: []
+status: "DRAFT"
+---
+
+
+<Context>
+Git doesn't automatically take snapshots of your code every time you hit "Save". If it did, your history would be filled with half-finished sentences and broken code. Instead, you must explicitly tell Git exactly *which* changes to bundle together, and *when* to take the snapshot.
+</Context>
+
+<Objective>
+By the end of this lesson, you will stage changes and create meaningful commits with descriptive messages.
+</Objective>
+
+<Concept>
+## The Three States of Git
+In Git, your files go through three states:
+1. **Working Directory**: The actual files you are editing on your computer.
+2. **Staging Area**: A temporary holding zone. You choose which files go here.
+3. **Commit**: A permanent snapshot saved to the repository history.
+
+## Staging: `git add`
+To move a changed file from the Working Directory into the Staging Area, you use `git add`:
+
+```bash
+git add index.html
+```
+*(Tip: Always run `git status` after adding a file to verify it is staged! Staged files usually appear in green).*
+
+## Committing: `git commit`
+Once your changes are staged, you take the snapshot using `git commit`. You must provide a message describing *why* you made the change:
+
+```bash
+git commit -m "Add navigation menu to the homepage"
+```
+A good commit message explains the "what and why" of the change, not just the "how".
+</Concept>
+
+<InteractiveSandbox type="terminal_debugging">
+A developer modified `style.css` and tried to commit it by running:
+```bash
+git commit -m "Update colors"
+```
+But Git returned an error: `nothing added to commit but untracked files present`. 
+
+What step did they forget? Run the missing command, and then commit the file properly.
+</InteractiveSandbox>
+
+<HintLadder>
+- Level 1: What are the three states of Git?
+- Level 2: The file is in the Working Directory, but they tried to jump straight to the Commit.
+- Level 3: They forgot the Staging step! You must run `git add style.css` first.
+</HintLadder>
+
+<IndependentPractice>
+You just created a file called `app.js`. 
+1. Use `git status` to see the untracked file.
+2. Stage the file.
+3. Use `git status` to verify it is staged.
+4. Commit the file with a meaningful message.
+</IndependentPractice>
+
+<Reflection>
+The staging area is like a loading dock. You can carefully pack boxes (files) onto the dock one by one using `git add`. When the shipment is perfectly arranged, you use `git commit` to drive the truck away and record it in history!
+</Reflection>

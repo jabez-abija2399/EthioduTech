@@ -1,0 +1,79 @@
+---
+lessonId: "lesson-css-022"
+courseId: "course-css-foundations"
+moduleId: "mod-css-01"
+sequence: 22
+title: "Applying Basic Styles"
+primaryCapability: "Target specific HTML elements using type, class, and ID selectors to apply basic styling rules."
+primaryObjective: "Target specific HTML elements using type, class, and ID selectors to apply basic styling rules."
+estimatedMinutes: 45
+lessonType: "GUIDED_PRACTICE"
+difficulty: "DEVELOPING"
+scaffoldingLevel: "WE DO"
+skillIds: ["skill-css-selectors"]
+conceptIds: ["con-css-01"]
+prerequisiteLessonIds: []
+status: "DRAFT"
+---
+
+
+<Context>
+In the HTML Foundations course, you built structured documents. But without CSS (Cascading Style Sheets), a website looks like a plain text document from 1995. CSS allows us to select those HTML structures and apply visual styling to them.
+</Context>
+
+<Objective>
+By the end of this lesson, you will target specific HTML elements using type, class, and ID selectors to apply basic styling rules.
+</Objective>
+
+<Concept>
+## The CSS Rule
+A CSS rule has two parts: the **selector** (what to style) and the **declaration block** (how to style it).
+
+```css
+selector {
+  property: value;
+}
+```
+
+## Types of Selectors
+1. **Type Selector**: Targets all HTML elements of a specific type.
+   ```css
+   p { color: blue; } /* Selects ALL <p> tags */
+   ```
+2. **Class Selector**: Targets any element with a specific `class` attribute. Starts with a dot (`.`). Classes can be reused on multiple elements!
+   ```css
+   .highlight { color: yellow; } /* Selects <p class="highlight"> or <h1 class="highlight"> */
+   ```
+3. **ID Selector**: Targets a single, unique element with a specific `id` attribute. Starts with a hash (`#`). IDs must be completely unique on a page!
+   ```css
+   #main-title { color: red; } /* Selects exactly <h1 id="main-title"> */
+   ```
+</Concept>
+
+<InteractiveSandbox type="prediction">
+Look at the following HTML and CSS. Which paragraph will be green?
+
+```html
+<p id="first">Hello</p>
+<p class="special">World</p>
+<p>!</p>
+```
+
+```css
+p { color: black; }
+.special { color: green; }
+#first { color: blue; }
+```
+</InteractiveSandbox>
+
+<Feedback>
+The paragraph containing the word "World" will be green because it is targeted by the `.special` class selector!
+</Feedback>
+
+<IndependentPractice>
+Write a CSS rule using a **Class Selector** that targets elements with the class `warning` and sets their `color` to `orange`.
+</IndependentPractice>
+
+<Reflection>
+Selectors act as the bridge between your HTML and your CSS. Without a semantic, well-structured HTML document, writing effective CSS selectors becomes incredibly difficult!
+</Reflection>

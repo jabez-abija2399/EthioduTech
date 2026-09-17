@@ -1,0 +1,78 @@
+---
+lessonId: "lesson-git-070"
+courseId: "course-git-github"
+moduleId: "mod-git-04"
+sequence: 70
+title: "Connecting to GitHub"
+primaryCapability: "Push local commits to a remote GitHub repository."
+primaryObjective: "Push local commits to a remote GitHub repository."
+estimatedMinutes: 45
+lessonType: "PRACTICE"
+difficulty: "DEVELOPING"
+scaffoldingLevel: "YOU DO"
+skillIds: ["skill-github-workflow"]
+conceptIds: ["con-git-02"]
+prerequisiteLessonIds: []
+status: "DRAFT"
+---
+
+
+<Context>
+So far, your Git repository has lived entirely on your own laptop. If you spill coffee on your laptop, your history is gone! Furthermore, no one else can see your code. To back up your work and collaborate with others, we use **GitHub**.
+</Context>
+
+<Objective>
+By the end of this lesson, you will push local commits to a remote GitHub repository.
+</Objective>
+
+<Concept>
+## Local vs Remote
+- **Git** is the program running locally on your computer.
+- **GitHub** is a website that hosts Git repositories on the internet.
+A repository hosted on the internet is called a **remote**.
+
+## Connecting your Repository
+If you create an empty repository on GitHub.com, GitHub will give you a URL (e.g., `https://github.com/yourname/my-project.git`). 
+To connect your local laptop repository to that remote URL, you tell Git to add a remote named `origin`:
+
+```bash
+git remote add origin https://github.com/yourname/my-project.git
+```
+*(We call it "origin" by convention, meaning the original source of truth).*
+
+## Pushing Code
+Once connected, you must "push" your local commits up to the internet. 
+
+```bash
+git push -u origin main
+```
+This command says: "Push my commits to the remote named **origin**, specifically to the **main** branch." 
+*(The `-u` flag tells Git to remember this connection, so next time you can just type `git push`!)*
+</Concept>
+
+<InteractiveSandbox type="terminal_debugging">
+A developer just made a great commit locally. They ran:
+```bash
+git push
+```
+But Git returned an error: `fatal: No configured push destination.`
+What step did they skip?
+</InteractiveSandbox>
+
+<HintLadder>
+- Level 1: Git knows *what* to push, but it doesn't know *where* to push it.
+- Level 2: They forgot to link their local repository to a URL on the internet.
+- Level 3: They need to use `git remote add origin <URL>`.
+</HintLadder>
+
+<IndependentPractice>
+1. Go to GitHub.com and create a new, empty repository.
+2. Copy the URL provided by GitHub.
+3. In your local terminal, use `git remote add` to connect your local project to GitHub.
+4. Run `git push -u origin main` to send your history to the internet.
+5. Refresh the GitHub page in your browser. Your code is now live!
+</IndependentPractice>
+
+<Reflection>
+Remember: "Saving" updates the Working Directory. "Committing" updates the Local Repository. "Pushing" updates the Remote Repository (GitHub). 
+</Reflection>

@@ -1,0 +1,84 @@
+---
+lessonId: "lesson-js-047"
+courseId: "course-js-foundations"
+moduleId: "mod-js-06"
+sequence: 47
+title: "Return Values and Scope"
+primaryCapability: "Manage function return values and identify variable scope."
+primaryObjective: "Manage function return values and identify variable scope."
+estimatedMinutes: 60
+lessonType: "PRACTICE"
+difficulty: "DEVELOPING"
+scaffoldingLevel: "YOU DO"
+skillIds: ["skill-js-functions"]
+conceptIds: ["con-js-02"]
+prerequisiteLessonIds: []
+status: "DRAFT"
+---
+
+
+<Context>
+So far, our functions have only printed things to the console. But in real applications, we usually want a function to perform a calculation and *give the answer back* so we can use it somewhere else.
+</Context>
+
+<Objective>
+By the end of this lesson, you will manage function return values and identify variable scope.
+</Objective>
+
+<Concept>
+## The `return` Keyword
+To give a value back to the rest of the program, a function must use the **`return`** keyword. 
+
+```javascript
+function getDouble(number) {
+  return number * 2; // Hands the value back to the caller
+}
+
+let myResult = getDouble(5); // myResult is now 10
+console.log(myResult + 3); // 13
+```
+**Crucial Note**: As soon as a function executes a `return` statement, the function immediately stops. Any code written after the `return` will never run.
+
+## Variable Scope
+Variables created *inside* a function are completely invisible to the outside world. This is called **local scope**.
+
+```javascript
+function doMath() {
+  let secretCode = 42; // This variable only exists inside this function
+  return secretCode;
+}
+
+console.log(secretCode); // ERROR! secretCode is not defined outside the function!
+```
+</Concept>
+
+<InteractiveSandbox type="debugging_challenge">
+A developer wrote a function to check if a number is positive. They want to store the result in a variable, but the variable `isGood` ends up being `undefined`.
+
+```javascript
+function isPositive(num) {
+  if (num > 0) {
+    console.log(true); // <-- Defect is here
+  } else {
+    console.log(false); // <-- Defect is here
+  }
+}
+
+let isGood = isPositive(10);
+```
+</InteractiveSandbox>
+
+<HintLadder>
+- Level 1: What is the difference between `console.log()` and `return`?
+- Level 2: `console.log()` only prints to the screen. It does NOT hand the value back to the variable `isGood`.
+- Level 3: Change `console.log(true)` to `return true`.
+</HintLadder>
+
+<IndependentPractice>
+Write a function called `getDiscountPrice` that takes two parameters: `price` and `discountAmount`. 
+The function should subtract the discount from the price, and **return** the final result. Do not use console.log inside the function.
+</IndependentPractice>
+
+<Reflection>
+Return values are how functions communicate with each other. One function returns a user's name, and passes it into another function that returns a welcome message!
+</Reflection>

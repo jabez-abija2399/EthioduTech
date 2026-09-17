@@ -1,0 +1,68 @@
+---
+lessonId: "lesson-git-067"
+courseId: "course-git-github"
+moduleId: "mod-git-02"
+sequence: 67
+title: "Viewing History"
+primaryCapability: "View commit history and inspect repository status."
+primaryObjective: "View commit history and inspect repository status."
+estimatedMinutes: 30
+lessonType: "PRACTICE"
+difficulty: "DEVELOPING"
+scaffoldingLevel: "YOU DO"
+skillIds: ["skill-git-workflow"]
+conceptIds: ["con-git-01"]
+prerequisiteLessonIds: []
+status: "DRAFT"
+---
+
+
+<Context>
+The whole point of taking snapshots is so that you can look back at them later! If you want to know what changed yesterday, or who broke the website last week, Git has a complete permanent record.
+</Context>
+
+<Objective>
+By the end of this lesson, you will view commit history and inspect repository status.
+</Objective>
+
+<Concept>
+## Viewing the Log
+To see the history of all the commits in your repository, use the `git log` command:
+
+```bash
+git log
+```
+
+When you run this command, Git will output a list of commits starting from the most recent. For each commit, you will see:
+- The **Commit Hash**: A long string of random letters and numbers (e.g., `f3a8b2...`). This is the unique ID for that specific snapshot.
+- The **Author**: Who made the commit.
+- The **Date**: When the snapshot was taken.
+- The **Commit Message**: The description you provided with `git commit -m`.
+
+### Exiting the Log
+If you have a very long history, Git will pause the output. You can press the `Spacebar` to scroll down, and you must press the **`q`** key to quit the log and return to your terminal prompt!
+
+## Keeping Track of State
+As you work, it is easy to forget whether you staged a file or not. Make a habit of running **`git status`** constantly. It is your map and compass in Git.
+</Concept>
+
+<InteractiveSandbox type="terminal">
+Your team has been working on a project.
+1. Run `git log` to view the history.
+2. Find the commit message of the very first snapshot ever taken in this repository.
+</InteractiveSandbox>
+
+<Feedback>
+Great job! By reading the log from bottom to top, you can see the entire story of how the software was built.
+</Feedback>
+
+<IndependentPractice>
+1. Run `git log` and find the unique Commit Hash for the most recent commit.
+2. Look at the message for that commit. What feature was added?
+3. Press `q` to exit the log.
+4. Run `git status` to ensure your working directory is currently clean.
+</IndependentPractice>
+
+<Reflection>
+Version control gives you confidence. Because every commit is permanently recorded in the log, you can experiment, delete code, and break things safely. If it all goes wrong, Git's history allows you to rewind back to a working state!
+</Reflection>

@@ -1,0 +1,64 @@
+---
+lessonId: "lesson-css-030"
+courseId: "course-css-foundations"
+moduleId: "mod-css-05"
+sequence: 30
+title: "Introduction to Flexbox"
+primaryCapability: "Create a flex container and align items along the main axis."
+primaryObjective: "Create a flex container and align items along the main axis."
+estimatedMinutes: 45
+lessonType: "GUIDED_PRACTICE"
+difficulty: "DEVELOPING"
+scaffoldingLevel: "WE DO"
+skillIds: ["skill-flexbox"]
+conceptIds: ["con-css-03"]
+prerequisiteLessonIds: []
+status: "DRAFT"
+---
+
+
+<Context>
+Historically, arranging elements side-by-side or centering them vertically required terrible hacks. Today, we have a modern layout system built exactly for this: Flexbox.
+</Context>
+
+<Objective>
+By the end of this lesson, you will create a flex container and align items along the main axis.
+</Objective>
+
+<Concept>
+## The Flex Container
+To activate Flexbox, you apply `display: flex;` to a parent container. 
+Suddenly, all of its direct children become **Flex Items**.
+
+By default, the items will immediately line up in a horizontal row.
+
+## The Main Axis (`justify-content`)
+The **Main Axis** is the primary direction the items flow (left-to-right by default). You align items along this axis using `justify-content`.
+- `flex-start`: (Default) Packs items at the start.
+- `center`: Centers items in the container.
+- `space-between`: Pushes the first item to the start, the last to the end, and distributes the rest evenly.
+- `space-around`: Gives every item equal space around it.
+</Concept>
+
+<InteractiveSandbox type="prediction">
+You have a `<ul>` containing three `<li>` links to create a navigation bar.
+```css
+ul {
+  display: flex;
+  justify-content: space-between;
+}
+```
+Where will the three links appear on the screen?
+</InteractiveSandbox>
+
+<Feedback>
+The first link will be pushed flush against the left edge, the third link will be pushed flush against the right edge, and the second link will be perfectly in the middle!
+</Feedback>
+
+<IndependentPractice>
+You are building a toolbar. Write the CSS for the `.toolbar` class to turn it into a flex container, and center all of its buttons perfectly in the middle of the screen.
+</IndependentPractice>
+
+<Reflection>
+Notice that we applied `display: flex` to the *parent* container, not the items themselves! Flexbox is a relationship between a parent and its direct children.
+</Reflection>

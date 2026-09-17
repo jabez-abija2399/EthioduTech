@@ -1,0 +1,67 @@
+---
+lessonId: "lesson-css-026"
+courseId: "course-css-foundations"
+moduleId: "mod-css-03"
+sequence: 26
+title: "The CSS Box Model"
+primaryCapability: "Manipulate the dimensions of elements using margin, border, and padding."
+primaryObjective: "Manipulate the dimensions of elements using margin, border, and padding."
+estimatedMinutes: 60
+lessonType: "GUIDED_PRACTICE"
+difficulty: "DEVELOPING"
+scaffoldingLevel: "WE DO"
+skillIds: ["skill-box-model"]
+conceptIds: ["con-css-02"]
+prerequisiteLessonIds: []
+status: "DRAFT"
+---
+
+
+<Context>
+If you want to move elements around on a page, you must understand how CSS calculates the size of an element. Everything in HTML is a box.
+</Context>
+
+<Objective>
+By the end of this lesson, you will manipulate the dimensions of elements using margin, border, and padding.
+</Objective>
+
+<Concept>
+## The CSS Box Model
+Every HTML element is wrapped in an invisible box. From the inside out, this box consists of:
+1. **Content**: The actual text, image, or child element.
+2. **Padding**: The transparent space *inside* the box, between the content and the border.
+3. **Border**: The line surrounding the padding and content.
+4. **Margin**: The transparent space *outside* the box, pushing other elements away.
+
+```css
+.box {
+  padding: 20px;
+  border: 2px solid black;
+  margin: 15px;
+}
+```
+</Concept>
+
+<InteractiveSandbox type="debugging_challenge">
+A developer wants more space *inside* their button, but instead, they accidentally pushed the button away from other elements. Inspect the CSS. What property should they change?
+```css
+button {
+  margin: 20px;
+  border: 1px solid blue;
+}
+```
+</InteractiveSandbox>
+
+<HintLadder>
+- Level 1: What part of the box model controls the space outside the border?
+- Level 2: Margin pushes elements away. What controls the space inside the border?
+- Level 3: Padding controls the space inside the border, between the content and the border wall. Change `margin` to `padding`.
+</HintLadder>
+
+<IndependentPractice>
+Write a CSS rule for a class named `.card`. Give it a `padding` of `30px`, and a `margin` of `10px`.
+</IndependentPractice>
+
+<Reflection>
+The box model is the foundation of all CSS layout. If an element isn't aligning correctly, it is almost always a misunderstanding of how its padding, border, or margin is calculating!
+</Reflection>

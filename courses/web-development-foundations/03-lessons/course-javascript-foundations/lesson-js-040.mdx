@@ -1,0 +1,70 @@
+---
+lessonId: "lesson-js-040"
+courseId: "course-js-foundations"
+moduleId: "mod-js-02"
+sequence: 40
+title: "Variables and Data Types"
+primaryCapability: "Store, retrieve, and update data in memory using variables and identify basic data types."
+primaryObjective: "Store, retrieve, and update data in memory using variables and identify basic data types."
+estimatedMinutes: 60
+lessonType: "PRACTICE"
+difficulty: "DEVELOPING"
+scaffoldingLevel: "WE DO"
+skillIds: ["skill-js-variables"]
+conceptIds: ["con-js-01"]
+prerequisiteLessonIds: []
+status: "DRAFT"
+---
+
+
+<Context>
+To do anything useful, our programs need to remember things. If a user types their name into a form, where does that name go? It goes into the computer's memory, stored inside a Variable.
+</Context>
+
+<Objective>
+By the end of this lesson, you will store, retrieve, and update data in memory using variables and identify basic data types.
+</Objective>
+
+<Concept>
+## Variables
+A variable is like a labeled box in the computer's memory. You put data inside the box, and you can look inside the box later using the label.
+
+In JavaScript, we create (declare) a variable using the `let` keyword:
+```javascript
+let score = 0;
+```
+Now, whenever the computer sees the word `score`, it knows we mean `0`. We can also update the box later:
+```javascript
+score = 10;
+```
+
+## Data Types
+What kind of data can we put in the box? JavaScript has several basic types:
+- **Numbers**: `42`, `3.14`
+- **Strings**: Text wrapped in quotes. `"Hello"`, `'Alice'`
+- **Booleans**: Exactly two values: `true` or `false`. (Like a light switch).
+</Concept>
+
+<InteractiveSandbox type="prediction">
+Predict what type of data is stored in the `isGameOver` variable.
+```javascript
+let playerName = "Zelda";
+let level = 5;
+let isGameOver = false;
+```
+</InteractiveSandbox>
+
+<Feedback>
+`isGameOver` stores a **Boolean**. It is not text because it is not in quotes, and it is not a number. It is a logical true/false state!
+</Feedback>
+
+<IndependentPractice>
+Write JavaScript code to declare three variables:
+1. A variable named `movieTitle` that stores a String.
+2. A variable named `rating` that stores a Number.
+3. A variable named `isFavorite` that stores a Boolean.
+</IndependentPractice>
+
+<Reflection>
+Variables are the foundation of all application state. Every score, every username, every shopping cart item you have ever seen on a website is stored in a variable behind the scenes!
+</Reflection>

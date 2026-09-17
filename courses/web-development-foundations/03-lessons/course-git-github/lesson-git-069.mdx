@@ -1,0 +1,76 @@
+---
+lessonId: "lesson-git-069"
+courseId: "course-git-github"
+moduleId: "mod-git-03"
+sequence: 69
+title: "Working with Branches"
+primaryCapability: "Create, switch between, and manage Git branches."
+primaryObjective: "Create, switch between, and manage Git branches."
+estimatedMinutes: 45
+lessonType: "PRACTICE"
+difficulty: "DEVELOPING"
+scaffoldingLevel: "YOU DO"
+skillIds: ["skill-git-branch"]
+conceptIds: []
+prerequisiteLessonIds: []
+status: "DRAFT"
+---
+
+
+<Context>
+Imagine you have a perfectly working website. You want to try adding a massive new feature, but it might take you a week to build it, and you don't want to break the live website in the meantime. What do you do? You create a **branch**.
+</Context>
+
+<Objective>
+By the end of this lesson, you will create, switch between, and manage Git branches.
+</Objective>
+
+<Concept>
+## What is a Branch?
+A branch is a separate, independent line of development. Think of it like a parallel universe. You can create a branch, switch to it, make commits, and break things—and it will not affect the main universe at all!
+
+The default branch in most repositories is called `main`.
+
+## Creating and Switching Branches
+To create a new branch and immediately switch into that parallel universe, use:
+
+```bash
+git checkout -b new-feature
+```
+*(The `-b` stands for "branch").*
+
+When you run this command, Git takes a copy of wherever you are currently standing, and creates a new path. Any commits you make now will ONLY exist on the `new-feature` branch.
+
+## Switching Back
+To switch back to your safe, working `main` branch, use the checkout command without the `-b`:
+
+```bash
+git checkout main
+```
+When you run this command, watch your files! Git will literally delete the experimental files from your folder and replace them with the safe files from the `main` branch history.
+</Concept>
+
+<InteractiveSandbox type="terminal">
+Your repository is currently on the `main` branch.
+
+1. Create and switch to a new branch called `dark-mode`.
+2. Run `git status`. Look carefully at the first line of the output to verify which branch you are on.
+3. Switch back to the `main` branch.
+</InteractiveSandbox>
+
+<HintLadder>
+- Level 1: What command creates a branch and switches to it at the same time?
+- Level 2: `git checkout -b dark-mode`
+- Level 3: To switch back, just use `checkout` without the `-b` flag.
+</HintLadder>
+
+<IndependentPractice>
+1. Open your terminal and create a new branch called `experiment`.
+2. Add a new file called `test.txt` and commit it to this branch.
+3. Switch back to `main`. Look at your folder. Where did `test.txt` go?
+4. Switch back to `experiment`. Look at your folder. It's back!
+</IndependentPractice>
+
+<Reflection>
+Branching changes how you think about folders. A folder is no longer a static collection of files; it is a projector screen that Git updates instantly depending on which branch you ask to look at!
+</Reflection>

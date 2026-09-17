@@ -1,0 +1,63 @@
+---
+lessonId: "lesson-css-031"
+courseId: "course-css-foundations"
+moduleId: "mod-css-05"
+sequence: 31
+title: "Advanced Flexbox Alignment"
+primaryCapability: "Adjust Flexbox alignment, direction, sizing, wrapping, and spacing."
+primaryObjective: "Adjust Flexbox alignment, direction, sizing, wrapping, and spacing."
+estimatedMinutes: 60
+lessonType: "PRACTICE"
+difficulty: "DEVELOPING"
+scaffoldingLevel: "YOU DO"
+skillIds: ["skill-flexbox"]
+conceptIds: ["con-css-03"]
+prerequisiteLessonIds: []
+status: "DRAFT"
+---
+
+
+<Context>
+Flexbox is capable of much more than just horizontal centering. We can change the direction of flow, align things on the cross-axis, and control how items handle running out of space.
+</Context>
+
+<Objective>
+By the end of this lesson, you will adjust Flexbox alignment, direction, sizing, wrapping, and spacing.
+</Objective>
+
+<Concept>
+## Advanced Flex Container Properties
+- **`flex-direction`**: Changes the Main Axis. `row` is default (left-to-right). `column` stacks items vertically (top-to-bottom).
+- **`align-items`**: Aligns items along the **Cross Axis** (the axis perpendicular to the main axis). If your direction is `row`, `align-items: center` will center items *vertically*.
+- **`flex-wrap`**: By default, flex items try to cram onto one line, even if they shrink. `flex-wrap: wrap` allows them to drop to a new line when they run out of space.
+- **`gap`**: Adds exact spacing between the flex items without needing complicated margins!
+
+## Flex Item Sizing
+You can also apply rules to the *children* (the flex items).
+- **`flex-grow: 1;`**: Tells the item to expand and fill any remaining empty space in the container.
+</Concept>
+
+<InteractiveSandbox type="debugging_challenge">
+A developer wants a vertical stack of cards, centered horizontally. They wrote:
+```css
+.card-container {
+  display: flex;
+  justify-content: center;
+}
+```
+But the cards are displaying in a horizontal row! What property is missing?
+</InteractiveSandbox>
+
+<HintLadder>
+- Level 1: What defines the direction the items flow?
+- Level 2: The default is `row`. You want them to stack.
+- Level 3: You must add `flex-direction: column;` to the container! (Note: Once it becomes a column, `align-items` will handle horizontal centering, and `justify-content` handles vertical).
+</HintLadder>
+
+<IndependentPractice>
+You have a flex container with 10 images. They are shrinking and looking terrible because they are crammed on one line. Add the property to the container that allows them to flow onto multiple lines.
+</IndependentPractice>
+
+<Reflection>
+Flexbox thinks in terms of available space and axes, not strict pixel coordinates. This makes it incredibly powerful for responsive design!
+</Reflection>

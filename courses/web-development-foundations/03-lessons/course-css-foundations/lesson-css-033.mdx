@@ -1,0 +1,75 @@
+---
+lessonId: "lesson-css-033"
+courseId: "course-css-foundations"
+moduleId: "mod-css-06"
+sequence: 33
+title: "Placing Grid Items"
+primaryCapability: "Place elements within specific grid areas."
+primaryObjective: "Place elements within specific grid areas."
+estimatedMinutes: 60
+lessonType: "PRACTICE"
+difficulty: "DEVELOPING"
+scaffoldingLevel: "YOU DO"
+skillIds: ["skill-css-grid"]
+conceptIds: []
+prerequisiteLessonIds: []
+status: "DRAFT"
+---
+
+
+<Context>
+By default, grid items just automatically drop into the next available empty cell in the grid. But the true power of Grid is the ability to place items exactly where you want them, even making them span across multiple columns or rows!
+</Context>
+
+<Objective>
+By the end of this lesson, you will place elements within specific grid areas.
+</Objective>
+
+<Concept>
+## Grid Lines and Placement
+When you define a grid, the browser creates invisible dividing lines between the tracks. 
+If you have 3 columns, there are 4 vertical grid lines:
+- Line 1: The far left edge.
+- Line 2: Between column 1 and 2.
+- Line 3: Between column 2 and 3.
+- Line 4: The far right edge.
+
+You can place an item by telling it which lines to start and end at using **`grid-column`** and **`grid-row`**.
+
+```css
+.header {
+  /* Start at vertical line 1, stretch across to vertical line 4 */
+  grid-column: 1 / 4; 
+}
+
+.sidebar {
+  /* Stay in column 1, but stretch from horizontal line 2 down to line 4 */
+  grid-column: 1 / 2;
+  grid-row: 2 / 4;
+}
+```
+</Concept>
+
+<InteractiveSandbox type="debugging_challenge">
+A developer wants their `<footer>` to span across all 3 columns of their grid (from the left edge to the right edge). They wrote:
+```css
+footer {
+  grid-column: 1 / 3;
+}
+```
+But the footer is only stretching across two columns! What is wrong?
+</InteractiveSandbox>
+
+<HintLadder>
+- Level 1: How many vertical lines are in a 3-column grid?
+- Level 2: There are 4 lines. Line 1 is the start, Line 4 is the end.
+- Level 3: The developer told it to end at line 3. Change it to `grid-column: 1 / 4;` so it spans the entire width.
+</HintLadder>
+
+<IndependentPractice>
+You have a 2-column grid. You want a featured article (`.hero`) to span both columns. Write the `grid-column` rule to make it start at the first vertical line and end at the last vertical line.
+</IndependentPractice>
+
+<Reflection>
+Grid placement completely separates the visual layout from the HTML structure. An element could be first in your HTML document, but placed at the very bottom of your CSS grid!
+</Reflection>

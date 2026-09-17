@@ -1,0 +1,78 @@
+---
+lessonId: "lesson-git-073"
+courseId: "course-git-github"
+moduleId: "mod-git-06"
+sequence: 73
+title: "Opening and Reviewing a Pull Request"
+primaryCapability: "Open, review, and merge a Pull Request on GitHub."
+primaryObjective: "Open, review, and merge a Pull Request on GitHub."
+estimatedMinutes: 45
+lessonType: "PRACTICE"
+difficulty: "DEVELOPING"
+scaffoldingLevel: "YOU DO"
+skillIds: ["skill-github-pr"]
+conceptIds: ["con-git-02"]
+prerequisiteLessonIds: []
+status: "DRAFT"
+---
+
+
+<Context>
+Merging code locally is great if you work alone. But when working on a team, you shouldn't just merge your own code directly into the `main` branch. Instead, you push your branch to GitHub and ask the team to review it first. This process is called a **Pull Request**.
+</Context>
+
+<Objective>
+By the end of this lesson, you will open, review, and merge a Pull Request on GitHub.
+</Objective>
+
+<Concept>
+## What is a Pull Request?
+A Pull Request (PR) is a formal request saying: "I have pushed my branch to GitHub. Please review my code and *pull* it into the `main` branch."
+
+## The Pull Request Workflow
+1. **Branch & Commit**: You create a branch locally and make commits.
+2. **Push**: You push your branch to GitHub (`git push -u origin my-feature`).
+3. **Open PR**: On the GitHub website, you click "Compare & pull request". You write a description of what your code does.
+4. **Review**: Another developer looks at your code on GitHub. They can leave comments asking for changes.
+5. **Merge**: Once approved, you click the green "Merge pull request" button on GitHub!
+
+## Updating your Local Machine
+When you click "Merge" on GitHub, the `main` branch on the internet is updated. But your laptop doesn't know that yet! You must switch to your local `main` branch and pull the new history down to your computer:
+```bash
+git checkout main
+git pull origin main
+```
+</Concept>
+
+<InteractiveSandbox type="classification">
+Put the steps of the Pull Request workflow in the correct chronological order:
+
+A. Click "Merge" on GitHub
+B. Push your branch to GitHub
+C. Make commits on a local feature branch
+D. Run `git pull origin main` to update your laptop
+E. Open a Pull Request and ask for a review
+</InteractiveSandbox>
+
+<Feedback>
+The correct order is:
+1. C (Make commits locally)
+2. B (Push the branch)
+3. E (Open the PR)
+4. A (Merge it on the website)
+5. D (Pull the changes back down to your laptop)
+</Feedback>
+
+<IndependentPractice>
+1. On your local machine, create a branch called `my-pr-test`.
+2. Add a new file and commit it.
+3. Push the branch to GitHub (`git push -u origin my-pr-test`).
+4. Go to your repository on GitHub.com.
+5. Click the green "Compare & pull request" button.
+6. Give it a title, click "Create pull request", and then click "Merge".
+7. Go back to your terminal, switch to `main`, and run `git pull origin main`.
+</IndependentPractice>
+
+<Reflection>
+Pull Requests are the heart of professional software development. They ensure that every line of code is reviewed, tested, and discussed before it ever becomes part of the final product!
+</Reflection>

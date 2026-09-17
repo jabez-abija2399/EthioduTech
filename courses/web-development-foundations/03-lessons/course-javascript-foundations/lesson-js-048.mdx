@@ -1,0 +1,81 @@
+---
+lessonId: "lesson-js-048"
+courseId: "course-js-foundations"
+moduleId: "mod-js-07"
+sequence: 48
+title: "Working with Arrays"
+primaryCapability: "Store collections of data using arrays and access elements by index."
+primaryObjective: "Store collections of data using arrays and access elements by index."
+estimatedMinutes: 45
+lessonType: "PRACTICE"
+difficulty: "DEVELOPING"
+scaffoldingLevel: "YOU DO"
+skillIds: ["skill-js-arrays"]
+conceptIds: []
+prerequisiteLessonIds: []
+status: "DRAFT"
+---
+
+
+<Context>
+Variables are great for storing a single piece of data, like a `score` or a `username`. But what if you are building an online store with 500 products? You do not want to create 500 different variables like `product1`, `product2`, `product3`! We need a data structure to hold collections of items.
+</Context>
+
+<Objective>
+By the end of this lesson, you will store collections of data using arrays and access elements by index.
+</Objective>
+
+<Concept>
+## Arrays
+An **Array** is a special type of variable that can hold an ordered list of multiple values. We create arrays using square brackets `[ ]`.
+
+```javascript
+let shoppingList = ["Apples", "Bread", "Milk"];
+let lotteryNumbers = [4, 8, 15, 16, 23, 42];
+```
+
+## Accessing Elements (Zero-Indexing)
+To retrieve a specific item from the array, you use its position, called its **index**. 
+However, computers start counting at **zero**, not one!
+
+```javascript
+let colors = ["Red", "Green", "Blue"];
+
+console.log(colors[0]); // Outputs: "Red" (The first item)
+console.log(colors[1]); // Outputs: "Green" (The second item)
+console.log(colors[2]); // Outputs: "Blue" (The third item)
+```
+
+You can also use the index to update an existing item:
+```javascript
+colors[1] = "Yellow"; // Replaces "Green" with "Yellow"
+```
+</Concept>
+
+<InteractiveSandbox type="prediction">
+Predict the output of the following code:
+```javascript
+let scores = [10, 20, 30, 40];
+let total = scores[0] + scores[3];
+console.log(total);
+```
+</InteractiveSandbox>
+
+<Feedback>
+The output is `50`. `scores[0]` is the very first item (`10`). `scores[3]` is the *fourth* item (`40`). 10 + 40 = 50.
+</Feedback>
+
+<IndependentPractice>
+1. Create an array called `topThreeMovies` and add three of your favorite movies as strings.
+2. Write a function called `getFirstMovie` that takes an array as a parameter, and **returns** the very first item (index 0) of that array.
+</IndependentPractice>
+
+<HintLadder>
+- Level 1: Create the array using square brackets `[]`.
+- Level 2: Define a function `function getFirstMovie(movieArray) { ... }`
+- Level 3: Inside the function, use `return movieArray[0];`
+</HintLadder>
+
+<Reflection>
+Arrays unlock the true power of loops. Soon, you will write a single `for` loop that automatically counts from 0 to the end of an array, allowing you to process thousands of pieces of data with just three lines of code!
+</Reflection>

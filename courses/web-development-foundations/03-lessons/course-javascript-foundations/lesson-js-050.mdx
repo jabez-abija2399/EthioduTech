@@ -1,0 +1,81 @@
+---
+lessonId: "lesson-js-050"
+courseId: "course-js-foundations"
+moduleId: "mod-js-08"
+sequence: 50
+title: "Creating Objects"
+primaryCapability: "Model complex entities using JavaScript objects with key-value pairs."
+primaryObjective: "Model complex entities using JavaScript objects with key-value pairs."
+estimatedMinutes: 60
+lessonType: "PRACTICE"
+difficulty: "DEVELOPING"
+scaffoldingLevel: "YOU DO"
+skillIds: ["skill-js-objects"]
+conceptIds: []
+prerequisiteLessonIds: []
+status: "DRAFT"
+---
+
+
+<Context>
+Arrays are perfect for ordered lists (like a list of scores). But what if you need to represent a single, complex entity—like a User? A User has a name, an email, and an age. If you put those in an array `["Alice", "alice@email.com", 25]`, you have to memorize that index 1 is the email. There is a much better way.
+</Context>
+
+<Objective>
+By the end of this lesson, you will model complex entities using JavaScript objects with key-value pairs.
+</Objective>
+
+<Concept>
+## Creating an Object
+An **Object** is a collection of named properties (called **key-value pairs**). We create objects using curly braces `{ }`.
+
+```javascript
+let user = {
+  name: "Alice",        // 'name' is the key, "Alice" is the value
+  email: "alice@test",
+  age: 25,
+  isActive: true
+};
+```
+
+## Accessing and Updating Properties
+Instead of using a numbered index, you access object data using **dot notation**.
+
+```javascript
+// Read a value
+console.log(user.name); // Outputs: "Alice"
+
+// Update a value
+user.age = 26; 
+
+// Add a brand new property!
+user.role = "Admin";
+```
+
+### Arrays vs Objects
+- Use an **Array** when the *order* matters (e.g., Top 10 high scores).
+- Use an **Object** when the *labels/names* matter (e.g., A specific product's price, title, and description).
+</Concept>
+
+<InteractiveSandbox type="classification">
+For each of the following scenarios, choose whether an Array or an Object is the better tool:
+
+1. Storing the names of the days of the week in order.
+2. Storing the details of a specific car (make, model, year, color).
+3. Storing a history of temperature readings over a month.
+</InteractiveSandbox>
+
+<Feedback>
+1. Array (Order matters).
+2. Object (Labels matter: make, model, year).
+3. Array (A sequential list of readings).
+</Feedback>
+
+<IndependentPractice>
+1. Create an object called `book` with three properties: `title` (a string), `author` (a string), and `pages` (a number).
+2. Write a single line of code that updates the `pages` property of the book to be `350`.
+</IndependentPractice>
+
+<Reflection>
+Objects allow us to group related data together. By bundling a name, an email, and an age into a single `user` object, we can pass that entire object into a function as a single argument!
+</Reflection>
