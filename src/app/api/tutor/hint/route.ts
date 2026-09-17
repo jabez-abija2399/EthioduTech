@@ -26,13 +26,6 @@ export async function POST(req: Request) {
 
     const { html, css, js, failingTests, lessonTitle } = await req.json();
 
-    if (!process.env.GEMINI_API_KEY) {
-      return NextResponse.json(
-        { error: "GEMINI_API_KEY is not configured on the server." },
-        { status: 500 }
-      );
-    }
-
     const prompt = `
 Lesson Title: ${lessonTitle || "Unknown"}
 
@@ -58,16 +51,61 @@ ${failingTests && failingTests.length > 0 ? failingTests.join("\n") : "None prov
 Please provide a Socratic hint to help the student progress.
 `;
 
-    const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash",
-      contents: prompt,
-      config: {
-        systemInstruction: SOCRATIC_SYSTEM_INSTRUCTION,
-        temperature: 0.7,
-      },
-    });
+    let hint = "";
 
-    const hint = response.text || "I'm having trouble thinking of a hint right now. Try reviewing the lesson material!";
+    // Fallback logic to check available keys
+    if (process.env.GEMINI_API_KEY) {
+      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+      const response = await ai.models.generateContent({
+        model: "gemini-2.5-flash",
+        contents: prompt,
+        config: {
+          systemInstruction: SOCRATIC_SYSTEM_INSTRUCTION,
+          temperature: 0.7,
+        },
+      });
+      hint = response.text || "I'm having trouble thinking of a hint right now. Try reviewing the lesson material!";
+    } 
+    else if (process.env.GROQ_API_KEY || process.env.OPENROUTER_API_KEY) {
+      // Use standard OpenAI-compatible endpoints for Groq or OpenRouter
+      const isGroq = !!process.env.GROQ_API_KEY;
+      const apiKey = isGroq ? process.env.GROQ_API_KEY : process.env.OPENROUTER_API_KEY;
+      const endpoint = isGroq 
+        ? "https://api.groq.com/openai/v1/chat/completions" 
+        : "https://openrouter.ai/api/v1/chat/completions";
+      const model = isGroq 
+        ? "llama3-8b-8192" 
+        : "meta-llama/llama-3.1-8b-instruct"; // Good fast default for OpenRouter
+
+      const res = await fetch(endpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${apiKey}`
+        },
+        body: JSON.stringify({
+          model: model,
+          messages: [
+            { role: "system", content: SOCRATIC_SYSTEM_INSTRUCTION },
+            { role: "user", content: prompt }
+          ],
+          temperature: 0.7,
+        })
+      });
+
+      if (!res.ok) {
+        throw new Error(`AI API Error: ${res.statusText}`);
+      }
+
+      const data = await res.json();
+      hint = data.choices[0]?.message?.content || "I'm having trouble thinking of a hint right now.";
+    }
+    else {
+      return NextResponse.json(
+        { error: "No AI provider configured. Please add GEMINI_API_KEY, GROQ_API_KEY, or OPENROUTER_API_KEY to your environment variables." },
+        { status: 500 }
+      );
+    }
     
     return NextResponse.json({ hint });
   } catch (error: any) {
