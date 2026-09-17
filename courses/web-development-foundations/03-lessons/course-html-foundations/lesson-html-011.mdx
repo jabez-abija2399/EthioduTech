@@ -1,0 +1,49 @@
+---
+lessonId: "lesson-html-011"
+courseId: "course-html-foundations"
+moduleId: "mod-html-03"
+sequence: 11
+title: "Navigating File Paths"
+primaryCapability: "Construct correct relative and absolute file paths for local files."
+primaryObjective: "Construct correct relative and absolute file paths for local files."
+estimatedMinutes: 45
+lessonType: "PRACTICE"
+difficulty: "DEVELOPING"
+scaffoldingLevel: "YOU DO"
+skillIds: ["skill-html-links"]
+conceptIds: []
+prerequisiteLessonIds: []
+status: "DRAFT"
+---
+
+
+<Context>
+In the last lesson, we linked to `about.html`. But what if that file is inside a folder? Understanding file paths is critical for linking pages and loading images.
+</Context>
+
+<Objective>
+By the end of this lesson, you will construct correct relative file paths for local files.
+</Objective>
+
+<Concept>
+## Relative Paths
+When working on a project, files relate to each other:
+- `about.html` : A file in the exact same folder.
+- `pages/about.html` : A file inside a folder named "pages" that is in the same folder as you.
+- `../about.html` : A file in the parent folder (go up one level).
+</Concept>
+
+<InteractiveSandbox type="prediction">
+You are editing `index.html`. There is a folder next to it called `blog`. Inside `blog` is a file called `post.html`.
+What should the `href` be to link from `index.html` to `post.html`?
+</InteractiveSandbox>
+
+<HintLadder>
+- Level 1: Are you going up or down into a folder?
+- Level 2: You are going down into the `blog` folder.
+- Level 3: The correct path is `blog/post.html`.
+</HintLadder>
+
+<Reflection>
+Mastering `../` (going up) and `folder/` (going down) prevents broken links as your website grows!
+</Reflection>

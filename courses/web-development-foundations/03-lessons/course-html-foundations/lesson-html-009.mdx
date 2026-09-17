@@ -1,0 +1,56 @@
+---
+lessonId: "lesson-html-009"
+courseId: "course-html-foundations"
+moduleId: "mod-html-02"
+sequence: 9
+title: "Structuring Text with Headings and Paragraphs"
+primaryCapability: "Format text content using appropriate heading hierarchies and paragraph tags."
+primaryObjective: "Format text content using appropriate heading hierarchies and paragraph tags."
+estimatedMinutes: 45
+lessonType: "PRACTICE"
+difficulty: "DEVELOPING"
+scaffoldingLevel: "YOU DO"
+skillIds: ["skill-html-tags"]
+conceptIds: []
+prerequisiteLessonIds: []
+status: "DRAFT"
+---
+
+
+<Context>
+Now that we have a skeleton, let's add content. Text shouldn't just be dumped into the body—it needs to be structured so both humans and search engines understand it.
+</Context>
+
+<Objective>
+By the end of this lesson, you will format text content using appropriate heading hierarchies and paragraph tags.
+</Objective>
+
+<Concept>
+## Semantics: Headings and Paragraphs
+- **Headings (`<h1>` to `<h6>`)**: Used for titles and subtitles. `<h1>` is the most important (the main title).
+- **Paragraphs (`<p>`)**: Used for blocks of standard text.
+
+*Important:* Never use a heading just to make text bold or big. Use headings to outline your document's structure, like chapters in a book.
+</Concept>
+
+<InteractiveSandbox type="classification">
+If you are writing an article about "Space Exploration", and you have a sub-section titled "The Apollo Missions", which heading tag should you use for the sub-section?
+</InteractiveSandbox>
+
+<Feedback>
+You should use `<h2>`. The main title of the page ("Space Exploration") should be the `<h1>`.
+</Feedback>
+
+<IndependentPractice>
+Format the following text using one `<h1>`, one `<h2>`, and two `<p>` tags.
+```text
+My Recipe Blog
+How to make Toast
+First, get some bread.
+Then, put it in the toaster.
+```
+</IndependentPractice>
+
+<Reflection>
+Semantic HTML makes your site accessible to screen readers, allowing users to navigate via headings!
+</Reflection>

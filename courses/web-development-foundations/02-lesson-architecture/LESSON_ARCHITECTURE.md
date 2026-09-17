@@ -2,6 +2,13 @@
 
 This document defines the instructional system for Section 3.
 
+## Specification Mechanism
+**LESSON_REGISTRY.json** = canonical lesson specification metadata
+**MDX frontmatter** = lesson-level compiled metadata
+**MDX body** = student-facing instructional content
+
+Separate `lesson.spec.md` files are officially **NOT required**. The architectural intent (specification → validation → student content) is fully preserved by treating the JSON registry and MDX frontmatter as the absolute source of truth for all specification attributes (purpose, difficulty, skills, prerequisites, etc.).
+
 ## Lesson Model
 A lesson represents a single, coherent learning experience covering a defined cognitive load.
 Each lesson follows the structure:

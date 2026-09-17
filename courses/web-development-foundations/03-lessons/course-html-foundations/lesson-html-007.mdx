@@ -1,0 +1,75 @@
+---
+lessonId: "lesson-html-007"
+courseId: "course-html-foundations"
+moduleId: "mod-html-01"
+sequence: 7
+title: "The HTML Skeleton"
+primaryCapability: "Construct a valid HTML5 document skeleton including DOCTYPE, html, head, title, and body tags."
+primaryObjective: "Construct a valid HTML5 document skeleton including DOCTYPE, html, head, title, and body tags."
+estimatedMinutes: 45
+lessonType: "GUIDED_PRACTICE"
+difficulty: "DEVELOPING"
+scaffoldingLevel: "WE DO"
+skillIds: ["skill-html-scaffold","skill-html-tags"]
+conceptIds: ["con-html-01"]
+prerequisiteLessonIds: []
+status: "DRAFT"
+---
+
+
+<Context>
+Every HTML document needs a specific structure to be understood correctly by a web browser. Think of it like the envelope of a letter—it tells the browser how to read what's inside.
+</Context>
+
+<Objective>
+By the end of this lesson, you will construct a valid HTML5 document skeleton including DOCTYPE, html, head, title, and body tags.
+</Objective>
+
+<Concept>
+## The HTML Skeleton
+A valid HTML page always contains these core elements:
+1. `<!DOCTYPE html>`: Tells the browser this is an HTML5 document.
+2. `<html>`: The root element wrapping everything.
+3. `<head>`: Contains metadata (like the title), not visible on the page itself.
+4. `<body>`: Contains the actual visible content.
+</Concept>
+
+<GuidedPractice>
+## Let's Build the Skeleton
+Look at the following code snippet.
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My First Real Page</title>
+  </head>
+  <body>
+    <!-- Visible content goes here -->
+  </body>
+</html>
+```
+Notice how the `<head>` and `<body>` are siblings inside the `<html>` tag.
+</GuidedPractice>
+
+<InteractiveSandbox type="code_completion">
+Construct the skeleton. Fill in the missing tags.
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    ___My Webpage___
+  </head>
+  ___
+    Welcome to my site!
+  ___
+</html>
+```
+</InteractiveSandbox>
+
+<Feedback>
+The missing tags in the `<head>` are `<title>` and `</title>`. The missing tags wrapping the text are `<body>` and `</body>`.
+</Feedback>
+
+<Reflection>
+You've built the foundation. From now on, every webpage you write will start exactly like this!
+</Reflection>

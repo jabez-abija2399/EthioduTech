@@ -1,0 +1,57 @@
+---
+lessonId: "lesson-html-012"
+courseId: "course-html-foundations"
+moduleId: "mod-html-04"
+sequence: 12
+title: "Structuring Lists"
+primaryCapability: "Structure content into ordered and unordered lists."
+primaryObjective: "Structure content into ordered and unordered lists."
+estimatedMinutes: 30
+lessonType: "PRACTICE"
+difficulty: "DEVELOPING"
+scaffoldingLevel: "YOU DO"
+skillIds: []
+conceptIds: []
+prerequisiteLessonIds: []
+status: "DRAFT"
+---
+
+
+<Context>
+Often, content is structured as a series of related items: a recipe's ingredients, a set of instructions, or a navigation menu. HTML uses lists to give meaning to these groups.
+</Context>
+
+<Objective>
+By the end of this lesson, you will structure content into ordered and unordered lists based on their meaning.
+</Objective>
+
+<Concept>
+## Unordered vs Ordered Lists
+- **Unordered List (`<ul>`)**: Used when the sequence of items doesn't matter (e.g., a grocery list). Browsers typically render these with bullet points.
+- **Ordered List (`<ol>`)**: Used when the sequence *is* important (e.g., steps in a recipe). Browsers typically render these with numbers.
+
+Inside both types, each individual item must be wrapped in a **List Item (`<li>`)** tag.
+
+*Note: Never use a list just to get bullet points visually. Use lists because the items belong together conceptually.*
+</Concept>
+
+<InteractiveSandbox type="classification">
+You are creating a "Top 10 High Scores" section for a game. Should you use an `<ol>` or a `<ul>`?
+</InteractiveSandbox>
+
+<Feedback>
+You should use an `<ol>` (Ordered List) because the order (1st place vs 10th place) matters significantly!
+</Feedback>
+
+<IndependentPractice>
+Format the following text into an Unordered List (`<ul>`).
+```text
+Apples
+Bananas
+Oranges
+```
+</IndependentPractice>
+
+<Reflection>
+Lists establish a parent-child relationship in your code. The `<ul>` or `<ol>` is the parent, and the `<li>` elements are the children!
+</Reflection>
