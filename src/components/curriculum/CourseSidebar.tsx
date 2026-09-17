@@ -25,7 +25,7 @@ interface CourseSidebarProps {
 
 export function CourseSidebar({ courseId, courseTitle, modules }: CourseSidebarProps) {
   const pathname = usePathname();
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   
   const [expandedModules, setExpandedModules] = useState<Record<string, boolean>>(() => {
@@ -39,11 +39,6 @@ export function CourseSidebar({ courseId, courseTitle, modules }: CourseSidebarP
     const handleResize = () => {
       const mobile = window.innerWidth < 768;
       setIsMobile(mobile);
-      if (mobile) {
-        setIsOpen(false);
-      } else {
-        setIsOpen(true);
-      }
     };
     
     // Initial check
