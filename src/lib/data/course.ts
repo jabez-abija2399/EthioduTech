@@ -83,7 +83,7 @@ export async function getLesson(lessonId: string) {
   for (const course of FALLBACK_COURSES) {
     for (const mod of course.modules) {
       for (const unit of mod.units) {
-        const found = unit.lessons.find(l => l.id === lessonId || lessonId === "fff0b0cb-5eae-4a22-8631-5c3a63894efe")
+        const found = unit.lessons.find((l: any) => l.id === lessonId || lessonId === "fff0b0cb-5eae-4a22-8631-5c3a63894efe")
         if (found) {
           return {
             ...found,
