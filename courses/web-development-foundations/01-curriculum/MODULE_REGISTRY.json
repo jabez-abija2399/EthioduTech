@@ -1,0 +1,784 @@
+[
+  {
+    "moduleId": "mod-web-01",
+    "courseId": "course-web-foundations",
+    "title": "First Contact With the Web",
+    "sequence": 1,
+    "estimatedHours": 1,
+    "primaryCapability": "Complete the First Contact With the Web module requirements.",
+    "prerequisites": [],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-web-02",
+    "courseId": "course-web-foundations",
+    "title": "How the Web Works",
+    "sequence": 2,
+    "estimatedHours": 1.5,
+    "primaryCapability": "Complete the How the Web Works module requirements.",
+    "prerequisites": [
+      "mod-web-01"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-web-03",
+    "courseId": "course-web-foundations",
+    "title": "HTML, CSS and JavaScript Together",
+    "sequence": 3,
+    "estimatedHours": 1,
+    "primaryCapability": "Complete the HTML, CSS and JavaScript Together module requirements.",
+    "prerequisites": [
+      "mod-web-02"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-web-04",
+    "courseId": "course-web-foundations",
+    "title": "Developer Environment and Browser Tools",
+    "sequence": 4,
+    "estimatedHours": 1.5,
+    "primaryCapability": "Complete the Developer Environment and Browser Tools module requirements.",
+    "prerequisites": [
+      "mod-web-03"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-html-01",
+    "courseId": "course-html-foundations",
+    "title": "HTML Mental Model and Document Structure",
+    "sequence": 5,
+    "estimatedHours": 1.5,
+    "primaryCapability": "Complete the HTML Mental Model and Document Structure module requirements.",
+    "prerequisites": [
+      "mod-web-04"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-html-02",
+    "courseId": "course-html-foundations",
+    "title": "Text, Headings and Content",
+    "sequence": 6,
+    "estimatedHours": 1.25,
+    "primaryCapability": "Complete the Text, Headings and Content module requirements.",
+    "prerequisites": [
+      "mod-html-01"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-html-03",
+    "courseId": "course-html-foundations",
+    "title": "Links, Paths and Navigation",
+    "sequence": 7,
+    "estimatedHours": 1.25,
+    "primaryCapability": "Complete the Links, Paths and Navigation module requirements.",
+    "prerequisites": [
+      "mod-html-02"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-html-04",
+    "courseId": "course-html-foundations",
+    "title": "Lists, Images and Media",
+    "sequence": 8,
+    "estimatedHours": 1.5,
+    "primaryCapability": "Complete the Lists, Images and Media module requirements.",
+    "prerequisites": [
+      "mod-html-03"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-html-05",
+    "courseId": "course-html-foundations",
+    "title": "Semantic Structure",
+    "sequence": 9,
+    "estimatedHours": 1.5,
+    "primaryCapability": "Complete the Semantic Structure module requirements.",
+    "prerequisites": [
+      "mod-html-04"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-html-06",
+    "courseId": "course-html-foundations",
+    "title": "Tables and Structured Data",
+    "sequence": 10,
+    "estimatedHours": 1,
+    "primaryCapability": "Complete the Tables and Structured Data module requirements.",
+    "prerequisites": [
+      "mod-html-05"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-html-07",
+    "courseId": "course-html-foundations",
+    "title": "Forms",
+    "sequence": 11,
+    "estimatedHours": 1.5,
+    "primaryCapability": "Complete the Forms module requirements.",
+    "prerequisites": [
+      "mod-html-06"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-html-08",
+    "courseId": "course-html-foundations",
+    "title": "Accessibility and Document Quality",
+    "sequence": 12,
+    "estimatedHours": 1,
+    "primaryCapability": "Complete the Accessibility and Document Quality module requirements.",
+    "prerequisites": [
+      "mod-html-07"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-html-09",
+    "courseId": "course-html-foundations",
+    "title": "Multi-Page Website Project",
+    "sequence": 13,
+    "estimatedHours": 1.5,
+    "primaryCapability": "Complete the Multi-Page Website Project module requirements.",
+    "prerequisites": [
+      "mod-html-08"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-css-01",
+    "courseId": "course-css-foundations",
+    "title": "CSS Mental Model",
+    "sequence": 14,
+    "estimatedHours": 2,
+    "primaryCapability": "Complete the CSS Mental Model module requirements.",
+    "prerequisites": [
+      "mod-html-09"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-css-02",
+    "courseId": "course-css-foundations",
+    "title": "Values, Color and Typography",
+    "sequence": 15,
+    "estimatedHours": 2,
+    "primaryCapability": "Complete the Values, Color and Typography module requirements.",
+    "prerequisites": [
+      "mod-css-01"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-css-03",
+    "courseId": "course-css-foundations",
+    "title": "Box Model, Spacing and Flow",
+    "sequence": 16,
+    "estimatedHours": 2,
+    "primaryCapability": "Complete the Box Model, Spacing and Flow module requirements.",
+    "prerequisites": [
+      "mod-css-02"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-css-04",
+    "courseId": "course-css-foundations",
+    "title": "Display and Positioning",
+    "sequence": 17,
+    "estimatedHours": 1.5,
+    "primaryCapability": "Complete the Display and Positioning module requirements.",
+    "prerequisites": [
+      "mod-css-03"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-css-05",
+    "courseId": "course-css-foundations",
+    "title": "Flexbox",
+    "sequence": 18,
+    "estimatedHours": 2,
+    "primaryCapability": "Complete the Flexbox module requirements.",
+    "prerequisites": [
+      "mod-css-04"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-css-06",
+    "courseId": "course-css-foundations",
+    "title": "Grid",
+    "sequence": 19,
+    "estimatedHours": 2,
+    "primaryCapability": "Complete the Grid module requirements.",
+    "prerequisites": [
+      "mod-css-05"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-css-07",
+    "courseId": "course-css-foundations",
+    "title": "Responsive Design",
+    "sequence": 20,
+    "estimatedHours": 2,
+    "primaryCapability": "Complete the Responsive Design module requirements.",
+    "prerequisites": [
+      "mod-css-06"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-css-08",
+    "courseId": "course-css-foundations",
+    "title": "Accessibility and Design for Developers",
+    "sequence": 21,
+    "estimatedHours": 1,
+    "primaryCapability": "Complete the Accessibility and Design for Developers module requirements.",
+    "prerequisites": [
+      "mod-css-07"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-css-09",
+    "courseId": "course-css-foundations",
+    "title": "Responsive Interface Project",
+    "sequence": 22,
+    "estimatedHours": 1.5,
+    "primaryCapability": "Complete the Responsive Interface Project module requirements.",
+    "prerequisites": [
+      "mod-css-08"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-js-01",
+    "courseId": "course-js-foundations",
+    "title": "Programming Thinking",
+    "sequence": 23,
+    "estimatedHours": 1.5,
+    "primaryCapability": "Complete the Programming Thinking module requirements.",
+    "prerequisites": [
+      "mod-css-09"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-js-02",
+    "courseId": "course-js-foundations",
+    "title": "Variables, Values and Types",
+    "sequence": 24,
+    "estimatedHours": 2,
+    "primaryCapability": "Complete the Variables, Values and Types module requirements.",
+    "prerequisites": [
+      "mod-js-01"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-js-03",
+    "courseId": "course-js-foundations",
+    "title": "Operators and Expressions",
+    "sequence": 25,
+    "estimatedHours": 1.5,
+    "primaryCapability": "Complete the Operators and Expressions module requirements.",
+    "prerequisites": [
+      "mod-js-02"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-js-04",
+    "courseId": "course-js-foundations",
+    "title": "Conditions and Decisions",
+    "sequence": 26,
+    "estimatedHours": 2,
+    "primaryCapability": "Complete the Conditions and Decisions module requirements.",
+    "prerequisites": [
+      "mod-js-03"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-js-05",
+    "courseId": "course-js-foundations",
+    "title": "Loops and Repetition",
+    "sequence": 27,
+    "estimatedHours": 2,
+    "primaryCapability": "Complete the Loops and Repetition module requirements.",
+    "prerequisites": [
+      "mod-js-04"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-js-06",
+    "courseId": "course-js-foundations",
+    "title": "Functions and Scope",
+    "sequence": 28,
+    "estimatedHours": 2.5,
+    "primaryCapability": "Complete the Functions and Scope module requirements.",
+    "prerequisites": [
+      "mod-js-05"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-js-07",
+    "courseId": "course-js-foundations",
+    "title": "Strings and Arrays",
+    "sequence": 29,
+    "estimatedHours": 2.5,
+    "primaryCapability": "Complete the Strings and Arrays module requirements.",
+    "prerequisites": [
+      "mod-js-06"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-js-08",
+    "courseId": "course-js-foundations",
+    "title": "Objects and Data Modeling",
+    "sequence": 30,
+    "estimatedHours": 2,
+    "primaryCapability": "Complete the Objects and Data Modeling module requirements.",
+    "prerequisites": [
+      "mod-js-07"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-js-09",
+    "courseId": "course-js-foundations",
+    "title": "Debugging and Program Investigation",
+    "sequence": 31,
+    "estimatedHours": 2,
+    "primaryCapability": "Complete the Debugging and Program Investigation module requirements.",
+    "prerequisites": [
+      "mod-js-08"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-js-10",
+    "courseId": "course-js-foundations",
+    "title": "DOM and Page Interaction",
+    "sequence": 32,
+    "estimatedHours": 2,
+    "primaryCapability": "Complete the DOM and Page Interaction module requirements.",
+    "prerequisites": [
+      "mod-js-09"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-js-11",
+    "courseId": "course-js-foundations",
+    "title": "Events, Forms and State",
+    "sequence": 33,
+    "estimatedHours": 2.5,
+    "primaryCapability": "Complete the Events, Forms and State module requirements.",
+    "prerequisites": [
+      "mod-js-10"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-js-12",
+    "courseId": "course-js-foundations",
+    "title": "Local Storage and Persistent Browser State",
+    "sequence": 34,
+    "estimatedHours": 1,
+    "primaryCapability": "Complete the Local Storage and Persistent Browser State module requirements.",
+    "prerequisites": [
+      "mod-js-11"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-js-13",
+    "courseId": "course-js-foundations",
+    "title": "Async JavaScript and APIs",
+    "sequence": 35,
+    "estimatedHours": 2,
+    "primaryCapability": "Complete the Async JavaScript and APIs module requirements.",
+    "prerequisites": [
+      "mod-js-12"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-js-14",
+    "courseId": "course-js-foundations",
+    "title": "Integration Project",
+    "sequence": 36,
+    "estimatedHours": 2,
+    "primaryCapability": "Complete the Integration Project module requirements.",
+    "prerequisites": [
+      "mod-js-13"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-git-01",
+    "courseId": "course-git-github",
+    "title": "Why Version Control Exists",
+    "sequence": 37,
+    "estimatedHours": 1,
+    "primaryCapability": "Complete the Why Version Control Exists module requirements.",
+    "prerequisites": [
+      "mod-js-14"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-git-02",
+    "courseId": "course-git-github",
+    "title": "Git Local Workflow",
+    "sequence": 38,
+    "estimatedHours": 1.5,
+    "primaryCapability": "Complete the Git Local Workflow module requirements.",
+    "prerequisites": [
+      "mod-git-01"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-git-03",
+    "courseId": "course-git-github",
+    "title": "History and Recovery",
+    "sequence": 39,
+    "estimatedHours": 1,
+    "primaryCapability": "Complete the History and Recovery module requirements.",
+    "prerequisites": [
+      "mod-git-02"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-git-04",
+    "courseId": "course-git-github",
+    "title": "Branches and Merge",
+    "sequence": 40,
+    "estimatedHours": 1,
+    "primaryCapability": "Complete the Branches and Merge module requirements.",
+    "prerequisites": [
+      "mod-git-03"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-git-05",
+    "courseId": "course-git-github",
+    "title": "GitHub and Remote Repositories",
+    "sequence": 41,
+    "estimatedHours": 1,
+    "primaryCapability": "Complete the GitHub and Remote Repositories module requirements.",
+    "prerequisites": [
+      "mod-git-04"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-git-06",
+    "courseId": "course-git-github",
+    "title": "Collaboration Workflow",
+    "sequence": 42,
+    "estimatedHours": 1.5,
+    "primaryCapability": "Complete the Collaboration Workflow module requirements.",
+    "prerequisites": [
+      "mod-git-05"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-cap-01",
+    "courseId": "course-web-capstone",
+    "title": "Problem and Audience",
+    "sequence": 43,
+    "estimatedHours": 2,
+    "primaryCapability": "Complete the Problem and Audience module requirements.",
+    "prerequisites": [
+      "mod-git-06"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-cap-02",
+    "courseId": "course-web-capstone",
+    "title": "Planning and Design",
+    "sequence": 44,
+    "estimatedHours": 2,
+    "primaryCapability": "Complete the Planning and Design module requirements.",
+    "prerequisites": [
+      "mod-cap-01"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-cap-03",
+    "courseId": "course-web-capstone",
+    "title": "HTML/CSS Build",
+    "sequence": 45,
+    "estimatedHours": 4,
+    "primaryCapability": "Complete the HTML/CSS Build module requirements.",
+    "prerequisites": [
+      "mod-cap-02"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-cap-04",
+    "courseId": "course-web-capstone",
+    "title": "JavaScript Build",
+    "sequence": 46,
+    "estimatedHours": 4,
+    "primaryCapability": "Complete the JavaScript Build module requirements.",
+    "prerequisites": [
+      "mod-cap-03"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-cap-05",
+    "courseId": "course-web-capstone",
+    "title": "Testing, Debugging and Accessibility",
+    "sequence": 47,
+    "estimatedHours": 2,
+    "primaryCapability": "Complete the Testing, Debugging and Accessibility module requirements.",
+    "prerequisites": [
+      "mod-cap-04"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-cap-06",
+    "courseId": "course-web-capstone",
+    "title": "Git, GitHub and Documentation",
+    "sequence": 48,
+    "estimatedHours": 2,
+    "primaryCapability": "Complete the Git, GitHub and Documentation module requirements.",
+    "prerequisites": [
+      "mod-cap-05"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  },
+  {
+    "moduleId": "mod-cap-07",
+    "courseId": "course-web-capstone",
+    "title": "Presentation and Reflection",
+    "sequence": 49,
+    "estimatedHours": 2,
+    "primaryCapability": "Complete the Presentation and Reflection module requirements.",
+    "prerequisites": [
+      "mod-cap-06"
+    ],
+    "skills": [],
+    "concepts": [],
+    "projectConnections": [],
+    "assessmentConnections": [],
+    "masteryEvidence": []
+  }
+]
