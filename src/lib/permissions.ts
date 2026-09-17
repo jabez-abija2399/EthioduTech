@@ -91,13 +91,15 @@ export function getNavItemsForRole(roleStr?: string | null, studentId?: string |
     case "STUDENT":
       return [
         { label: "Dashboard", href: "/dashboard", icon: "📊" },
+        { label: "Courses", href: "/courses", icon: "📚" },
         ...(studentId ? [{ label: "My Showcase", href: `/portfolio/${studentId}`, icon: "🌐" }] : [])
       ]
 
     case "TEACHER":
       return [
         { label: "Teacher Portal", href: "/teacher", icon: "👩‍🏫" },
-        { label: "Curriculum Overview", href: "/dashboard", icon: "📚" }
+        { label: "Courses", href: "/courses", icon: "📚" },
+        { label: "Student Dash", href: "/dashboard", icon: "🎓" }
       ]
 
     case "PARENT":
@@ -108,15 +110,18 @@ export function getNavItemsForRole(roleStr?: string | null, studentId?: string |
     case "ADMIN":
     case "SUPER_ADMIN":
       return [
-        { label: "⚡ Admin Portal", href: "/admin", icon: "🛡️" },
-        { label: "👩‍🏫 Teacher View", href: "/teacher", icon: "👩‍🏫" },
-        { label: "👨‍👩‍👧 Parent View", href: "/parent", icon: "👨‍👩‍👧" },
-        { label: "🎓 Student View", href: "/dashboard", icon: "🎓" }
+        { label: "Overview", href: "/admin", icon: "🛡️" },
+        { label: "Manage Courses", href: "/admin/courses", icon: "📚" },
+        { label: "Manage Users", href: "/admin/users", icon: "👥" },
+        { label: "Payments", href: "/admin/payments", icon: "💳" },
+        { label: "Student View", href: "/dashboard", icon: "🎓" },
+        { label: "Browse Courses", href: "/courses", icon: "🌐" }
       ]
 
     default:
       return [
-        { label: "Dashboard", href: "/dashboard", icon: "📊" }
+        { label: "Dashboard", href: "/dashboard", icon: "📊" },
+        { label: "Courses", href: "/courses", icon: "📚" }
       ]
   }
 }
