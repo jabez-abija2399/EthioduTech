@@ -1,4 +1,5 @@
 import { prisma } from "../prisma"
+import { getLocalCourseWithFullTree, getLocalLesson } from "./local-course"
 
 const FALLBACK_COURSES: any[] = []
 
@@ -24,6 +25,11 @@ export async function getCourses() {
     })
 
     if (courses && courses.length > 0) {
+      courses.forEach(course => {
+        if (course.modules.some((m: any) => m.id.includes('-phase-'))) {
+          course.modules = course.modules.filter((m: any) => m.id.includes('-phase-'));
+        }
+      });
       return courses
     }
 
@@ -46,6 +52,11 @@ export async function getCourses() {
     })
 
     if (allCourses && allCourses.length > 0) {
+      allCourses.forEach(course => {
+        if (course.modules.some((m: any) => m.id.includes('-phase-'))) {
+          course.modules = course.modules.filter((m: any) => m.id.includes('-phase-'));
+        }
+      });
       return allCourses
     }
   } catch (error) {
@@ -53,6 +64,11 @@ export async function getCourses() {
   }
 
   // Resilient fallback course list
+  const localCourse = getLocalCourseWithFullTree('web-development-foundations');
+  if (localCourse) {
+    return [localCourse] as any;
+  }
+  
   return FALLBACK_COURSES as any
 }
 
@@ -74,10 +90,19 @@ export async function getLesson(lessonId: string) {
         challenges: true,
       }
     })
-    if (lesson) return lesson
+    
+    // Only return DB lesson if it has the module phase signature (if it's a real lesson)
+    // Actually, seeded lessons have random UUIDs, real lessons have specific string IDs like "HTML-L01"
+    if (lesson && (lessonId.includes('-') === false || lessonId.split('-').length <= 2)) {
+      return lesson;
+    }
   } catch (error) {
     console.error("Failed to fetch lesson from database:", error)
   }
+
+  // Fallback to local filesystem lesson parsing
+  const localLesson = getLocalLesson(lessonId);
+  if (localLesson) return localLesson;
 
   // Fallback search in static course definition
   for (const course of FALLBACK_COURSES) {
@@ -128,10 +153,20 @@ export async function getCourseWithFullTree(courseId: string) {
         }
       }
     })
-    if (course) return course
+    
+    // Only return DB course if it actually has the real lessons synced
+    if (course && course.modules.some((m: any) => m.id.includes('-phase-'))) {
+      // Filter out seeded legacy modules
+      course.modules = course.modules.filter((m: any) => m.id.includes('-phase-'));
+      return course;
+    }
   } catch (error) {
     console.error("Failed to fetch course full tree:", error)
   }
+
+  // Fallback to local filesystem course parsing (Real Course)
+  const localCourse = getLocalCourseWithFullTree(courseId)
+  if (localCourse) return localCourse
 
   return FALLBACK_COURSES[0] as any
 }
