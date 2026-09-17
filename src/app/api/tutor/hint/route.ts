@@ -74,7 +74,7 @@ Please provide a Socratic hint to help the student progress.
         ? "https://api.groq.com/openai/v1/chat/completions" 
         : "https://openrouter.ai/api/v1/chat/completions";
       const model = isGroq 
-        ? "llama3-8b-8192" 
+        ? "llama-3.1-8b-instant" 
         : "openrouter/free"; // OpenRouter free model routing
 
       const res = await fetch(endpoint, {
