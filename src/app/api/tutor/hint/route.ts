@@ -52,61 +52,82 @@ Please provide a Socratic hint to help the student progress.
 `;
 
     let hint = "";
+    let lastError: any = null;
 
-    // Fallback logic to check available keys
-    if (process.env.GEMINI_API_KEY) {
-      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
-      const response = await ai.models.generateContent({
-        model: "gemini-2.5-flash",
-        contents: prompt,
-        config: {
-          systemInstruction: SOCRATIC_SYSTEM_INSTRUCTION,
-          temperature: 0.7,
-        },
-      });
-      hint = response.text || "I'm having trouble thinking of a hint right now. Try reviewing the lesson material!";
-    } 
-    else if (process.env.GROQ_API_KEY || process.env.OPENROUTER_API_KEY) {
-      // Use standard OpenAI-compatible endpoints for Groq or OpenRouter
-      const isGroq = !!process.env.GROQ_API_KEY;
-      const apiKey = isGroq ? process.env.GROQ_API_KEY : process.env.OPENROUTER_API_KEY;
-      const endpoint = isGroq 
-        ? "https://api.groq.com/openai/v1/chat/completions" 
-        : "https://openrouter.ai/api/v1/chat/completions";
-      const model = isGroq 
-        ? "llama-3.1-8b-instant" 
-        : "openrouter/free"; // OpenRouter free model routing
+    // Ordered list of providers based on available keys
+    const providers = [];
+    if (process.env.GEMINI_API_KEY) providers.push("gemini");
+    if (process.env.GROQ_API_KEY) providers.push("groq");
+    if (process.env.OPENROUTER_API_KEY) providers.push("openrouter");
 
-      const res = await fetch(endpoint, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${apiKey}`,
-          "HTTP-Referer": "http://localhost:3000",
-          "X-Title": "Edutech Tutor"
-        },
-        body: JSON.stringify({
-          model: model,
-          messages: [
-            { role: "system", content: SOCRATIC_SYSTEM_INSTRUCTION },
-            { role: "user", content: prompt }
-          ],
-          temperature: 0.7,
-        })
-      });
-
-      if (!res.ok) {
-        throw new Error(`AI API Error: ${res.statusText}`);
-      }
-
-      const data = await res.json();
-      hint = data.choices[0]?.message?.content || "I'm having trouble thinking of a hint right now.";
-    }
-    else {
+    if (providers.length === 0) {
       return NextResponse.json(
         { error: "No AI provider configured. Please add GEMINI_API_KEY, GROQ_API_KEY, or OPENROUTER_API_KEY to your environment variables." },
         { status: 500 }
       );
+    }
+
+    for (const provider of providers) {
+      try {
+        if (provider === "gemini") {
+          const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+          const response = await ai.models.generateContent({
+            model: "gemini-2.5-flash",
+            contents: prompt,
+            config: {
+              systemInstruction: SOCRATIC_SYSTEM_INSTRUCTION,
+              temperature: 0.7,
+            },
+          });
+          hint = response.text || "";
+          if (hint) break; // Success! Exit loop.
+        } 
+        else if (provider === "groq" || provider === "openrouter") {
+          const isGroq = provider === "groq";
+          const apiKey = isGroq ? process.env.GROQ_API_KEY : process.env.OPENROUTER_API_KEY;
+          const endpoint = isGroq 
+            ? "https://api.groq.com/openai/v1/chat/completions" 
+            : "https://openrouter.ai/api/v1/chat/completions";
+          const model = isGroq 
+            ? "llama-3.1-8b-instant" 
+            : "openrouter/free";
+
+          const res = await fetch(endpoint, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${apiKey}`,
+              "HTTP-Referer": "http://localhost:3000",
+              "X-Title": "Edutech Tutor"
+            },
+            body: JSON.stringify({
+              model: model,
+              messages: [
+                { role: "system", content: SOCRATIC_SYSTEM_INSTRUCTION },
+                { role: "user", content: prompt }
+              ],
+              temperature: 0.7,
+            })
+          });
+
+          if (!res.ok) {
+            const errText = await res.text();
+            throw new Error(`[${provider.toUpperCase()}] API Error: ${res.status} ${res.statusText} - ${errText}`);
+          }
+
+          const data = await res.json();
+          hint = data.choices[0]?.message?.content || "";
+          if (hint) break; // Success! Exit loop.
+        }
+      } catch (err: any) {
+        console.warn(`⚠️ AI Fallback Triggered: Provider '${provider}' failed. Moving to next provider if available. Error: ${err.message}`);
+        lastError = err;
+        // The loop continues to the next provider
+      }
+    }
+
+    if (!hint) {
+      throw lastError || new Error("All AI providers failed to generate a hint.");
     }
     
     return NextResponse.json({ hint });
