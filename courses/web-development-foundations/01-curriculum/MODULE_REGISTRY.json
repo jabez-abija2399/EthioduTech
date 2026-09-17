@@ -5,13 +5,17 @@
     "title": "First Contact With the Web",
     "sequence": 1,
     "estimatedHours": 1,
-    "primaryCapability": "Complete the First Contact With the Web module requirements.",
+    "primaryCapability": "Create, open, and view a basic HTML file locally in a web browser without a server.",
     "prerequisites": [],
     "skills": [],
     "concepts": [],
-    "projectConnections": [],
+    "projectConnections": [
+      "proj-first-page"
+    ],
     "assessmentConnections": [],
-    "masteryEvidence": []
+    "masteryEvidence": [
+      "Local HTML file renders in browser"
+    ]
   },
   {
     "moduleId": "mod-web-02",
@@ -19,15 +23,24 @@
     "title": "How the Web Works",
     "sequence": 2,
     "estimatedHours": 1.5,
-    "primaryCapability": "Complete the How the Web Works module requirements.",
+    "primaryCapability": "Explain the URL request and response cycle, identifying the roles of the DNS, server, and browser.",
     "prerequisites": [
       "mod-web-01"
     ],
-    "skills": [],
-    "concepts": [],
+    "skills": [
+      "skill-url-anatomy",
+      "skill-http-basics"
+    ],
+    "concepts": [
+      "con-web-01"
+    ],
     "projectConnections": [],
-    "assessmentConnections": [],
-    "masteryEvidence": []
+    "assessmentConnections": [
+      "assess-web-diag"
+    ],
+    "masteryEvidence": [
+      "Verbal/Written Explanation of DNS/HTTP/Response"
+    ]
   },
   {
     "moduleId": "mod-web-03",
@@ -35,15 +48,23 @@
     "title": "HTML, CSS and JavaScript Together",
     "sequence": 3,
     "estimatedHours": 1,
-    "primaryCapability": "Complete the HTML, CSS and JavaScript Together module requirements.",
+    "primaryCapability": "Identify whether HTML, CSS, or JavaScript is responsible for a given structural, visual, or behavioral web feature.",
     "prerequisites": [
       "mod-web-02"
     ],
-    "skills": [],
-    "concepts": [],
+    "skills": [
+      "skill-web-roles"
+    ],
+    "concepts": [
+      "con-web-02"
+    ],
     "projectConnections": [],
-    "assessmentConnections": [],
-    "masteryEvidence": []
+    "assessmentConnections": [
+      "assess-web-diag"
+    ],
+    "masteryEvidence": [
+      "Matching capabilities to languages successfully"
+    ]
   },
   {
     "moduleId": "mod-web-04",
@@ -51,15 +72,19 @@
     "title": "Developer Environment and Browser Tools",
     "sequence": 4,
     "estimatedHours": 1.5,
-    "primaryCapability": "Complete the Developer Environment and Browser Tools module requirements.",
+    "primaryCapability": "Use browser developer tools to inspect DOM elements, modify styles temporarily, and view console output.",
     "prerequisites": [
       "mod-web-03"
     ],
     "skills": [],
     "concepts": [],
-    "projectConnections": [],
+    "projectConnections": [
+      "proj-first-page"
+    ],
     "assessmentConnections": [],
-    "masteryEvidence": []
+    "masteryEvidence": [
+      "Screenshots of DevTools modifying the DOM live"
+    ]
   },
   {
     "moduleId": "mod-html-01",
@@ -67,15 +92,26 @@
     "title": "HTML Mental Model and Document Structure",
     "sequence": 5,
     "estimatedHours": 1.5,
-    "primaryCapability": "Complete the HTML Mental Model and Document Structure module requirements.",
+    "primaryCapability": "Construct a valid HTML5 document skeleton including DOCTYPE, html, head, title, and body tags.",
     "prerequisites": [
       "mod-web-04"
     ],
-    "skills": [],
-    "concepts": [],
-    "projectConnections": [],
-    "assessmentConnections": [],
-    "masteryEvidence": []
+    "skills": [
+      "skill-html-scaffold",
+      "skill-html-tags"
+    ],
+    "concepts": [
+      "con-html-01"
+    ],
+    "projectConnections": [
+      "proj-recipe-site"
+    ],
+    "assessmentConnections": [
+      "assess-html-sem"
+    ],
+    "masteryEvidence": [
+      "Document passes W3C validation for basic skeleton"
+    ]
   },
   {
     "moduleId": "mod-html-02",
@@ -83,15 +119,23 @@
     "title": "Text, Headings and Content",
     "sequence": 6,
     "estimatedHours": 1.25,
-    "primaryCapability": "Complete the Text, Headings and Content module requirements.",
+    "primaryCapability": "Format text content using appropriate heading hierarchies and paragraph tags to create readable documents.",
     "prerequisites": [
       "mod-html-01"
     ],
-    "skills": [],
+    "skills": [
+      "skill-html-tags"
+    ],
     "concepts": [],
-    "projectConnections": [],
-    "assessmentConnections": [],
-    "masteryEvidence": []
+    "projectConnections": [
+      "proj-recipe-site"
+    ],
+    "assessmentConnections": [
+      "assess-html-sem"
+    ],
+    "masteryEvidence": [
+      "Hierarchy contains no skipped heading levels"
+    ]
   },
   {
     "moduleId": "mod-html-03",
@@ -99,15 +143,21 @@
     "title": "Links, Paths and Navigation",
     "sequence": 7,
     "estimatedHours": 1.25,
-    "primaryCapability": "Complete the Links, Paths and Navigation module requirements.",
+    "primaryCapability": "Connect multiple HTML documents together using anchor tags with correct relative and absolute file paths.",
     "prerequisites": [
       "mod-html-02"
     ],
-    "skills": [],
+    "skills": [
+      "skill-html-tags"
+    ],
     "concepts": [],
-    "projectConnections": [],
+    "projectConnections": [
+      "proj-recipe-site"
+    ],
     "assessmentConnections": [],
-    "masteryEvidence": []
+    "masteryEvidence": [
+      "Links navigate correctly between local files"
+    ]
   },
   {
     "moduleId": "mod-html-04",
@@ -115,15 +165,21 @@
     "title": "Lists, Images and Media",
     "sequence": 8,
     "estimatedHours": 1.5,
-    "primaryCapability": "Complete the Lists, Images and Media module requirements.",
+    "primaryCapability": "Embed images and structure content into ordered and unordered lists.",
     "prerequisites": [
       "mod-html-03"
     ],
-    "skills": [],
+    "skills": [
+      "skill-html-tags"
+    ],
     "concepts": [],
-    "projectConnections": [],
+    "projectConnections": [
+      "proj-recipe-site"
+    ],
     "assessmentConnections": [],
-    "masteryEvidence": []
+    "masteryEvidence": [
+      "Images render without broken icons"
+    ]
   },
   {
     "moduleId": "mod-html-05",
@@ -131,15 +187,26 @@
     "title": "Semantic Structure",
     "sequence": 9,
     "estimatedHours": 1.5,
-    "primaryCapability": "Complete the Semantic Structure module requirements.",
+    "primaryCapability": "Build a semantically structured HTML document using appropriate landmarks like header, main, article, and nav.",
     "prerequisites": [
       "mod-html-04"
     ],
-    "skills": [],
-    "concepts": [],
-    "projectConnections": [],
-    "assessmentConnections": [],
-    "masteryEvidence": []
+    "skills": [
+      "skill-semantic-markup"
+    ],
+    "concepts": [
+      "con-html-02"
+    ],
+    "projectConnections": [
+      "proj-recipe-site",
+      "proj-portfolio-grid"
+    ],
+    "assessmentConnections": [
+      "assess-html-sem"
+    ],
+    "masteryEvidence": [
+      "Valid Semantic DOM Tree without generic div-soup"
+    ]
   },
   {
     "moduleId": "mod-html-06",
@@ -147,15 +214,21 @@
     "title": "Tables and Structured Data",
     "sequence": 10,
     "estimatedHours": 1,
-    "primaryCapability": "Complete the Tables and Structured Data module requirements.",
+    "primaryCapability": "Display tabular data using HTML table, tr, th, and td elements.",
     "prerequisites": [
       "mod-html-05"
     ],
-    "skills": [],
+    "skills": [
+      "skill-html-tags"
+    ],
     "concepts": [],
-    "projectConnections": [],
+    "projectConnections": [
+      "proj-recipe-site"
+    ],
     "assessmentConnections": [],
-    "masteryEvidence": []
+    "masteryEvidence": [
+      "Table displays data in correct grid structure"
+    ]
   },
   {
     "moduleId": "mod-html-07",
@@ -163,15 +236,21 @@
     "title": "Forms",
     "sequence": 11,
     "estimatedHours": 1.5,
-    "primaryCapability": "Complete the Forms module requirements.",
+    "primaryCapability": "Construct a functional HTML form with varied input types, labels, and a submit button.",
     "prerequisites": [
       "mod-html-06"
     ],
-    "skills": [],
+    "skills": [
+      "skill-html-tags"
+    ],
     "concepts": [],
-    "projectConnections": [],
+    "projectConnections": [
+      "proj-recipe-site"
+    ],
     "assessmentConnections": [],
-    "masteryEvidence": []
+    "masteryEvidence": [
+      "Form captures input and fires submit event"
+    ]
   },
   {
     "moduleId": "mod-html-08",
@@ -179,15 +258,25 @@
     "title": "Accessibility and Document Quality",
     "sequence": 12,
     "estimatedHours": 1,
-    "primaryCapability": "Complete the Accessibility and Document Quality module requirements.",
+    "primaryCapability": "Identify and fix common structural accessibility violations including missing alt text and unlinked form labels.",
     "prerequisites": [
       "mod-html-07"
     ],
-    "skills": [],
-    "concepts": [],
-    "projectConnections": [],
-    "assessmentConnections": [],
-    "masteryEvidence": []
+    "skills": [
+      "skill-html-a11y"
+    ],
+    "concepts": [
+      "con-html-03"
+    ],
+    "projectConnections": [
+      "proj-recipe-site"
+    ],
+    "assessmentConnections": [
+      "assess-html-sem"
+    ],
+    "masteryEvidence": [
+      "Passing Lighthouse A11y Audit"
+    ]
   },
   {
     "moduleId": "mod-html-09",
@@ -195,15 +284,26 @@
     "title": "Multi-Page Website Project",
     "sequence": 13,
     "estimatedHours": 1.5,
-    "primaryCapability": "Complete the Multi-Page Website Project module requirements.",
+    "primaryCapability": "Synthesize HTML tags, semantics, paths, and forms to build a fully linked multi-page website from scratch.",
     "prerequisites": [
       "mod-html-08"
     ],
-    "skills": [],
-    "concepts": [],
-    "projectConnections": [],
-    "assessmentConnections": [],
-    "masteryEvidence": []
+    "skills": [
+      "skill-html-scaffold",
+      "skill-semantic-markup"
+    ],
+    "concepts": [
+      "con-html-01"
+    ],
+    "projectConnections": [
+      "proj-recipe-site"
+    ],
+    "assessmentConnections": [
+      "assess-html-sem"
+    ],
+    "masteryEvidence": [
+      "Fully functional, multi-page site passes W3C validation"
+    ]
   },
   {
     "moduleId": "mod-css-01",
@@ -211,15 +311,26 @@
     "title": "CSS Mental Model",
     "sequence": 14,
     "estimatedHours": 2,
-    "primaryCapability": "Complete the CSS Mental Model module requirements.",
+    "primaryCapability": "Target specific HTML elements using type, class, and ID selectors to apply basic styling rules.",
     "prerequisites": [
       "mod-html-09"
     ],
-    "skills": [],
-    "concepts": [],
-    "projectConnections": [],
-    "assessmentConnections": [],
-    "masteryEvidence": []
+    "skills": [
+      "skill-css-selectors",
+      "skill-css-cascade"
+    ],
+    "concepts": [
+      "con-css-01"
+    ],
+    "projectConnections": [
+      "proj-portfolio-grid"
+    ],
+    "assessmentConnections": [
+      "assess-css-layout"
+    ],
+    "masteryEvidence": [
+      "Styles apply to correct elements without specificity conflicts"
+    ]
   },
   {
     "moduleId": "mod-css-02",
@@ -227,15 +338,21 @@
     "title": "Values, Color and Typography",
     "sequence": 15,
     "estimatedHours": 2,
-    "primaryCapability": "Complete the Values, Color and Typography module requirements.",
+    "primaryCapability": "Style text using fonts, sizing, weights, and accessible color combinations.",
     "prerequisites": [
       "mod-css-01"
     ],
-    "skills": [],
+    "skills": [
+      "skill-css-selectors"
+    ],
     "concepts": [],
-    "projectConnections": [],
+    "projectConnections": [
+      "proj-portfolio-grid"
+    ],
     "assessmentConnections": [],
-    "masteryEvidence": []
+    "masteryEvidence": [
+      "Typography matches design spec with passing contrast"
+    ]
   },
   {
     "moduleId": "mod-css-03",
@@ -243,15 +360,25 @@
     "title": "Box Model, Spacing and Flow",
     "sequence": 16,
     "estimatedHours": 2,
-    "primaryCapability": "Complete the Box Model, Spacing and Flow module requirements.",
+    "primaryCapability": "Manipulate the dimensions and spacing of elements using margin, border, padding, and box-sizing.",
     "prerequisites": [
       "mod-css-02"
     ],
-    "skills": [],
-    "concepts": [],
-    "projectConnections": [],
-    "assessmentConnections": [],
-    "masteryEvidence": []
+    "skills": [
+      "skill-box-model"
+    ],
+    "concepts": [
+      "con-css-02"
+    ],
+    "projectConnections": [
+      "proj-portfolio-grid"
+    ],
+    "assessmentConnections": [
+      "assess-css-layout"
+    ],
+    "masteryEvidence": [
+      "Elements do not overflow or overlap unexpectedly"
+    ]
   },
   {
     "moduleId": "mod-css-04",
@@ -259,15 +386,23 @@
     "title": "Display and Positioning",
     "sequence": 17,
     "estimatedHours": 1.5,
-    "primaryCapability": "Complete the Display and Positioning module requirements.",
+    "primaryCapability": "Control document flow using block, inline, and inline-block, as well as absolute/relative positioning.",
     "prerequisites": [
       "mod-css-03"
     ],
-    "skills": [],
+    "skills": [
+      "skill-box-model"
+    ],
     "concepts": [],
-    "projectConnections": [],
-    "assessmentConnections": [],
-    "masteryEvidence": []
+    "projectConnections": [
+      "proj-portfolio-grid"
+    ],
+    "assessmentConnections": [
+      "assess-css-layout"
+    ],
+    "masteryEvidence": [
+      "Overlapping elements are correctly positioned"
+    ]
   },
   {
     "moduleId": "mod-css-05",
@@ -275,15 +410,26 @@
     "title": "Flexbox",
     "sequence": 18,
     "estimatedHours": 2,
-    "primaryCapability": "Complete the Flexbox module requirements.",
+    "primaryCapability": "Build and adjust one-dimensional layouts using Flexbox alignment, direction, sizing, wrapping, and spacing.",
     "prerequisites": [
       "mod-css-04"
     ],
-    "skills": [],
-    "concepts": [],
-    "projectConnections": [],
-    "assessmentConnections": [],
-    "masteryEvidence": []
+    "skills": [
+      "skill-flexbox"
+    ],
+    "concepts": [
+      "con-css-03"
+    ],
+    "projectConnections": [
+      "proj-portfolio-grid",
+      "proj-weather-app"
+    ],
+    "assessmentConnections": [
+      "assess-css-layout"
+    ],
+    "masteryEvidence": [
+      "Layout matches design brief without hardcoded margins"
+    ]
   },
   {
     "moduleId": "mod-css-06",
@@ -291,15 +437,21 @@
     "title": "Grid",
     "sequence": 19,
     "estimatedHours": 2,
-    "primaryCapability": "Complete the Grid module requirements.",
+    "primaryCapability": "Construct two-dimensional layouts using CSS Grid templates, tracks, and areas.",
     "prerequisites": [
       "mod-css-05"
     ],
     "skills": [],
     "concepts": [],
-    "projectConnections": [],
-    "assessmentConnections": [],
-    "masteryEvidence": []
+    "projectConnections": [
+      "proj-portfolio-grid"
+    ],
+    "assessmentConnections": [
+      "assess-css-layout"
+    ],
+    "masteryEvidence": [
+      "Complex grid layouts built without nested flex containers"
+    ]
   },
   {
     "moduleId": "mod-css-07",
@@ -307,15 +459,23 @@
     "title": "Responsive Design",
     "sequence": 20,
     "estimatedHours": 2,
-    "primaryCapability": "Complete the Responsive Design module requirements.",
+    "primaryCapability": "Adapt layouts to different screen sizes using media queries and fluid sizing units.",
     "prerequisites": [
       "mod-css-06"
     ],
-    "skills": [],
+    "skills": [
+      "skill-media-queries"
+    ],
     "concepts": [],
-    "projectConnections": [],
-    "assessmentConnections": [],
-    "masteryEvidence": []
+    "projectConnections": [
+      "proj-portfolio-grid"
+    ],
+    "assessmentConnections": [
+      "assess-css-layout"
+    ],
+    "masteryEvidence": [
+      "UI does not break or scroll horizontally on mobile viewports"
+    ]
   },
   {
     "moduleId": "mod-css-08",
@@ -323,15 +483,19 @@
     "title": "Accessibility and Design for Developers",
     "sequence": 21,
     "estimatedHours": 1,
-    "primaryCapability": "Complete the Accessibility and Design for Developers module requirements.",
+    "primaryCapability": "Ensure interfaces remain usable by maintaining focus outlines and legible contrast ratios.",
     "prerequisites": [
       "mod-css-07"
     ],
     "skills": [],
     "concepts": [],
-    "projectConnections": [],
+    "projectConnections": [
+      "proj-portfolio-grid"
+    ],
     "assessmentConnections": [],
-    "masteryEvidence": []
+    "masteryEvidence": [
+      "Keyboard navigation works seamlessly with visible focus states"
+    ]
   },
   {
     "moduleId": "mod-css-09",
@@ -339,15 +503,28 @@
     "title": "Responsive Interface Project",
     "sequence": 22,
     "estimatedHours": 1.5,
-    "primaryCapability": "Complete the Responsive Interface Project module requirements.",
+    "primaryCapability": "Synthesize selectors, box model, layout, and queries to transform a design brief into a responsive webpage.",
     "prerequisites": [
       "mod-css-08"
     ],
-    "skills": [],
-    "concepts": [],
-    "projectConnections": [],
-    "assessmentConnections": [],
-    "masteryEvidence": []
+    "skills": [
+      "skill-flexbox",
+      "skill-box-model",
+      "skill-media-queries"
+    ],
+    "concepts": [
+      "con-css-02",
+      "con-css-03"
+    ],
+    "projectConnections": [
+      "proj-portfolio-grid"
+    ],
+    "assessmentConnections": [
+      "assess-css-layout"
+    ],
+    "masteryEvidence": [
+      "Visual match with design at mobile, tablet, and desktop breakpoints"
+    ]
   },
   {
     "moduleId": "mod-js-01",
@@ -355,7 +532,7 @@
     "title": "Programming Thinking",
     "sequence": 23,
     "estimatedHours": 1.5,
-    "primaryCapability": "Complete the Programming Thinking module requirements.",
+    "primaryCapability": "Translate a human-readable problem into a logical sequence of discrete steps (pseudocode).",
     "prerequisites": [
       "mod-css-09"
     ],
@@ -363,7 +540,9 @@
     "concepts": [],
     "projectConnections": [],
     "assessmentConnections": [],
-    "masteryEvidence": []
+    "masteryEvidence": [
+      "Accurate pseudocode algorithm"
+    ]
   },
   {
     "moduleId": "mod-js-02",
@@ -371,15 +550,23 @@
     "title": "Variables, Values and Types",
     "sequence": 24,
     "estimatedHours": 2,
-    "primaryCapability": "Complete the Variables, Values and Types module requirements.",
+    "primaryCapability": "Store, retrieve, and update data in memory using variables and identify basic JavaScript data types.",
     "prerequisites": [
       "mod-js-01"
     ],
-    "skills": [],
-    "concepts": [],
-    "projectConnections": [],
+    "skills": [
+      "skill-js-variables"
+    ],
+    "concepts": [
+      "con-js-01"
+    ],
+    "projectConnections": [
+      "proj-weather-app"
+    ],
     "assessmentConnections": [],
-    "masteryEvidence": []
+    "masteryEvidence": [
+      "Variables update accurately without reassignment errors"
+    ]
   },
   {
     "moduleId": "mod-js-03",
@@ -387,15 +574,19 @@
     "title": "Operators and Expressions",
     "sequence": 25,
     "estimatedHours": 1.5,
-    "primaryCapability": "Complete the Operators and Expressions module requirements.",
+    "primaryCapability": "Evaluate and manipulate data using mathematical, string, and comparison operators.",
     "prerequisites": [
       "mod-js-02"
     ],
-    "skills": [],
+    "skills": [
+      "skill-js-variables"
+    ],
     "concepts": [],
     "projectConnections": [],
     "assessmentConnections": [],
-    "masteryEvidence": []
+    "masteryEvidence": [
+      "Expressions yield expected values"
+    ]
   },
   {
     "moduleId": "mod-js-04",
@@ -403,15 +594,19 @@
     "title": "Conditions and Decisions",
     "sequence": 26,
     "estimatedHours": 2,
-    "primaryCapability": "Complete the Conditions and Decisions module requirements.",
+    "primaryCapability": "Control program flow by executing different code paths using if/else statements and logic.",
     "prerequisites": [
       "mod-js-03"
     ],
     "skills": [],
     "concepts": [],
-    "projectConnections": [],
+    "projectConnections": [
+      "proj-weather-app"
+    ],
     "assessmentConnections": [],
-    "masteryEvidence": []
+    "masteryEvidence": [
+      "Code branches correctly based on dynamic inputs"
+    ]
   },
   {
     "moduleId": "mod-js-05",
@@ -419,7 +614,7 @@
     "title": "Loops and Repetition",
     "sequence": 27,
     "estimatedHours": 2,
-    "primaryCapability": "Complete the Loops and Repetition module requirements.",
+    "primaryCapability": "Automate repetitive tasks by writing loops that iterate until a specific condition is met.",
     "prerequisites": [
       "mod-js-04"
     ],
@@ -427,7 +622,9 @@
     "concepts": [],
     "projectConnections": [],
     "assessmentConnections": [],
-    "masteryEvidence": []
+    "masteryEvidence": [
+      "Loops execute without causing infinite runtime errors"
+    ]
   },
   {
     "moduleId": "mod-js-06",
@@ -435,15 +632,25 @@
     "title": "Functions and Scope",
     "sequence": 28,
     "estimatedHours": 2.5,
-    "primaryCapability": "Complete the Functions and Scope module requirements.",
+    "primaryCapability": "Define and use JavaScript functions with parameters, return values, and appropriate scope to solve small programming problems.",
     "prerequisites": [
       "mod-js-05"
     ],
-    "skills": [],
-    "concepts": [],
-    "projectConnections": [],
-    "assessmentConnections": [],
-    "masteryEvidence": []
+    "skills": [
+      "skill-js-functions"
+    ],
+    "concepts": [
+      "con-js-02"
+    ],
+    "projectConnections": [
+      "proj-weather-app"
+    ],
+    "assessmentConnections": [
+      "assess-js-dom"
+    ],
+    "masteryEvidence": [
+      "Pure functions pass logic unit tests"
+    ]
   },
   {
     "moduleId": "mod-js-07",
@@ -451,15 +658,19 @@
     "title": "Strings and Arrays",
     "sequence": 29,
     "estimatedHours": 2.5,
-    "primaryCapability": "Complete the Strings and Arrays module requirements.",
+    "primaryCapability": "Store and manipulate collections of data using arrays and iterate over them safely.",
     "prerequisites": [
       "mod-js-06"
     ],
     "skills": [],
     "concepts": [],
-    "projectConnections": [],
+    "projectConnections": [
+      "proj-weather-app"
+    ],
     "assessmentConnections": [],
-    "masteryEvidence": []
+    "masteryEvidence": [
+      "Successfully mapping/filtering an array of values"
+    ]
   },
   {
     "moduleId": "mod-js-08",
@@ -467,15 +678,19 @@
     "title": "Objects and Data Modeling",
     "sequence": 30,
     "estimatedHours": 2,
-    "primaryCapability": "Complete the Objects and Data Modeling module requirements.",
+    "primaryCapability": "Model complex real-world entities using JavaScript objects with key-value pairs.",
     "prerequisites": [
       "mod-js-07"
     ],
     "skills": [],
     "concepts": [],
-    "projectConnections": [],
+    "projectConnections": [
+      "proj-weather-app"
+    ],
     "assessmentConnections": [],
-    "masteryEvidence": []
+    "masteryEvidence": [
+      "Accessing nested object properties safely"
+    ]
   },
   {
     "moduleId": "mod-js-09",
@@ -483,15 +698,23 @@
     "title": "Debugging and Program Investigation",
     "sequence": 31,
     "estimatedHours": 2,
-    "primaryCapability": "Complete the Debugging and Program Investigation module requirements.",
+    "primaryCapability": "Systematically reproduce, isolate, diagnose, fix, and verify JavaScript errors using browser developer tools and hypothesis-driven debugging.",
     "prerequisites": [
       "mod-js-08"
     ],
-    "skills": [],
+    "skills": [
+      "skill-js-debug"
+    ],
     "concepts": [],
-    "projectConnections": [],
-    "assessmentConnections": [],
-    "masteryEvidence": []
+    "projectConnections": [
+      "proj-weather-app"
+    ],
+    "assessmentConnections": [
+      "assess-css-layout"
+    ],
+    "masteryEvidence": [
+      "Fixing broken code snippets independently"
+    ]
   },
   {
     "moduleId": "mod-js-10",
@@ -499,15 +722,27 @@
     "title": "DOM and Page Interaction",
     "sequence": 32,
     "estimatedHours": 2,
-    "primaryCapability": "Complete the DOM and Page Interaction module requirements.",
+    "primaryCapability": "Select HTML elements using JavaScript and modify their text, styles, and classes.",
     "prerequisites": [
-      "mod-js-09"
+      "mod-js-09",
+      "mod-html-09",
+      "mod-css-09"
     ],
-    "skills": [],
-    "concepts": [],
-    "projectConnections": [],
-    "assessmentConnections": [],
-    "masteryEvidence": []
+    "skills": [
+      "skill-dom-selection"
+    ],
+    "concepts": [
+      "con-js-03"
+    ],
+    "projectConnections": [
+      "proj-weather-app"
+    ],
+    "assessmentConnections": [
+      "assess-js-dom"
+    ],
+    "masteryEvidence": [
+      "Elements are correctly updated visually via JS"
+    ]
   },
   {
     "moduleId": "mod-js-11",
@@ -515,15 +750,23 @@
     "title": "Events, Forms and State",
     "sequence": 33,
     "estimatedHours": 2.5,
-    "primaryCapability": "Complete the Events, Forms and State module requirements.",
+    "primaryCapability": "Attach event listeners to UI elements to respond to user interactions and form submissions.",
     "prerequisites": [
       "mod-js-10"
     ],
-    "skills": [],
+    "skills": [
+      "skill-event-listeners"
+    ],
     "concepts": [],
-    "projectConnections": [],
-    "assessmentConnections": [],
-    "masteryEvidence": []
+    "projectConnections": [
+      "proj-weather-app"
+    ],
+    "assessmentConnections": [
+      "assess-js-dom"
+    ],
+    "masteryEvidence": [
+      "State changes update the UI seamlessly on click/input"
+    ]
   },
   {
     "moduleId": "mod-js-12",
@@ -531,15 +774,19 @@
     "title": "Local Storage and Persistent Browser State",
     "sequence": 34,
     "estimatedHours": 1,
-    "primaryCapability": "Complete the Local Storage and Persistent Browser State module requirements.",
+    "primaryCapability": "Save and retrieve serialized JavaScript objects to/from the browser's Local Storage API.",
     "prerequisites": [
       "mod-js-11"
     ],
     "skills": [],
     "concepts": [],
-    "projectConnections": [],
+    "projectConnections": [
+      "proj-weather-app"
+    ],
     "assessmentConnections": [],
-    "masteryEvidence": []
+    "masteryEvidence": [
+      "Data persists across page reloads"
+    ]
   },
   {
     "moduleId": "mod-js-13",
@@ -547,15 +794,25 @@
     "title": "Async JavaScript and APIs",
     "sequence": 35,
     "estimatedHours": 2,
-    "primaryCapability": "Complete the Async JavaScript and APIs module requirements.",
+    "primaryCapability": "Fetch data from a third-party REST API, parse the JSON response, and handle loading or error states.",
     "prerequisites": [
       "mod-js-12"
     ],
-    "skills": [],
-    "concepts": [],
-    "projectConnections": [],
-    "assessmentConnections": [],
-    "masteryEvidence": []
+    "skills": [
+      "skill-fetch-api"
+    ],
+    "concepts": [
+      "con-js-04"
+    ],
+    "projectConnections": [
+      "proj-weather-app"
+    ],
+    "assessmentConnections": [
+      "assess-js-dom"
+    ],
+    "masteryEvidence": [
+      "Live API data renders in the DOM; errors are caught gracefully"
+    ]
   },
   {
     "moduleId": "mod-js-14",
@@ -563,15 +820,29 @@
     "title": "Integration Project",
     "sequence": 36,
     "estimatedHours": 2,
-    "primaryCapability": "Complete the Integration Project module requirements.",
+    "primaryCapability": "Synthesize logic, DOM manipulation, events, and API requests to build an interactive, data-driven web application.",
     "prerequisites": [
       "mod-js-13"
     ],
-    "skills": [],
-    "concepts": [],
-    "projectConnections": [],
-    "assessmentConnections": [],
-    "masteryEvidence": []
+    "skills": [
+      "skill-js-functions",
+      "skill-dom-selection",
+      "skill-event-listeners",
+      "skill-fetch-api"
+    ],
+    "concepts": [
+      "con-js-03",
+      "con-js-04"
+    ],
+    "projectConnections": [
+      "proj-weather-app"
+    ],
+    "assessmentConnections": [
+      "assess-js-dom"
+    ],
+    "masteryEvidence": [
+      "Fully functional, interactive web app passes all requirement checks"
+    ]
   },
   {
     "moduleId": "mod-git-01",
@@ -579,15 +850,21 @@
     "title": "Why Version Control Exists",
     "sequence": 37,
     "estimatedHours": 1,
-    "primaryCapability": "Complete the Why Version Control Exists module requirements.",
+    "primaryCapability": "Explain the need for version control in tracking history and collaborating on code.",
     "prerequisites": [
       "mod-js-14"
     ],
     "skills": [],
-    "concepts": [],
+    "concepts": [
+      "con-git-01"
+    ],
     "projectConnections": [],
-    "assessmentConnections": [],
-    "masteryEvidence": []
+    "assessmentConnections": [
+      "assess-git-flow"
+    ],
+    "masteryEvidence": [
+      "Understanding of repository concepts"
+    ]
   },
   {
     "moduleId": "mod-git-02",
@@ -595,15 +872,26 @@
     "title": "Git Local Workflow",
     "sequence": 38,
     "estimatedHours": 1.5,
-    "primaryCapability": "Complete the Git Local Workflow module requirements.",
+    "primaryCapability": "Initialize a repository, stage file changes, and create atomic commits with descriptive messages.",
     "prerequisites": [
       "mod-git-01"
     ],
-    "skills": [],
-    "concepts": [],
-    "projectConnections": [],
-    "assessmentConnections": [],
-    "masteryEvidence": []
+    "skills": [
+      "skill-git-commit",
+      "skill-git-workflow"
+    ],
+    "concepts": [
+      "con-git-01"
+    ],
+    "projectConnections": [
+      "proj-capstone"
+    ],
+    "assessmentConnections": [
+      "assess-git-flow"
+    ],
+    "masteryEvidence": [
+      "Clean, linear commit history created locally"
+    ]
   },
   {
     "moduleId": "mod-git-03",
@@ -611,15 +899,23 @@
     "title": "History and Recovery",
     "sequence": 39,
     "estimatedHours": 1,
-    "primaryCapability": "Complete the History and Recovery module requirements.",
+    "primaryCapability": "View commit history logs and discard unstaged changes safely.",
     "prerequisites": [
       "mod-git-02"
     ],
-    "skills": [],
+    "skills": [
+      "skill-git-workflow"
+    ],
     "concepts": [],
-    "projectConnections": [],
-    "assessmentConnections": [],
-    "masteryEvidence": []
+    "projectConnections": [
+      "proj-capstone"
+    ],
+    "assessmentConnections": [
+      "assess-git-flow"
+    ],
+    "masteryEvidence": [
+      "Undoing a file modification successfully"
+    ]
   },
   {
     "moduleId": "mod-git-04",
@@ -627,15 +923,26 @@
     "title": "Branches and Merge",
     "sequence": 40,
     "estimatedHours": 1,
-    "primaryCapability": "Complete the Branches and Merge module requirements.",
+    "primaryCapability": "Create, switch between, and merge isolated feature branches.",
     "prerequisites": [
       "mod-git-03"
     ],
-    "skills": [],
-    "concepts": [],
-    "projectConnections": [],
-    "assessmentConnections": [],
-    "masteryEvidence": []
+    "skills": [
+      "skill-git-branch",
+      "skill-git-workflow"
+    ],
+    "concepts": [
+      "con-git-02"
+    ],
+    "projectConnections": [
+      "proj-capstone"
+    ],
+    "assessmentConnections": [
+      "assess-git-flow"
+    ],
+    "masteryEvidence": [
+      "Branch successfully merged into main locally"
+    ]
   },
   {
     "moduleId": "mod-git-05",
@@ -643,15 +950,23 @@
     "title": "GitHub and Remote Repositories",
     "sequence": 41,
     "estimatedHours": 1,
-    "primaryCapability": "Complete the GitHub and Remote Repositories module requirements.",
+    "primaryCapability": "Push local repositories to GitHub and clone remote repositories to a local machine.",
     "prerequisites": [
       "mod-git-04"
     ],
-    "skills": [],
+    "skills": [
+      "skill-git-workflow"
+    ],
     "concepts": [],
-    "projectConnections": [],
-    "assessmentConnections": [],
-    "masteryEvidence": []
+    "projectConnections": [
+      "proj-capstone"
+    ],
+    "assessmentConnections": [
+      "assess-git-flow"
+    ],
+    "masteryEvidence": [
+      "Code successfully hosted on GitHub"
+    ]
   },
   {
     "moduleId": "mod-git-06",
@@ -659,15 +974,26 @@
     "title": "Collaboration Workflow",
     "sequence": 42,
     "estimatedHours": 1.5,
-    "primaryCapability": "Complete the Collaboration Workflow module requirements.",
+    "primaryCapability": "Resolve merge conflicts and open a Pull Request for review.",
     "prerequisites": [
       "mod-git-05"
     ],
-    "skills": [],
-    "concepts": [],
-    "projectConnections": [],
-    "assessmentConnections": [],
-    "masteryEvidence": []
+    "skills": [
+      "skill-github-pr",
+      "skill-git-workflow"
+    ],
+    "concepts": [
+      "con-git-02"
+    ],
+    "projectConnections": [
+      "proj-capstone"
+    ],
+    "assessmentConnections": [
+      "assess-git-flow"
+    ],
+    "masteryEvidence": [
+      "Pull Request approved and merged without conflicts"
+    ]
   },
   {
     "moduleId": "mod-cap-01",
@@ -675,15 +1001,19 @@
     "title": "Problem and Audience",
     "sequence": 43,
     "estimatedHours": 2,
-    "primaryCapability": "Complete the Problem and Audience module requirements.",
+    "primaryCapability": "Define a specific user problem and outline the functional requirements of a web application solution.",
     "prerequisites": [
       "mod-git-06"
     ],
     "skills": [],
     "concepts": [],
-    "projectConnections": [],
+    "projectConnections": [
+      "proj-capstone"
+    ],
     "assessmentConnections": [],
-    "masteryEvidence": []
+    "masteryEvidence": [
+      "Clear, written project proposal"
+    ]
   },
   {
     "moduleId": "mod-cap-02",
@@ -691,15 +1021,19 @@
     "title": "Planning and Design",
     "sequence": 44,
     "estimatedHours": 2,
-    "primaryCapability": "Complete the Planning and Design module requirements.",
+    "primaryCapability": "Draft UI wireframes and document the planned data structure and API endpoints.",
     "prerequisites": [
       "mod-cap-01"
     ],
     "skills": [],
     "concepts": [],
-    "projectConnections": [],
+    "projectConnections": [
+      "proj-capstone"
+    ],
     "assessmentConnections": [],
-    "masteryEvidence": []
+    "masteryEvidence": [
+      "Visual wireframe and data schema document"
+    ]
   },
   {
     "moduleId": "mod-cap-03",
@@ -707,15 +1041,22 @@
     "title": "HTML/CSS Build",
     "sequence": 45,
     "estimatedHours": 4,
-    "primaryCapability": "Complete the HTML/CSS Build module requirements.",
+    "primaryCapability": "Implement the planned semantic HTML structure and responsive visual design using previously developed HTML and CSS skills.",
     "prerequisites": [
       "mod-cap-02"
     ],
-    "skills": [],
+    "skills": [
+      "skill-semantic-markup",
+      "skill-flexbox"
+    ],
     "concepts": [],
-    "projectConnections": [],
+    "projectConnections": [
+      "proj-capstone"
+    ],
     "assessmentConnections": [],
-    "masteryEvidence": []
+    "masteryEvidence": [
+      "Responsive UI fully implemented before JS logic is added"
+    ]
   },
   {
     "moduleId": "mod-cap-04",
@@ -723,15 +1064,22 @@
     "title": "JavaScript Build",
     "sequence": 46,
     "estimatedHours": 4,
-    "primaryCapability": "Complete the JavaScript Build module requirements.",
+    "primaryCapability": "Implement dynamic behavior, state management, and external API integrations to fulfill functional requirements.",
     "prerequisites": [
       "mod-cap-03"
     ],
-    "skills": [],
+    "skills": [
+      "skill-dom-selection",
+      "skill-fetch-api"
+    ],
     "concepts": [],
-    "projectConnections": [],
+    "projectConnections": [
+      "proj-capstone"
+    ],
     "assessmentConnections": [],
-    "masteryEvidence": []
+    "masteryEvidence": [
+      "Interactive application logic complete"
+    ]
   },
   {
     "moduleId": "mod-cap-05",
@@ -739,15 +1087,22 @@
     "title": "Testing, Debugging and Accessibility",
     "sequence": 47,
     "estimatedHours": 2,
-    "primaryCapability": "Complete the Testing, Debugging and Accessibility module requirements.",
+    "primaryCapability": "Audit the completed application for visual consistency, runtime bugs, and accessibility compliance.",
     "prerequisites": [
       "mod-cap-04"
     ],
-    "skills": [],
+    "skills": [
+      "skill-js-debug",
+      "skill-html-a11y"
+    ],
     "concepts": [],
-    "projectConnections": [],
+    "projectConnections": [
+      "proj-capstone"
+    ],
     "assessmentConnections": [],
-    "masteryEvidence": []
+    "masteryEvidence": [
+      "Application passes Lighthouse audit and QA tests"
+    ]
   },
   {
     "moduleId": "mod-cap-06",
@@ -755,15 +1110,21 @@
     "title": "Git, GitHub and Documentation",
     "sequence": 48,
     "estimatedHours": 2,
-    "primaryCapability": "Complete the Git, GitHub and Documentation module requirements.",
+    "primaryCapability": "Finalize the version history and author a comprehensive README detailing setup and architecture.",
     "prerequisites": [
       "mod-cap-05"
     ],
-    "skills": [],
+    "skills": [
+      "skill-git-workflow"
+    ],
     "concepts": [],
-    "projectConnections": [],
+    "projectConnections": [
+      "proj-capstone"
+    ],
     "assessmentConnections": [],
-    "masteryEvidence": []
+    "masteryEvidence": [
+      "Professional README in repository root"
+    ]
   },
   {
     "moduleId": "mod-cap-07",
@@ -771,14 +1132,20 @@
     "title": "Presentation and Reflection",
     "sequence": 49,
     "estimatedHours": 2,
-    "primaryCapability": "Complete the Presentation and Reflection module requirements.",
+    "primaryCapability": "Deploy the final application and synthesize the learning journey through a project presentation.",
     "prerequisites": [
       "mod-cap-06"
     ],
-    "skills": [],
+    "skills": [
+      "skill-app-deployment"
+    ],
     "concepts": [],
-    "projectConnections": [],
+    "projectConnections": [
+      "proj-capstone"
+    ],
     "assessmentConnections": [],
-    "masteryEvidence": []
+    "masteryEvidence": [
+      "Live deployed application link and reflection document"
+    ]
   }
 ]

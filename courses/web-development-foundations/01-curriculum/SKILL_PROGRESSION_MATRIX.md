@@ -1,6 +1,6 @@
 # Skill Progression Matrix
 
-This document tracks the learning arc for the most critical capabilities in the curriculum. Every durable skill must progress from introduction to mastery.
+This document tracks the learning arc for the critical capabilities in the curriculum. Every durable skill progresses from introduction to mastery.
 
 ## Skill Arc Definitions
 - **Introduce:** First explicit teaching of the skill.
@@ -13,72 +13,233 @@ This document tracks the learning arc for the most critical capabilities in the 
 
 ---
 
-## 1. Semantic HTML Structure (SKILL-HTML-SEMANTIC)
-- **Course:** HTML Foundations
-- **Module:** HTML-05
-- **Prerequisites:** HTML Document Structure, Tags
-- **Introduce:** HTML-05 (Semantic Elements)
-- **Practice:** HTML-05 Exercises
-- **Retrieve:** HTML-08 (Accessibility Review)
-- **Apply:** HTML-09 (Multi-page Project)
-- **Assess:** HTML-09 Automated Validation
-- **Reapply:** CSS-09 Responsive Interface Project
-- **Master:** CAP-03 (Capstone HTML Build)
-- **Evidence:** Clean, semantic DOM tree without generic div-soup.
-- **Project Connection:** Required for all projects from HTML-09 onward.
+## 1. Explain Web Journey (skill-url-anatomy)
+- **Introduce:** mod-web-01
+- **Practice:** mod-web-02
+- **Retrieve:** mod-web-03
+- **Apply:** mod-web-04
+- **Assess:** assess-web-diag
+- **Reapply:** mod-js-01
+- **Master:** mod-cap-07
+- **Evidence:** Successful demonstration of Explain Web Journey
 
-## 2. CSS Layout / Flexbox (SKILL-CSS-FLEX)
-- **Course:** CSS Foundations
-- **Module:** CSS-05
-- **Prerequisites:** CSS Box Model, Selectors
-- **Introduce:** CSS-05 (Flexbox)
-- **Practice:** CSS-05 Exercises (Alignment and Distribution)
-- **Retrieve:** CSS-07 (Responsive Design)
-- **Apply:** CSS-09 (Responsive Interface Project)
-- **Assess:** CSS-09 Layout verification
-- **Reapply:** JS-14 (Integration Project UI)
-- **Master:** CAP-03 (Capstone CSS Build)
-- **Evidence:** Responsive layouts that do not break or overflow on mobile viewports.
-- **Project Connection:** CSS-09, JS-14, CAP.
+## 2. HTTP Basics (skill-http-basics)
+- **Introduce:** mod-web-01
+- **Practice:** mod-web-02
+- **Retrieve:** mod-web-03
+- **Apply:** mod-web-04
+- **Assess:** assess-web-diag
+- **Reapply:** mod-js-01
+- **Master:** mod-cap-07
+- **Evidence:** Successful demonstration of HTTP Basics
 
-## 3. DOM Manipulation (SKILL-JS-DOM)
-- **Course:** JavaScript Foundations
-- **Module:** JS-10
-- **Prerequisites:** Variables, Functions, HTML/CSS
-- **Introduce:** JS-10 (Selectors, Elements, Properties)
-- **Practice:** JS-10 Exercises (Create/Remove elements)
-- **Retrieve:** JS-11 (Events, Forms & State)
-- **Apply:** JS-11 Exercises (Interactive Form validation)
-- **Assess:** JS-11 Event interaction challenge
-- **Reapply:** JS-13 (Async & APIs data rendering)
-- **Master:** CAP-04 (Capstone JavaScript Build)
-- **Evidence:** UI correctly reflects underlying application state dynamically.
-- **Project Connection:** JS-14, CAP.
+## 3. HTML Tags (skill-html-tags)
+- **Introduce:** mod-html-01
+- **Practice:** mod-html-02
+- **Retrieve:** mod-html-05
+- **Apply:** mod-html-09
+- **Assess:** assess-html-sem
+- **Reapply:** mod-css-09
+- **Master:** mod-cap-03
+- **Evidence:** Successful demonstration of HTML Tags
 
-## 4. Debugging & Error Resolution (SKILL-JS-DEBUG)
-- **Course:** JavaScript Foundations
-- **Module:** JS-09
-- **Prerequisites:** Variables, Conditions, Loops, Functions
-- **Introduce:** JS-09 (Console, Breakpoints, Hypothesis testing)
-- **Practice:** JS-09 Debugging Challenge (Broken code)
-- **Retrieve:** JS-10 (DOM Errors)
-- **Apply:** JS-13 (API Network Errors)
-- **Assess:** JS-14 Integration Project (Students must fix their own bugs to pass)
-- **Reapply:** CAP-05 (Testing & Debugging Phase)
-- **Master:** CAP-07 (Presentation & Reflection - explaining how a bug was solved)
-- **Evidence:** Ability to isolate and fix runtime and logic errors without copying answers.
-- **Project Connection:** Integrated into all JS projects.
+## 4. Semantic Markup (skill-semantic-markup)
+- **Introduce:** mod-web-01
+- **Practice:** mod-web-02
+- **Retrieve:** mod-web-03
+- **Apply:** mod-web-04
+- **Assess:** assess-web-diag
+- **Reapply:** mod-js-01
+- **Master:** mod-cap-07
+- **Evidence:** Successful demonstration of Semantic Markup
 
-## 5. Version Control Workflow (SKILL-GIT-WORKFLOW)
-- **Course:** Git & GitHub
-- **Module:** GIT-02 to GIT-06
-- **Prerequisites:** File management, CLI basics
-- **Introduce:** GIT-02 (Local Workflow)
-- **Practice:** GIT-02 (Init, Add, Commit)
-- **Retrieve:** GIT-04 (Branches)
-- **Apply:** GIT-06 (Collaboration & PRs)
-- **Assess:** GIT-06 Practical Task
-- **Reapply:** CAP-06 (Capstone Git history)
-- **Master:** CAP-06 
-- **Evidence:** A GitHub repository with atomic commits, branches, and a clear README.
-- **Project Connection:** The Capstone project submission format itself.
+## 5. CSS Selectors (skill-css-selectors)
+- **Introduce:** mod-css-01
+- **Practice:** mod-css-03
+- **Retrieve:** mod-css-05
+- **Apply:** mod-css-09
+- **Assess:** assess-css-layout
+- **Reapply:** mod-js-10
+- **Master:** mod-cap-03
+- **Evidence:** Successful demonstration of CSS Selectors
+
+## 6. Box Model (skill-box-model)
+- **Introduce:** mod-web-01
+- **Practice:** mod-web-02
+- **Retrieve:** mod-web-03
+- **Apply:** mod-web-04
+- **Assess:** assess-web-diag
+- **Reapply:** mod-js-01
+- **Master:** mod-cap-07
+- **Evidence:** Successful demonstration of Box Model
+
+## 7. Flexbox (skill-flexbox)
+- **Introduce:** mod-web-01
+- **Practice:** mod-web-02
+- **Retrieve:** mod-web-03
+- **Apply:** mod-web-04
+- **Assess:** assess-web-diag
+- **Reapply:** mod-js-01
+- **Master:** mod-cap-07
+- **Evidence:** Successful demonstration of Flexbox
+
+## 8. Media Queries (skill-media-queries)
+- **Introduce:** mod-web-01
+- **Practice:** mod-web-02
+- **Retrieve:** mod-web-03
+- **Apply:** mod-web-04
+- **Assess:** assess-web-diag
+- **Reapply:** mod-js-01
+- **Master:** mod-cap-07
+- **Evidence:** Successful demonstration of Media Queries
+
+## 9. JS Variables (skill-js-variables)
+- **Introduce:** mod-js-02
+- **Practice:** mod-js-06
+- **Retrieve:** mod-js-10
+- **Apply:** mod-js-14
+- **Assess:** assess-js-dom
+- **Reapply:** mod-js-14
+- **Master:** mod-cap-04
+- **Evidence:** Successful demonstration of JS Variables
+
+## 10. JS Functions (skill-js-functions)
+- **Introduce:** mod-js-02
+- **Practice:** mod-js-06
+- **Retrieve:** mod-js-10
+- **Apply:** mod-js-14
+- **Assess:** assess-js-dom
+- **Reapply:** mod-js-14
+- **Master:** mod-cap-04
+- **Evidence:** Successful demonstration of JS Functions
+
+## 11. DOM Selection (skill-dom-selection)
+- **Introduce:** mod-js-02
+- **Practice:** mod-js-06
+- **Retrieve:** mod-js-10
+- **Apply:** mod-js-14
+- **Assess:** assess-js-dom
+- **Reapply:** mod-js-14
+- **Master:** mod-cap-04
+- **Evidence:** Successful demonstration of DOM Selection
+
+## 12. Event Listeners (skill-event-listeners)
+- **Introduce:** mod-js-02
+- **Practice:** mod-js-06
+- **Retrieve:** mod-js-10
+- **Apply:** mod-js-14
+- **Assess:** assess-js-dom
+- **Reapply:** mod-js-14
+- **Master:** mod-cap-04
+- **Evidence:** Successful demonstration of Event Listeners
+
+## 13. Fetch API (skill-fetch-api)
+- **Introduce:** mod-js-02
+- **Practice:** mod-js-06
+- **Retrieve:** mod-js-10
+- **Apply:** mod-js-14
+- **Assess:** assess-js-dom
+- **Reapply:** mod-js-14
+- **Master:** mod-cap-04
+- **Evidence:** Successful demonstration of Fetch API
+
+## 14. Git Commit (skill-git-commit)
+- **Introduce:** mod-git-02
+- **Practice:** mod-git-04
+- **Retrieve:** mod-git-05
+- **Apply:** mod-git-06
+- **Assess:** assess-git-flow
+- **Reapply:** mod-cap-06
+- **Master:** mod-cap-06
+- **Evidence:** Successful demonstration of Git Commit
+
+## 15. Git Branching (skill-git-branch)
+- **Introduce:** mod-git-02
+- **Practice:** mod-git-04
+- **Retrieve:** mod-git-05
+- **Apply:** mod-git-06
+- **Assess:** assess-git-flow
+- **Reapply:** mod-cap-06
+- **Master:** mod-cap-06
+- **Evidence:** Successful demonstration of Git Branching
+
+## 16. GitHub PRs (skill-github-pr)
+- **Introduce:** mod-git-02
+- **Practice:** mod-git-04
+- **Retrieve:** mod-git-05
+- **Apply:** mod-git-06
+- **Assess:** assess-git-flow
+- **Reapply:** mod-cap-06
+- **Master:** mod-cap-06
+- **Evidence:** Successful demonstration of GitHub PRs
+
+## 17. App Deployment (skill-app-deployment)
+- **Introduce:** mod-web-01
+- **Practice:** mod-web-02
+- **Retrieve:** mod-web-03
+- **Apply:** mod-web-04
+- **Assess:** assess-web-diag
+- **Reapply:** mod-js-01
+- **Master:** mod-cap-07
+- **Evidence:** Successful demonstration of App Deployment
+
+## 18. Distinguish Web Roles (skill-web-roles)
+- **Introduce:** mod-web-01
+- **Practice:** mod-web-02
+- **Retrieve:** mod-web-03
+- **Apply:** mod-web-04
+- **Assess:** assess-web-diag
+- **Reapply:** mod-js-01
+- **Master:** mod-cap-07
+- **Evidence:** Successful demonstration of Distinguish Web Roles
+
+## 19. Create HTML Scaffold (skill-html-scaffold)
+- **Introduce:** mod-html-01
+- **Practice:** mod-html-02
+- **Retrieve:** mod-html-05
+- **Apply:** mod-html-09
+- **Assess:** assess-html-sem
+- **Reapply:** mod-css-09
+- **Master:** mod-cap-03
+- **Evidence:** Successful demonstration of Create HTML Scaffold
+
+## 20. Perform A11y Review (skill-html-a11y)
+- **Introduce:** mod-html-01
+- **Practice:** mod-html-02
+- **Retrieve:** mod-html-05
+- **Apply:** mod-html-09
+- **Assess:** assess-html-sem
+- **Reapply:** mod-css-09
+- **Master:** mod-cap-03
+- **Evidence:** Successful demonstration of Perform A11y Review
+
+## 21. Debug CSS Cascade (skill-css-cascade)
+- **Introduce:** mod-css-01
+- **Practice:** mod-css-03
+- **Retrieve:** mod-css-05
+- **Apply:** mod-css-09
+- **Assess:** assess-css-layout
+- **Reapply:** mod-js-10
+- **Master:** mod-cap-03
+- **Evidence:** Successful demonstration of Debug CSS Cascade
+
+## 22. Debug JS Code (skill-js-debug)
+- **Introduce:** mod-js-02
+- **Practice:** mod-js-06
+- **Retrieve:** mod-js-10
+- **Apply:** mod-js-14
+- **Assess:** assess-js-dom
+- **Reapply:** mod-js-14
+- **Master:** mod-cap-04
+- **Evidence:** Successful demonstration of Debug JS Code
+
+## 23. Git Workflow (skill-git-workflow)
+- **Introduce:** mod-git-02
+- **Practice:** mod-git-04
+- **Retrieve:** mod-git-05
+- **Apply:** mod-git-06
+- **Assess:** assess-git-flow
+- **Reapply:** mod-cap-06
+- **Master:** mod-cap-06
+- **Evidence:** Successful demonstration of Git Workflow
+

@@ -22,45 +22,43 @@ This document maps learning outcomes to the appropriate assessment evidence type
 ## 2. Evidence Mapping by Domain
 
 ### Course 1: Web Foundations (Conceptual)
-**Outcome:** Explain the journey of a URL request to a rendered page.
-**Skill:** High-level system explanation.
+**Outcome:** `out-web-01`
+**Assessment:** `assess-web-diag`
+**Skill:** `skill-web-network`
 **Evidence Type:** Explanation / Prediction.
-**Assessment:** Describe the roles of DNS, Server, and Browser given a specific URL scenario.
 **Mastery Evidence:** Written explanation or sequence-ordering task.
 
 ### Course 2: HTML Foundations (Structural)
-**Outcome:** Build a semantic document structure.
-**Skill:** Choose appropriate semantic elements (`header`, `main`, `article`).
+**Outcome:** `out-html-01`
+**Assessment:** `assess-html-sem`
+**Skill:** `skill-html-semantic`
 **Evidence Type:** Code Completion / Coding Challenge.
-**Assessment:** Given an unformatted text document, wrap the content in correct semantic HTML.
-**Mastery Evidence:** Successful automated validation of the DOM tree structure in the Module 9 Project.
+**Mastery Evidence:** Successful automated validation of the DOM tree structure.
 
 ### Course 3: CSS Foundations (Visual/Layout)
-**Outcome:** Implement responsive layouts using Flexbox and Grid.
-**Skill:** Build one- and two-dimensional layouts that adapt to viewports.
+**Outcome:** `out-css-01`
+**Assessment:** `assess-css-layout`
+**Skill:** `skill-css-flex`
 **Evidence Type:** Coding Challenge / Project Checkpoint.
-**Assessment:** Transform a provided mobile-only layout into a desktop layout using Media Queries and Grid.
-**Mastery Evidence:** Visual regression or computed-style testing of the CSS-09 Project.
+**Mastery Evidence:** Visual regression or computed-style testing of the flexbox layout.
 
 ### Course 4: JavaScript Foundations (Logic/Behavior)
-**Outcome:** Manipulate the DOM based on user events and state.
-**Skill:** Attach event listeners, update data, and render changes.
+**Outcome:** `out-js-01`, `out-js-02`
+**Assessment:** `assess-js-dom`
+**Skill:** `skill-js-dom`, `skill-js-func`, `skill-js-async`
 **Evidence Type:** Debugging Challenge / Coding Challenge.
-**Assessment:** 
-1. Fix a broken event listener that fails to update the UI. (Debugging)
-2. Build a character-counter for a text input. (Coding)
-**Mastery Evidence:** Passing unit tests on the JS-14 Integration Project.
+**Mastery Evidence:** Passing unit tests and UI state validation on the integration project.
 
 ### Course 5: Git & GitHub (Workflow)
-**Outcome:** Manage local history and collaborate remotely.
-**Skill:** Initialize, commit, branch, merge, and push repositories.
+**Outcome:** `out-git-01`
+**Assessment:** `assess-git-flow`
+**Skill:** `skill-git-workflow`
 **Evidence Type:** Practical Task.
-**Assessment:** Execute a sequence of git commands to resolve a staged conflict and push to a remote.
 **Mastery Evidence:** A verifiable GitHub repository link containing specific commit history requirements.
 
 ### Course 6: Web Development Capstone (Synthesis)
-**Outcome:** Build an independent web application from scratch.
-**Skill:** Full foundational stack integration.
+**Outcome:** `out-cap-01`
+**Assessment:** Capstone Audit
+**Skill:** All Skills
 **Evidence Type:** Project / Reflection / Mastery Check.
-**Assessment:** Independent Capstone implementation.
-**Mastery Evidence:** A deployed application, a public repository, a comprehensive README, and a passing score on the Capstone Accessibility and Code Quality Rubrics.
+**Mastery Evidence:** A deployed application, a public repository, a comprehensive README, and a passing score on the Capstone Rubric.

@@ -1,6 +1,6 @@
 # Prerequisite Graph
 
-This graph defines the strict dependencies between capabilities and technologies within the Web Development Foundations path. Cycles are prohibited.
+This graph defines the strict pedagogical dependencies between capabilities and technologies within the Web Development Foundations path. Cycles are prohibited.
 
 ## Course Dependencies
 
@@ -17,68 +17,68 @@ graph TD
 ## HTML Concept Dependencies
 
 ```text
-HTML Document Structure
+HTML Document Structure (mod-html-01)
    ↓
-HTML Nesting & Elements
+HTML Nesting & Elements (mod-html-02, mod-html-03, mod-html-04)
    ↓
-HTML Semantics
+HTML Semantics (mod-html-05)
    ↓
-Forms & Inputs
+Forms & Inputs (mod-html-07)
    ↓
-Document Accessibility
+Document Accessibility (mod-html-08)
 ```
 
 ## CSS Concept Dependencies
 
 ```text
-CSS Selectors & Declarations
+CSS Selectors & Declarations (mod-css-01)
    ↓
-Values & Colors
+Values & Colors (mod-css-02)
    ↓
-CSS Box Model (Margin/Border/Padding)
+CSS Box Model (mod-css-03)
    ↓
-Normal Flow & Positioning
+Normal Flow & Positioning (mod-css-04)
    ↓
-Flexbox
+Flexbox (mod-css-05)
    ↓
-CSS Grid
+CSS Grid (mod-css-06)
    ↓
-Responsive Design & Media Queries
+Responsive Design & Media Queries (mod-css-07)
 ```
 
 ## JavaScript Concept Dependencies
 
 ```text
-Values & Types
+Programming Thinking (mod-js-01)
    ↓
-Variables
+Variables (mod-js-02)
    ↓
-Operators
+Operators (mod-js-03)
    ↓
-Conditions
+Conditions (mod-js-04)
    ↓
-Loops
+Loops (mod-js-05)
    ↓
-Functions & Scope
+Functions & Scope (mod-js-06)
    ↓
-Arrays & Objects
+Arrays & Objects (mod-js-07, mod-js-08)
    ↓
-DOM Selection
+Debugging (mod-js-09)
    ↓
-DOM Manipulation
+DOM Selection (mod-js-10)
    ↓
-Events & Forms
+Events & State (mod-js-11)
    ↓
-Async & Fetch API
+Async & Fetch API (mod-js-13)
 ```
 
 ## Hidden/Cross-Domain Prerequisites
 
 To successfully interact with the DOM in JavaScript, specific HTML and CSS knowledge is assumed:
-- **`document.querySelector('.btn')`** depends on understanding **CSS Selectors** (taught in CSS-01).
-- **`element.classList.add('hidden')`** depends on understanding **CSS Classes and Display** (taught in CSS-04).
-- **Form Event Listeners** depend on understanding **HTML Forms and Inputs** (taught in HTML-07).
+- **`mod-js-10` (DOM Selection)** depends on understanding **CSS Selectors** (taught in `mod-css-01`).
+- **`mod-js-10` (DOM Manipulation)** depends on understanding **HTML Tags, Classes, and IDs** (taught in `mod-html-01` to `mod-html-03`).
+- **`mod-js-11` (Forms & State)** depends on understanding **HTML Forms and Inputs** (taught in `mod-html-07`).
 
 To successfully style an interface with CSS, specific HTML knowledge is assumed:
-- **CSS Selectors** depend on understanding **HTML Tags, Classes, and IDs**.
-- **CSS Box Model** depends on understanding **HTML Block vs Inline defaults**.
+- **`mod-css-01` (CSS Selectors)** depends on understanding **HTML Tags, Classes, and IDs**.
+- **`mod-css-03` (CSS Box Model)** depends on understanding **HTML Block vs Inline defaults**.
