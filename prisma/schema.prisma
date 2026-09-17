@@ -1,8 +1,7 @@
-// PostgreSQL datasource for Supabase production & cloud DB
+// SQLite datasource for local development & Edge deployment
 datasource db {
-  provider  = "postgresql"
-  url       = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
+  provider = "sqlite"
+  url      = "file:./dev.db"
 }
 
 generator client {

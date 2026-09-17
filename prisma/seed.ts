@@ -1,6 +1,8 @@
 import 'dotenv/config'
 import { PrismaClient } from '@prisma/client'
 import bcrypt from 'bcryptjs'
+import fs from 'fs'
+import path from 'path'
 
 const prisma = new PrismaClient()
 
@@ -122,46 +124,125 @@ async function main() {
     }
   }
   
-  // Create an initial Web Creator Foundations Course
-  const course = await prisma.course.create({
-    data: {
-      title: 'Web Creator Foundations',
-      description: 'Learn HTML, CSS, and basic JavaScript by building your first website.',
-      isPublished: true,
-      modules: {
-        create: [
-          {
-            title: 'Module 1: The Structure of the Web (HTML)',
-            order: 1,
-            units: {
-              create: [
-                {
-                  title: 'Unit 1: Your First Webpage',
-                  order: 1,
-                  lessons: {
-                    create: [
-                      {
-                        title: 'What is HTML?',
-                        content: '# Welcome to the Web\n\nHTML stands for HyperText Markup Language. It is the skeleton of every website you visit.\n\n## Why it matters\nIf you want to build anything on the web, you must start with HTML. It tells the browser what content to display: headings, paragraphs, images, and links.\n\n## Your first tag\nThe `<h1>` tag creates a large heading. Try writing: `<h1>Hello World</h1>` in the editor below.',
-                        order: 1,
-                      },
-                      {
-                        title: 'Paragraphs and Structure',
-                        content: '# Adding Text\n\nNow that you have a heading, you need regular text. The `<p>` tag is used for paragraphs.\n\n## Practice\nAdd a paragraph below your heading using `<p>This is my first website.</p>`.',
-                        order: 2,
-                      }
-                    ]
-                  }
-                }
-              ]
-            }
-          }
-        ]
+  // ---------------------------------------------------------
+  // INGEST CURRICULUM FROM REGISTRIES & MDX
+  // ---------------------------------------------------------
+  console.log('Ingesting deterministic curriculum...')
+  
+  // 1. Resolve paths
+  const coursesPath = path.resolve(process.cwd(), 'courses/web-development-foundations')
+  const idRegistryPath = path.join(coursesPath, '01-curriculum/ID_REGISTRY.json')
+  const moduleRegistryPath = path.join(coursesPath, '01-curriculum/MODULE_REGISTRY.json')
+  const lessonRegistryPath = path.join(coursesPath, '02-lesson-architecture/LESSON_REGISTRY.json')
+  const lessonsDir = path.join(coursesPath, '03-lessons')
+  
+  // 2. Read Registries
+  const idRegistry = JSON.parse(fs.readFileSync(idRegistryPath, 'utf8'))
+  const moduleRegistry = JSON.parse(fs.readFileSync(moduleRegistryPath, 'utf8'))
+  const lessonRegistry = JSON.parse(fs.readFileSync(lessonRegistryPath, 'utf8'))
+
+  // 3. Upsert Courses
+  for (const c of idRegistry.courses) {
+    await prisma.course.upsert({
+      where: { id: c.id },
+      update: {
+        title: c.title,
+        description: c.title,
+        isPublished: true,
+      },
+      create: {
+        id: c.id,
+        title: c.title,
+        description: c.title,
+        isPublished: true,
+      }
+    })
+  }
+  console.log(`Ingested ${idRegistry.courses.length} courses.`)
+
+  // 4. Upsert Modules & Adapter Units
+  for (const m of moduleRegistry) {
+    await prisma.module.upsert({
+      where: { id: m.moduleId },
+      update: {
+        title: m.title,
+        courseId: m.courseId,
+        order: m.sequence
+      },
+      create: {
+        id: m.moduleId,
+        title: m.title,
+        courseId: m.courseId,
+        order: m.sequence
+      }
+    })
+    
+    const unitId = `unit-${m.moduleId}`
+    await prisma.unit.upsert({
+      where: { id: unitId },
+      update: {
+        moduleId: m.moduleId,
+        title: m.title,
+        order: 1
+      },
+      create: {
+        id: unitId,
+        moduleId: m.moduleId,
+        title: m.title,
+        order: 1
+      }
+    })
+  }
+  console.log(`Ingested ${moduleRegistry.length} modules & adapter units.`)
+
+  // 5. Upsert Lessons
+  const allDirs = fs.readdirSync(lessonsDir)
+  let mdxCount = 0
+  
+  for (const l of lessonRegistry) {
+    const filename = `${l.lessonId}.mdx`
+    const matches = []
+    
+    for (const d of allDirs) {
+      const dirPath = path.join(lessonsDir, d)
+      if (fs.statSync(dirPath).isDirectory()) {
+        const checkPath = path.join(dirPath, filename)
+        if (fs.existsSync(checkPath)) {
+          matches.push(checkPath)
+        }
       }
     }
-  })
-
-  console.log(`Seeded Course: ${course.title}`)
+    
+    if (matches.length === 0) {
+      throw new Error(`Missing MDX file for lesson ${l.lessonId}`)
+    }
+    if (matches.length > 1) {
+      throw new Error(`Duplicate MDX files found for lesson ${l.lessonId}`)
+    }
+    const mdxPath = matches[0]
+    const mdxContent = fs.readFileSync(mdxPath, 'utf8')
+    
+    const unitId = `unit-${l.moduleId}`
+    
+    await prisma.lesson.upsert({
+      where: { id: l.lessonId },
+      update: {
+        title: l.title,
+        unitId: unitId,
+        order: l.sequence,
+        content: mdxContent
+      },
+      create: {
+        id: l.lessonId,
+        title: l.title,
+        unitId: unitId,
+        order: l.sequence,
+        content: mdxContent
+      }
+    })
+    mdxCount++
+  }
+  console.log(`Ingested ${mdxCount} lessons from MDX source.`)
 
   // Seed Badges
   const badges = [
