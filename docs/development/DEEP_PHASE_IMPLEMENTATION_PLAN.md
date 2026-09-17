@@ -32,7 +32,7 @@ PHASE 12-17: Beta, V1 Local Payments & Global Scaling [ROADMAP]
 - **Implemented Files:**
   - [`src/middleware.ts`](file:///home/jabez/Documents/software/project/myproduct/best/edutech/src/middleware.ts): NextAuth JWT middleware enforcing RBAC for `/teacher`, `/parent`, `/dashboard`, and `/courses`.
   - [`src/auth.ts`](file:///home/jabez/Documents/software/project/myproduct/best/edutech/src/auth.ts): Credentials provider with `bcryptjs` password hashing.
-  - [`.env.example`](file:///home/jabez/Documents/software/project/myproduct/best/edutech/.env.example): Configured for Supabase PostgreSQL production & local SQLite development.
+  - [`.env.example`](file:///home/jabez/Documents/software/project/myproduct/best/edutech/.env.example): Configured for Supabase PostgreSQL production & local SQLite development. (Note: Supabase PostgreSQL is reserved for cloud production deployments, but SQLite is the canonical provider for the local offline PWA architecture. `prisma/schema.prisma` is explicitly configured to use `sqlite` natively).
 - **Checklist:**
   - [x] Unauthenticated users redirected to `/login`.
   - [x] Non-teachers blocked from `/teacher`.

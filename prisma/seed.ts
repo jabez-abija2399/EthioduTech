@@ -222,6 +222,25 @@ async function main() {
     const mdxPath = matches[0]
     const mdxContent = fs.readFileSync(mdxPath, 'utf8')
     
+    // Strict Frontmatter Validation
+    const extractFrontmatter = (key: string) => {
+      const match = mdxContent.match(new RegExp(`${key}:\\s*"([^"]+)"|${key}:\\s*(\\d+)`))
+      return match ? (match[1] || match[2]) : null
+    }
+
+    const mdxLessonId = extractFrontmatter('lessonId')
+    const mdxCourseId = extractFrontmatter('courseId')
+    const mdxModuleId = extractFrontmatter('moduleId')
+    const mdxSequence = extractFrontmatter('sequence')
+    const mdxTitle = extractFrontmatter('title')
+
+    if (mdxLessonId !== l.lessonId) throw new Error(`Validation failed for ${l.lessonId}: MDX lessonId '${mdxLessonId}' != Registry '${l.lessonId}'`)
+    if (mdxCourseId !== l.courseId) throw new Error(`Validation failed for ${l.lessonId}: MDX courseId '${mdxCourseId}' != Registry '${l.courseId}'`)
+    if (mdxModuleId !== l.moduleId) throw new Error(`Validation failed for ${l.lessonId}: MDX moduleId '${mdxModuleId}' != Registry '${l.moduleId}'`)
+    if (mdxSequence !== String(l.sequence)) throw new Error(`Validation failed for ${l.lessonId}: MDX sequence '${mdxSequence}' != Registry '${l.sequence}'`)
+    if (mdxTitle !== l.title) throw new Error(`Validation failed for ${l.lessonId}: MDX title '${mdxTitle}' != Registry '${l.title}'`)
+
+    
     const unitId = `unit-${l.moduleId}`
     
     await prisma.lesson.upsert({
