@@ -25,12 +25,14 @@ export async function getCourses() {
     })
 
     if (courses && courses.length > 0) {
-      courses.forEach(course => {
-        if (course.modules.some((m: any) => m.id.includes('-phase-'))) {
+      const validCourses = courses.filter(course => course.modules.some((m: any) => m.id.includes('-phase-')));
+      
+      if (validCourses.length > 0) {
+        validCourses.forEach(course => {
           course.modules = course.modules.filter((m: any) => m.id.includes('-phase-'));
-        }
-      });
-      return courses
+        });
+        return validCourses;
+      }
     }
 
     const allCourses = await prisma.course.findMany({
@@ -52,12 +54,14 @@ export async function getCourses() {
     })
 
     if (allCourses && allCourses.length > 0) {
-      allCourses.forEach(course => {
-        if (course.modules.some((m: any) => m.id.includes('-phase-'))) {
+      const validAllCourses = allCourses.filter(course => course.modules.some((m: any) => m.id.includes('-phase-')));
+      
+      if (validAllCourses.length > 0) {
+        validAllCourses.forEach(course => {
           course.modules = course.modules.filter((m: any) => m.id.includes('-phase-'));
-        }
-      });
-      return allCourses
+        });
+        return validAllCourses;
+      }
     }
   } catch (error) {
     console.error("Failed to fetch courses from database:", error)
