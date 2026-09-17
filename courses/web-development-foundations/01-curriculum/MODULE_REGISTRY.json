@@ -7,7 +7,9 @@
     "estimatedHours": 1,
     "primaryCapability": "Create, open, and view a basic HTML file locally in a web browser without a server.",
     "prerequisites": [],
-    "skills": [],
+    "skills": [
+      "skill-web-roles"
+    ],
     "concepts": [],
     "projectConnections": [
       "proj-first-page"
@@ -76,7 +78,9 @@
     "prerequisites": [
       "mod-web-03"
     ],
-    "skills": [],
+    "skills": [
+      "skill-js-debug"
+    ],
     "concepts": [],
     "projectConnections": [
       "proj-first-page"
@@ -148,7 +152,7 @@
       "mod-html-02"
     ],
     "skills": [
-      "skill-html-tags"
+      "skill-html-links"
     ],
     "concepts": [],
     "projectConnections": [
@@ -170,7 +174,7 @@
       "mod-html-03"
     ],
     "skills": [
-      "skill-html-tags"
+      "skill-html-media"
     ],
     "concepts": [],
     "projectConnections": [
@@ -241,7 +245,7 @@
       "mod-html-06"
     ],
     "skills": [
-      "skill-html-tags"
+      "skill-html-forms"
     ],
     "concepts": [],
     "projectConnections": [
@@ -441,7 +445,9 @@
     "prerequisites": [
       "mod-css-05"
     ],
-    "skills": [],
+    "skills": [
+      "skill-css-grid"
+    ],
     "concepts": [],
     "projectConnections": [
       "proj-portfolio-grid"
@@ -487,7 +493,9 @@
     "prerequisites": [
       "mod-css-07"
     ],
-    "skills": [],
+    "skills": [
+      "skill-html-a11y"
+    ],
     "concepts": [],
     "projectConnections": [
       "proj-portfolio-grid"
@@ -536,7 +544,9 @@
     "prerequisites": [
       "mod-css-09"
     ],
-    "skills": [],
+    "skills": [
+      "skill-problem-decomposition"
+    ],
     "concepts": [],
     "projectConnections": [],
     "assessmentConnections": [],
@@ -563,7 +573,9 @@
     "projectConnections": [
       "proj-weather-app"
     ],
-    "assessmentConnections": [],
+    "assessmentConnections": [
+      "assess-js-dom"
+    ],
     "masteryEvidence": [
       "Variables update accurately without reassignment errors"
     ]
@@ -583,7 +595,9 @@
     ],
     "concepts": [],
     "projectConnections": [],
-    "assessmentConnections": [],
+    "assessmentConnections": [
+      "assess-js-dom"
+    ],
     "masteryEvidence": [
       "Expressions yield expected values"
     ]
@@ -598,12 +612,16 @@
     "prerequisites": [
       "mod-js-03"
     ],
-    "skills": [],
+    "skills": [
+      "skill-js-conditions"
+    ],
     "concepts": [],
     "projectConnections": [
       "proj-weather-app"
     ],
-    "assessmentConnections": [],
+    "assessmentConnections": [
+      "assess-js-dom"
+    ],
     "masteryEvidence": [
       "Code branches correctly based on dynamic inputs"
     ]
@@ -618,10 +636,14 @@
     "prerequisites": [
       "mod-js-04"
     ],
-    "skills": [],
+    "skills": [
+      "skill-js-loops"
+    ],
     "concepts": [],
     "projectConnections": [],
-    "assessmentConnections": [],
+    "assessmentConnections": [
+      "assess-js-dom"
+    ],
     "masteryEvidence": [
       "Loops execute without causing infinite runtime errors"
     ]
@@ -662,12 +684,16 @@
     "prerequisites": [
       "mod-js-06"
     ],
-    "skills": [],
+    "skills": [
+      "skill-js-arrays"
+    ],
     "concepts": [],
     "projectConnections": [
       "proj-weather-app"
     ],
-    "assessmentConnections": [],
+    "assessmentConnections": [
+      "assess-js-dom"
+    ],
     "masteryEvidence": [
       "Successfully mapping/filtering an array of values"
     ]
@@ -682,12 +708,16 @@
     "prerequisites": [
       "mod-js-07"
     ],
-    "skills": [],
+    "skills": [
+      "skill-js-objects"
+    ],
     "concepts": [],
     "projectConnections": [
       "proj-weather-app"
     ],
-    "assessmentConnections": [],
+    "assessmentConnections": [
+      "assess-js-dom"
+    ],
     "masteryEvidence": [
       "Accessing nested object properties safely"
     ]
@@ -710,7 +740,7 @@
       "proj-weather-app"
     ],
     "assessmentConnections": [
-      "assess-css-layout"
+      "assess-js-debug"
     ],
     "masteryEvidence": [
       "Fixing broken code snippets independently"
@@ -724,9 +754,7 @@
     "estimatedHours": 2,
     "primaryCapability": "Select HTML elements using JavaScript and modify their text, styles, and classes.",
     "prerequisites": [
-      "mod-js-09",
-      "mod-html-09",
-      "mod-css-09"
+      "mod-js-09"
     ],
     "skills": [
       "skill-dom-selection"
@@ -778,12 +806,16 @@
     "prerequisites": [
       "mod-js-11"
     ],
-    "skills": [],
+    "skills": [
+      "skill-js-objects"
+    ],
     "concepts": [],
     "projectConnections": [
       "proj-weather-app"
     ],
-    "assessmentConnections": [],
+    "assessmentConnections": [
+      "assess-js-dom"
+    ],
     "masteryEvidence": [
       "Data persists across page reloads"
     ]
@@ -854,7 +886,9 @@
     "prerequisites": [
       "mod-js-14"
     ],
-    "skills": [],
+    "skills": [
+      "skill-git-workflow"
+    ],
     "concepts": [
       "con-git-01"
     ],
@@ -928,8 +962,7 @@
       "mod-git-03"
     ],
     "skills": [
-      "skill-git-branch",
-      "skill-git-workflow"
+      "skill-git-branch"
     ],
     "concepts": [
       "con-git-02"
@@ -979,8 +1012,7 @@
       "mod-git-05"
     ],
     "skills": [
-      "skill-github-pr",
-      "skill-git-workflow"
+      "skill-github-pr"
     ],
     "concepts": [
       "con-git-02"
@@ -1005,12 +1037,16 @@
     "prerequisites": [
       "mod-git-06"
     ],
-    "skills": [],
+    "skills": [
+      "skill-problem-decomposition"
+    ],
     "concepts": [],
     "projectConnections": [
       "proj-capstone"
     ],
-    "assessmentConnections": [],
+    "assessmentConnections": [
+      "assess-capstone-audit"
+    ],
     "masteryEvidence": [
       "Clear, written project proposal"
     ]
@@ -1025,12 +1061,16 @@
     "prerequisites": [
       "mod-cap-01"
     ],
-    "skills": [],
+    "skills": [
+      "skill-problem-decomposition"
+    ],
     "concepts": [],
     "projectConnections": [
       "proj-capstone"
     ],
-    "assessmentConnections": [],
+    "assessmentConnections": [
+      "assess-capstone-audit"
+    ],
     "masteryEvidence": [
       "Visual wireframe and data schema document"
     ]
@@ -1053,7 +1093,9 @@
     "projectConnections": [
       "proj-capstone"
     ],
-    "assessmentConnections": [],
+    "assessmentConnections": [
+      "assess-capstone-audit"
+    ],
     "masteryEvidence": [
       "Responsive UI fully implemented before JS logic is added"
     ]
@@ -1076,7 +1118,9 @@
     "projectConnections": [
       "proj-capstone"
     ],
-    "assessmentConnections": [],
+    "assessmentConnections": [
+      "assess-capstone-audit"
+    ],
     "masteryEvidence": [
       "Interactive application logic complete"
     ]
@@ -1099,7 +1143,9 @@
     "projectConnections": [
       "proj-capstone"
     ],
-    "assessmentConnections": [],
+    "assessmentConnections": [
+      "assess-capstone-audit"
+    ],
     "masteryEvidence": [
       "Application passes Lighthouse audit and QA tests"
     ]
@@ -1121,7 +1167,9 @@
     "projectConnections": [
       "proj-capstone"
     ],
-    "assessmentConnections": [],
+    "assessmentConnections": [
+      "assess-capstone-audit"
+    ],
     "masteryEvidence": [
       "Professional README in repository root"
     ]
@@ -1143,7 +1191,9 @@
     "projectConnections": [
       "proj-capstone"
     ],
-    "assessmentConnections": [],
+    "assessmentConnections": [
+      "assess-capstone-audit"
+    ],
     "masteryEvidence": [
       "Live deployed application link and reflection document"
     ]

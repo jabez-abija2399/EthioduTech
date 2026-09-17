@@ -1,84 +1,51 @@
 # Prerequisite Graph
 
-This graph defines the strict pedagogical dependencies between capabilities and technologies within the Web Development Foundations path. Cycles are prohibited.
-
-## Course Dependencies
-
-```mermaid
-graph TD
-    WEB[Course 1: Web Foundations] --> HTML[Course 2: HTML Foundations]
-    HTML --> CSS[Course 3: CSS Foundations]
-    HTML --> JS[Course 4: JavaScript Foundations]
-    CSS --> JS
-    JS --> GIT[Course 5: Git & GitHub]
-    GIT --> CAP[Course 6: Web Dev Capstone]
-```
-
-## HTML Concept Dependencies
-
-```text
-HTML Document Structure (mod-html-01)
-   ↓
-HTML Nesting & Elements (mod-html-02, mod-html-03, mod-html-04)
-   ↓
-HTML Semantics (mod-html-05)
-   ↓
-Forms & Inputs (mod-html-07)
-   ↓
-Document Accessibility (mod-html-08)
-```
-
-## CSS Concept Dependencies
-
-```text
-CSS Selectors & Declarations (mod-css-01)
-   ↓
-Values & Colors (mod-css-02)
-   ↓
-CSS Box Model (mod-css-03)
-   ↓
-Normal Flow & Positioning (mod-css-04)
-   ↓
-Flexbox (mod-css-05)
-   ↓
-CSS Grid (mod-css-06)
-   ↓
-Responsive Design & Media Queries (mod-css-07)
-```
-
-## JavaScript Concept Dependencies
-
-```text
-Programming Thinking (mod-js-01)
-   ↓
-Variables (mod-js-02)
-   ↓
-Operators (mod-js-03)
-   ↓
-Conditions (mod-js-04)
-   ↓
-Loops (mod-js-05)
-   ↓
-Functions & Scope (mod-js-06)
-   ↓
-Arrays & Objects (mod-js-07, mod-js-08)
-   ↓
-Debugging (mod-js-09)
-   ↓
-DOM Selection (mod-js-10)
-   ↓
-Events & State (mod-js-11)
-   ↓
-Async & Fetch API (mod-js-13)
-```
-
-## Hidden/Cross-Domain Prerequisites
-
-To successfully interact with the DOM in JavaScript, specific HTML and CSS knowledge is assumed:
-- **`mod-js-10` (DOM Selection)** depends on understanding **CSS Selectors** (taught in `mod-css-01`).
-- **`mod-js-10` (DOM Manipulation)** depends on understanding **HTML Tags, Classes, and IDs** (taught in `mod-html-01` to `mod-html-03`).
-- **`mod-js-11` (Forms & State)** depends on understanding **HTML Forms and Inputs** (taught in `mod-html-07`).
-
-To successfully style an interface with CSS, specific HTML knowledge is assumed:
-- **`mod-css-01` (CSS Selectors)** depends on understanding **HTML Tags, Classes, and IDs**.
-- **`mod-css-03` (CSS Box Model)** depends on understanding **HTML Block vs Inline defaults**.
+- `mod-web-01` requires: None
+- `mod-web-02` requires: `mod-web-01`
+- `mod-web-03` requires: `mod-web-02`
+- `mod-web-04` requires: `mod-web-03`
+- `mod-html-01` requires: `mod-web-04`
+- `mod-html-02` requires: `mod-html-01`
+- `mod-html-03` requires: `mod-html-02`
+- `mod-html-04` requires: `mod-html-03`
+- `mod-html-05` requires: `mod-html-04`
+- `mod-html-06` requires: `mod-html-05`
+- `mod-html-07` requires: `mod-html-06`
+- `mod-html-08` requires: `mod-html-07`
+- `mod-html-09` requires: `mod-html-08`
+- `mod-css-01` requires: `mod-html-09`
+- `mod-css-02` requires: `mod-css-01`
+- `mod-css-03` requires: `mod-css-02`
+- `mod-css-04` requires: `mod-css-03`
+- `mod-css-05` requires: `mod-css-04`
+- `mod-css-06` requires: `mod-css-05`
+- `mod-css-07` requires: `mod-css-06`
+- `mod-css-08` requires: `mod-css-07`
+- `mod-css-09` requires: `mod-css-08`
+- `mod-js-01` requires: `mod-css-09`
+- `mod-js-02` requires: `mod-js-01`
+- `mod-js-03` requires: `mod-js-02`
+- `mod-js-04` requires: `mod-js-03`
+- `mod-js-05` requires: `mod-js-04`
+- `mod-js-06` requires: `mod-js-05`
+- `mod-js-07` requires: `mod-js-06`
+- `mod-js-08` requires: `mod-js-07`
+- `mod-js-09` requires: `mod-js-08`
+- `mod-js-10` requires: `mod-js-09`
+- `mod-js-11` requires: `mod-js-10`
+- `mod-js-12` requires: `mod-js-11`
+- `mod-js-13` requires: `mod-js-12`
+- `mod-js-14` requires: `mod-js-13`
+- `mod-git-01` requires: `mod-js-14`
+- `mod-git-02` requires: `mod-git-01`
+- `mod-git-03` requires: `mod-git-02`
+- `mod-git-04` requires: `mod-git-03`
+- `mod-git-05` requires: `mod-git-04`
+- `mod-git-06` requires: `mod-git-05`
+- `mod-cap-01` requires: `mod-git-06`
+- `mod-cap-02` requires: `mod-cap-01`
+- `mod-cap-03` requires: `mod-cap-02`
+- `mod-cap-04` requires: `mod-cap-03`
+- `mod-cap-05` requires: `mod-cap-04`
+- `mod-cap-06` requires: `mod-cap-05`
+- `mod-cap-07` requires: `mod-cap-06`

@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Lesson Schema",
+  "type": "object",
+  "properties": {
+    "lessonId": { "type": "string" },
+    "courseId": { "type": "string" },
+    "moduleId": { "type": "string" },
+    "sequence": { "type": "integer" },
+    "title": { "type": "string" },
+    "slug": { "type": "string" },
+    "estimatedMinutes": { "type": "integer" },
+    "primaryCapability": { "type": "string" },
+    "skillIds": { "type": "array", "items": { "type": "string" } },
+    "conceptIds": { "type": "array", "items": { "type": "string" } },
+    "prerequisiteLessonIds": { "type": "array", "items": { "type": "string" } },
+    "learningObjectives": { "type": "array", "items": { "type": "string" } },
+    "lessonType": { "type": "string", "enum": ["CONCEPT", "WORKED_EXAMPLE", "GUIDED_PRACTICE", "PRACTICE", "DEBUGGING", "RETRIEVAL", "ASSESSMENT", "PROJECT_CHECKPOINT", "PROJECT_BUILD", "REFLECTION", "CAPSTONE"] },
+    "difficulty": { "type": "string" },
+    "scaffoldingLevel": { "type": "string" },
+    "blockIds": { "type": "array", "items": { "type": "string" } },
+    "assessmentIds": { "type": "array", "items": { "type": "string" } },
+    "projectConnections": { "type": "array", "items": { "type": "string" } },
+    "retrievalConnections": { "type": "array", "items": { "type": "string" } },
+    "masteryEvidence": { "type": "array", "items": { "type": "string" } },
+    "sourceRefs": { "type": "array", "items": { "type": "string" } },
+    "accessibilityRequirements": { "type": "array", "items": { "type": "string" } },
+    "version": { "type": "string" },
+    "status": { "type": "string" }
+  },
+  "required": ["lessonId", "courseId", "moduleId", "sequence", "title", "estimatedMinutes", "primaryCapability", "skillIds", "lessonType"]
+}

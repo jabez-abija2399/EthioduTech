@@ -1,0 +1,2778 @@
+[
+  {
+    "lessonId": "lesson-web-001",
+    "courseId": "course-web-foundations",
+    "moduleId": "mod-web-01",
+    "sequence": 1,
+    "title": "Viewing Your First HTML File",
+    "primaryObjective": "Open a local HTML file in a web browser without a server.",
+    "skillIds": [
+      "skill-web-roles"
+    ],
+    "conceptIds": [],
+    "estimatedMinutes": 30,
+    "lessonType": "CONCEPT",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "WE DO",
+    "practiceIntent": [
+      "Open file",
+      "View result"
+    ],
+    "assessmentConnections": [],
+    "projectConnections": [
+      "proj-first-page"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "First-win design. The learner must see that they can control the browser immediately without theory.",
+    "estimatedInstructionMinutes": 12,
+    "estimatedPracticeMinutes": 48,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 60
+  },
+  {
+    "lessonId": "lesson-web-002",
+    "courseId": "course-web-foundations",
+    "moduleId": "mod-web-02",
+    "sequence": 2,
+    "title": "The Anatomy of a URL",
+    "primaryObjective": "Identify the scheme, domain, and path of a given URL.",
+    "skillIds": [
+      "skill-url-anatomy",
+      "skill-http-basics"
+    ],
+    "conceptIds": [
+      "con-web-01"
+    ],
+    "estimatedMinutes": 30,
+    "lessonType": "CONCEPT",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO WITH SUPPORT",
+    "practiceIntent": [
+      "Identify URL parts"
+    ],
+    "assessmentConnections": [
+      "assess-web-diag"
+    ],
+    "projectConnections": [],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Distinct cognitive model from the general request cycle.",
+    "estimatedInstructionMinutes": 12,
+    "estimatedPracticeMinutes": 25.5,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 37.5
+  },
+  {
+    "lessonId": "lesson-web-003",
+    "courseId": "course-web-foundations",
+    "moduleId": "mod-web-02",
+    "sequence": 3,
+    "title": "How the Browser Fetches Pages",
+    "primaryObjective": "Explain the URL request and response cycle, identifying the roles of the DNS, server, and browser.",
+    "skillIds": [
+      "skill-url-anatomy",
+      "skill-http-basics"
+    ],
+    "conceptIds": [
+      "con-web-01"
+    ],
+    "estimatedMinutes": 45,
+    "lessonType": "CONCEPT",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO WITH SUPPORT",
+    "practiceIntent": [
+      "Trace request cycle"
+    ],
+    "assessmentConnections": [
+      "assess-web-diag"
+    ],
+    "projectConnections": [],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Requires a separate mental model of the network vs the address itself.",
+    "estimatedInstructionMinutes": 18,
+    "estimatedPracticeMinutes": 34.5,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 52.5
+  },
+  {
+    "lessonId": "lesson-web-004",
+    "courseId": "course-web-foundations",
+    "moduleId": "mod-web-03",
+    "sequence": 4,
+    "title": "HTML, CSS, and JavaScript Roles",
+    "primaryObjective": "Identify whether HTML, CSS, or JavaScript is responsible for a given structural, visual, or behavioral web feature.",
+    "skillIds": [
+      "skill-web-roles"
+    ],
+    "conceptIds": [
+      "con-web-02"
+    ],
+    "estimatedMinutes": 45,
+    "lessonType": "CONCEPT",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "Categorize features by language"
+    ],
+    "assessmentConnections": [
+      "assess-web-diag"
+    ],
+    "projectConnections": [],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Essential disambiguation before learning any syntax. Combines concept and diagnostic practice.",
+    "estimatedInstructionMinutes": 18,
+    "estimatedPracticeMinutes": 42,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 60
+  },
+  {
+    "lessonId": "lesson-web-005",
+    "courseId": "course-web-foundations",
+    "moduleId": "mod-web-04",
+    "sequence": 5,
+    "title": "Inspecting the Web",
+    "primaryObjective": "Use browser developer tools to inspect DOM elements.",
+    "skillIds": [],
+    "conceptIds": [],
+    "estimatedMinutes": 45,
+    "lessonType": "GUIDED_PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "WE DO",
+    "practiceIntent": [
+      "Inspect elements"
+    ],
+    "assessmentConnections": [],
+    "projectConnections": [
+      "proj-first-page"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Tooling boundary. Requires interactive use of the browser.",
+    "estimatedInstructionMinutes": 18,
+    "estimatedPracticeMinutes": 27,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 45
+  },
+  {
+    "lessonId": "lesson-web-006",
+    "courseId": "course-web-foundations",
+    "moduleId": "mod-web-04",
+    "sequence": 6,
+    "title": "Modifying Live Pages",
+    "primaryObjective": "Modify styles temporarily and view console output.",
+    "skillIds": [],
+    "conceptIds": [],
+    "estimatedMinutes": 45,
+    "lessonType": "INDEPENDENT_PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "Edit live DOM"
+    ],
+    "assessmentConnections": [],
+    "projectConnections": [
+      "proj-first-page"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Practice boundary. Separates inspection from active modification.",
+    "estimatedInstructionMinutes": 18,
+    "estimatedPracticeMinutes": 27,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 45
+  },
+  {
+    "lessonId": "lesson-html-007",
+    "courseId": "course-html-foundations",
+    "moduleId": "mod-html-01",
+    "sequence": 7,
+    "title": "The HTML Skeleton",
+    "primaryObjective": "Construct a valid HTML5 document skeleton including DOCTYPE, html, head, title, and body tags.",
+    "skillIds": [
+      "skill-html-scaffold",
+      "skill-html-tags"
+    ],
+    "conceptIds": [
+      "con-html-01"
+    ],
+    "estimatedMinutes": 45,
+    "lessonType": "GUIDED_PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "WE DO",
+    "practiceIntent": [
+      "Construct skeleton"
+    ],
+    "assessmentConnections": [
+      "assess-html-sem"
+    ],
+    "projectConnections": [
+      "proj-recipe-site"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Foundational structure needed before any content can be added.",
+    "estimatedInstructionMinutes": 18,
+    "estimatedPracticeMinutes": 34.5,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 52.5
+  },
+  {
+    "lessonId": "lesson-html-008",
+    "courseId": "course-html-foundations",
+    "moduleId": "mod-html-01",
+    "sequence": 8,
+    "title": "Validating HTML",
+    "primaryObjective": "Verify an HTML document passes W3C validation for a basic skeleton.",
+    "skillIds": [
+      "skill-html-scaffold",
+      "skill-html-tags"
+    ],
+    "conceptIds": [
+      "con-html-01"
+    ],
+    "estimatedMinutes": 30,
+    "lessonType": "DEBUGGING",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "Fix validation errors"
+    ],
+    "assessmentConnections": [
+      "assess-html-sem"
+    ],
+    "projectConnections": [
+      "proj-recipe-site"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Debugging boundary. Teaches how to find syntax errors in the skeleton.",
+    "estimatedInstructionMinutes": 12,
+    "estimatedPracticeMinutes": 25.5,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 37.5
+  },
+  {
+    "lessonId": "lesson-html-009",
+    "courseId": "course-html-foundations",
+    "moduleId": "mod-html-02",
+    "sequence": 9,
+    "title": "Structuring Text with Headings and Paragraphs",
+    "primaryObjective": "Format text content using appropriate heading hierarchies and paragraph tags.",
+    "skillIds": [
+      "skill-html-tags"
+    ],
+    "conceptIds": [],
+    "estimatedMinutes": 45,
+    "lessonType": "PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "Structure text"
+    ],
+    "assessmentConnections": [
+      "assess-html-sem"
+    ],
+    "projectConnections": [
+      "proj-recipe-site"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Semantic text content represents a distinct capability from document skeleton.",
+    "estimatedInstructionMinutes": 18,
+    "estimatedPracticeMinutes": 57,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 75
+  },
+  {
+    "lessonId": "lesson-html-010",
+    "courseId": "course-html-foundations",
+    "moduleId": "mod-html-03",
+    "sequence": 10,
+    "title": "Linking Pages Together",
+    "primaryObjective": "Connect multiple HTML documents together using anchor tags.",
+    "skillIds": [
+      "skill-html-links"
+    ],
+    "conceptIds": [],
+    "estimatedMinutes": 30,
+    "lessonType": "GUIDED_PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "WE DO",
+    "practiceIntent": [
+      "Create links"
+    ],
+    "assessmentConnections": [],
+    "projectConnections": [
+      "proj-recipe-site"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "New capability: Interaction/navigation vs static text.",
+    "estimatedInstructionMinutes": 12,
+    "estimatedPracticeMinutes": 18,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 30
+  },
+  {
+    "lessonId": "lesson-html-011",
+    "courseId": "course-html-foundations",
+    "moduleId": "mod-html-03",
+    "sequence": 11,
+    "title": "Navigating File Paths",
+    "primaryObjective": "Construct correct relative and absolute file paths for local files.",
+    "skillIds": [
+      "skill-html-links"
+    ],
+    "conceptIds": [],
+    "estimatedMinutes": 45,
+    "lessonType": "PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "Write relative paths"
+    ],
+    "assessmentConnections": [],
+    "projectConnections": [
+      "proj-recipe-site"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Cognitive load boundary. Paths are abstract and require dedicated practice separate from the anchor tag syntax.",
+    "estimatedInstructionMinutes": 18,
+    "estimatedPracticeMinutes": 27,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 45
+  },
+  {
+    "lessonId": "lesson-html-012",
+    "courseId": "course-html-foundations",
+    "moduleId": "mod-html-04",
+    "sequence": 12,
+    "title": "Structuring Lists",
+    "primaryObjective": "Structure content into ordered and unordered lists.",
+    "skillIds": [],
+    "conceptIds": [],
+    "estimatedMinutes": 30,
+    "lessonType": "PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "Write lists"
+    ],
+    "assessmentConnections": [],
+    "projectConnections": [
+      "proj-recipe-site"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Parent-child tag relationship practice.",
+    "estimatedInstructionMinutes": 12,
+    "estimatedPracticeMinutes": 25.5,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 37.5
+  },
+  {
+    "lessonId": "lesson-html-013",
+    "courseId": "course-html-foundations",
+    "moduleId": "mod-html-04",
+    "sequence": 13,
+    "title": "Embedding Images",
+    "primaryObjective": "Embed images using the img tag and alt attributes.",
+    "skillIds": [
+      "skill-html-media"
+    ],
+    "conceptIds": [],
+    "estimatedMinutes": 45,
+    "lessonType": "PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "Embed images",
+      "Add alt text"
+    ],
+    "assessmentConnections": [],
+    "projectConnections": [
+      "proj-recipe-site"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Self-closing tags and attributes are a distinct conceptual shift from lists.",
+    "estimatedInstructionMinutes": 18,
+    "estimatedPracticeMinutes": 34.5,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 52.5
+  },
+  {
+    "lessonId": "lesson-html-014",
+    "courseId": "course-html-foundations",
+    "moduleId": "mod-html-05",
+    "sequence": 14,
+    "title": "Semantic Landmarks",
+    "primaryObjective": "Build a semantically structured HTML document using header, main, article, and nav.",
+    "skillIds": [
+      "skill-semantic-markup"
+    ],
+    "conceptIds": [
+      "con-html-02"
+    ],
+    "estimatedMinutes": 60,
+    "lessonType": "PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO WITH SUPPORT",
+    "practiceIntent": [
+      "Replace divs with semantic tags"
+    ],
+    "assessmentConnections": [
+      "assess-html-sem"
+    ],
+    "projectConnections": [
+      "proj-recipe-site",
+      "proj-portfolio-grid"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Conceptual shift from 'how it looks' to 'what it means'. Requires dedicated reasoning practice.",
+    "estimatedInstructionMinutes": 24,
+    "estimatedPracticeMinutes": 66,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 90
+  },
+  {
+    "lessonId": "lesson-html-015",
+    "courseId": "course-html-foundations",
+    "moduleId": "mod-html-06",
+    "sequence": 15,
+    "title": "Building Data Tables",
+    "primaryObjective": "Display tabular data using HTML table, tr, th, and td elements.",
+    "skillIds": [
+      "skill-html-tags"
+    ],
+    "conceptIds": [],
+    "estimatedMinutes": 60,
+    "lessonType": "GUIDED_PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "WE DO",
+    "practiceIntent": [
+      "Construct a grid of data"
+    ],
+    "assessmentConnections": [],
+    "projectConnections": [
+      "proj-recipe-site"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Tables require a complex nested mental model different from simple lists.",
+    "estimatedInstructionMinutes": 24,
+    "estimatedPracticeMinutes": 36,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 60
+  },
+  {
+    "lessonId": "lesson-html-016",
+    "courseId": "course-html-foundations",
+    "moduleId": "mod-html-07",
+    "sequence": 16,
+    "title": "Creating Forms",
+    "primaryObjective": "Construct a functional HTML form with varied input types.",
+    "skillIds": [
+      "skill-html-forms"
+    ],
+    "conceptIds": [],
+    "estimatedMinutes": 45,
+    "lessonType": "GUIDED_PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "WE DO",
+    "practiceIntent": [
+      "Write form inputs"
+    ],
+    "assessmentConnections": [],
+    "projectConnections": [
+      "proj-recipe-site"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Interactive capability shift. Inputs are the first interactive elements taught.",
+    "estimatedInstructionMinutes": 18,
+    "estimatedPracticeMinutes": 27,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 45
+  },
+  {
+    "lessonId": "lesson-html-017",
+    "courseId": "course-html-foundations",
+    "moduleId": "mod-html-07",
+    "sequence": 17,
+    "title": "Labels and Submission",
+    "primaryObjective": "Link labels to inputs and implement a submit button.",
+    "skillIds": [
+      "skill-html-forms"
+    ],
+    "conceptIds": [],
+    "estimatedMinutes": 45,
+    "lessonType": "PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "Link labels",
+      "Add submit"
+    ],
+    "assessmentConnections": [],
+    "projectConnections": [
+      "proj-recipe-site"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Accessibility and form state management boundary.",
+    "estimatedInstructionMinutes": 18,
+    "estimatedPracticeMinutes": 27,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 45
+  },
+  {
+    "lessonId": "lesson-html-018",
+    "courseId": "course-html-foundations",
+    "moduleId": "mod-html-08",
+    "sequence": 18,
+    "title": "Diagnosing Accessibility Issues",
+    "primaryObjective": "Identify structural accessibility violations including missing alt text and unlinked form labels.",
+    "skillIds": [
+      "skill-html-a11y"
+    ],
+    "conceptIds": [
+      "con-html-03"
+    ],
+    "estimatedMinutes": 30,
+    "lessonType": "DEBUGGING",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO WITH SUPPORT",
+    "practiceIntent": [
+      "Audit code"
+    ],
+    "assessmentConnections": [
+      "assess-html-sem"
+    ],
+    "projectConnections": [
+      "proj-recipe-site"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Diagnostic boundary. Finding errors is different from writing correct code.",
+    "estimatedInstructionMinutes": 12,
+    "estimatedPracticeMinutes": 18,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 30
+  },
+  {
+    "lessonId": "lesson-html-019",
+    "courseId": "course-html-foundations",
+    "moduleId": "mod-html-08",
+    "sequence": 19,
+    "title": "Fixing Accessibility Violations",
+    "primaryObjective": "Fix common structural accessibility violations to pass a basic audit.",
+    "skillIds": [
+      "skill-html-a11y"
+    ],
+    "conceptIds": [
+      "con-html-03"
+    ],
+    "estimatedMinutes": 30,
+    "lessonType": "PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "Fix alt text",
+      "Fix labels"
+    ],
+    "assessmentConnections": [
+      "assess-html-sem"
+    ],
+    "projectConnections": [
+      "proj-recipe-site"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Application boundary. Fixing the issues identified in the audit.",
+    "estimatedInstructionMinutes": 12,
+    "estimatedPracticeMinutes": 18,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 30
+  },
+  {
+    "lessonId": "lesson-html-020",
+    "courseId": "course-html-foundations",
+    "moduleId": "mod-html-09",
+    "sequence": 20,
+    "title": "Planning a Multi-Page Site",
+    "primaryObjective": "Plan the structure and paths for a multi-page website.",
+    "skillIds": [
+      "skill-html-scaffold",
+      "skill-semantic-markup"
+    ],
+    "conceptIds": [
+      "con-html-01"
+    ],
+    "estimatedMinutes": 30,
+    "lessonType": "PROJECT_CHECKPOINT",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO WITH SUPPORT",
+    "practiceIntent": [
+      "Plan site architecture"
+    ],
+    "assessmentConnections": [
+      "assess-html-sem"
+    ],
+    "projectConnections": [
+      "proj-recipe-site"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Project boundary. Planning precedes implementation.",
+    "estimatedInstructionMinutes": 12,
+    "estimatedPracticeMinutes": 18,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 30
+  },
+  {
+    "lessonId": "lesson-html-021",
+    "courseId": "course-html-foundations",
+    "moduleId": "mod-html-09",
+    "sequence": 21,
+    "title": "Building the Multi-Page Site",
+    "primaryObjective": "Synthesize HTML tags, semantics, paths, and forms to build a fully linked multi-page website.",
+    "skillIds": [
+      "skill-html-scaffold",
+      "skill-semantic-markup"
+    ],
+    "conceptIds": [
+      "con-html-01"
+    ],
+    "estimatedMinutes": 60,
+    "lessonType": "PROJECT_BUILD",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "Build site"
+    ],
+    "assessmentConnections": [
+      "assess-html-sem"
+    ],
+    "projectConnections": [
+      "proj-recipe-site"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Project build boundary. Complete independent synthesis.",
+    "estimatedInstructionMinutes": 24,
+    "estimatedPracticeMinutes": 36,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 60
+  },
+  {
+    "lessonId": "lesson-css-022",
+    "courseId": "course-css-foundations",
+    "moduleId": "mod-css-01",
+    "sequence": 22,
+    "title": "Applying Basic Styles",
+    "primaryObjective": "Target specific HTML elements using type, class, and ID selectors to apply basic styling rules.",
+    "skillIds": [
+      "skill-css-selectors"
+    ],
+    "conceptIds": [
+      "con-css-01"
+    ],
+    "estimatedMinutes": 45,
+    "lessonType": "GUIDED_PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "WE DO",
+    "practiceIntent": [
+      "Write basic CSS rules"
+    ],
+    "assessmentConnections": [
+      "assess-css-layout"
+    ],
+    "projectConnections": [
+      "proj-portfolio-grid"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "New language introduction. Focus on the selector syntax.",
+    "estimatedInstructionMinutes": 18,
+    "estimatedPracticeMinutes": 42,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 60
+  },
+  {
+    "lessonId": "lesson-css-023",
+    "courseId": "course-css-foundations",
+    "moduleId": "mod-css-01",
+    "sequence": 23,
+    "title": "Understanding the Cascade",
+    "primaryObjective": "Predict which CSS rule will apply based on specificity and the cascade.",
+    "skillIds": [
+      "skill-css-cascade"
+    ],
+    "conceptIds": [
+      "con-css-01"
+    ],
+    "estimatedMinutes": 45,
+    "lessonType": "CONCEPT",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO WITH SUPPORT",
+    "practiceIntent": [
+      "Predict CSS outcomes"
+    ],
+    "assessmentConnections": [
+      "assess-css-layout"
+    ],
+    "projectConnections": [
+      "proj-portfolio-grid"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Cognitive boundary. Specificity requires its own reasoning exercises distinct from syntax.",
+    "estimatedInstructionMinutes": 18,
+    "estimatedPracticeMinutes": 42,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 60
+  },
+  {
+    "lessonId": "lesson-css-024",
+    "courseId": "course-css-foundations",
+    "moduleId": "mod-css-02",
+    "sequence": 24,
+    "title": "Styling Typography",
+    "primaryObjective": "Style text using fonts, sizing, and weights.",
+    "skillIds": [
+      "skill-css-selectors"
+    ],
+    "conceptIds": [],
+    "estimatedMinutes": 45,
+    "lessonType": "PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "Style fonts"
+    ],
+    "assessmentConnections": [],
+    "projectConnections": [
+      "proj-portfolio-grid"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Visual formatting capability.",
+    "estimatedInstructionMinutes": 18,
+    "estimatedPracticeMinutes": 42,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 60
+  },
+  {
+    "lessonId": "lesson-css-025",
+    "courseId": "course-css-foundations",
+    "moduleId": "mod-css-02",
+    "sequence": 25,
+    "title": "Accessible Colors",
+    "primaryObjective": "Apply accessible color combinations to text and backgrounds.",
+    "skillIds": [
+      "skill-css-selectors"
+    ],
+    "conceptIds": [],
+    "estimatedMinutes": 45,
+    "lessonType": "PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "Apply contrast-safe colors"
+    ],
+    "assessmentConnections": [],
+    "projectConnections": [
+      "proj-portfolio-grid"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Accessibility boundary. Requires understanding contrast ratios.",
+    "estimatedInstructionMinutes": 18,
+    "estimatedPracticeMinutes": 42,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 60
+  },
+  {
+    "lessonId": "lesson-css-026",
+    "courseId": "course-css-foundations",
+    "moduleId": "mod-css-03",
+    "sequence": 26,
+    "title": "The CSS Box Model",
+    "primaryObjective": "Manipulate the dimensions of elements using margin, border, and padding.",
+    "skillIds": [
+      "skill-box-model"
+    ],
+    "conceptIds": [
+      "con-css-02"
+    ],
+    "estimatedMinutes": 60,
+    "lessonType": "GUIDED_PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "WE DO",
+    "practiceIntent": [
+      "Adjust margins and padding"
+    ],
+    "assessmentConnections": [
+      "assess-css-layout"
+    ],
+    "projectConnections": [
+      "proj-portfolio-grid"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Crucial mental model shift. The foundation of all layout.",
+    "estimatedInstructionMinutes": 24,
+    "estimatedPracticeMinutes": 43.5,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 67.5
+  },
+  {
+    "lessonId": "lesson-css-027",
+    "courseId": "course-css-foundations",
+    "moduleId": "mod-css-03",
+    "sequence": 27,
+    "title": "Controlling Box Sizing",
+    "primaryObjective": "Apply box-sizing to control how padding affects element width.",
+    "skillIds": [
+      "skill-box-model"
+    ],
+    "conceptIds": [
+      "con-css-02"
+    ],
+    "estimatedMinutes": 45,
+    "lessonType": "PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "Use border-box"
+    ],
+    "assessmentConnections": [
+      "assess-css-layout"
+    ],
+    "projectConnections": [
+      "proj-portfolio-grid"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Nuanced control over the box model requiring dedicated practice.",
+    "estimatedInstructionMinutes": 18,
+    "estimatedPracticeMinutes": 34.5,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 52.5
+  },
+  {
+    "lessonId": "lesson-css-028",
+    "courseId": "course-css-foundations",
+    "moduleId": "mod-css-04",
+    "sequence": 28,
+    "title": "Document Flow and Display Types",
+    "primaryObjective": "Control document flow using block, inline, and inline-block.",
+    "skillIds": [
+      "skill-box-model"
+    ],
+    "conceptIds": [],
+    "estimatedMinutes": 45,
+    "lessonType": "PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "Change display types"
+    ],
+    "assessmentConnections": [
+      "assess-css-layout"
+    ],
+    "projectConnections": [
+      "proj-portfolio-grid"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Flow is distinct from positioning. Focuses on natural browser behavior.",
+    "estimatedInstructionMinutes": 18,
+    "estimatedPracticeMinutes": 27,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 45
+  },
+  {
+    "lessonId": "lesson-css-029",
+    "courseId": "course-css-foundations",
+    "moduleId": "mod-css-04",
+    "sequence": 29,
+    "title": "Absolute and Relative Positioning",
+    "primaryObjective": "Position elements using absolute and relative positioning.",
+    "skillIds": [
+      "skill-box-model"
+    ],
+    "conceptIds": [],
+    "estimatedMinutes": 45,
+    "lessonType": "PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "Position elements"
+    ],
+    "assessmentConnections": [
+      "assess-css-layout"
+    ],
+    "projectConnections": [
+      "proj-portfolio-grid"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Positioning breaks natural flow, requiring a separate mental model.",
+    "estimatedInstructionMinutes": 18,
+    "estimatedPracticeMinutes": 27,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 45
+  },
+  {
+    "lessonId": "lesson-css-030",
+    "courseId": "course-css-foundations",
+    "moduleId": "mod-css-05",
+    "sequence": 30,
+    "title": "Introduction to Flexbox",
+    "primaryObjective": "Create a flex container and align items along the main axis.",
+    "skillIds": [
+      "skill-flexbox"
+    ],
+    "conceptIds": [
+      "con-css-03"
+    ],
+    "estimatedMinutes": 45,
+    "lessonType": "GUIDED_PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "WE DO",
+    "practiceIntent": [
+      "Use display: flex",
+      "justify-content"
+    ],
+    "assessmentConnections": [
+      "assess-css-layout"
+    ],
+    "projectConnections": [
+      "proj-portfolio-grid",
+      "proj-weather-app"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "New layout system introduction.",
+    "estimatedInstructionMinutes": 18,
+    "estimatedPracticeMinutes": 34.5,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 52.5
+  },
+  {
+    "lessonId": "lesson-css-031",
+    "courseId": "course-css-foundations",
+    "moduleId": "mod-css-05",
+    "sequence": 31,
+    "title": "Advanced Flexbox Alignment",
+    "primaryObjective": "Adjust Flexbox alignment, direction, sizing, wrapping, and spacing.",
+    "skillIds": [
+      "skill-flexbox"
+    ],
+    "conceptIds": [
+      "con-css-03"
+    ],
+    "estimatedMinutes": 60,
+    "lessonType": "PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "Use flex-wrap, align-items, flex-grow"
+    ],
+    "assessmentConnections": [
+      "assess-css-layout"
+    ],
+    "projectConnections": [
+      "proj-portfolio-grid",
+      "proj-weather-app"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Complex properties require independent practice.",
+    "estimatedInstructionMinutes": 24,
+    "estimatedPracticeMinutes": 43.5,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 67.5
+  },
+  {
+    "lessonId": "lesson-css-032",
+    "courseId": "course-css-foundations",
+    "moduleId": "mod-css-06",
+    "sequence": 32,
+    "title": "Defining CSS Grids",
+    "primaryObjective": "Construct a basic CSS Grid using templates and tracks.",
+    "skillIds": [
+      "skill-css-grid"
+    ],
+    "conceptIds": [],
+    "estimatedMinutes": 45,
+    "lessonType": "GUIDED_PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "WE DO",
+    "practiceIntent": [
+      "Define grid tracks"
+    ],
+    "assessmentConnections": [
+      "assess-css-layout"
+    ],
+    "projectConnections": [
+      "proj-portfolio-grid"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "New layout system. Different mental model from Flexbox.",
+    "estimatedInstructionMinutes": 18,
+    "estimatedPracticeMinutes": 34.5,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 52.5
+  },
+  {
+    "lessonId": "lesson-css-033",
+    "courseId": "course-css-foundations",
+    "moduleId": "mod-css-06",
+    "sequence": 33,
+    "title": "Placing Grid Items",
+    "primaryObjective": "Place elements within specific grid areas.",
+    "skillIds": [
+      "skill-css-grid"
+    ],
+    "conceptIds": [],
+    "estimatedMinutes": 60,
+    "lessonType": "PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "Place items in grid areas"
+    ],
+    "assessmentConnections": [
+      "assess-css-layout"
+    ],
+    "projectConnections": [
+      "proj-portfolio-grid"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Item placement is a distinct capability from defining the grid container.",
+    "estimatedInstructionMinutes": 24,
+    "estimatedPracticeMinutes": 43.5,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 67.5
+  },
+  {
+    "lessonId": "lesson-css-034",
+    "courseId": "course-css-foundations",
+    "moduleId": "mod-css-07",
+    "sequence": 34,
+    "title": "Media Queries",
+    "primaryObjective": "Adapt layouts to different screen sizes using media queries.",
+    "skillIds": [
+      "skill-media-queries"
+    ],
+    "conceptIds": [],
+    "estimatedMinutes": 60,
+    "lessonType": "PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "Write media queries"
+    ],
+    "assessmentConnections": [
+      "assess-css-layout"
+    ],
+    "projectConnections": [
+      "proj-portfolio-grid"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Responsive capability. Requires testing across viewport sizes.",
+    "estimatedInstructionMinutes": 24,
+    "estimatedPracticeMinutes": 43.5,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 67.5
+  },
+  {
+    "lessonId": "lesson-css-035",
+    "courseId": "course-css-foundations",
+    "moduleId": "mod-css-07",
+    "sequence": 35,
+    "title": "Fluid Units",
+    "primaryObjective": "Implement fluid sizing using relative units (%, vh, vw, rem).",
+    "skillIds": [
+      "skill-media-queries"
+    ],
+    "conceptIds": [],
+    "estimatedMinutes": 45,
+    "lessonType": "PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "Use fluid units"
+    ],
+    "assessmentConnections": [
+      "assess-css-layout"
+    ],
+    "projectConnections": [
+      "proj-portfolio-grid"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Distinct mathematical approach to sizing compared to static pixels.",
+    "estimatedInstructionMinutes": 18,
+    "estimatedPracticeMinutes": 34.5,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 52.5
+  },
+  {
+    "lessonId": "lesson-css-036",
+    "courseId": "course-css-foundations",
+    "moduleId": "mod-css-08",
+    "sequence": 36,
+    "title": "Focus and Keyboard Accessibility",
+    "primaryObjective": "Ensure interfaces remain usable by maintaining focus outlines.",
+    "skillIds": [
+      "skill-html-a11y"
+    ],
+    "conceptIds": [],
+    "estimatedMinutes": 45,
+    "lessonType": "PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "Manage focus outlines"
+    ],
+    "assessmentConnections": [],
+    "projectConnections": [
+      "proj-portfolio-grid"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Accessibility focus. Requires testing via keyboard navigation.",
+    "estimatedInstructionMinutes": 18,
+    "estimatedPracticeMinutes": 42,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 60
+  },
+  {
+    "lessonId": "lesson-css-037",
+    "courseId": "course-css-foundations",
+    "moduleId": "mod-css-09",
+    "sequence": 37,
+    "title": "Planning the Responsive Interface",
+    "primaryObjective": "Plan the layout transitions for a responsive webpage design.",
+    "skillIds": [
+      "skill-flexbox",
+      "skill-box-model",
+      "skill-media-queries"
+    ],
+    "conceptIds": [
+      "con-css-02",
+      "con-css-03"
+    ],
+    "estimatedMinutes": 30,
+    "lessonType": "PROJECT_CHECKPOINT",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO WITH SUPPORT",
+    "practiceIntent": [
+      "Map breakpoints"
+    ],
+    "assessmentConnections": [
+      "assess-css-layout"
+    ],
+    "projectConnections": [
+      "proj-portfolio-grid"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Project boundary. Planning precedes implementation.",
+    "estimatedInstructionMinutes": 12,
+    "estimatedPracticeMinutes": 18,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 30
+  },
+  {
+    "lessonId": "lesson-css-038",
+    "courseId": "course-css-foundations",
+    "moduleId": "mod-css-09",
+    "sequence": 38,
+    "title": "Building the Responsive Interface",
+    "primaryObjective": "Synthesize selectors, box model, layout, and queries to transform a design brief into a responsive webpage.",
+    "skillIds": [
+      "skill-flexbox",
+      "skill-box-model",
+      "skill-media-queries"
+    ],
+    "conceptIds": [
+      "con-css-02",
+      "con-css-03"
+    ],
+    "estimatedMinutes": 75,
+    "lessonType": "PROJECT_BUILD",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "Build responsive layout"
+    ],
+    "assessmentConnections": [
+      "assess-css-layout"
+    ],
+    "projectConnections": [
+      "proj-portfolio-grid"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Project build boundary. Complete independent synthesis.",
+    "estimatedInstructionMinutes": 30,
+    "estimatedPracticeMinutes": 45,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 75
+  },
+  {
+    "lessonId": "lesson-js-039",
+    "courseId": "course-js-foundations",
+    "moduleId": "mod-js-01",
+    "sequence": 39,
+    "title": "Thinking Like a Programmer",
+    "primaryObjective": "Translate a human-readable problem into a logical sequence of discrete steps (pseudocode).",
+    "skillIds": [
+      "skill-problem-decomposition"
+    ],
+    "conceptIds": [],
+    "estimatedMinutes": 60,
+    "lessonType": "CONCEPT",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "Write pseudocode"
+    ],
+    "assessmentConnections": [],
+    "projectConnections": [],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Crucial shift to algorithmic thinking before learning any syntax.",
+    "estimatedInstructionMinutes": 24,
+    "estimatedPracticeMinutes": 66,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 90
+  },
+  {
+    "lessonId": "lesson-js-040",
+    "courseId": "course-js-foundations",
+    "moduleId": "mod-js-02",
+    "sequence": 40,
+    "title": "Variables and Data Types",
+    "primaryObjective": "Store, retrieve, and update data in memory using variables and identify basic data types.",
+    "skillIds": [
+      "skill-js-variables"
+    ],
+    "conceptIds": [
+      "con-js-01"
+    ],
+    "estimatedMinutes": 60,
+    "lessonType": "PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "WE DO",
+    "practiceIntent": [
+      "Declare and update variables"
+    ],
+    "assessmentConnections": [
+      "assess-js-dom"
+    ],
+    "projectConnections": [
+      "proj-weather-app"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Foundational programming syntax and memory management.",
+    "estimatedInstructionMinutes": 24,
+    "estimatedPracticeMinutes": 96,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 120
+  },
+  {
+    "lessonId": "lesson-js-041",
+    "courseId": "course-js-foundations",
+    "moduleId": "mod-js-03",
+    "sequence": 41,
+    "title": "Using Operators",
+    "primaryObjective": "Evaluate and manipulate data using mathematical, string, and comparison operators.",
+    "skillIds": [
+      "skill-js-variables"
+    ],
+    "conceptIds": [],
+    "estimatedMinutes": 60,
+    "lessonType": "PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "Write expressions"
+    ],
+    "assessmentConnections": [
+      "assess-js-dom"
+    ],
+    "projectConnections": [],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Expressions and logic are distinct from simple variable storage.",
+    "estimatedInstructionMinutes": 24,
+    "estimatedPracticeMinutes": 66,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 90
+  },
+  {
+    "lessonId": "lesson-js-042",
+    "courseId": "course-js-foundations",
+    "moduleId": "mod-js-04",
+    "sequence": 42,
+    "title": "Writing Conditionals",
+    "primaryObjective": "Control program flow by executing different code paths using if/else statements.",
+    "skillIds": [
+      "skill-js-conditions"
+    ],
+    "conceptIds": [],
+    "estimatedMinutes": 60,
+    "lessonType": "PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "Write if/else blocks"
+    ],
+    "assessmentConnections": [
+      "assess-js-dom"
+    ],
+    "projectConnections": [
+      "proj-weather-app"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Branching logic introduces non-linear execution.",
+    "estimatedInstructionMinutes": 24,
+    "estimatedPracticeMinutes": 43.5,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 67.5
+  },
+  {
+    "lessonId": "lesson-js-043",
+    "courseId": "course-js-foundations",
+    "moduleId": "mod-js-04",
+    "sequence": 43,
+    "title": "Complex Logic",
+    "primaryObjective": "Combine multiple conditions using logical AND/OR operators.",
+    "skillIds": [
+      "skill-js-conditions"
+    ],
+    "conceptIds": [],
+    "estimatedMinutes": 45,
+    "lessonType": "PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "Use AND/OR operators"
+    ],
+    "assessmentConnections": [
+      "assess-js-dom"
+    ],
+    "projectConnections": [
+      "proj-weather-app"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Boolean logic boundary. Requires dedicated logical reasoning.",
+    "estimatedInstructionMinutes": 18,
+    "estimatedPracticeMinutes": 34.5,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 52.5
+  },
+  {
+    "lessonId": "lesson-js-044",
+    "courseId": "course-js-foundations",
+    "moduleId": "mod-js-05",
+    "sequence": 44,
+    "title": "Writing Loops",
+    "primaryObjective": "Automate repetitive tasks by writing loops that iterate until a specific condition is met.",
+    "skillIds": [
+      "skill-js-loops"
+    ],
+    "conceptIds": [],
+    "estimatedMinutes": 60,
+    "lessonType": "PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "Write for/while loops"
+    ],
+    "assessmentConnections": [
+      "assess-js-dom"
+    ],
+    "projectConnections": [],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Iteration is a major cognitive shift in programming.",
+    "estimatedInstructionMinutes": 24,
+    "estimatedPracticeMinutes": 43.5,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 67.5
+  },
+  {
+    "lessonId": "lesson-js-045",
+    "courseId": "course-js-foundations",
+    "moduleId": "mod-js-05",
+    "sequence": 45,
+    "title": "Tracing Loops",
+    "primaryObjective": "Trace the execution of a loop step-by-step to predict its final output.",
+    "skillIds": [
+      "skill-js-loops"
+    ],
+    "conceptIds": [],
+    "estimatedMinutes": 45,
+    "lessonType": "DEBUGGING",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "Trace loop state"
+    ],
+    "assessmentConnections": [
+      "assess-js-dom"
+    ],
+    "projectConnections": [],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Diagnostic boundary. Reading and predicting loop state is distinct from writing one.",
+    "estimatedInstructionMinutes": 18,
+    "estimatedPracticeMinutes": 34.5,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 52.5
+  },
+  {
+    "lessonId": "lesson-js-046",
+    "courseId": "course-js-foundations",
+    "moduleId": "mod-js-06",
+    "sequence": 46,
+    "title": "Defining Functions",
+    "primaryObjective": "Define and invoke JavaScript functions with parameters.",
+    "skillIds": [
+      "skill-js-functions"
+    ],
+    "conceptIds": [
+      "con-js-02"
+    ],
+    "estimatedMinutes": 60,
+    "lessonType": "PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "WE DO",
+    "practiceIntent": [
+      "Write functions"
+    ],
+    "assessmentConnections": [
+      "assess-js-dom"
+    ],
+    "projectConnections": [
+      "proj-weather-app"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Abstraction capability. Encapsulating logic.",
+    "estimatedInstructionMinutes": 24,
+    "estimatedPracticeMinutes": 51,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 75
+  },
+  {
+    "lessonId": "lesson-js-047",
+    "courseId": "course-js-foundations",
+    "moduleId": "mod-js-06",
+    "sequence": 47,
+    "title": "Return Values and Scope",
+    "primaryObjective": "Manage function return values and identify variable scope.",
+    "skillIds": [
+      "skill-js-functions"
+    ],
+    "conceptIds": [
+      "con-js-02"
+    ],
+    "estimatedMinutes": 60,
+    "lessonType": "PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "Use return",
+      "Identify scope"
+    ],
+    "assessmentConnections": [
+      "assess-js-dom"
+    ],
+    "projectConnections": [
+      "proj-weather-app"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Scope and return values represent complex data flow requiring dedicated focus.",
+    "estimatedInstructionMinutes": 24,
+    "estimatedPracticeMinutes": 51,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 75
+  },
+  {
+    "lessonId": "lesson-js-048",
+    "courseId": "course-js-foundations",
+    "moduleId": "mod-js-07",
+    "sequence": 48,
+    "title": "Working with Arrays",
+    "primaryObjective": "Store collections of data using arrays and access elements by index.",
+    "skillIds": [
+      "skill-js-arrays"
+    ],
+    "conceptIds": [],
+    "estimatedMinutes": 45,
+    "lessonType": "PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "Access array elements"
+    ],
+    "assessmentConnections": [
+      "assess-js-dom"
+    ],
+    "projectConnections": [
+      "proj-weather-app"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Data structure capability.",
+    "estimatedInstructionMinutes": 18,
+    "estimatedPracticeMinutes": 49.5,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 67.5
+  },
+  {
+    "lessonId": "lesson-js-049",
+    "courseId": "course-js-foundations",
+    "moduleId": "mod-js-07",
+    "sequence": 49,
+    "title": "Iterating Arrays",
+    "primaryObjective": "Safely iterate over arrays to transform or filter data.",
+    "skillIds": [
+      "skill-js-arrays"
+    ],
+    "conceptIds": [],
+    "estimatedMinutes": 60,
+    "lessonType": "PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "Loop over arrays"
+    ],
+    "assessmentConnections": [
+      "assess-js-dom"
+    ],
+    "projectConnections": [
+      "proj-weather-app"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Combining loops and arrays is a fundamental programming pattern.",
+    "estimatedInstructionMinutes": 24,
+    "estimatedPracticeMinutes": 58.5,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 82.5
+  },
+  {
+    "lessonId": "lesson-js-050",
+    "courseId": "course-js-foundations",
+    "moduleId": "mod-js-08",
+    "sequence": 50,
+    "title": "Creating Objects",
+    "primaryObjective": "Model complex entities using JavaScript objects with key-value pairs.",
+    "skillIds": [
+      "skill-js-objects"
+    ],
+    "conceptIds": [],
+    "estimatedMinutes": 60,
+    "lessonType": "PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "Create and access objects"
+    ],
+    "assessmentConnections": [
+      "assess-js-dom"
+    ],
+    "projectConnections": [
+      "proj-weather-app"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Key-value data structures require a different mental model from indexed arrays.",
+    "estimatedInstructionMinutes": 24,
+    "estimatedPracticeMinutes": 43.5,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 67.5
+  },
+  {
+    "lessonId": "lesson-js-051",
+    "courseId": "course-js-foundations",
+    "moduleId": "mod-js-08",
+    "sequence": 51,
+    "title": "Nested Data Structures",
+    "primaryObjective": "Safely access properties within nested objects and arrays of objects.",
+    "skillIds": [
+      "skill-js-objects"
+    ],
+    "conceptIds": [],
+    "estimatedMinutes": 45,
+    "lessonType": "PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "Access nested data"
+    ],
+    "assessmentConnections": [
+      "assess-js-dom"
+    ],
+    "projectConnections": [
+      "proj-weather-app"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Complex traversal is a high-cognitive-load task common in real development.",
+    "estimatedInstructionMinutes": 18,
+    "estimatedPracticeMinutes": 34.5,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 52.5
+  },
+  {
+    "lessonId": "lesson-js-052",
+    "courseId": "course-js-foundations",
+    "moduleId": "mod-js-09",
+    "sequence": 52,
+    "title": "The Debugging Process",
+    "primaryObjective": "Systematically reproduce, isolate, and diagnose JavaScript errors.",
+    "skillIds": [
+      "skill-js-debug"
+    ],
+    "conceptIds": [],
+    "estimatedMinutes": 45,
+    "lessonType": "DEBUGGING",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "WE DO",
+    "practiceIntent": [
+      "Isolate errors"
+    ],
+    "assessmentConnections": [
+      "assess-js-debug"
+    ],
+    "projectConnections": [
+      "proj-weather-app"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Process boundary. Teaches the methodology of debugging.",
+    "estimatedInstructionMinutes": 18,
+    "estimatedPracticeMinutes": 34.5,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 52.5
+  },
+  {
+    "lessonId": "lesson-js-053",
+    "courseId": "course-js-foundations",
+    "moduleId": "mod-js-09",
+    "sequence": 53,
+    "title": "Fixing Common Errors",
+    "primaryObjective": "Fix isolated errors and verify the solution using developer tools.",
+    "skillIds": [
+      "skill-js-debug"
+    ],
+    "conceptIds": [],
+    "estimatedMinutes": 60,
+    "lessonType": "DEBUGGING",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "Fix and verify code"
+    ],
+    "assessmentConnections": [
+      "assess-js-debug"
+    ],
+    "projectConnections": [
+      "proj-weather-app"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Application boundary. Independent resolution of varied bugs.",
+    "estimatedInstructionMinutes": 24,
+    "estimatedPracticeMinutes": 43.5,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 67.5
+  },
+  {
+    "lessonId": "lesson-js-054",
+    "courseId": "course-js-foundations",
+    "moduleId": "mod-js-10",
+    "sequence": 54,
+    "title": "Selecting DOM Elements",
+    "primaryObjective": "Select HTML elements using JavaScript.",
+    "skillIds": [
+      "skill-dom-selection"
+    ],
+    "conceptIds": [
+      "con-js-03"
+    ],
+    "estimatedMinutes": 45,
+    "lessonType": "PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "Query selectors"
+    ],
+    "assessmentConnections": [
+      "assess-js-dom"
+    ],
+    "projectConnections": [
+      "proj-weather-app"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "The bridge between logic and presentation.",
+    "estimatedInstructionMinutes": 18,
+    "estimatedPracticeMinutes": 34.5,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 52.5
+  },
+  {
+    "lessonId": "lesson-js-055",
+    "courseId": "course-js-foundations",
+    "moduleId": "mod-js-10",
+    "sequence": 55,
+    "title": "Modifying the DOM",
+    "primaryObjective": "Modify the text, styles, and classes of selected DOM elements.",
+    "skillIds": [
+      "skill-dom-selection"
+    ],
+    "conceptIds": [
+      "con-js-03"
+    ],
+    "estimatedMinutes": 60,
+    "lessonType": "PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "Update text and classes"
+    ],
+    "assessmentConnections": [
+      "assess-js-dom"
+    ],
+    "projectConnections": [
+      "proj-weather-app"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Mutation boundary. Changing state versus just reading it.",
+    "estimatedInstructionMinutes": 24,
+    "estimatedPracticeMinutes": 43.5,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 67.5
+  },
+  {
+    "lessonId": "lesson-js-056",
+    "courseId": "course-js-foundations",
+    "moduleId": "mod-js-11",
+    "sequence": 56,
+    "title": "Handling Events",
+    "primaryObjective": "Attach event listeners to UI elements to respond to user interactions.",
+    "skillIds": [
+      "skill-event-listeners"
+    ],
+    "conceptIds": [],
+    "estimatedMinutes": 60,
+    "lessonType": "PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "Add event listeners"
+    ],
+    "assessmentConnections": [
+      "assess-js-dom"
+    ],
+    "projectConnections": [
+      "proj-weather-app"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Asynchronous interaction capability.",
+    "estimatedInstructionMinutes": 24,
+    "estimatedPracticeMinutes": 51,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 75
+  },
+  {
+    "lessonId": "lesson-js-057",
+    "courseId": "course-js-foundations",
+    "moduleId": "mod-js-11",
+    "sequence": 57,
+    "title": "Managing Form State",
+    "primaryObjective": "Capture and process form submissions dynamically without page reloads.",
+    "skillIds": [
+      "skill-event-listeners"
+    ],
+    "conceptIds": [],
+    "estimatedMinutes": 60,
+    "lessonType": "PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "Handle form submit"
+    ],
+    "assessmentConnections": [
+      "assess-js-dom"
+    ],
+    "projectConnections": [
+      "proj-weather-app"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Specific, complex event pattern crucial for web apps.",
+    "estimatedInstructionMinutes": 24,
+    "estimatedPracticeMinutes": 51,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 75
+  },
+  {
+    "lessonId": "lesson-js-058",
+    "courseId": "course-js-foundations",
+    "moduleId": "mod-js-12",
+    "sequence": 58,
+    "title": "Using LocalStorage",
+    "primaryObjective": "Save and retrieve simple data strings using the browser's LocalStorage API.",
+    "skillIds": [
+      "skill-js-objects"
+    ],
+    "conceptIds": [],
+    "estimatedMinutes": 45,
+    "lessonType": "PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "Set and get LocalStorage"
+    ],
+    "assessmentConnections": [
+      "assess-js-dom"
+    ],
+    "projectConnections": [
+      "proj-weather-app"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Persistence capability. First introduction to state surviving a refresh.",
+    "estimatedInstructionMinutes": 18,
+    "estimatedPracticeMinutes": 27,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 45
+  },
+  {
+    "lessonId": "lesson-js-059",
+    "courseId": "course-js-foundations",
+    "moduleId": "mod-js-12",
+    "sequence": 59,
+    "title": "JSON Serialization",
+    "primaryObjective": "Convert objects and arrays to JSON for storage and parse them upon retrieval.",
+    "skillIds": [
+      "skill-js-objects"
+    ],
+    "conceptIds": [],
+    "estimatedMinutes": 45,
+    "lessonType": "PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "JSON stringify and parse"
+    ],
+    "assessmentConnections": [
+      "assess-js-dom"
+    ],
+    "projectConnections": [
+      "proj-weather-app"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Serialization boundary. Required for storing real application state.",
+    "estimatedInstructionMinutes": 18,
+    "estimatedPracticeMinutes": 27,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 45
+  },
+  {
+    "lessonId": "lesson-js-060",
+    "courseId": "course-js-foundations",
+    "moduleId": "mod-js-13",
+    "sequence": 60,
+    "title": "Understanding Promises and Async",
+    "primaryObjective": "Explain the concept of asynchronous execution and Promises.",
+    "skillIds": [],
+    "conceptIds": [
+      "con-js-04"
+    ],
+    "estimatedMinutes": 45,
+    "lessonType": "CONCEPT",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO WITH SUPPORT",
+    "practiceIntent": [
+      "Predict async execution order"
+    ],
+    "assessmentConnections": [
+      "assess-js-dom"
+    ],
+    "projectConnections": [
+      "proj-weather-app"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "High cognitive load topic requiring dedicated conceptual foundation.",
+    "estimatedInstructionMinutes": 18,
+    "estimatedPracticeMinutes": 27,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 45
+  },
+  {
+    "lessonId": "lesson-js-061",
+    "courseId": "course-js-foundations",
+    "moduleId": "mod-js-13",
+    "sequence": 61,
+    "title": "Fetching API Data",
+    "primaryObjective": "Fetch data from a third-party REST API and handle the JSON response.",
+    "skillIds": [
+      "skill-fetch-api"
+    ],
+    "conceptIds": [
+      "con-js-04"
+    ],
+    "estimatedMinutes": 60,
+    "lessonType": "PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "Use fetch API"
+    ],
+    "assessmentConnections": [
+      "assess-js-dom"
+    ],
+    "projectConnections": [
+      "proj-weather-app"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Network capability. Getting data into the app.",
+    "estimatedInstructionMinutes": 24,
+    "estimatedPracticeMinutes": 36,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 60
+  },
+  {
+    "lessonId": "lesson-js-062",
+    "courseId": "course-js-foundations",
+    "moduleId": "mod-js-13",
+    "sequence": 62,
+    "title": "Handling API Errors",
+    "primaryObjective": "Implement error handling for failed network requests.",
+    "skillIds": [
+      "skill-fetch-api"
+    ],
+    "conceptIds": [
+      "con-js-04"
+    ],
+    "estimatedMinutes": 45,
+    "lessonType": "DEBUGGING",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "Catch fetch errors"
+    ],
+    "assessmentConnections": [
+      "assess-js-dom"
+    ],
+    "projectConnections": [
+      "proj-weather-app"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Reliability boundary. Managing the unhappy path.",
+    "estimatedInstructionMinutes": 18,
+    "estimatedPracticeMinutes": 27,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 45
+  },
+  {
+    "lessonId": "lesson-js-063",
+    "courseId": "course-js-foundations",
+    "moduleId": "mod-js-14",
+    "sequence": 63,
+    "title": "Planning the Weather Dashboard",
+    "primaryObjective": "Plan the state, events, and API calls for a dynamic weather app.",
+    "skillIds": [
+      "skill-js-functions",
+      "skill-dom-selection",
+      "skill-event-listeners",
+      "skill-fetch-api"
+    ],
+    "conceptIds": [
+      "con-js-03",
+      "con-js-04"
+    ],
+    "estimatedMinutes": 45,
+    "lessonType": "PROJECT_CHECKPOINT",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO WITH SUPPORT",
+    "practiceIntent": [
+      "Plan app state"
+    ],
+    "assessmentConnections": [
+      "assess-js-dom"
+    ],
+    "projectConnections": [
+      "proj-weather-app"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Project boundary. Planning an integrated app.",
+    "estimatedInstructionMinutes": 18,
+    "estimatedPracticeMinutes": 27,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 45
+  },
+  {
+    "lessonId": "lesson-js-064",
+    "courseId": "course-js-foundations",
+    "moduleId": "mod-js-14",
+    "sequence": 64,
+    "title": "Building the Weather Dashboard",
+    "primaryObjective": "Synthesize DOM manipulation, events, state, and the Fetch API to build a fully interactive application.",
+    "skillIds": [
+      "skill-js-functions",
+      "skill-dom-selection",
+      "skill-event-listeners",
+      "skill-fetch-api"
+    ],
+    "conceptIds": [
+      "con-js-03",
+      "con-js-04"
+    ],
+    "estimatedMinutes": 120,
+    "lessonType": "PROJECT_BUILD",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "Build JS app"
+    ],
+    "assessmentConnections": [
+      "assess-js-dom"
+    ],
+    "projectConnections": [
+      "proj-weather-app"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Project build boundary. Complete independent synthesis of JS.",
+    "estimatedInstructionMinutes": 48,
+    "estimatedPracticeMinutes": 72,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 120
+  },
+  {
+    "lessonId": "lesson-git-065",
+    "courseId": "course-git-github",
+    "moduleId": "mod-git-01",
+    "sequence": 65,
+    "title": "Initializing a Repository",
+    "primaryObjective": "Initialize a local Git repository.",
+    "skillIds": [
+      "skill-git-workflow"
+    ],
+    "conceptIds": [
+      "con-git-01"
+    ],
+    "estimatedMinutes": 30,
+    "lessonType": "PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "WE DO",
+    "practiceIntent": [
+      "git init"
+    ],
+    "assessmentConnections": [
+      "assess-git-flow"
+    ],
+    "projectConnections": [],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Tooling introduction.",
+    "estimatedInstructionMinutes": 12,
+    "estimatedPracticeMinutes": 18,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 30
+  },
+  {
+    "lessonId": "lesson-git-066",
+    "courseId": "course-git-github",
+    "moduleId": "mod-git-01",
+    "sequence": 66,
+    "title": "Staging and Committing",
+    "primaryObjective": "Stage changes and create meaningful commits with descriptive messages.",
+    "skillIds": [
+      "skill-git-workflow",
+      "skill-git-commit"
+    ],
+    "conceptIds": [
+      "con-git-01"
+    ],
+    "estimatedMinutes": 45,
+    "lessonType": "PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "git add",
+      "git commit"
+    ],
+    "assessmentConnections": [
+      "assess-git-flow"
+    ],
+    "projectConnections": [],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "The core Git workflow cycle.",
+    "estimatedInstructionMinutes": 18,
+    "estimatedPracticeMinutes": 27,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 45
+  },
+  {
+    "lessonId": "lesson-git-067",
+    "courseId": "course-git-github",
+    "moduleId": "mod-git-02",
+    "sequence": 67,
+    "title": "Viewing History",
+    "primaryObjective": "View commit history and inspect repository status.",
+    "skillIds": [
+      "skill-git-workflow"
+    ],
+    "conceptIds": [
+      "con-git-01"
+    ],
+    "estimatedMinutes": 30,
+    "lessonType": "PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "git log",
+      "git status"
+    ],
+    "assessmentConnections": [
+      "assess-git-flow"
+    ],
+    "projectConnections": [
+      "proj-capstone"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Observability capability.",
+    "estimatedInstructionMinutes": 12,
+    "estimatedPracticeMinutes": 25.5,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 37.5
+  },
+  {
+    "lessonId": "lesson-git-068",
+    "courseId": "course-git-github",
+    "moduleId": "mod-git-02",
+    "sequence": 68,
+    "title": "Recovering from Mistakes",
+    "primaryObjective": "Discard uncommitted changes and unstage files safely.",
+    "skillIds": [
+      "skill-git-commit",
+      "skill-git-workflow"
+    ],
+    "conceptIds": [
+      "con-git-01"
+    ],
+    "estimatedMinutes": 45,
+    "lessonType": "DEBUGGING",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "git checkout",
+      "git reset"
+    ],
+    "assessmentConnections": [
+      "assess-git-flow"
+    ],
+    "projectConnections": [
+      "proj-capstone"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Recovery boundary. Building confidence to experiment.",
+    "estimatedInstructionMinutes": 18,
+    "estimatedPracticeMinutes": 34.5,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 52.5
+  },
+  {
+    "lessonId": "lesson-git-069",
+    "courseId": "course-git-github",
+    "moduleId": "mod-git-03",
+    "sequence": 69,
+    "title": "Working with Branches",
+    "primaryObjective": "Create, switch between, and manage Git branches.",
+    "skillIds": [
+      "skill-git-branch"
+    ],
+    "conceptIds": [],
+    "estimatedMinutes": 45,
+    "lessonType": "PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "git branch",
+      "git checkout -b"
+    ],
+    "assessmentConnections": [
+      "assess-git-flow"
+    ],
+    "projectConnections": [
+      "proj-capstone"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Branching mental model shift.",
+    "estimatedInstructionMinutes": 18,
+    "estimatedPracticeMinutes": 42,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 60
+  },
+  {
+    "lessonId": "lesson-git-070",
+    "courseId": "course-git-github",
+    "moduleId": "mod-git-04",
+    "sequence": 70,
+    "title": "Connecting to GitHub",
+    "primaryObjective": "Push local commits to a remote GitHub repository.",
+    "skillIds": [
+      "skill-github-workflow"
+    ],
+    "conceptIds": [
+      "con-git-02"
+    ],
+    "estimatedMinutes": 45,
+    "lessonType": "PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "git remote",
+      "git push"
+    ],
+    "assessmentConnections": [
+      "assess-git-flow"
+    ],
+    "projectConnections": [
+      "proj-capstone"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Remote networking capability.",
+    "estimatedInstructionMinutes": 18,
+    "estimatedPracticeMinutes": 42,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 60
+  },
+  {
+    "lessonId": "lesson-git-071",
+    "courseId": "course-git-github",
+    "moduleId": "mod-git-05",
+    "sequence": 71,
+    "title": "Merging Branches",
+    "primaryObjective": "Merge a feature branch into the main branch locally.",
+    "skillIds": [
+      "skill-git-workflow"
+    ],
+    "conceptIds": [],
+    "estimatedMinutes": 45,
+    "lessonType": "PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "git merge"
+    ],
+    "assessmentConnections": [
+      "assess-git-flow"
+    ],
+    "projectConnections": [
+      "proj-capstone"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Integration capability.",
+    "estimatedInstructionMinutes": 18,
+    "estimatedPracticeMinutes": 27,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 45
+  },
+  {
+    "lessonId": "lesson-git-072",
+    "courseId": "course-git-github",
+    "moduleId": "mod-git-05",
+    "sequence": 72,
+    "title": "Resolving Conflicts",
+    "primaryObjective": "Identify and resolve simple merge conflicts.",
+    "skillIds": [
+      "skill-git-workflow"
+    ],
+    "conceptIds": [],
+    "estimatedMinutes": 60,
+    "lessonType": "DEBUGGING",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO WITH SUPPORT",
+    "practiceIntent": [
+      "Resolve merge conflict"
+    ],
+    "assessmentConnections": [
+      "assess-git-flow"
+    ],
+    "projectConnections": [
+      "proj-capstone"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Conflict resolution is a high cognitive load, critical debugging skill.",
+    "estimatedInstructionMinutes": 24,
+    "estimatedPracticeMinutes": 36,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 60
+  },
+  {
+    "lessonId": "lesson-git-073",
+    "courseId": "course-git-github",
+    "moduleId": "mod-git-06",
+    "sequence": 73,
+    "title": "Opening and Reviewing a Pull Request",
+    "primaryObjective": "Open, review, and merge a Pull Request on GitHub.",
+    "skillIds": [
+      "skill-github-pr"
+    ],
+    "conceptIds": [
+      "con-git-02"
+    ],
+    "estimatedMinutes": 45,
+    "lessonType": "PRACTICE",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DO",
+    "practiceIntent": [
+      "Create PR",
+      "Review PR",
+      "Merge PR"
+    ],
+    "assessmentConnections": [
+      "assess-git-flow"
+    ],
+    "projectConnections": [
+      "proj-capstone"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Communication capability. Essential for project portfolios.",
+    "estimatedInstructionMinutes": 18,
+    "estimatedPracticeMinutes": 72,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 90
+  },
+  {
+    "lessonId": "lesson-cap-074",
+    "courseId": "course-web-capstone",
+    "moduleId": "mod-cap-01",
+    "sequence": 74,
+    "title": "Defining the Capstone Problem",
+    "primaryObjective": "Define a clear, solvable problem and identify the target audience for the capstone project.",
+    "skillIds": [
+      "skill-problem-decomposition"
+    ],
+    "conceptIds": [],
+    "estimatedMinutes": 45,
+    "lessonType": "PROJECT_CHECKPOINT",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DECIDE",
+    "practiceIntent": [
+      "Define requirements"
+    ],
+    "assessmentConnections": [
+      "assess-capstone-audit"
+    ],
+    "projectConnections": [
+      "proj-capstone"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Complete independence on requirements gathering.",
+    "estimatedInstructionMinutes": 18,
+    "estimatedPracticeMinutes": 27,
+    "estimatedProjectMinutes": 75,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 120
+  },
+  {
+    "lessonId": "lesson-cap-075",
+    "courseId": "course-web-capstone",
+    "moduleId": "mod-cap-02",
+    "sequence": 75,
+    "title": "Designing the Solution",
+    "primaryObjective": "Draft a technical plan including UI mockups, state shape, and component structure.",
+    "skillIds": [
+      "skill-problem-decomposition"
+    ],
+    "conceptIds": [],
+    "estimatedMinutes": 60,
+    "lessonType": "PROJECT_CHECKPOINT",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DECIDE",
+    "practiceIntent": [
+      "Draft tech plan"
+    ],
+    "assessmentConnections": [
+      "assess-capstone-audit"
+    ],
+    "projectConnections": [
+      "proj-capstone"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Architecture boundary before coding.",
+    "estimatedInstructionMinutes": 24,
+    "estimatedPracticeMinutes": 36,
+    "estimatedProjectMinutes": 60,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 120
+  },
+  {
+    "lessonId": "lesson-cap-076",
+    "courseId": "course-web-capstone",
+    "moduleId": "mod-cap-03",
+    "sequence": 76,
+    "title": "Building the Interface",
+    "primaryObjective": "Implement the planned responsive HTML/CSS structure.",
+    "skillIds": [
+      "skill-semantic-markup",
+      "skill-flexbox"
+    ],
+    "conceptIds": [],
+    "estimatedMinutes": 120,
+    "lessonType": "PROJECT_BUILD",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DECIDE",
+    "practiceIntent": [
+      "Build UI"
+    ],
+    "assessmentConnections": [
+      "assess-capstone-audit"
+    ],
+    "projectConnections": [
+      "proj-capstone"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Visual build boundary.",
+    "estimatedInstructionMinutes": 48,
+    "estimatedPracticeMinutes": 72,
+    "estimatedProjectMinutes": 120,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 240
+  },
+  {
+    "lessonId": "lesson-cap-077",
+    "courseId": "course-web-capstone",
+    "moduleId": "mod-cap-04",
+    "sequence": 77,
+    "title": "Implementing Logic and State",
+    "primaryObjective": "Implement JavaScript logic, event handling, and data fetching for the capstone.",
+    "skillIds": [
+      "skill-dom-selection",
+      "skill-fetch-api"
+    ],
+    "conceptIds": [],
+    "estimatedMinutes": 180,
+    "lessonType": "PROJECT_BUILD",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DECIDE",
+    "practiceIntent": [
+      "Build Logic"
+    ],
+    "assessmentConnections": [
+      "assess-capstone-audit"
+    ],
+    "projectConnections": [
+      "proj-capstone"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Behavioral build boundary.",
+    "estimatedInstructionMinutes": 72,
+    "estimatedPracticeMinutes": 108,
+    "estimatedProjectMinutes": 60,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 240
+  },
+  {
+    "lessonId": "lesson-cap-078",
+    "courseId": "course-web-capstone",
+    "moduleId": "mod-cap-05",
+    "sequence": 78,
+    "title": "Quality Assurance and Accessibility",
+    "primaryObjective": "Audit the completed capstone for bugs, responsive flaws, and accessibility violations, and resolve them.",
+    "skillIds": [
+      "skill-js-debug",
+      "skill-html-a11y"
+    ],
+    "conceptIds": [],
+    "estimatedMinutes": 90,
+    "lessonType": "PROJECT_CHECKPOINT",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DECIDE",
+    "practiceIntent": [
+      "Audit and fix"
+    ],
+    "assessmentConnections": [
+      "assess-capstone-audit"
+    ],
+    "projectConnections": [
+      "proj-capstone"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "QA boundary. Dedicated focus on quality over feature addition.",
+    "estimatedInstructionMinutes": 36,
+    "estimatedPracticeMinutes": 54,
+    "estimatedProjectMinutes": 30,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 120
+  },
+  {
+    "lessonId": "lesson-cap-079",
+    "courseId": "course-web-capstone",
+    "moduleId": "mod-cap-06",
+    "sequence": 79,
+    "title": "Finalizing Version Control",
+    "primaryObjective": "Finalize the GitHub repository with clean commit history and comprehensive documentation.",
+    "skillIds": [
+      "skill-git-workflow"
+    ],
+    "conceptIds": [],
+    "estimatedMinutes": 60,
+    "lessonType": "PROJECT_CHECKPOINT",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DECIDE",
+    "practiceIntent": [
+      "Push and Document"
+    ],
+    "assessmentConnections": [
+      "assess-capstone-audit"
+    ],
+    "projectConnections": [
+      "proj-capstone"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Publishing boundary.",
+    "estimatedInstructionMinutes": 24,
+    "estimatedPracticeMinutes": 36,
+    "estimatedProjectMinutes": 60,
+    "estimatedReflectionMinutes": 0,
+    "estimatedTotalWorkloadMinutes": 120
+  },
+  {
+    "lessonId": "lesson-cap-080",
+    "courseId": "course-web-capstone",
+    "moduleId": "mod-cap-07",
+    "sequence": 80,
+    "title": "Presenting the Capstone",
+    "primaryObjective": "Deploy the project live and write a reflective summary of technical decisions.",
+    "skillIds": [
+      "skill-app-deployment"
+    ],
+    "conceptIds": [],
+    "estimatedMinutes": 60,
+    "lessonType": "REFLECTION",
+    "difficulty": "DEVELOPING",
+    "scaffoldingLevel": "YOU DECIDE",
+    "practiceIntent": [
+      "Deploy",
+      "Reflect"
+    ],
+    "assessmentConnections": [
+      "assess-capstone-audit"
+    ],
+    "projectConnections": [
+      "proj-capstone"
+    ],
+    "retrievalConnections": [],
+    "prerequisiteLessonIds": [],
+    "status": "DRAFT",
+    "boundaryRationale": "Final reflection and deployment.",
+    "estimatedInstructionMinutes": 24,
+    "estimatedPracticeMinutes": 36,
+    "estimatedProjectMinutes": 0,
+    "estimatedReflectionMinutes": 60,
+    "estimatedTotalWorkloadMinutes": 120
+  }
+]

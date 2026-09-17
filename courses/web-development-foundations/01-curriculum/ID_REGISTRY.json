@@ -406,50 +406,153 @@
     {
       "id": "skill-git-workflow",
       "name": "Git Workflow"
+    },
+    {
+      "id": "skill-css-grid",
+      "name": "CSS Grid"
+    },
+    {
+      "id": "skill-problem-decomposition",
+      "name": "Problem Decomposition"
+    },
+    {
+      "id": "skill-html-links",
+      "name": "HTML Links and Paths"
+    },
+    {
+      "id": "skill-html-media",
+      "name": "HTML Media and Images"
+    },
+    {
+      "id": "skill-html-forms",
+      "name": "HTML Forms"
+    },
+    {
+      "id": "skill-js-conditions",
+      "name": "JS Conditions"
+    },
+    {
+      "id": "skill-js-loops",
+      "name": "JS Loops"
+    },
+    {
+      "id": "skill-js-arrays",
+      "name": "JS Arrays and Strings"
+    },
+    {
+      "id": "skill-js-objects",
+      "name": "JS Objects"
     }
   ],
   "assessments": [
     {
       "id": "assess-web-diag",
-      "type": "Diagnostic"
+      "type": "Diagnostic",
+      "evidenceType": "Explanation",
+      "targetSkills": [
+        "skill-url-anatomy",
+        "skill-http-basics",
+        "skill-web-roles"
+      ]
     },
     {
       "id": "assess-html-sem",
-      "type": "Module Assessment"
+      "type": "Module Assessment",
+      "evidenceType": "Code Completion",
+      "targetSkills": [
+        "skill-html-scaffold",
+        "skill-html-tags",
+        "skill-semantic-markup",
+        "skill-html-a11y"
+      ]
     },
     {
       "id": "assess-css-layout",
-      "type": "Debugging Task"
+      "type": "Module Assessment",
+      "evidenceType": "Coding Challenge",
+      "targetSkills": [
+        "skill-css-selectors",
+        "skill-box-model",
+        "skill-flexbox",
+        "skill-media-queries",
+        "skill-css-grid",
+        "skill-css-cascade"
+      ]
     },
     {
       "id": "assess-js-dom",
-      "type": "Coding Challenge"
+      "type": "Coding Challenge",
+      "evidenceType": "Coding Challenge",
+      "targetSkills": [
+        "skill-js-variables",
+        "skill-js-functions",
+        "skill-dom-selection",
+        "skill-event-listeners",
+        "skill-fetch-api",
+        "skill-js-conditions",
+        "skill-js-loops",
+        "skill-js-arrays",
+        "skill-js-objects"
+      ]
+    },
+    {
+      "id": "assess-js-debug",
+      "type": "Debugging Task",
+      "evidenceType": "Debugging Challenge",
+      "targetSkills": [
+        "skill-js-debug"
+      ]
     },
     {
       "id": "assess-git-flow",
-      "type": "Formative Practice"
+      "type": "Formative Practice",
+      "evidenceType": "Practical Task",
+      "targetSkills": [
+        "skill-git-commit",
+        "skill-git-branch",
+        "skill-github-pr",
+        "skill-git-workflow"
+      ]
+    },
+    {
+      "id": "assess-capstone-audit",
+      "type": "Capstone Audit",
+      "evidenceType": "Mastery Check",
+      "targetSkills": [
+        "skill-app-deployment"
+      ]
     }
   ],
   "projects": [
     {
       "id": "proj-first-page",
-      "type": "Micro Project"
+      "type": "Micro Project",
+      "scaffoldingLevel": "WE DO",
+      "independence": "Low"
     },
     {
       "id": "proj-recipe-site",
-      "type": "Guided Project"
+      "type": "Guided Project",
+      "scaffoldingLevel": "YOU DO WITH SUPPORT",
+      "independence": "Medium"
     },
     {
       "id": "proj-portfolio-grid",
-      "type": "Module Project"
+      "type": "Module Project",
+      "scaffoldingLevel": "YOU DO",
+      "independence": "High"
     },
     {
       "id": "proj-weather-app",
-      "type": "Independent Project"
+      "type": "Independent Project",
+      "scaffoldingLevel": "YOU EXPLAIN",
+      "independence": "High"
     },
     {
       "id": "proj-capstone",
-      "type": "Capstone"
+      "type": "Capstone",
+      "scaffoldingLevel": "YOU DESIGN",
+      "independence": "Absolute"
     }
   ],
   "concepts": [

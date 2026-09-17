@@ -1,65 +1,11 @@
-# Project Progression
+# Project Scaffolding Progression
 
-This document outlines the scaffolding reduction and difficulty progression across all major projects in the curriculum.
+This document tracks the scaffolded independence across all curriculum projects.
 
-## Progressive Scaffolding Model
-The curriculum intentionally reduces support as the learner's capability increases:
-
-1. **I DO:** Direct instruction and demonstration.
-2. **WE DO:** Guided practice with step-by-step instructions.
-3. **YOU DO WITH SUPPORT:** Checkpoints with explicit hints and starter code.
-4. **YOU DO:** Independent implementation from a content brief.
-5. **YOU EXPLAIN:** Documenting decisions and reviewing code.
-6. **YOU DESIGN:** Defining the architecture and UI before building.
-
----
-
-## 1. First Web Page (Course 1: Web Foundations)
-**Project ID:** proj-first-page
-**Type:** Micro Project
-**Scaffolding Level:** WE DO
-**Expected Independence:** Very Low. The learner follows exact steps to create and open an HTML file.
-**Typical Workload:** ~20 minutes
-**Required Skills:** skill-web-roles
-**Assessment Evidence:** Recognition of successful browser rendering.
-**Portfolio Value:** None. Personal milestone.
-
-## 2. Multi-Page Semantic Site (Course 2: HTML Foundations)
-**Project ID:** proj-recipe-site
-**Type:** Guided Project
-**Scaffolding Level:** YOU DO WITH SUPPORT
-**Expected Independence:** Low. The learner is given the exact folder structure, content text, and image assets, but must choose the semantic tags and link them correctly.
-**Typical Workload:** ~1.5 hours
-**Required Skills:** skill-html-scaffold, skill-html-tags, skill-semantic-markup, skill-html-a11y
-**Assessment Evidence:** Automated validation of semantic tags, alt text presence, and correct relative paths.
-**Portfolio Value:** Low. Proves basic structural understanding.
-
-## 3. Responsive Accessible Site (Course 3: CSS Foundations)
-**Project ID:** proj-portfolio-grid
-**Type:** Module Project
-**Scaffolding Level:** YOU DO
-**Expected Independence:** Medium. The learner takes their HTML project and a visual design brief (e.g., a Figma screenshot) and must implement the CSS from scratch.
-**Typical Workload:** ~2 hours
-**Required Skills:** skill-css-selectors, skill-box-model, skill-flexbox, skill-media-queries
-**Assessment Evidence:** Visual layout match, responsive breakpoint behavior, accessible contrast ratios.
-**Portfolio Value:** Medium. Proves ability to translate design to responsive code.
-
-## 4. API-Integrated Application (Course 4: JavaScript Foundations)
-**Project ID:** proj-weather-app
-**Type:** Independent Project
-**Scaffolding Level:** YOU DO / YOU EXPLAIN
-**Expected Independence:** High. The learner is given an API endpoint and must design the application state, fetch the data, handle loading/errors, and render the UI.
-**Typical Workload:** ~3 hours
-**Required Skills:** skill-js-variables, skill-js-functions, skill-dom-selection, skill-event-listeners, skill-fetch-api
-**Assessment Evidence:** Successful network requests, correct error handling, dynamic data rendering.
-**Portfolio Value:** High. Proves ability to work with external data.
-
-## 5. Web Development Capstone (Course 6)
-**Project ID:** proj-capstone
-**Type:** Capstone
-**Scaffolding Level:** YOU DESIGN
-**Expected Independence:** Absolute. The learner defines the problem, writes the requirements, designs the UI, builds the HTML/CSS/JS, manages version control, and presents the final product.
-**Typical Workload:** ~18 hours
-**Required Skills:** All foundational skills, especially skill-git-workflow, skill-git-commit, skill-github-pr.
-**Assessment Evidence:** Fully functional web application, codebase review, presentation/demo, explicit accessibility audit.
-**Portfolio Value:** Highest. This is the primary portfolio piece for the entire learning path.
+| Project ID | Type | Scaffolding Level | Independence |
+| :--- | :--- | :--- | :--- |
+| `proj-first-page` | Micro Project | WE DO | Low |
+| `proj-recipe-site` | Guided Project | YOU DO WITH SUPPORT | Medium |
+| `proj-portfolio-grid` | Module Project | YOU DO | High |
+| `proj-weather-app` | Independent Project | YOU EXPLAIN | High |
+| `proj-capstone` | Capstone | YOU DESIGN | Absolute |
