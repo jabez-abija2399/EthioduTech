@@ -1,3 +1,5 @@
+import { TestResult } from './sandbox-types';
+
 export type LogLevel = 'log' | 'info' | 'warn' | 'error';
 
 export type SandboxMessage =
@@ -15,6 +17,10 @@ export type SandboxMessage =
     }
   | {
       type: 'ready';
+    }
+  | {
+      type: 'TEST_RESULTS';
+      results: TestResult[];
     };
 
 // Validation for incoming messages to ensure safety
@@ -33,6 +39,8 @@ export function isSandboxMessage(data: any): data is SandboxMessage {
       return typeof data.message === 'string';
     case 'ready':
       return true;
+    case 'TEST_RESULTS':
+      return Array.isArray(data.results);
     default:
       return false;
   }

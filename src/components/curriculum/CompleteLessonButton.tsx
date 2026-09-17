@@ -8,9 +8,10 @@ import { completeLessonAction } from '@/lib/actions/progress';
 interface Props {
   lessonId: string;
   courseId: string;
+  disabled?: boolean;
 }
 
-export function CompleteLessonButton({ lessonId, courseId }: Props) {
+export function CompleteLessonButton({ lessonId, courseId, disabled = false }: Props) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
 
@@ -50,8 +51,8 @@ export function CompleteLessonButton({ lessonId, courseId }: Props) {
     <div className="mt-12 pt-8 border-t border-[#3C4044]">
       <button 
         onClick={handleComplete}
-        disabled={loading}
-        className="w-full py-3 bg-[#FD7B41] hover:bg-[#e66a35] text-white font-bold rounded transition-colors shadow-lg disabled:opacity-50"
+        disabled={loading || disabled}
+        className="w-full py-3 bg-[#FD7B41] hover:bg-[#e66a35] text-white font-bold rounded transition-colors shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {loading ? 'Saving...' : 'Mark Complete & Continue'}
       </button>

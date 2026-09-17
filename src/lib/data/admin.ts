@@ -79,3 +79,48 @@ export async function getAdminPlatformMetrics(): Promise<AdminMetrics> {
     recentAuditLogs: []
   }
 }
+
+export async function getAdminUsers() {
+  try {
+    return await prisma.user.findMany({
+      orderBy: { createdAt: "desc" },
+      include: {
+        profile: true,
+        studentProfile: { select: { xp: true, streakDays: true } }
+      }
+    });
+  } catch (error) {
+    console.error("Failed to load admin users:", error);
+    return [];
+  }
+}
+
+export async function getAdminCourses() {
+  try {
+    return await prisma.course.findMany({
+      orderBy: { createdAt: "desc" },
+      include: {
+        _count: {
+          select: { modules: true, enrollments: true }
+        }
+      }
+    });
+  } catch (error) {
+    console.error("Failed to load admin courses:", error);
+    return [];
+  }
+}
+
+export async function getAdminPayments() {
+  try {
+    return await prisma.payment.findMany({
+      orderBy: { createdAt: "desc" },
+      include: {
+        user: { select: { email: true, role: true } }
+      }
+    });
+  } catch (error) {
+    console.error("Failed to load admin payments:", error);
+    return [];
+  }
+}

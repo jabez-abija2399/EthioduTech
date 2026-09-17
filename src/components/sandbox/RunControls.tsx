@@ -1,14 +1,15 @@
 "use client";
 
 import React from 'react';
-import { Play, RotateCcw } from 'lucide-react';
+import { Play, RotateCcw, Bot } from 'lucide-react';
 
 interface RunControlsProps {
   onRun: () => void;
   onReset: () => void;
+  onGetHint?: () => void;
 }
 
-export function RunControls({ onRun, onReset }: RunControlsProps) {
+export function RunControls({ onRun, onReset, onGetHint }: RunControlsProps) {
   return (
     <div className="flex items-center gap-2 p-2 bg-[#2c3034] border-t border-[#3C4044]">
       <button
@@ -25,6 +26,15 @@ export function RunControls({ onRun, onReset }: RunControlsProps) {
         <RotateCcw size={16} />
         Reset
       </button>
+      {onGetHint && (
+        <button
+          onClick={onGetHint}
+          className="ml-auto flex items-center gap-2 px-4 py-1.5 bg-indigo-600 text-white text-sm font-semibold rounded hover:bg-indigo-700 transition-colors"
+        >
+          <Bot size={16} />
+          Get Hint
+        </button>
+      )}
     </div>
   );
 }

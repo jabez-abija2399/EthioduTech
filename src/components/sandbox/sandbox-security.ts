@@ -111,9 +111,29 @@ const INJECTED_INTERCEPTOR = `
 /**
  * Safely combines the files into a single srcDoc HTML string.
  */
-export function buildSandboxDocument(files: SandboxFiles): string {
+export function buildSandboxDocument(files: SandboxFiles, tests: import('./sandbox-types').TestCase[] = []): string {
   // Use a Blob URL or srcdoc. For low bandwidth, srcdoc is sufficient.
   // We wrap the user JS in a try/catch or just inject it straight (the window.onerror catches it)
+  
+  const testExecutionScript = tests.length > 0 ? `
+  <script>
+    // Run tests after a slight delay to ensure DOM is ready and student JS has run
+    setTimeout(function() {
+      const tests = ${JSON.stringify(tests)};
+      const results = tests.map(test => {
+        try {
+          // Evaluate condition string in the context of the sandbox
+          const passed = new Function('return ' + test.condition)();
+          return { description: test.description, passed: !!passed };
+        } catch (e) {
+          return { description: test.description, passed: false, error: e.message };
+        }
+      });
+      window.parent.postMessage({ type: 'TEST_RESULTS', results }, '*');
+    }, 100);
+  </script>
+  ` : '';
+
   return `<!doctype html>
 <html>
 <head>
@@ -137,6 +157,9 @@ export function buildSandboxDocument(files: SandboxFiles): string {
   <script>
     ${files.js}
   </script>
+  
+  <!-- Test Execution Script -->
+  ${testExecutionScript}
 </body>
 </html>`;
 }

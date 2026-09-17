@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useRef } from 'react';
 import { SandboxMessage } from './sandbox-message';
+import { TestResult } from './sandbox-types';
 
 const EXECUTION_TIMEOUT_MS = 2000; // 2 seconds
 
@@ -12,7 +13,7 @@ export type ConsoleEntry = {
   message: string;
 };
 
-export function useSandboxRuntime() {
+export function useSandboxRuntime(onTestsPass?: (results: TestResult[]) => void) {
   const [consoleLog, setConsoleLog] = useState<ConsoleEntry[]>([]);
   const [runKey, setRunKey] = useState(0); // Changing this forces PreviewFrame to remount
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -50,6 +51,13 @@ export function useSandboxRuntime() {
       return;
     }
 
+    if (msg.type === 'TEST_RESULTS') {
+      if (onTestsPass) {
+        onTestsPass(msg.results);
+      }
+      return;
+    }
+
     if (msg.type === 'console') {
       addLog({
         type: 'console',
@@ -65,7 +73,7 @@ export function useSandboxRuntime() {
         message: msg.message
       });
     }
-  }, [addLog]);
+  }, [addLog, onTestsPass]);
 
   return {
     consoleLog,

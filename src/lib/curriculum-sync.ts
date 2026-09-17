@@ -92,7 +92,7 @@ export async function syncCurriculum() {
       const title = frontmatter.title || fileName.replace('.md', '').replace(/-/g, ' ');
       
       // Upsert Lesson
-      await prisma.lesson.upsert({
+      const lesson = await prisma.lesson.upsert({
         where: { id: lessonId },
         update: {
           title: title,
@@ -107,6 +107,26 @@ export async function syncCurriculum() {
           order: lessonIndex,
         }
       });
+      
+      // Upsert Tests as a Challenge
+      if (frontmatter.tests && Array.isArray(frontmatter.tests)) {
+        const challengeId = `${lessonId}-challenge`;
+        await prisma.challenge.upsert({
+          where: { id: challengeId },
+          update: {
+            title: 'Lesson Verification',
+            prompt: 'Complete the requirements to proceed.',
+            tests: JSON.stringify(frontmatter.tests)
+          },
+          create: {
+            id: challengeId,
+            lessonId: lesson.id,
+            title: 'Lesson Verification',
+            prompt: 'Complete the requirements to proceed.',
+            tests: JSON.stringify(frontmatter.tests)
+          }
+        });
+      }
       
       console.log(`Synced Lesson: ${title}`);
     }

@@ -1,4 +1,22 @@
+---
+title: The HTML Boilerplate
+description: Learn the foundational structure of an HTML5 document.
+tests:
+  - description: "Must include the DOCTYPE declaration"
+    condition: 'document.documentElement.nodeName.toLowerCase() === "html"'
+  - description: "Must have a <head> element"
+    condition: 'document.head !== null'
+  - description: "Must have a <title> element inside <head>"
+    condition: 'document.head.querySelector("title") !== null'
+  - description: "Must have a <body> element"
+    condition: 'document.body !== null'
+---
 # HTML-L01: The HTML Boilerplate
+
+<!-- sandbox:html -->
+<!-- Write your HTML boilerplate below -->
+
+<!-- /sandbox:html -->
 
 ## 1. Context & Goal
 Now that you understand that HTML provides the structure of a webpage, it's time to write some. However, you can't just open a file and start typing paragraphs. A browser needs to know what kind of document it's looking at before it can process it. 

@@ -14,3 +14,14 @@ export type SandboxExercise = {
   expectedBehavior?: string;
   validationMode?: 'manual' | 'tests' | 'hybrid';
 };
+
+export type TestCase = {
+  description: string;
+  condition: string;
+};
+
+export type TestResult = {
+  description: string;
+  passed: boolean;
+  error?: string;
+};

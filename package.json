@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@ducanh2912/next-pwa": "^10.2.9",
+    "@google/genai": "^2.23.0",
     "@prisma/client": "^6.19.3",
     "@serwist/next": "^9.5.12",
     "@serwist/precaching": "^9.5.12",
@@ -45,7 +46,8 @@
     "tailwindcss": "^4",
     "tsx": "^4.23.13",
     "typescript": "^5",
-    "vitest": "^4.1.11"
+    "vitest": "^4.1.11",
+    "vitest-mock-extended": "^5.1.1"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
