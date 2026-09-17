@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "id": "course-web-foundations",
+  "pathId": "path-web-dev-foundations",
+  "title": "Web Foundations",
+  "subtitle": "PENDING",
+  "version": "1.0.0",
+  "status": "ARCHITECTURE_APPROVED",
+  "language": "en",
+  "level": "BEGINNER",
+  "targetAge": "10-18",
+  "estimatedHours": 10,
+  "prerequisites": [],
+  "modules": [
+    "mod-web-01",
+    "mod-web-02"
+  ],
+  "skills": [
+    "[REVIEW_REQUIRED]"
+  ],
+  "assessments": [
+    "[REVIEW_REQUIRED]"
+  ],
+  "projects": [
+    "[REVIEW_REQUIRED]"
+  ]
+}

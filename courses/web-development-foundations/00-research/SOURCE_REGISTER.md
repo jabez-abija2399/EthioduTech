@@ -1,0 +1,8 @@
+# Source Register
+
+| Source Name | URL | Source Type | Date Checked | Relevant Section | Extracted Information | Influenced Decision |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| MDN Core Curriculum | https://developer.mozilla.org/en-US/curriculum/ | Official Standards Guide | 2026-09-17 | Core Modules | MDN structures foundational web knowledge into strict core modules (HTML, CSS, JS) used as industry benchmarks. | Separation of HTML, CSS, and JS into distinct early courses rather than mixing them immediately. |
+| Harvard CS50 Web (CS50W) | https://cs50.harvard.edu/web/ | University Syllabus | 2026-09-17 | Syllabus / Topics | CS50 splits introduction (CS50x) from advanced web (CS50W). CS50W focuses heavily on projects, testing, Git, and full-stack integration. | Project-centered curriculum model and the explicit inclusion of Git/GitHub as a formalized standalone phase. |
+| Code.org CS Discoveries | https://code.org/curriculum/catalog | K-12 Curriculum Guide | 2026-09-17 | Web Development Unit | Uses flexible, modular units (Web Lab) designed for beginners (Grades 6-10), emphasizing high scaffolding and immediate visual feedback. | Adoption of a highly scaffolded "Web Foundations" initial course to prevent beginner overload before deep syntax. |
+| Codecademy Learning Paths | https://www.codecademy.com/learn/paths/front-end-engineer-career-path | Commercial Path | 2026-09-17 | Syllabus Structure | Uses a "Path" model containing discrete "Courses". Blends interactive reading with immediate sandbox coding and portfolio projects. | The 6-course continuous learning path architecture with micro-projects leading to capstones. |

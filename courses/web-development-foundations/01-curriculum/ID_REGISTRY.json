@@ -1,0 +1,106 @@
+{
+  "paths": [
+    {
+      "id": "path-web-dev-foundations",
+      "title": "Web Development Foundations"
+    }
+  ],
+  "courses": [
+    {
+      "id": "course-web-foundations",
+      "pathId": "path-web-dev-foundations",
+      "title": "Web Foundations"
+    },
+    {
+      "id": "course-html-foundations",
+      "pathId": "path-web-dev-foundations",
+      "title": "HTML Foundations"
+    },
+    {
+      "id": "course-css-foundations",
+      "pathId": "path-web-dev-foundations",
+      "title": "CSS Foundations"
+    },
+    {
+      "id": "course-js-foundations",
+      "pathId": "path-web-dev-foundations",
+      "title": "JavaScript Foundations"
+    },
+    {
+      "id": "course-git-github",
+      "pathId": "path-web-dev-foundations",
+      "title": "Git & GitHub for Web Developers"
+    },
+    {
+      "id": "course-web-capstone",
+      "pathId": "path-web-dev-foundations",
+      "title": "Web Development Capstone"
+    }
+  ],
+  "modules": [
+    { "id": "mod-web-01", "courseId": "course-web-foundations", "title": "How the Web Works" },
+    { "id": "mod-web-02", "courseId": "course-web-foundations", "title": "Tools of the Trade" },
+    { "id": "mod-html-01", "courseId": "course-html-foundations", "title": "Document Structure" },
+    { "id": "mod-html-02", "courseId": "course-html-foundations", "title": "Text & Links" },
+    { "id": "mod-html-03", "courseId": "course-html-foundations", "title": "Semantic HTML & Accessibility" },
+    { "id": "mod-html-04", "courseId": "course-html-foundations", "title": "Forms & Input" },
+    { "id": "mod-css-01", "courseId": "course-css-foundations", "title": "Selectors & Colors" },
+    { "id": "mod-css-02", "courseId": "course-css-foundations", "title": "The Box Model" },
+    { "id": "mod-css-03", "courseId": "course-css-foundations", "title": "Flexbox Layouts" },
+    { "id": "mod-css-04", "courseId": "course-css-foundations", "title": "Responsive Design" },
+    { "id": "mod-js-01", "courseId": "course-js-foundations", "title": "Variables & Types" },
+    { "id": "mod-js-02", "courseId": "course-js-foundations", "title": "Logic & Control Flow" },
+    { "id": "mod-js-03", "courseId": "course-js-foundations", "title": "Functions & Scope" },
+    { "id": "mod-js-04", "courseId": "course-js-foundations", "title": "DOM Manipulation" },
+    { "id": "mod-js-05", "courseId": "course-js-foundations", "title": "Events & State" },
+    { "id": "mod-js-06", "courseId": "course-js-foundations", "title": "Async JS & APIs" },
+    { "id": "mod-git-01", "courseId": "course-git-github", "title": "Version Control Basics" },
+    { "id": "mod-git-02", "courseId": "course-git-github", "title": "Branching & Merging" },
+    { "id": "mod-git-03", "courseId": "course-git-github", "title": "GitHub & Collaboration" },
+    { "id": "mod-cap-01", "courseId": "course-web-capstone", "title": "Project Planning & Design" },
+    { "id": "mod-cap-02", "courseId": "course-web-capstone", "title": "Implementation & Versioning" },
+    { "id": "mod-cap-03", "courseId": "course-web-capstone", "title": "Testing, Accessibility & Deployment" }
+  ],
+  "outcomes": [
+    { "id": "out-web-01", "description": "Explain the client-server relationship and how a webpage reaches a browser." },
+    { "id": "out-html-01", "description": "Create semantic, accessible, multi-page HTML structures from a content brief." },
+    { "id": "out-css-01", "description": "Implement and debug responsive layouts using Flexbox." },
+    { "id": "out-js-01", "description": "Write JavaScript that responds to user events and updates the DOM." },
+    { "id": "out-js-02", "description": "Fetch data from an external API and display it dynamically." },
+    { "id": "out-git-01", "description": "Collaborate on a codebase using Git branches, commits, and GitHub Pull Requests." },
+    { "id": "out-cap-01", "description": "Independently plan, build, debug, document, and publish a web application." }
+  ],
+  "skills": [
+    { "id": "skill-url-anatomy", "name": "URL Anatomy" },
+    { "id": "skill-http-basics", "name": "HTTP Basics" },
+    { "id": "skill-html-tags", "name": "HTML Tags" },
+    { "id": "skill-semantic-markup", "name": "Semantic Markup" },
+    { "id": "skill-css-selectors", "name": "CSS Selectors" },
+    { "id": "skill-box-model", "name": "Box Model" },
+    { "id": "skill-flexbox", "name": "Flexbox" },
+    { "id": "skill-media-queries", "name": "Media Queries" },
+    { "id": "skill-js-variables", "name": "JS Variables" },
+    { "id": "skill-js-functions", "name": "JS Functions" },
+    { "id": "skill-dom-selection", "name": "DOM Selection" },
+    { "id": "skill-event-listeners", "name": "Event Listeners" },
+    { "id": "skill-fetch-api", "name": "Fetch API" },
+    { "id": "skill-git-commit", "name": "Git Commit" },
+    { "id": "skill-git-branch", "name": "Git Branching" },
+    { "id": "skill-github-pr", "name": "GitHub PRs" },
+    { "id": "skill-app-deployment", "name": "App Deployment" }
+  ],
+  "assessments": [
+    { "id": "assess-web-diag", "type": "Diagnostic" },
+    { "id": "assess-html-sem", "type": "Module Assessment" },
+    { "id": "assess-css-layout", "type": "Debugging Task" },
+    { "id": "assess-js-dom", "type": "Coding Challenge" },
+    { "id": "assess-git-flow", "type": "Formative Practice" }
+  ],
+  "projects": [
+    { "id": "proj-first-page", "type": "Micro Project" },
+    { "id": "proj-recipe-site", "type": "Guided Project" },
+    { "id": "proj-portfolio-grid", "type": "Module Project" },
+    { "id": "proj-weather-app", "type": "Independent Project" },
+    { "id": "proj-capstone", "type": "Capstone" }
+  ]
+}
