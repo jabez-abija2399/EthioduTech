@@ -1,0 +1,79 @@
+---
+lessonId: "lesson-cap-076"
+courseId: "course-web-capstone"
+moduleId: "mod-cap-03"
+sequence: 76
+title: "Building the Interface"
+primaryCapability: "Implement the planned responsive HTML/CSS structure."
+primaryObjective: "Implement the planned responsive HTML/CSS structure."
+estimatedMinutes: 120
+lessonType: "PROJECT_BUILD"
+difficulty: "DEVELOPING"
+scaffoldingLevel: "YOU DECIDE"
+skillIds: ["skill-semantic-markup","skill-flexbox"]
+conceptIds: []
+prerequisiteLessonIds: []
+status: "DRAFT"
+---
+
+
+<Context>
+The planning is done. Now, you build the foundation. You will write the semantic HTML and style it using CSS to create the visual interface for your Capstone project.
+</Context>
+
+<Objective>
+By the end of this lesson, you will implement the planned responsive HTML/CSS structure.
+</Objective>
+
+<Concept>
+## Building Incrementally
+Do not try to write all your HTML and all your CSS at once. Build one section at a time.
+1. Write the semantic HTML for a section (e.g., the Header).
+2. Add classes and IDs.
+3. Write the CSS to style that section.
+4. Test it in the browser.
+5. Commit the code using Git!
+
+## Responsive Design from the Start
+Remember that your users will view your project on phones, tablets, and desktops. Use flexible layouts (Flexbox and Grid) and relative units (%, rem, vw) rather than fixed pixel widths. Use media queries (`@media`) to adjust the layout when the screen size changes.
+
+## Accessibility Matters
+As you write your HTML, remember to:
+- Use semantic tags (`<nav>`, `<main>`, `<article>`, `<button>`).
+- Ensure all images have descriptive `alt` attributes.
+- Ensure forms have associated `<label>` elements.
+- Maintain sufficient color contrast.
+</Concept>
+
+<InteractiveSandbox type="browser_preview">
+You are starting your `index.html` file. Set up the absolute bare minimum HTML5 boilerplate structure, including the `<!DOCTYPE html>`, `<html>`, `<head>`, and `<body>` tags.
+</InteractiveSandbox>
+
+<HintLadder>
+- Level 1: Do you remember how to start an HTML document?
+- Level 2: Don't forget the `<title>` inside the `<head>`!
+- Level 3: 
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Capstone</title>
+</head>
+<body>
+</body>
+</html>
+```
+</HintLadder>
+
+<IndependentPractice>
+This is the main build phase for your user interface!
+1. Create your `index.html` and `style.css` files.
+2. Build the visual structure of your project based on your wireframes.
+3. Use CSS to implement your layout, typography, and colors.
+4. **Git Workflow**: Commit your code incrementally. Do not make one massive commit at the end of the day. Commit every time you finish a logical section (e.g., `git commit -m "Build responsive navigation bar"`).
+</IndependentPractice>
+
+<Reflection>
+As you built your UI, you likely realized something from your original plan needed to change. That is completely normal! Plans are guides, not prisons. If you need to adjust your `PLAN.md` to reflect reality, commit that change as well.
+</Reflection>

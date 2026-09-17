@@ -1,0 +1,79 @@
+---
+lessonId: "lesson-js-064"
+courseId: "course-js-foundations"
+moduleId: "mod-js-14"
+sequence: 64
+title: "Building the Weather Dashboard"
+primaryCapability: "Synthesize DOM manipulation, events, state, and the Fetch API to build a fully interactive application."
+primaryObjective: "Synthesize DOM manipulation, events, state, and the Fetch API to build a fully interactive application."
+estimatedMinutes: 120
+lessonType: "PROJECT_BUILD"
+difficulty: "DEVELOPING"
+scaffoldingLevel: "YOU DO"
+skillIds: ["skill-js-functions","skill-dom-selection","skill-event-listeners","skill-fetch-api"]
+conceptIds: ["con-js-03","con-js-04"]
+prerequisiteLessonIds: []
+status: "DRAFT"
+---
+
+
+<Context>
+It is time to build! You have your plan, your HTML, and your CSS. Now you will synthesize everything you have learned in JavaScript Foundations to bring the Weather Dashboard to life.
+</Context>
+
+<Objective>
+By the end of this lesson, you will synthesize DOM manipulation, events, state, and the Fetch API to build a fully interactive application.
+</Objective>
+
+<Concept>
+## The Free Weather API
+For this project, we will use a free, public API. For simplicity, assume there is a mock API available at:
+`https://api.example.com/weather?city=[CITY_NAME]`
+
+*(Note: In a real environment, you might use OpenWeatherMap, which requires signing up for a free API key).*
+
+A successful JSON response looks like this:
+```json
+{
+  "city": "London",
+  "temperature": 22,
+  "description": "Partly cloudy",
+  "humidity": 65
+}
+```
+
+## Synthesis: Bringing it together
+Building the app is an exercise in independence. Follow the phases from the previous lesson:
+1. Select elements.
+2. Attach the submit listener and prevent default.
+3. Fetch the data using the input value.
+4. Handle the JSON (or errors).
+5. Update the DOM.
+</Concept>
+
+<InteractiveSandbox type="browser_preview">
+You are given the complete HTML for the Weather Dashboard.
+The mock API is available in this sandbox at: `https://mock-weather.vercel.app/api/weather?city=`
+(Try searching for "London", "Tokyo", or "Seattle").
+
+Your task is to write the JavaScript in `app.js` to make the dashboard fully functional, including error handling and LocalStorage!
+</InteractiveSandbox>
+
+<HintLadder>
+- Level 1: Start by selecting the form and adding a submit listener. Use `event.preventDefault()`.
+- Level 2: Inside the listener, get the input value and concatenate it to the API URL.
+- Level 3: Use `fetch(url).then(res => res.json()).then(data => { ... })`.
+- Level 4: Inside the final `.then()`, select the display elements (like `#temp`) and set their `textContent` to `data.temperature`.
+- Level 5: Don't forget to save the searched city to LocalStorage, and check for it at the very top of your script!
+</HintLadder>
+
+<IndependentPractice>
+1. Finish the local version of your Weather Dashboard on your computer.
+2. If you want to use real data, sign up for a free API key at OpenWeatherMap or WeatherAPI.
+3. Test the "Unhappy Path": Search for a city that doesn't exist and make sure your app displays a friendly error message instead of crashing.
+4. Congratulations! You have built a complete, modern frontend web application from scratch.
+</IndependentPractice>
+
+<Reflection>
+Look at how far you have come. You started by logging "Hello World" to a console. Now, you are building applications that intercept user input, fetch live data from servers across the world, handle errors gracefully, and update the visual interface dynamically. You are a JavaScript developer.
+</Reflection>

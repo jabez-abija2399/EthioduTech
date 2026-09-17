@@ -1,0 +1,86 @@
+---
+lessonId: "lesson-js-063"
+courseId: "course-js-foundations"
+moduleId: "mod-js-14"
+sequence: 63
+title: "Planning the Weather Dashboard"
+primaryCapability: "Plan the state, events, and API calls for a dynamic weather app."
+primaryObjective: "Plan the state, events, and API calls for a dynamic weather app."
+estimatedMinutes: 45
+lessonType: "PROJECT_CHECKPOINT"
+difficulty: "DEVELOPING"
+scaffoldingLevel: "YOU DO WITH SUPPORT"
+skillIds: ["skill-js-functions","skill-dom-selection","skill-event-listeners","skill-fetch-api"]
+conceptIds: ["con-js-03","con-js-04"]
+prerequisiteLessonIds: []
+status: "DRAFT"
+---
+
+
+<Context>
+You now have all the tools needed to build a modern web application: DOM selection, DOM manipulation, Event Listeners, JSON, and the Fetch API. Before we build our final JavaScript project—a Weather Dashboard—we must plan its architecture.
+</Context>
+
+<Objective>
+By the end of this lesson, you will plan the state, events, and API calls for a dynamic weather app.
+</Objective>
+
+<Concept>
+## The Application Requirements
+The Weather Dashboard must:
+1. Have an input field where the user types a city name.
+2. Have a submit button to search for the weather.
+3. Fetch weather data for that city from a public API.
+4. Display the current temperature, humidity, and weather description on the screen.
+5. Display a friendly error message if the city is not found.
+6. Save the last searched city in LocalStorage so it reloads automatically when the user returns.
+
+## Planning the Architecture
+When faced with a blank file, do not just start typing code. Break it down into phases:
+
+**Phase 1: Initial State & DOM**
+- Select the form, input, and output display elements.
+- Check LocalStorage: Is there a saved city? If yes, fetch its weather immediately.
+
+**Phase 2: Event Listeners**
+- Listen for the form's `submit` event.
+- Prevent the default page reload.
+- Read the city from the input.
+- Save the city to LocalStorage.
+- Call a function to fetch the weather for that city.
+
+**Phase 3: The API Call**
+- Write a function `getWeather(city)`.
+- Construct the correct API URL.
+- Use `fetch()` to get the data.
+- Check `response.ok` to handle 404 errors (City Not Found).
+- Parse the JSON.
+- Call a function to render the data.
+
+**Phase 4: Rendering**
+- Write a function `renderWeather(data)`.
+- Update the `textContent` of your display elements with the temperature and description.
+</Concept>
+
+<InteractiveSandbox type="classification">
+According to the plan, what is the very first thing the `submit` event listener should do?
+
+A. Call the weather API.
+B. Prevent the default page reload.
+C. Save the city to LocalStorage.
+</InteractiveSandbox>
+
+<Feedback>
+B is correct. If you do not prevent the default reload first, the browser will refresh the page before any of your other JavaScript has time to run!
+</Feedback>
+
+<IndependentPractice>
+1. Create an empty directory on your computer for the Weather Dashboard.
+2. Create three files: `index.html`, `style.css`, and `app.js`.
+3. Build the basic HTML structure (an input, a button, and empty containers for the weather data).
+4. Do NOT write the JavaScript yet. Add comments in `app.js` outlining the 4 phases discussed above.
+</IndependentPractice>
+
+<Reflection>
+Planning saves hours of frustration. By breaking a large app into state, events, data fetching, and rendering, you turn an overwhelming project into a checklist of small, solvable problems.
+</Reflection>

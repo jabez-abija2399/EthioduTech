@@ -52,6 +52,12 @@ Once you have fixed all conflicting files, you tell Git the conflict is resolved
 git add index.html
 git commit -m "Resolve merge conflict in index.html"
 ```
+
+## Safety Valve: Aborting a Merge
+If you panic, get confused, or completely break the file while trying to resolve the conflict, you can safely cancel the entire merge and return to exactly how your files looked before you typed `git merge`. Just run:
+```bash
+git merge --abort
+```
 </Concept>
 
 <InteractiveSandbox type="terminal_debugging">

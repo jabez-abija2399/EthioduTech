@@ -1,0 +1,88 @@
+---
+lessonId: "lesson-js-062"
+courseId: "course-js-foundations"
+moduleId: "mod-js-13"
+sequence: 62
+title: "Handling API Errors"
+primaryCapability: "Implement error handling for failed network requests."
+primaryObjective: "Implement error handling for failed network requests."
+estimatedMinutes: 45
+lessonType: "DEBUGGING"
+difficulty: "DEVELOPING"
+scaffoldingLevel: "YOU DO"
+skillIds: ["skill-fetch-api"]
+conceptIds: ["con-js-04"]
+prerequisiteLessonIds: []
+status: "DRAFT"
+---
+
+
+<Context>
+Network requests fail. The server might be down, the user might lose their internet connection, or you might misspell the URL. If you don't anticipate and handle these errors, your app will break silently and leave the user staring at an empty screen.
+</Context>
+
+<Objective>
+By the end of this lesson, you will implement error handling for failed network requests.
+</Objective>
+
+<Concept>
+## Catching Promise Rejections
+If a Promise fails (is "rejected"), it skips all the `.then()` blocks and looks for a `.catch()` block at the end of the chain.
+
+```javascript
+fetch('https://invalid-url.com/data')
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(data) {
+    console.log(data);
+  })
+  .catch(function(error) {
+    console.error("A network error occurred:", error);
+    // You should also update the DOM here to show the user a friendly error message!
+  });
+```
+
+## Handling HTTP Errors
+`fetch()` only rejects a Promise if the network *physically fails* (like being offline). 
+If the server is online but returns a `404 Not Found` error, `fetch()` still considers that a "successful" connection! 
+
+To handle 404s or 500s, you must manually check the `response.ok` property before parsing the JSON:
+
+```javascript
+fetch('https://jsonplaceholder.typicode.com/users/999') // User 999 does not exist!
+  .then(function(response) {
+    if (!response.ok) {
+      throw new Error("Server returned status: " + response.status);
+    }
+    return response.json();
+  })
+  // ... .then() ...
+  .catch(function(error) {
+    console.error("Caught an error:", error);
+  });
+```
+By using `throw new Error()`, we force the code to jump straight to the `.catch()` block.
+</Concept>
+
+<InteractiveSandbox type="browser_preview">
+The sandbox contains a fetch request to an intentionally broken URL: `https://jsonplaceholder.typicode.com/invalid-endpoint`.
+1. Update the first `.then()` to check `response.ok`. If it is false, throw an Error.
+2. Add a `.catch()` block at the end of the chain.
+3. Inside the catch block, update the `<p id="error-message">` in the DOM to say "Sorry, we couldn't load the data."
+</InteractiveSandbox>
+
+<Feedback>
+Your solution should look similar to the second example in the Concept section, ensuring you select the `#error-message` element inside the `catch` block to provide user-facing feedback.
+</Feedback>
+
+<IndependentPractice>
+1. Intentionally break the URL in one of your previous sandbox projects.
+2. Observe the red error in the console.
+3. Implement a `.catch()` block.
+4. Render a friendly error message on the screen instead of letting the app fail silently.
+</IndependentPractice>
+
+<Reflection>
+Senior developers spend just as much time coding for the "unhappy path" (errors) as they do the "happy path" (success). Handling errors gracefully builds trust with your users.
+</Reflection>

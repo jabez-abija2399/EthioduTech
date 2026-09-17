@@ -39,3 +39,24 @@ Register of canonical references to ensure technical freshness (MDN, W3C, WHATWG
 - **lesson-git-071**: Official Git SCM Documentation (git merge).
 - **lesson-git-072**: Official Git SCM Documentation (Basic Merge Conflicts).
 - **lesson-git-073**: GitHub Docs (About pull requests).
+
+- **lesson-cap-074**: General Project Management Principles (MoSCoW method, Audience Definition).
+- **lesson-cap-075**: Standard Wireframing and State Management principles.
+- **lesson-cap-076**: MDN Web Docs (Semantic HTML, Accessibility, Responsive Design).
+
+- **lesson-cap-077**: MDN Web Docs (JavaScript EventTarget.addEventListener, Fetch API).
+- **lesson-cap-078**: W3C/WAI (Accessibility Testing, Keyboard Navigation).
+- **lesson-cap-079**: GitHub Docs (About READMEs).
+
+- **lesson-cap-080**: GitHub Docs (About GitHub Pages, Configuring a publishing source).
+
+- **lesson-js-054**: MDN Web Docs (Document.querySelector).
+- **lesson-js-056**: MDN Web Docs (EventTarget.addEventListener).
+
+- **lesson-js-057**: MDN Web Docs (Event.preventDefault).
+- **lesson-js-058**: MDN Web Docs (Window.localStorage).
+- **lesson-js-059**: MDN Web Docs (JSON.stringify, JSON.parse).
+- **lesson-js-060**: MDN Web Docs (Using Promises).
+
+- **lesson-js-061**: MDN Web Docs (Fetch API, Response.json).
+- **lesson-js-062**: MDN Web Docs (Response.ok, Promise.prototype.catch).

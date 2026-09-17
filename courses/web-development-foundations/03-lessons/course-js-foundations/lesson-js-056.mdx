@@ -1,0 +1,78 @@
+---
+lessonId: "lesson-js-056"
+courseId: "course-js-foundations"
+moduleId: "mod-js-11"
+sequence: 56
+title: "Handling Events"
+primaryCapability: "Attach event listeners to UI elements to respond to user interactions."
+primaryObjective: "Attach event listeners to UI elements to respond to user interactions."
+estimatedMinutes: 60
+lessonType: "PRACTICE"
+difficulty: "DEVELOPING"
+scaffoldingLevel: "YOU DO"
+skillIds: ["skill-event-listeners"]
+conceptIds: []
+prerequisiteLessonIds: []
+status: "DRAFT"
+---
+
+
+<Context>
+Right now, your JavaScript runs instantly when the page loads. Real interactivity requires waiting for a user to *do* something—like clicking a button or typing in an input.
+</Context>
+
+<Objective>
+By the end of this lesson, you will attach event listeners to UI elements to respond to user interactions.
+</Objective>
+
+<Concept>
+## Listening for Events
+To make an element interactive, we attach an "event listener". 
+The `addEventListener` method takes two arguments:
+1. The name of the event (e.g., `'click'`, `'mouseover'`, `'keydown'`).
+2. A function to run when the event happens (often called a "callback" function).
+
+Example:
+```javascript
+const button = document.querySelector('#submit-btn');
+
+function handleClick() {
+  console.log("The button was clicked!");
+}
+
+button.addEventListener('click', handleClick);
+```
+
+*Note: We pass `handleClick`, not `handleClick()`. We want the browser to run the function LATER when the click happens, not right now!*
+
+## Anonymous Functions
+You will often see developers write the function directly inside the event listener. This is called an anonymous function:
+```javascript
+button.addEventListener('click', function() {
+  document.body.classList.toggle('dark-mode');
+});
+```
+</Concept>
+
+<InteractiveSandbox type="browser_preview">
+Select the button with the ID `magic-btn`. 
+Add a click event listener to it. 
+When clicked, it should change the `textContent` of the `<h1 id="title">` to "Ta-da!".
+</InteractiveSandbox>
+
+<HintLadder>
+- Level 1: First, select both the button and the heading and store them in variables.
+- Level 2: Use `button.addEventListener('click', function() { ... });`.
+- Level 3: Inside the function, change the heading's `textContent`.
+</HintLadder>
+
+<IndependentPractice>
+1. Create a simple HTML interface with a button that says "Show Secret Message".
+2. Add a paragraph below it with the class `hidden` (using CSS `display: none;`).
+3. Write JavaScript to listen for a click on the button.
+4. When clicked, toggle the `hidden` class on the paragraph to reveal or hide the message!
+</IndependentPractice>
+
+<Reflection>
+Events are the heartbeat of the modern web. Every time you click, swipe, or type on a website, an event listener is running a JavaScript function in the background.
+</Reflection>

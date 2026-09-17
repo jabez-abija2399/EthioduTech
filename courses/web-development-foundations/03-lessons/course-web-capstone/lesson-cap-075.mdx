@@ -1,0 +1,71 @@
+---
+lessonId: "lesson-cap-075"
+courseId: "course-web-capstone"
+moduleId: "mod-cap-02"
+sequence: 75
+title: "Designing the Solution"
+primaryCapability: "Draft a technical plan including UI mockups, state shape, and component structure."
+primaryObjective: "Draft a technical plan including UI mockups, state shape, and component structure."
+estimatedMinutes: 60
+lessonType: "PROJECT_CHECKPOINT"
+difficulty: "DEVELOPING"
+scaffoldingLevel: "YOU DECIDE"
+skillIds: ["skill-problem-decomposition"]
+conceptIds: []
+prerequisiteLessonIds: []
+status: "DRAFT"
+---
+
+
+<Context>
+Now that you know *what* you are building, you must plan *how* to build it. Writing code before you have a plan is like building a house without a blueprint. You will end up tearing down walls and starting over.
+</Context>
+
+<Objective>
+By the end of this lesson, you will draft a technical plan including UI mockups, state shape, and component structure.
+</Objective>
+
+<Concept>
+## Visualizing the Interface (Wireframing)
+Before writing HTML, you should sketch what the screen will look like. This is called a wireframe. You don't need fancy software—a pencil and paper work perfectly. 
+Draw boxes for your header, main content area, forms, and footer. Identify which layout mechanisms (Flexbox or Grid) will be needed for each section.
+
+## Planning the Data (State)
+If your application is interactive, it will need to store data. In JavaScript, we call this the "state". 
+Ask yourself:
+- What information needs to be remembered? (e.g., an array of tasks, a user's score, a selected color)
+- How will this data change when the user interacts with the page?
+
+## The Component Structure
+Look at your wireframe and break it down into logical HTML blocks. 
+- Which parts are repeated? (e.g., a list item)
+- Which parts are distinct sections? (e.g., a navigation bar)
+</Concept>
+
+<InteractiveSandbox type="code_editor">
+A developer is planning a weather application. They need to track the name of the city, the current temperature, and a list of upcoming forecasts.
+In the sandbox below, write a simple JavaScript object structure that could hold this data.
+</InteractiveSandbox>
+
+<Feedback>
+An example structure could be:
+```javascript
+const state = {
+  city: "New York",
+  temperature: 72,
+  forecast: ["Sunny", "Cloudy", "Rain"]
+};
+```
+</Feedback>
+
+<IndependentPractice>
+1. Create a wireframe for your project. (Draw it on paper, or use a tool like Figma).
+2. Create a new file in your repository called `PLAN.md`.
+3. In `PLAN.md`, describe the major HTML sections you will need (e.g., `<header>`, `<main id="game-board">`, etc.).
+4. Describe the JavaScript variables you will need to hold your application's state.
+5. Use `git add` and `git commit` to save your `PLAN.md` file!
+</IndependentPractice>
+
+<Reflection>
+Planning feels slow, but it makes coding incredibly fast. When you sit down to write your HTML and CSS tomorrow, you won't have to think about *what* to write, only *how* to write it.
+</Reflection>

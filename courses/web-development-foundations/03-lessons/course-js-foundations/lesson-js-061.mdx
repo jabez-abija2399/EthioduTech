@@ -1,0 +1,79 @@
+---
+lessonId: "lesson-js-061"
+courseId: "course-js-foundations"
+moduleId: "mod-js-13"
+sequence: 61
+title: "Fetching API Data"
+primaryCapability: "Fetch data from a third-party REST API and handle the JSON response."
+primaryObjective: "Fetch data from a third-party REST API and handle the JSON response."
+estimatedMinutes: 60
+lessonType: "PRACTICE"
+difficulty: "DEVELOPING"
+scaffoldingLevel: "YOU DO"
+skillIds: ["skill-fetch-api"]
+conceptIds: ["con-js-04"]
+prerequisiteLessonIds: []
+status: "DRAFT"
+---
+
+
+<Context>
+Now that you understand the concept of a Promise, it is time to actually fetch real data over the network. We will use the browser's built-in `fetch` API to get data from a third-party server.
+</Context>
+
+<Objective>
+By the end of this lesson, you will fetch data from a third-party REST API and handle the JSON response.
+</Objective>
+
+<Concept>
+## The Fetch API
+The `fetch()` function takes a URL and returns a Promise. When you call `fetch()`, the browser sends a request across the internet. This takes time! 
+
+The browser does not stop and wait. It immediately moves to the next line of your code. We use `.then()` to tell the browser: *"Whenever the server finally replies, execute this block of code."* When that Promise resolves, it gives us a `Response` object.
+
+## Parsing JSON Data
+The `Response` object is not the raw data; it is an HTTP response. To get the actual JSON data out of it, we must call the `.json()` method on it. Because reading data from a network stream also takes time, `.json()` *also* returns a Promise!
+
+Therefore, a standard fetch request looks like a chain of two `.then()` blocks:
+
+```javascript
+fetch('https://jsonplaceholder.typicode.com/users/1')
+  .then(function(response) {
+    // 1. We got the response from the server!
+    // Now, parse the JSON body...
+    return response.json(); 
+  })
+  .then(function(data) {
+    // 2. The JSON is fully parsed!
+    // We can finally use the data as a normal JavaScript object.
+    console.log(data.name);
+  });
+```
+</Concept>
+
+<InteractiveSandbox type="browser_preview">
+The provided HTML has a button and an empty `<ul id="user-list">`.
+In the JavaScript, write a click event listener on the button that:
+1. Calls `fetch('https://jsonplaceholder.typicode.com/users')` (this returns an array of 10 users).
+2. Parses the response as JSON.
+3. Loops through the resulting data array.
+4. Creates a new `<li>` for each user's `name` and appends it to the list.
+</InteractiveSandbox>
+
+<HintLadder>
+- Level 1: Start by setting up your `button.addEventListener('click', function() { ... })`.
+- Level 2: Inside the listener, write the two-step fetch chain: `fetch(url).then(res => res.json()).then(data => { ... })`.
+- Level 3: Inside the second `.then()`, `data` is an array. Loop over it with a `for` loop.
+- Level 4: Inside the loop, append to the DOM: `list.innerHTML += '<li>' + data[i].name + '</li>';`
+</HintLadder>
+
+<IndependentPractice>
+1. Create a local HTML file.
+2. Search online for a free public API (like the PokéAPI or a random joke API).
+3. Write a script to fetch data from that API when the page loads.
+4. Render at least one piece of data from the API onto the web page.
+</IndependentPractice>
+
+<Reflection>
+APIs (Application Programming Interfaces) are how modern web applications talk to the rest of the internet. By mastering `fetch`, you now have the power to pull live data from anywhere into your own applications.
+</Reflection>

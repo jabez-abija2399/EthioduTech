@@ -1,0 +1,84 @@
+---
+lessonId: "lesson-cap-079"
+courseId: "course-web-capstone"
+moduleId: "mod-cap-06"
+sequence: 79
+title: "Finalizing Version Control"
+primaryCapability: "Finalize the GitHub repository with clean commit history and comprehensive documentation."
+primaryObjective: "Finalize the GitHub repository with clean commit history and comprehensive documentation."
+estimatedMinutes: 60
+lessonType: "PROJECT_CHECKPOINT"
+difficulty: "DEVELOPING"
+scaffoldingLevel: "YOU DECIDE"
+skillIds: ["skill-git-workflow"]
+conceptIds: []
+prerequisiteLessonIds: []
+status: "DRAFT"
+---
+
+
+<Context>
+The code is finished, polished, and tested. The final step of any project is to publish it, document it, and ensure your version history tells a coherent story of how the software was built.
+</Context>
+
+<Objective>
+By the end of this lesson, you will finalize the GitHub repository with clean commit history and comprehensive documentation.
+</Objective>
+
+<Concept>
+## 1. The Value of Documentation
+A repository without a README is like a book without a cover or a title page. Nobody knows what it is, how to use it, or why it exists. If you want employers to look at your code, you must explain it to them first.
+
+## 2. The Professional README
+A good README should answer:
+- **What is this?** (A short, 1-2 sentence description).
+- **Why was it built?** (The problem it solves).
+- **What technologies were used?** (e.g., HTML5, CSS3 Grid, Vanilla JavaScript).
+- **How do I run it?** (Instructions for opening the project).
+- **What are the key features?** 
+
+## 3. The Commit History
+Your Git history is a record of your engineering process. A history full of "fix bug" and "asdf" commits looks unprofessional. You cannot easily change the past, but you can ensure your final commits are meaningful and clean.
+</Concept>
+
+<InteractiveSandbox type="code_editor">
+A developer wrote this README:
+
+```markdown
+# My Capstone
+This is my project for the course. I used HTML and CSS. It has a button.
+```
+
+Rewrite this README to sound professional. Include a description, a list of technologies, and a list of features.
+</InteractiveSandbox>
+
+<Feedback>
+A better version would look like:
+```markdown
+# Task Manager Application
+A lightweight, responsive task management tool designed to help students track their daily assignments.
+
+## Technologies Used
+- HTML5 (Semantic Structure)
+- CSS3 (Flexbox Layouts)
+- Vanilla JavaScript (DOM Manipulation)
+
+## Features
+- Add, edit, and delete tasks dynamically.
+- Fully responsive design for mobile and desktop.
+- Keyboard accessible interface.
+```
+</Feedback>
+
+<IndependentPractice>
+1. Open your `README.md` file.
+2. Write a comprehensive, professional description of your project.
+3. Include instructions on how to use the application.
+4. Verify your local working directory is clean (`git status`).
+5. Commit your README.
+6. Push your final `main` branch up to GitHub (`git push origin main`).
+</IndependentPractice>
+
+<Reflection>
+Congratulations! You have taken an idea from a blank text file all the way through requirements, design, implementation, debugging, and final publishing. You are now officially practicing software development!
+</Reflection>

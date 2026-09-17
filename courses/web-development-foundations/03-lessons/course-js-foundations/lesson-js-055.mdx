@@ -1,0 +1,76 @@
+---
+lessonId: "lesson-js-055"
+courseId: "course-js-foundations"
+moduleId: "mod-js-10"
+sequence: 55
+title: "Modifying the DOM"
+primaryCapability: "Modify the text, styles, and classes of selected DOM elements."
+primaryObjective: "Modify the text, styles, and classes of selected DOM elements."
+estimatedMinutes: 60
+lessonType: "PRACTICE"
+difficulty: "DEVELOPING"
+scaffoldingLevel: "YOU DO"
+skillIds: ["skill-dom-selection"]
+conceptIds: ["con-js-03"]
+prerequisiteLessonIds: []
+status: "DRAFT"
+---
+
+
+<Context>
+Selecting an element is only the first step. Once you have a reference to an element, you can use JavaScript to change its content, its styling, or its classes dynamically.
+</Context>
+
+<Objective>
+By the end of this lesson, you will modify the text, styles, and classes of selected DOM elements.
+</Objective>
+
+<Concept>
+## Changing Text
+You can change the text inside an HTML element using the `textContent` property:
+```javascript
+const heading = document.querySelector('h1');
+heading.textContent = "New Title!";
+```
+
+## Modifying Classes (Recommended)
+The best way to change how an element looks is to add or remove CSS classes. The `classList` property makes this easy:
+```javascript
+const box = document.querySelector('.box');
+box.classList.add('highlight');
+box.classList.remove('hidden');
+box.classList.toggle('active'); // Adds it if missing, removes it if present
+```
+
+## Modifying Inline Styles (Use Sparingly)
+You can modify CSS styles directly, but it is generally better to use classes. Notice that CSS properties with hyphens become camelCase in JavaScript:
+```javascript
+heading.style.backgroundColor = "blue"; // Not background-color
+```
+</Concept>
+
+<InteractiveSandbox type="browser_preview">
+Write JavaScript to:
+1. Select the `<p id="message">` element.
+2. Change its text content to "JavaScript was here!".
+3. Add the class `success` to the element.
+</InteractiveSandbox>
+
+<Feedback>
+```javascript
+const msg = document.querySelector('#message');
+msg.textContent = "JavaScript was here!";
+msg.classList.add('success');
+```
+</Feedback>
+
+<IndependentPractice>
+In a local environment:
+1. Create an HTML file with a `<div>` containing some text.
+2. Write CSS for a `.dark-theme` class that changes the background color and text color.
+3. In your JavaScript, select the `<div>` and use `classList.add('dark-theme')` to apply the styles instantly when the page loads.
+</IndependentPractice>
+
+<Reflection>
+By modifying classes rather than inline styles, you keep your styling logic in CSS and your behavior logic in JavaScript. This separation of concerns is a core engineering principle!
+</Reflection>

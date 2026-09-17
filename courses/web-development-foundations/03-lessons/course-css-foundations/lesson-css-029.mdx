@@ -57,6 +57,14 @@ Complete the CSS to place the `.close-btn` exactly 10px from the top right corne
 - Level 3: The button needs `position: absolute` and `right: 10px`.
 </HintLadder>
 
+<IndependentPractice>
+1. Open your local editor. Create a `<div>` with the class `container` and place another `<div>` inside it called `box`.
+2. Give both elements a height, width, and distinct background colors.
+3. Give `.box` `position: absolute; top: 0; right: 0;`. Notice how it flies out of the `.container` to the top-right corner of the whole page!
+4. Visually debug this layout failure. What is missing from `.container`?
+5. Add `position: relative;` to the `.container` and watch the `.box` snap back inside.
+</IndependentPractice>
+
 <Reflection>
 Absolute positioning is powerful, but use it sparingly! If you absolutely position everything, your layout will completely break on different screen sizes because nothing flows naturally anymore.
 </Reflection>

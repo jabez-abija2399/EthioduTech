@@ -1,0 +1,64 @@
+---
+lessonId: "lesson-cap-078"
+courseId: "course-web-capstone"
+moduleId: "mod-cap-05"
+sequence: 78
+title: "Quality Assurance and Accessibility"
+primaryCapability: "Audit the completed capstone for bugs, responsive flaws, and accessibility violations, and resolve them."
+primaryObjective: "Audit the completed capstone for bugs, responsive flaws, and accessibility violations, and resolve them."
+estimatedMinutes: 90
+lessonType: "PROJECT_CHECKPOINT"
+difficulty: "DEVELOPING"
+scaffoldingLevel: "YOU DECIDE"
+skillIds: ["skill-js-debug","skill-html-a11y"]
+conceptIds: []
+prerequisiteLessonIds: []
+status: "DRAFT"
+---
+
+
+<Context>
+Your project looks good, and the buttons work. You might think you are finished! However, professional developers know that writing the code is only 80% of the job. The remaining 20% is ensuring the code actually works for everyone, on every device.
+</Context>
+
+<Objective>
+By the end of this lesson, you will audit the completed capstone for bugs, responsive flaws, and accessibility violations, and resolve them.
+</Objective>
+
+<Concept>
+## 1. Responsive Verification
+Do not trust that your media queries work perfectly. 
+- Open your site.
+- Slowly drag the browser window from its maximum width down to a mobile phone width.
+- Does anything overflow horizontally? Do buttons overlap? Does text become unreadable? Fix it!
+
+## 2. Keyboard and Focus Testing
+Unplug your mouse (or just don't touch it). 
+- Can you navigate through your entire application using only the `Tab` and `Enter` keys?
+- When an element is focused, does it have a clear, visible outline? 
+
+## 3. The "Weird User" Test
+Developers test the "Happy Path"—the way the app is *supposed* to be used. Users will do the opposite.
+- What happens if they click "Submit" without typing anything?
+- What happens if they type 5,000 characters into the input box?
+- What happens if they click the button 20 times in one second?
+</Concept>
+
+<InteractiveSandbox type="browser_preview">
+The provided form has a bug. If you submit it empty, it creates an invisible list item. 
+Open `script.js`, find the submission function, and add logic to prevent creating an item if the input is empty.
+</InteractiveSandbox>
+
+<Feedback>
+You should check if the input value is empty using something like `if (inputValue.trim() === '') return;`.
+</Feedback>
+
+<IndependentPractice>
+1. **Responsive Audit**: Test your layout at 320px, 768px, and 1200px widths. Make CSS adjustments as necessary and commit them.
+2. **Accessibility Audit**: Tab through your application. Ensure all interactive elements have visible focus states. Verify your color contrast. Fix any issues and commit them.
+3. **Logic Audit**: Try to break your own JavaScript. Fix the bugs you find and commit them.
+</IndependentPractice>
+
+<Reflection>
+Quality Assurance (QA) is what separates a student project from a professional portfolio piece. Taking the time to polish these details proves you care about the user experience.
+</Reflection>
