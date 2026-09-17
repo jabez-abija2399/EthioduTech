@@ -75,13 +75,15 @@ Please provide a Socratic hint to help the student progress.
         : "https://openrouter.ai/api/v1/chat/completions";
       const model = isGroq 
         ? "llama3-8b-8192" 
-        : "meta-llama/llama-3.1-8b-instruct"; // Good fast default for OpenRouter
+        : "openrouter/free"; // OpenRouter free model routing
 
       const res = await fetch(endpoint, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${apiKey}`
+          "Authorization": `Bearer ${apiKey}`,
+          "HTTP-Referer": "http://localhost:3000",
+          "X-Title": "Edutech Tutor"
         },
         body: JSON.stringify({
           model: model,
