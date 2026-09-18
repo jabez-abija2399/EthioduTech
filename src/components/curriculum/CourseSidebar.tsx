@@ -33,7 +33,6 @@ interface CourseSidebarProps {
 export function CourseSidebar({ courseId, courseTitle, modules }: CourseSidebarProps) {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
   
   // By default expand the first module, or whatever is active
   const [expandedModules, setExpandedModules] = useState<Record<string, boolean>>(() => {
@@ -62,16 +61,7 @@ export function CourseSidebar({ courseId, courseTitle, modules }: CourseSidebarP
     if (activeUnitId) setExpandedUnits(prev => ({ ...prev, [activeUnitId!]: true }));
   }, [pathname, modules]);
 
-  useEffect(() => {
-    const handleResize = () => {
-      const mobile = window.innerWidth < 768;
-      setIsMobile(mobile);
-    };
-    
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+
 
   const toggleModule = (moduleId: string) => {
     setExpandedModules(prev => ({
@@ -100,8 +90,8 @@ export function CourseSidebar({ courseId, courseTitle, modules }: CourseSidebarP
         </button>
       )}
 
-      {/* Sidebar overlay for mobile */}
-      {isOpen && isMobile && (
+      {/* Backdrop overlay — always shown when sidebar is open */}
+      {isOpen && (
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -111,11 +101,11 @@ export function CourseSidebar({ courseId, courseTitle, modules }: CourseSidebarP
         />
       )}
 
-      {/* Sidebar */}
+      {/* Sidebar — always fixed/overlay, never pushes content */}
       <aside 
         className={`${
-          isOpen ? 'translate-x-0 w-[320px] md:w-[340px] border-r' : '-translate-x-full w-0 md:w-0 border-r-0'
-        } transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] fixed md:relative z-50 h-full bg-[#161618] border-[#2A2A2D] flex flex-col overflow-hidden shrink-0 shadow-2xl md:shadow-none`}
+          isOpen ? 'translate-x-0' : '-translate-x-full'
+        } fixed top-0 left-0 z-50 h-full w-[320px] bg-[#161618] border-r border-[#2A2A2D] flex flex-col overflow-hidden shadow-2xl transition-transform duration-300 ease-[cubic-bezier(0.25,1,0.5,1)]`}
       >
         <div className="p-5 border-b border-[#2A2A2D] bg-[#161618]/80 backdrop-blur-xl flex justify-between items-start shrink-0 relative z-10">
           <div className="pr-2">
@@ -199,7 +189,7 @@ export function CourseSidebar({ courseId, courseTitle, modules }: CourseSidebarP
                                         <Link 
                                           key={lesson.id} 
                                           href={href}
-                                          onClick={() => isMobile && setIsOpen(false)}
+                                          onClick={() => setIsOpen(false)}
                                           className={`flex items-start py-2 px-3 rounded-xl text-[13px] transition-all relative overflow-hidden group ${
                                             isActive 
                                               ? 'bg-gradient-to-r from-[#FD7B41]/20 to-[#FD7B41]/5 text-[#FD7B41] font-bold border border-[#FD7B41]/20' 
