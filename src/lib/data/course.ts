@@ -1,7 +1,4 @@
 import { prisma } from "../prisma"
-import { getLocalCourseWithFullTree, getLocalLesson } from "./local-course"
-
-const FALLBACK_COURSES: any[] = []
 
 export async function getCourses(): Promise<any[]> {
   try {
