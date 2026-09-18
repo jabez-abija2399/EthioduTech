@@ -1,7 +1,7 @@
 import React from 'react';
 import { notFound, redirect } from 'next/navigation';
 import { auth } from '@/auth';
-import { getCourseWithFullTree, getLesson } from '@/lib/data/course';
+import { getCourseWithFullTree, getLesson, getUserProgress } from '@/lib/data/course';
 import { CourseSidebar } from '@/components/curriculum/CourseSidebar';
 import { ClientWorkspace } from '@/components/curriculum/ClientWorkspace';
 
@@ -19,12 +19,22 @@ export default async function LessonPage({
     redirect('/login');
   }
 
-  // 1. Fetch Course and Modules for Sidebar
-  const course = await getCourseWithFullTree(courseId);
+  // 1. Fetch Course, User Progress in parallel
+  const [course, userProgress] = await Promise.all([
+    getCourseWithFullTree(courseId),
+    getUserProgress(session.user.id!)
+  ]);
 
   if (!course) {
     notFound();
   }
+
+  // Build a Set of completed lesson IDs for O(1) lookup
+  const completedLessonIds = new Set(
+    userProgress
+      .filter((p: any) => p.entityType === 'LESSON' && p.status === 'COMPLETED')
+      .map((p: any) => p.entityId)
+  );
 
   // Flatten the hierarchy to match Sidebar props (3-tier deeply nested)
   const sidebarModules = course.modules.map((mod: any) => {
@@ -37,7 +47,7 @@ export default async function LessonPage({
         lessons: unit.lessons.map((l: any) => ({
           id: l.id,
           title: l.title,
-          isCompleted: false // To be filled with real Progress tracking later
+          isCompleted: completedLessonIds.has(l.id)
         }))
       }))
     };
