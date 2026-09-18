@@ -164,6 +164,7 @@ export function ClientWorkspace({
         className={`${
           isWorkspaceOpen ? 'translate-y-0' : 'translate-y-full'
         } transition-transform duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] fixed inset-0 z-50 md:relative md:z-0 md:translate-y-0 md:flex-1 h-full bg-[#1e1e1e] flex flex-col shadow-2xl md:shadow-none`}
+      >
         <div className="p-3 bg-[#252526] border-b border-[#3C4044] text-xs font-semibold text-gray-400 flex justify-between items-center shrink-0">
           <div className="flex items-center gap-2">
             <TerminalSquare size={16} className="text-[#FD7B41]" />
