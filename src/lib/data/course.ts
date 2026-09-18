@@ -3,7 +3,7 @@ import { getLocalCourseWithFullTree, getLocalLesson } from "./local-course"
 
 const FALLBACK_COURSES: any[] = []
 
-export async function getCourses() {
+export async function getCourses(): Promise<any[]> {
   try {
     const courses = await prisma.course.findMany({
       where: { isPublished: true },
