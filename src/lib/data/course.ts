@@ -25,14 +25,7 @@ export async function getCourses() {
     })
 
     if (courses && courses.length > 0) {
-      const validCourses = courses.filter(course => course.modules.some((m: any) => m.id.includes('-phase-')));
-      
-      if (validCourses.length > 0) {
-        validCourses.forEach(course => {
-          course.modules = course.modules.filter((m: any) => m.id.includes('-phase-'));
-        });
-        return validCourses;
-      }
+      return courses;
     }
 
     const allCourses = await prisma.course.findMany({
@@ -54,14 +47,7 @@ export async function getCourses() {
     })
 
     if (allCourses && allCourses.length > 0) {
-      const validAllCourses = allCourses.filter(course => course.modules.some((m: any) => m.id.includes('-phase-')));
-      
-      if (validAllCourses.length > 0) {
-        validAllCourses.forEach(course => {
-          course.modules = course.modules.filter((m: any) => m.id.includes('-phase-'));
-        });
-        return validAllCourses;
-      }
+      return allCourses;
     }
   } catch (error) {
     console.error("Failed to fetch courses from database:", error)
@@ -95,9 +81,7 @@ export async function getLesson(lessonId: string) {
       }
     })
     
-    // Only return DB lesson if it has the module phase signature (if it's a real lesson)
-    // Actually, seeded lessons have random UUIDs, real lessons have specific string IDs like "HTML-L01"
-    if (lesson && (lessonId.includes('-') === false || lessonId.split('-').length <= 2)) {
+    if (lesson) {
       return lesson;
     }
   } catch (error) {
@@ -158,10 +142,7 @@ export async function getCourseWithFullTree(courseId: string) {
       }
     })
     
-    // Only return DB course if it actually has the real lessons synced
-    if (course && course.modules.some((m: any) => m.id.includes('-phase-'))) {
-      // Filter out seeded legacy modules
-      course.modules = course.modules.filter((m: any) => m.id.includes('-phase-'));
+    if (course) {
       return course;
     }
   } catch (error) {
