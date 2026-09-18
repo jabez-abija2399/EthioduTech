@@ -157,31 +157,39 @@ export default async function CourseLandingPage({
                 </div>
                 
                 {/* Module Content / Units */}
-                <div className="p-8 md:p-10 space-y-10 bg-white relative">
+                <div className="p-8 md:p-10 space-y-4 bg-white relative">
                   {mod.units?.map((unit: any, uIndex: number) => (
-                    <div key={unit.id} className="relative">
-                      <h4 className="text-xl font-extrabold text-slate-700 mb-6 flex items-center gap-3">
-                        <span className="w-1.5 h-6 bg-blue-500 rounded-full" />
-                        {unit.title}
-                      </h4>
-                      <ul className="space-y-4 pl-4 md:pl-8">
-                        {unit.lessons?.map((lesson: any) => (
-                          <li key={lesson.id} className="flex items-start gap-4 p-4 rounded-2xl hover:bg-slate-50 border border-transparent hover:border-slate-100 transition-colors duration-300 group/lesson cursor-default">
-                            <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center shrink-0 group-hover/lesson:bg-emerald-100 group-hover/lesson:text-emerald-500 transition-colors duration-300 mt-0.5 text-slate-400">
-                              <CheckCircle2 className="w-5 h-5" />
-                            </div>
-                            <div className="flex-1">
-                              <p className="font-bold text-slate-700 group-hover/lesson:text-[#FD7B41] transition-colors duration-300 text-lg leading-tight">
-                                {lesson.title}
-                              </p>
-                            </div>
-                            <div className="opacity-0 group-hover/lesson:opacity-100 transition-opacity duration-300 text-slate-300 mt-1">
-                              <ChevronRight className="w-5 h-5" />
-                            </div>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                    <details key={unit.id} className="group/unit relative border border-slate-200 rounded-2xl overflow-hidden [&_summary::-webkit-details-marker]:hidden">
+                      <summary className="flex items-center justify-between p-5 bg-slate-50 cursor-pointer hover:bg-slate-100 transition-colors">
+                        <h4 className="text-lg font-extrabold text-slate-700 flex items-center gap-3">
+                          <span className="w-1.5 h-5 bg-blue-500 rounded-full" />
+                          {unit.title}
+                        </h4>
+                        <div className="flex items-center gap-3">
+                          <span className="text-sm font-bold text-slate-400 bg-white px-2 py-1 rounded-md border border-slate-200">
+                            {unit.lessons?.length || 0} lessons
+                          </span>
+                          <ChevronRight className="w-5 h-5 text-slate-400 transition-transform group-open/unit:rotate-90" />
+                        </div>
+                      </summary>
+                      
+                      <div className="p-5 bg-white border-t border-slate-100">
+                        <ul className="space-y-3">
+                          {unit.lessons?.map((lesson: any) => (
+                            <li key={lesson.id} className="flex items-start gap-4 p-3 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-100 transition-colors duration-300 group/lesson cursor-default">
+                              <div className="w-7 h-7 rounded-full bg-slate-100 flex items-center justify-center shrink-0 group-hover/lesson:bg-emerald-100 group-hover/lesson:text-emerald-500 transition-colors duration-300 mt-0.5 text-slate-400">
+                                <CheckCircle2 className="w-4 h-4" />
+                              </div>
+                              <div className="flex-1">
+                                <p className="font-bold text-slate-700 group-hover/lesson:text-[#FD7B41] transition-colors duration-300 text-base leading-tight">
+                                  {lesson.title}
+                                </p>
+                              </div>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </details>
                   ))}
                 </div>
               </div>

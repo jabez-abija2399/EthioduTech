@@ -24,17 +24,20 @@ export default async function LessonPage({
     notFound();
   }
 
-  // Flatten the hierarchy to match Sidebar props
+  // Flatten the hierarchy to match Sidebar props (3-tier deeply nested)
   const sidebarModules = course.modules.map((mod: any) => {
-    const lessons = mod.units.flatMap((u: any) => u.lessons).map((l: any) => ({
-      id: l.id,
-      title: l.title,
-      isCompleted: false // To be filled with real Progress tracking later
-    }));
     return {
       id: mod.id,
       title: mod.title,
-      lessons
+      units: mod.units.map((unit: any) => ({
+        id: unit.id,
+        title: unit.title,
+        lessons: unit.lessons.map((l: any) => ({
+          id: l.id,
+          title: l.title,
+          isCompleted: false // To be filled with real Progress tracking later
+        }))
+      }))
     };
   });
 
