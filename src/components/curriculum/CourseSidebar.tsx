@@ -43,6 +43,21 @@ export function CourseSidebar({ courseId, courseTitle, modules }: CourseSidebarP
   const completedLessons = allLessons.filter(l => l.isCompleted).length;
   const overallProgress = totalLessons > 0 ? Math.round((completedLessons / totalLessons) * 100) : 0;
 
+  // Sequential unlock: lesson N unlocks only when lesson N-1 is completed
+  const unlockedLessonIds = new Set<string>();
+  for (let i = 0; i < allLessons.length; i++) {
+    if (i === 0) {
+      // First lesson always unlocked
+      unlockedLessonIds.add(allLessons[i].id);
+    } else if (allLessons[i - 1].isCompleted) {
+      // Unlock this lesson only if the previous one is completed
+      unlockedLessonIds.add(allLessons[i].id);
+    } else {
+      // Once we hit a locked lesson, all subsequent are locked too
+      break;
+    }
+  }
+
   // By default expand the active module
   const [expandedModules, setExpandedModules] = useState<Record<string, boolean>>(() => {
     const state: Record<string, boolean> = {};
@@ -265,7 +280,28 @@ export function CourseSidebar({ courseId, courseTitle, modules }: CourseSidebarP
                                             const href = `/courses/${courseId}/lessons/${lesson.id}`;
                                             const isActive = pathname === href;
                                             const isCompleted = lesson.isCompleted;
+                                            const isUnlocked = unlockedLessonIds.has(lesson.id);
+                                            const isLocked = !isUnlocked;
 
+                                            // LOCKED: non-clickable div
+                                            if (isLocked) {
+                                              return (
+                                                <div
+                                                  key={lesson.id}
+                                                  title="Complete the previous lesson to unlock"
+                                                  className="flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-[12px] cursor-not-allowed opacity-40 border border-transparent select-none"
+                                                >
+                                                  <span className="shrink-0 text-gray-600">
+                                                    <Lock size={12} />
+                                                  </span>
+                                                  <span className="leading-tight line-clamp-2 flex-1 text-gray-600">
+                                                    {lesson.title}
+                                                  </span>
+                                                </div>
+                                              );
+                                            }
+
+                                            // UNLOCKED: clickable Link
                                             return (
                                               <Link
                                                 key={lesson.id}
@@ -276,7 +312,7 @@ export function CourseSidebar({ courseId, courseTitle, modules }: CourseSidebarP
                                                     ? 'bg-[#FD7B41]/15 text-[#FD7B41] font-semibold border border-[#FD7B41]/25'
                                                     : isCompleted
                                                       ? 'text-gray-400 hover:text-white hover:bg-white/5 border border-transparent'
-                                                      : 'text-gray-500 hover:text-gray-200 hover:bg-white/4 border border-transparent'
+                                                      : 'text-gray-300 hover:text-white hover:bg-white/4 border border-transparent'
                                                 }`}
                                               >
                                                 {/* Active left accent bar */}
@@ -294,7 +330,7 @@ export function CourseSidebar({ courseId, courseTitle, modules }: CourseSidebarP
                                                   ) : isActive ? (
                                                     <PlayCircle size={14} className="text-[#FD7B41]" />
                                                   ) : (
-                                                    <Circle size={14} className="text-gray-700 group-hover:text-gray-500 transition-colors" />
+                                                    <Circle size={14} className="text-gray-600 group-hover:text-gray-400 transition-colors" />
                                                   )}
                                                 </span>
 
