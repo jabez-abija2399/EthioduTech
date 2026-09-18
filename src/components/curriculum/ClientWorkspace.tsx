@@ -46,18 +46,30 @@ export function ClientWorkspace({
           <MarkdownViewer content={content} />
         </div>
         
-        <div className="mt-8 pt-8 border-t border-white/10">
-          <CompleteLessonButton 
-            lessonId={lessonId} 
-            courseId={courseId} 
-            disabled={!isUnlocked} 
-          />
-          {hasTests && !isUnlocked && (
-            <p className="text-xs text-[#FD7B41] mt-3 font-semibold flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#FD7B41] animate-pulse" />
-              Pass all tests in the sandbox to unlock this lesson.
-            </p>
-          )}
+        <div className="mt-12 pt-8 border-t border-white/10">
+          <div className="bg-[#2a2d32] rounded-2xl p-6 border border-[#3C4044]/50 flex flex-col items-center text-center shadow-lg relative overflow-hidden">
+            {/* Subtle glow effect inside the card */}
+            <div className="absolute top-0 right-0 w-32 h-32 bg-[#FD7B41]/5 rounded-full blur-[40px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+            
+            <div className="w-10 h-10 bg-[#FD7B41]/10 rounded-full flex items-center justify-center mb-3 text-[#FD7B41] border border-[#FD7B41]/20">
+              <BookOpen className="w-5 h-5" />
+            </div>
+            <h3 className="text-lg font-bold text-white mb-1">Ready to move on?</h3>
+            <p className="text-sm text-slate-400 mb-5 max-w-[250px]">Mark this lesson as complete to track your progress.</p>
+            
+            <CompleteLessonButton 
+              lessonId={lessonId} 
+              courseId={courseId} 
+              disabled={!isUnlocked} 
+            />
+            
+            {hasTests && !isUnlocked && (
+              <p className="text-xs text-[#FD7B41] mt-4 font-semibold flex items-center gap-2 bg-[#FD7B41]/10 px-3 py-1.5 rounded-full">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FD7B41] animate-pulse" />
+                Pass sandbox tests to unlock
+              </p>
+            )}
+          </div>
         </div>
       </div>
 
