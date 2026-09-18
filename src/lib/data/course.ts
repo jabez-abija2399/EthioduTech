@@ -53,6 +53,8 @@ export async function getCourses() {
     console.error("Failed to fetch courses from database:", error)
     return []
   }
+  
+  return []
 }
 
 export async function getLesson(lessonId: string) {
