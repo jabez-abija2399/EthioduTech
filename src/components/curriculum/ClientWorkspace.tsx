@@ -32,24 +32,24 @@ export function ClientWorkspace({
   // PREMIUM READING MODE (No Code Sandbox)
   if (!hasSandbox) {
     return (
-      <main className="flex-1 overflow-y-auto bg-white relative">
-        {/* Subtle premium background gradient */}
-        <div className="absolute top-0 inset-x-0 h-[500px] bg-gradient-to-b from-slate-50 to-white pointer-events-none" />
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-50/50 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
-        <div className="absolute top-40 left-0 w-[400px] h-[400px] bg-orange-50/50 rounded-full blur-[80px] -translate-x-1/2 pointer-events-none" />
+      <main className="flex-1 overflow-y-auto bg-[#1a1a1a] relative text-white">
+        {/* Subtle premium background gradient using brand colors */}
+        <div className="absolute top-0 inset-x-0 h-[500px] bg-gradient-to-b from-[#2a2d32] to-[#1a1a1a] pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#FD7B41]/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
+        <div className="absolute top-40 left-0 w-[400px] h-[400px] bg-[#EDBF9B]/10 rounded-full blur-[80px] -translate-x-1/2 pointer-events-none" />
         
         <div className="relative z-10 max-w-3xl mx-auto px-6 md:px-12 py-16 md:py-24 flex flex-col min-h-full">
           <div className="flex-1">
             <MarkdownViewer content={content} />
           </div>
           
-          <div className="mt-20 pt-10 border-t border-slate-200">
-            <div className="bg-slate-50 rounded-2xl p-8 border border-slate-100 flex flex-col items-center text-center shadow-sm">
-              <div className="w-12 h-12 bg-white rounded-full shadow-sm flex items-center justify-center mb-4 text-[#FD7B41]">
+          <div className="mt-20 pt-10 border-t border-[#3C4044]">
+            <div className="bg-[#2a2d32] rounded-2xl p-8 border border-[#3C4044]/50 flex flex-col items-center text-center shadow-xl">
+              <div className="w-12 h-12 bg-[#FD7B41]/10 rounded-full flex items-center justify-center mb-4 text-[#FD7B41] border border-[#FD7B41]/20">
                 <BookOpen className="w-6 h-6" />
               </div>
-              <h3 className="text-xl font-bold text-slate-800 mb-2">Ready to move on?</h3>
-              <p className="text-slate-500 mb-6 max-w-sm">Mark this lesson as complete to track your progress and continue your journey.</p>
+              <h3 className="text-xl font-bold text-white mb-2">Ready to move on?</h3>
+              <p className="text-slate-400 mb-6 max-w-sm">Mark this lesson as complete to track your progress and continue your journey.</p>
               <CompleteLessonButton 
                 lessonId={lessonId} 
                 courseId={courseId} 
