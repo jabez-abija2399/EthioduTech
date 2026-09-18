@@ -2,6 +2,8 @@ import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import { getAdminCourses } from "@/lib/data/admin";
 import { BookOpen, Search, MoreVertical, Plus } from "lucide-react";
+import Link from "next/link";
+import { createCourseAction } from "@/lib/actions/curriculum";
 
 export default async function AdminCoursesPage() {
   const session = await auth();
@@ -11,7 +13,7 @@ export default async function AdminCoursesPage() {
   }
 
   const role = ((session.user as any)?.role || "STUDENT").toUpperCase();
-  if (role !== "ADMIN" && role !== "SUPER_ADMIN") {
+  if (role !== "ADMIN" && role !== "SUPER_ADMIN" && role !== "TEACHER") {
     redirect("/dashboard");
   }
 
@@ -41,10 +43,16 @@ export default async function AdminCoursesPage() {
               className="pl-9 pr-4 py-2 border border-[#DDDCDB]/40 rounded-xl text-sm text-[#3C4044] focus:outline-none focus:border-[#FD7B41] bg-white w-full sm:w-64 shadow-sm"
             />
           </div>
-          <button className="flex items-center gap-2 px-4 py-2 bg-[#FD7B41] hover:bg-[#FD7B41]/90 text-white text-sm font-bold rounded-xl shadow transition">
-            <Plus className="w-4 h-4" />
-            New Course
-          </button>
+          <form action={async () => {
+            "use server";
+            const course = await createCourseAction("New Draft Course", "Description here...");
+            redirect(`/admin/courses/${course.id}`);
+          }}>
+            <button type="submit" className="flex items-center gap-2 px-4 py-2 bg-[#FD7B41] hover:bg-[#FD7B41]/90 text-white text-sm font-bold rounded-xl shadow transition">
+              <Plus className="w-4 h-4" />
+              New Course
+            </button>
+          </form>
         </div>
       </header>
 
@@ -70,9 +78,9 @@ export default async function AdminCoursesPage() {
             </div>
             
             <div className="flex items-center gap-3">
-              <button className="px-4 py-2 bg-[#f8f9fa] border border-[#DDDCDB]/40 text-[#3C4044] text-sm font-bold rounded-xl hover:bg-[#DDDCDB]/20 transition">
+              <Link href={`/admin/courses/${course.id}`} className="px-4 py-2 bg-[#f8f9fa] border border-[#DDDCDB]/40 text-[#3C4044] text-sm font-bold rounded-xl hover:bg-[#DDDCDB]/20 transition">
                 Edit Curriculum
-              </button>
+              </Link>
               <button className="p-2 text-[#3C4044]/40 hover:text-[#3C4044] hover:bg-[#f8f9fa] border border-transparent hover:border-[#DDDCDB]/40 rounded-xl transition">
                 <MoreVertical className="w-5 h-5" />
               </button>
