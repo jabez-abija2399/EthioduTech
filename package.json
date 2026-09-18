@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "test": "vitest run",
-    "postinstall": "if [ \"$VERCEL\" = \"1\" ]; then sed -i 's/provider = \"sqlite\"/provider = \"postgresql\"/' prisma/schema.prisma && sed -i 's/url      = \"file:.\\/dev.db\"/url      = env(\"DATABASE_URL\")/' prisma/schema.prisma; fi && prisma generate"
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@ducanh2912/next-pwa": "^10.2.9",

@@ -1,7 +1,7 @@
 // SQLite datasource for local development & Edge deployment
 datasource db {
-  provider = "sqlite"
-  url      = "file:./dev.db"
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 generator client {
