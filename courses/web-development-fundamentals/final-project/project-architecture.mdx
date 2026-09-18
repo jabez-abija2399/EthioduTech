@@ -1,0 +1,292 @@
+---
+id: "wd-final-architecture"
+title: "Final Project Architecture"
+level: 15
+contentType: "final-project"
+prerequisites:
+  - "All 15 levels completed"
+estimatedMinutes: 15
+---
+
+# Final Project Architecture
+
+## 🎯 Purpose
+
+This document defines the **final architecture** of your project—how files are organized, how code is structured, and how everything connects.
+
+---
+
+## 📁 File Structure
+
+Your final project must follow this structure:
+
+```
+your-business-website/
+├── index.html
+├── about.html (optional, if multi-page)
+├── css/
+│   └── styles.css
+├── js/
+│   └── main.js
+├── images/
+│   ├── logo.png
+│   ├── hero.jpg
+│   ├── gallery-1.jpg
+│   ├── gallery-2.jpg
+│   └── ...
+├── data/
+│   └── business.json (optional, for static data)
+├── README.md
+└── .gitignore
+```
+
+---
+
+## 🧱 HTML Architecture
+
+### index.html
+
+Your main page should include:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business Name | Tagline</title>
+  <meta name="description" content="Brief description of your business">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <!-- Navigation links -->
+    </nav>
+  </header>
+
+  <main>
+    <section id="hero">
+      <!-- Hero section -->
+    </section>
+
+    <section id="about">
+      <!-- About section -->
+    </section>
+
+    <section id="services">
+      <!-- Services/menu section -->
+    </section>
+
+    <section id="gallery">
+      <!-- Gallery section -->
+    </section>
+
+    <section id="testimonials">
+      <!-- Testimonials section -->
+    </section>
+
+    <section id="contact">
+      <!-- Contact form section -->
+    </section>
+  </main>
+
+  <footer>
+    <!-- Footer content -->
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
+```
+
+---
+
+## 🎨 CSS Architecture
+
+### css/styles.css
+
+Organize your CSS logically:
+
+```css
+/* ====================================
+   1. CSS Variables (Design Tokens)
+   ==================================== */
+:root {
+  --primary-color: #...;
+  --secondary-color: #...;
+  --text-color: #...;
+  --background-color: #...;
+  --font-main: '...', sans-serif;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+}
+
+/* ====================================
+   2. Reset & Base Styles
+   ==================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--text-color);
+  background-color: var(--background-color);
+  line-height: 1.6;
+}
+
+/* ====================================
+   3. Layout Components
+   ==================================== */
+header { ... }
+nav { ... }
+main { ... }
+footer { ... }
+
+/* ====================================
+   4. Section Styles
+   ==================================== */
+#hero { ... }
+#about { ... }
+#services { ... }
+#gallery { ... }
+#testimonials { ... }
+#contact { ... }
+
+/* ====================================
+   5. Responsive Design (Media Queries)
+   ==================================== */
+@media (max-width: 768px) {
+  /* Mobile styles */
+}
+
+/* ====================================
+   6. Utilities (optional)
+   ==================================== */
+.container { ... }
+.text-center { ... }
+```
+
+---
+
+## ⚙️ JavaScript Architecture
+
+### js/main.js
+
+Organize your JavaScript logically:
+
+```javascript
+/* ====================================
+   1. DOM Elements (Cached Selectors)
+   ==================================== */
+const navToggle = document.querySelector('.nav-toggle');
+const navMenu = document.querySelector('.nav-menu');
+const contactForm = document.querySelector('#contact-form');
+// ... more elements
+
+/* ====================================
+   2. State (if needed)
+   ==================================== */
+let isLoading = false;
+let businessData = [];
+
+/* ====================================
+   3. Functions
+   ==================================== */
+
+// Navigation toggle
+function toggleNav() {
+  navMenu.classList.toggle('open');
+}
+
+// Form validation
+function validateForm(event) {
+  event.preventDefault();
+  // Validation logic
+}
+
+// Fetch API data
+async function fetchBusinessData() {
+  try {
+    isLoading = true;
+    // Fetch logic
+  } catch (error) {
+    // Error handling
+  } finally {
+    isLoading = false;
+  }
+}
+
+// Render dynamic content
+function renderContent(data) {
+  // Rendering logic
+}
+
+/* ====================================
+   4. Event Listeners
+   ==================================== */
+navToggle.addEventListener('click', toggleNav);
+contactForm.addEventListener('submit', validateForm);
+
+/* ====================================
+   5. Initialization
+   ==================================== */
+document.addEventListener('DOMContentLoaded', () => {
+  fetchBusinessData();
+  // Other initialization
+});
+```
+
+---
+
+## 🔗 File Connections
+
+| File | Links To | Purpose |
+|------|----------|---------|
+| `index.html` | `css/styles.css` | Load styles |
+| `index.html` | `js/main.js` | Load JavaScript |
+| `index.html` | `images/*` | Display images |
+| `js/main.js` | DOM (HTML) | Manipulate page |
+| `js/main.js` | API (external) | Fetch data |
+| `README.md` | Deployment URL | Link to live site |
+
+---
+
+## 📦 Data Flow
+
+```
+User Interaction
+    ↓
+JavaScript (Event Listener)
+    ↓
+Fetch API (if needed)
+    ↓
+JSON Data
+    ↓
+DOM Manipulation
+    ↓
+Updated Page
+```
+
+---
+
+## 🧪 Testing Checklist
+
+Before finalizing, test:
+
+- [ ] All HTML pages load without errors
+- [ ] CSS styles apply correctly on mobile and desktop
+- [ ] JavaScript features work (navigation, forms, dynamic content)
+- [ ] API data loads and displays correctly
+- [ ] localStorage feature works (if implemented)
+- [ ] No console errors in browser DevTools
+
+---
+
+## ➡️ What's Next?
+
+Proceed to [Checklist](./checklist.mdx) for a comprehensive final audit.

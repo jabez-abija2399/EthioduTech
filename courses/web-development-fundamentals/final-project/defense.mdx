@@ -1,0 +1,193 @@
+---
+id: "wd-final-defense"
+title: "Project Defense"
+level: 15
+contentType: "final-project"
+prerequisites:
+  - "Final submission completed"
+estimatedMinutes: 30
+---
+
+# Project Defense
+
+## 🎯 Purpose
+
+The **project defense** is your opportunity to **explain and justify** your technical decisions, demonstrating deep understanding of your work.
+
+This is not an exam—it is a **conversation** about your project.
+
+---
+
+## 🗣️ Defense Format
+
+Your defense may be:
+
+- **Oral**: Live video call or in-person meeting (15–30 minutes)
+- **Written**: Written responses to defense questions (submitted as document)
+- **Hybrid**: Combination of both
+
+Check your program's specific format.
+
+---
+
+## ❓ Common Defense Questions
+
+Prepare to answer questions like these:
+
+### HTML & Structure
+
+1. **Why did you use semantic HTML (e.g., `<header>`, `<nav>`, `<section>`) instead of only `<div>`?**
+   - Expected answer: Semantic HTML improves accessibility, SEO, and code readability.
+
+2. **Why is there only one `<h1>` on your page?**
+   - Expected answer: `<h1>` represents the main heading; multiple `<h1>` elements confuse screen readers and search engines.
+
+3. **Why did you place your `<script>` tag at the end of `<body>`?**
+   - Expected answer: Ensures DOM is loaded before JavaScript runs, preventing errors.
+
+---
+
+### CSS & Layout
+
+4. **Why did you choose Flexbox for the navigation and Grid for the gallery?**
+   - Expected answer: Flexbox is ideal for one-dimensional layouts (rows or columns); Grid is better for two-dimensional layouts (rows and columns).
+
+5. **How did you make your website responsive?**
+   - Expected answer: Used media queries, flexible units (%, rem, vw/vh), and mobile-first approach.
+
+6. **Why did you use CSS variables?**
+   - Expected answer: CSS variables make it easy to maintain consistent colors, fonts, and spacing, and enable theming.
+
+---
+
+### JavaScript & Interactivity
+
+7. **How does your mobile navigation toggle work?**
+   - Expected answer: Event listener on toggle button adds/removes a class to show/hide menu.
+
+8. **Why did you use `addEventListener` instead of inline `onclick`?**
+   - Expected answer: Separates HTML and JavaScript, improves maintainability, and allows multiple listeners.
+
+9. **How do you handle form validation?**
+   - Expected answer: Client-side validation with JavaScript checks required fields, formats, and shows error/success messages.
+
+---
+
+### Data & APIs
+
+10. **What API did you use, and why?**
+    - Expected answer: Describe the API (e.g., public data API), what data it provides, and how it enhances your project.
+
+11. **What happens if the API fails to load?**
+    - Expected answer: Error state is shown (e.g., "Failed to load data. Please try again."), and user is not blocked from using other features.
+
+12. **Why did you use localStorage? What data does it store?**
+    - Expected answer: Describe the feature (e.g., save user preferences, remember form data) and why persistence is useful.
+
+---
+
+### Accessibility
+
+13. **What accessibility improvements did you make?**
+    - Expected answer: Alt text for images, labels for forms, keyboard navigation, sufficient color contrast, semantic HTML.
+
+14. **How did you test keyboard navigation?**
+    - Expected answer: Tab through all interactive elements, ensure focus is visible, no keyboard traps.
+
+15. **Why is color contrast important?**
+    - Expected answer: Ensures text is readable for users with visual impairments or in bright environments.
+
+---
+
+### SEO
+
+16. **What SEO improvements did you make?**
+    - Expected answer: Unique title, meta description, proper headings, descriptive links, optimized images.
+
+17. **Why is the `<title>` tag important for SEO?**
+    - Expected answer: Search engines use it to understand page content; it appears in search results.
+
+---
+
+### Performance
+
+18. **How did you improve your website's performance?**
+    - Expected answer: Optimized images, lazy loading, minimal CSS/JS, efficient selectors.
+
+19. **What are Core Web Vitals, and how did you measure them?**
+    - Expected answer: LCP (loading speed), CLS (visual stability), INP (interactivity); measured with Lighthouse in DevTools.
+
+---
+
+### Security
+
+20. **How did you protect against XSS (Cross-Site Scripting)?**
+    - Expected answer: Avoided unsafe `innerHTML` with untrusted data, used `textContent`, validated user input.
+
+21. **Why is client-side form validation not a security boundary?**
+    - Expected answer: Users can bypass client-side validation; server-side validation is required for security.
+
+---
+
+### Git & Collaboration
+
+22. **Why did you separate commits (e.g., "Add navigation" vs. "update")?**
+    - Expected answer: Meaningful commits make it easy to understand project history and revert changes if needed.
+
+23. **What is the purpose of a `.gitignore` file?**
+    - Expected answer: Excludes unnecessary files (e.g., `node_modules`, `.DS_Store`) from the repository.
+
+---
+
+### Reflection & Growth
+
+24. **What was the most challenging part of this project, and how did you overcome it?**
+    - Expected answer: Honest reflection on difficulties (e.g., debugging JavaScript, responsive layout) and problem-solving process.
+
+25. **What would you improve if you had another week?**
+    - Expected answer: Specific, realistic improvements (e.g., add more API features, improve animations, add multi-language support).
+
+26. **How has this course changed your approach to building websites?**
+    - Expected answer: Reflection on learning (e.g., importance of accessibility, performance, clean code).
+
+---
+
+## 📝 Preparation Tips
+
+### 1. Review Your Code
+
+- Open your project and review each file
+- Be ready to explain why you made specific decisions
+
+### 2. Practice Explaining
+
+- Practice answering the questions above out loud
+- Record yourself and listen for clarity
+
+### 3. Prepare Notes
+
+- Write brief notes for each section (HTML, CSS, JS, etc.)
+- Do not memorize—understand
+
+### 4. Test Your Site
+
+- Ensure your deployed site is working
+- Be ready to demo features live
+
+---
+
+## ✅ Defense Checklist
+
+Before your defense:
+
+- [ ] Review all defense questions above
+- [ ] Practice explaining your technical decisions
+- [ ] Test your deployed site
+- [ ] Prepare notes (if allowed)
+- [ ] Ensure stable internet connection (for oral defense)
+
+---
+
+## ➡️ What's Next?
+
+After successfully defending your project, proceed to [Graduation](./graduation.mdx).

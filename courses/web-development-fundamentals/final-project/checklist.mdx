@@ -1,0 +1,217 @@
+---
+id: "wd-final-checklist"
+title: "Final Project Checklist"
+level: 15
+contentType: "final-project"
+prerequisites:
+  - "All 15 levels completed"
+estimatedMinutes: 25
+---
+
+# Final Project Checklist
+
+## 🎯 Purpose
+
+This checklist ensures your project meets **all graduation requirements** before submission.
+
+Use this as your **final audit** before deploying and presenting your work.
+
+---
+
+## ✅ HTML Audit
+
+- [ ] Valid HTML5 doctype (`<!DOCTYPE html>`)
+- [ ] `<html>` element with `lang` attribute
+- [ ] `<head>` contains:
+  - [ ] `<meta charset="UTF-8">`
+  - [ ] `<meta name="viewport" content="width=device-width, initial-scale=1.0">`
+  - [ ] `<title>` (unique, descriptive)
+  - [ ] `<meta name="description" content="...">`
+  - [ ] `<link rel="stylesheet" href="css/styles.css">`
+- [ ] Semantic elements used (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<aside>`, `<footer>`)
+- [ ] Heading hierarchy correct (`<h1>` once, then `<h2>`, `<h3>`, etc.)
+- [ ] All images have `alt` text
+- [ ] All links have descriptive text (not "click here")
+- [ ] Forms have `<label>` for each input
+- [ ] Form inputs have appropriate `type` attributes
+- [ ] No major HTML validation errors
+
+**Tool**: Run your HTML through [W3C Validator](https://validator.w3.org/)
+
+---
+
+## ✅ CSS Audit
+
+- [ ] External stylesheet linked correctly
+- [ ] CSS variables used for colors, fonts, spacing (recommended)
+- [ ] Flexbox and/or Grid used for layouts
+- [ ] Responsive design implemented (media queries)
+- [ ] Mobile-first or adaptive approach used
+- [ ] No unused or duplicate CSS rules
+- [ ] Consistent naming (classes, IDs)
+- [ ] No `!important` overuse (refactor if needed)
+
+**Tool**: Use browser DevTools to inspect and debug styles
+
+---
+
+## ✅ Responsive Design Audit
+
+- [ ] Website works on mobile (320px–480px)
+- [ ] Website works on tablet (768px–1024px)
+- [ ] Website works on desktop (1200px+)
+- [ ] Navigation is usable on mobile (hamburger menu if needed)
+- [ ] Images scale appropriately
+- [ ] Text is readable on all screen sizes
+- [ ] No horizontal scrolling on mobile
+
+**Tool**: Use Chrome DevTools Device Mode to test different screen sizes
+
+---
+
+## ✅ JavaScript Audit
+
+- [ ] External script linked correctly (`<script src="js/main.js"></script>`)
+- [ ] Variables declared with `let` or `const` (no `var`)
+- [ ] Functions are named clearly
+- [ ] No console errors in browser DevTools
+- [ ] Event listeners attached correctly
+- [ ] DOM manipulation works (elements update as expected)
+- [ ] Forms validate and show error/success messages
+- [ ] Dynamic content renders correctly (if applicable)
+
+**Tool**: Open browser console (F12) and check for errors
+
+---
+
+## ✅ Data & API Audit
+
+- [ ] JSON data structured correctly (if used)
+- [ ] `localStorage` feature works (data persists after refresh)
+- [ ] Fetch API retrieves data successfully
+- [ ] Loading state shown while fetching
+- [ ] Error state shown if API fails
+- [ ] Success state shown when data loads
+
+**Test**: Refresh page, disconnect internet, and verify error handling
+
+---
+
+## ✅ Accessibility Audit
+
+- [ ] Keyboard navigation works (tab through all interactive elements)
+- [ ] Focus styles visible (do not remove `outline` without replacement)
+- [ ] All images have `alt` text
+- [ ] All form inputs have `<label>`
+- [ ] Color contrast sufficient (text readable on background)
+- [ ] Semantic HTML structure supports screen readers
+- [ ] No keyboard traps (user can navigate away from all elements)
+
+**Tool**: Use [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) Accessibility audit in Chrome DevTools
+
+---
+
+## ✅ SEO Audit
+
+- [ ] Unique `<title>` for each page
+- [ ] `<meta name="description">` present and descriptive
+- [ ] Proper heading hierarchy (`<h1>` → `<h2>` → `<h3>`)
+- [ ] Descriptive link text (not "click here")
+- [ ] Image file names are descriptive (e.g., `coffee-shop-exterior.jpg`, not `IMG_1234.jpg`)
+- [ ] `alt` text describes image content
+- [ ] Open Graph metadata for social sharing (optional)
+
+**Tool**: Use [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) SEO audit in Chrome DevTools
+
+---
+
+## ✅ Performance Audit
+
+- [ ] Images optimized (compressed, appropriate formats)
+- [ ] Lazy loading for images below the fold (`loading="lazy"`)
+- [ ] No unnecessary JavaScript (remove unused code)
+- [ ] CSS is minimal (remove unused rules)
+- [ ] Core Web Vitals scores acceptable:
+  - [ ] LCP (Largest Contentful Paint) < 2.5s
+  - [ ] CLS (Cumulative Layout Shift) < 0.1
+  - [ ] INP (Interaction to Next Paint) < 200ms
+
+**Tool**: Use [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) Performance audit in Chrome DevTools
+
+---
+
+## ✅ Security Audit
+
+- [ ] User input validated (forms check for required fields, formats)
+- [ ] No unsafe `innerHTML` with untrusted data (use `textContent` or sanitize)
+- [ ] No exposed secrets or API keys in frontend code
+- [ ] HTTPS used (via deployment platform)
+- [ ] Third-party content (images, scripts) from trusted sources
+
+---
+
+## ✅ Git & GitHub Audit
+
+- [ ] Git repository initialized (`git init`)
+- [ ] Meaningful commit messages (e.g., "Add navigation links", not "update")
+- [ ] `.gitignore` file present (excludes `node_modules`, `.DS_Store`, etc.)
+- [ ] GitHub repository created
+- [ ] Project pushed to GitHub
+- [ ] README.md complete (project description, features, setup, deployment URL)
+
+---
+
+## ✅ Deployment Audit
+
+- [ ] Project deployed to a public URL (GitHub Pages, Netlify, Vercel)
+- [ ] Deployed site loads without errors
+- [ ] All features work on live site
+- [ ] Site is responsive on mobile and desktop
+- [ ] Deployment URL added to README
+
+---
+
+## ✅ Portfolio & Defense Prep
+
+- [ ] Portfolio presentation prepared (written, video, or live)
+- [ ] Screenshots taken (optional)
+- [ ] Technical decisions documented (why HTML structure, why Flexbox/Grid, etc.)
+- [ ] Practice explaining:
+  - [ ] Why semantic HTML was used
+  - [ ] Why Flexbox/Grid was chosen
+  - [ ] How JavaScript interactivity works
+  - [ ] How API data is fetched and displayed
+  - [ ] Accessibility improvements made
+  - [ ] SEO optimizations done
+  - [ ] Performance improvements implemented
+  - [ ] Security considerations addressed
+
+---
+
+## 📊 Final Score
+
+Use the [Final Rubric](./requirements.mdx#final-rubric) to score your project:
+
+| Category              | Score (/100) |
+|-----------------------|--------------|
+| HTML Structure        | /10          |
+| CSS Styling           | /15          |
+| JavaScript            | /15          |
+| Data & APIs           | /10          |
+| Accessibility         | /10          |
+| SEO                   | /10          |
+| Performance           | /10          |
+| Security              | /5           |
+| Git & GitHub          | /5           |
+| Deployment            | /5           |
+| Portfolio & Defense   | /5           |
+
+**Total**: ___ / 100
+
+**Passing score**: 80/100
+
+---
+
+## ➡️ What's Next?
+
+If all items are checked and your score is 80+, proceed to [Submission](./submission.mdx).
