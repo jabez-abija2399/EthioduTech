@@ -234,12 +234,22 @@ async function main() {
     const mdxSequence = extractFrontmatter('sequence')
     const mdxTitle = extractFrontmatter('title')
 
-    if (mdxLessonId !== l.lessonId) throw new Error(`Validation failed for ${l.lessonId}: MDX lessonId '${mdxLessonId}' != Registry '${l.lessonId}'`)
-    if (mdxCourseId !== l.courseId) throw new Error(`Validation failed for ${l.lessonId}: MDX courseId '${mdxCourseId}' != Registry '${l.courseId}'`)
-    if (mdxModuleId !== l.moduleId) throw new Error(`Validation failed for ${l.lessonId}: MDX moduleId '${mdxModuleId}' != Registry '${l.moduleId}'`)
-    if (mdxSequence !== String(l.sequence)) throw new Error(`Validation failed for ${l.lessonId}: MDX sequence '${mdxSequence}' != Registry '${l.sequence}'`)
-    if (mdxTitle !== l.title) throw new Error(`Validation failed for ${l.lessonId}: MDX title '${mdxTitle}' != Registry '${l.title}'`)
+    const validateField = (field: string, registryVal: any, mdxVal: any) => {
+      if (String(registryVal) !== String(mdxVal)) {
+        console.error(`\n[VALIDATION FAILURE]`)
+        console.error(`Lesson: ${l.lessonId}`)
+        console.error(`Field: ${field}`)
+        console.error(`Registry Value: ${registryVal}`)
+        console.error(`MDX Value: ${mdxVal}`)
+        process.exit(1)
+      }
+    }
 
+    validateField('lessonId', l.lessonId, mdxLessonId)
+    validateField('courseId', l.courseId, mdxCourseId)
+    validateField('moduleId', l.moduleId, mdxModuleId)
+    validateField('sequence', l.sequence, mdxSequence)
+    validateField('title', l.title, mdxTitle)
     
     const unitId = `unit-${l.moduleId}`
     
