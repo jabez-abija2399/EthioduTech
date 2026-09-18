@@ -5,6 +5,8 @@ import { auth } from "@/auth"
 import { Play, CheckCircle2, ChevronRight, BookOpen, Clock, Activity, FileText, Code2, Sparkles, Hexagon } from "lucide-react"
 import { DownloadCourseButton } from "@/components/curriculum/DownloadCourseButton"
 
+export const dynamic = 'force-dynamic'
+
 export default async function CourseLandingPage({
   params
 }: {

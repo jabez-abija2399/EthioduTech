@@ -5,6 +5,8 @@ import { getCourseWithFullTree, getLesson } from '@/lib/data/course';
 import { CourseSidebar } from '@/components/curriculum/CourseSidebar';
 import { ClientWorkspace } from '@/components/curriculum/ClientWorkspace';
 
+export const dynamic = 'force-dynamic'
+
 export default async function LessonPage({ 
   params 
 }: { 

@@ -6,6 +6,8 @@ import { getStudentGamificationStats } from "@/lib/data/gamification"
 import Link from "next/link"
 import { Play, FolderKanban, Activity, Code, Map, CheckCircle2, ChevronRight, MessageSquare, Plus } from "lucide-react"
 
+export const dynamic = 'force-dynamic'
+
 export default async function DashboardPage() {
   const session = await auth()
   

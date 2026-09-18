@@ -4,6 +4,8 @@ import { getCourses } from "@/lib/data/course"
 import Link from "next/link"
 import { BookOpen, Clock, Users, ArrowRight, PlayCircle, Sparkles, Layout, Layers, Terminal } from "lucide-react"
 
+export const dynamic = 'force-dynamic'
+
 export default async function CoursesPage() {
   const session = await auth()
   
