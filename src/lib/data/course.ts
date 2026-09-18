@@ -51,15 +51,8 @@ export async function getCourses() {
     }
   } catch (error) {
     console.error("Failed to fetch courses from database:", error)
+    return []
   }
-
-  // Resilient fallback course list
-  const localCourse = getLocalCourseWithFullTree('web-development-foundations');
-  if (localCourse) {
-    return [localCourse] as any;
-  }
-  
-  return FALLBACK_COURSES as any
 }
 
 export async function getLesson(lessonId: string) {
@@ -77,45 +70,13 @@ export async function getLesson(lessonId: string) {
           }
         },
         exercises: true,
-        challenges: true,
+        challenges: true
       }
     })
     
-    if (lesson) {
-      return lesson;
-    }
+    if (lesson) return lesson as any
   } catch (error) {
     console.error("Failed to fetch lesson from database:", error)
-  }
-
-  // Fallback to local filesystem lesson parsing
-  const localLesson = getLocalLesson(lessonId);
-  if (localLesson) return localLesson;
-
-  // Fallback search in static course definition
-  for (const course of FALLBACK_COURSES) {
-    for (const mod of course.modules) {
-      for (const unit of mod.units) {
-        const found = unit.lessons.find((l: any) => l.id === lessonId || lessonId === "fff0b0cb-5eae-4a22-8631-5c3a63894efe")
-        if (found) {
-          return {
-            ...found,
-            unit: {
-              title: unit.title,
-              module: {
-                title: mod.title,
-                course: {
-                  id: course.id,
-                  title: course.title
-                }
-              }
-            },
-            exercises: [],
-            challenges: []
-          } as any
-        }
-      }
-    }
   }
 
   return null
@@ -142,18 +103,12 @@ export async function getCourseWithFullTree(courseId: string) {
       }
     })
     
-    if (course) {
-      return course;
-    }
+    if (course) return course as any
   } catch (error) {
     console.error("Failed to fetch course full tree:", error)
   }
 
-  // Fallback to local filesystem course parsing (Real Course)
-  const localCourse = getLocalCourseWithFullTree(courseId)
-  if (localCourse) return localCourse
-
-  return FALLBACK_COURSES[0] as any
+  return null
 }
 
 export async function getUserProgress(userId: string) {
