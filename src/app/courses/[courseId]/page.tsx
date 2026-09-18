@@ -3,6 +3,7 @@ import Link from "next/link"
 import { getCourseWithFullTree } from "@/lib/data/course"
 import { auth } from "@/auth"
 import { Play, CheckCircle2, ChevronRight, BookOpen, Clock, Activity, FileText, Code2, Sparkles, Hexagon } from "lucide-react"
+import { DownloadCourseButton } from "@/components/curriculum/DownloadCourseButton"
 
 export default async function CourseLandingPage({
   params
@@ -25,6 +26,13 @@ export default async function CourseLandingPage({
   const totalLessons = course.modules?.reduce((acc: number, mod: any) => {
     return acc + mod.units?.reduce((uAcc: number, unit: any) => uAcc + (unit.lessons?.length || 0), 0)
   }, 0) || 0
+
+  // Flatten lesson URLs for offline caching
+  const lessonUrls = course.modules?.flatMap((mod: any) => 
+    mod.units?.flatMap((unit: any) => 
+      unit.lessons?.map((lesson: any) => `/courses/${courseId}/lessons/${lesson.id}`) || []
+    ) || []
+  ) || []
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans pb-24">
@@ -75,6 +83,10 @@ export default async function CourseLandingPage({
             >
               View Syllabus
             </Link>
+          </div>
+          
+          <div className="mt-8 flex justify-center w-full">
+            <DownloadCourseButton courseId={courseId} lessonUrls={lessonUrls} />
           </div>
         </div>
       </section>
