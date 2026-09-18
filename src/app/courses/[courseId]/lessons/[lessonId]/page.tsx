@@ -62,6 +62,8 @@ export default async function LessonPage({
     js: extractCode(lesson.content, 'js')
   };
 
+  const hasSandbox = Boolean(initialSandboxFiles.html || initialSandboxFiles.css || initialSandboxFiles.js);
+
   // 4. Extract Tests from Challenges
   let tests = [];
   if (lesson.challenges && lesson.challenges.length > 0) {
@@ -91,6 +93,7 @@ export default async function LessonPage({
         content={lesson.content}
         initialSandboxFiles={initialSandboxFiles}
         tests={tests}
+        hasSandbox={hasSandbox}
       />
       
     </div>
